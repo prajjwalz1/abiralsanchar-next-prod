@@ -1,7 +1,5 @@
-import "@/styles/globals.css";
-
 const Header = () => {
-  return <header className="bg-green-400 w-40 h-56 text-4xl">vsdssd</header>;
+  return <header className="bg-green-400">vsdssd</header>;
 };
 
 export default Header;
