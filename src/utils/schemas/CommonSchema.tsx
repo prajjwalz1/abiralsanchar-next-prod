@@ -1,3 +1,23 @@
+import { ReactNode } from "react";
+
+//////////////////////////////
+// Image/Icons
+//////////////////////////////
+export type IconSchema = {
+  icon?: ReactNode;
+};
+
+//////////////////////////////
+// Layouts
+//////////////////////////////
 export type RootLayoutSchema = {
   children: React.ReactNode;
 };
+
+//////////////////////////////
+// Links
+//////////////////////////////
+export interface LinkSchema extends IconSchema {
+  label: string;
+  href: string;
+}
