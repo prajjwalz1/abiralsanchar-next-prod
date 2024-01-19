@@ -1,8 +1,9 @@
 "use client";
-import * as colors from "@/assets/colors/color";
-import * as fonts from "@/assets/fonts/font";
+// Assets
+import * as colors from "@/assets/colors";
+import * as fonts from "@/assets/fonts";
 import * as styles from "@/assets/css/styles";
-import { getActiveLink } from "@/assets/css/styles/common";
+
 import { navbar_menu_items } from "@/utils/constants/layouts-constants";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
 import { LinkSchema } from "@/utils/schemas/CommonSchema";
@@ -32,7 +33,7 @@ const Navbar = () => {
           <Link
             key={getUniqueKey(idx, label)}
             href={href}
-            className={`${colors.navbar_link} ${getActiveLink(
+            className={`${colors.navbar_link} ${styles.getActiveLink(
               href === pathname,
               colors.sky
             )}`}

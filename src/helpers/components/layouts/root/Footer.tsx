@@ -1,5 +1,5 @@
-import * as fonts from "@/assets/fonts/font";
-import * as colors from "@/assets/colors/color";
+import * as fonts from "@/assets/fonts";
+import * as colors from "@/assets/colors";
 import * as styles from "@/assets/css/styles";
 import {
   footer_end_items,

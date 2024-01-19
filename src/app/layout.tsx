@@ -1,10 +1,10 @@
+import * as styles from "@/assets/css/styles";
 import { RootLayoutSchema } from "@/utils/schemas/CommonSchema";
-import { rootLayoutCss } from "@/assets/css/styles/common";
 import { RootFooter, RootHeader } from "@/dynamic-imports/components";
 import "@/styles/globals.css";
 
 // Styles
-const { parent } = rootLayoutCss;
+const { parent } = styles.rootLayoutCss;
 
 const RootLayout: React.FC<RootLayoutSchema> = (props) => {
   // Props
