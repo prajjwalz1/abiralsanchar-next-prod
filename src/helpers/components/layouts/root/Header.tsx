@@ -10,11 +10,9 @@ import { Logo } from "@/dynamic-imports/components";
 // utils
 import { navbar_menu_items } from "@/utils/constants/layouts-constants";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
-import {
-  CssSchema,
-  FlagSchema,
-  LinkSchema,
-} from "@/utils/schemas/CommonSchema";
+import { FlagSchema, LinkSchema } from "@/utils/schemas/CommonSchema";
+import { CommonNavMenuSchema } from "@/utils/schemas/LayoutSchema";
+import { useBoxVisible } from "@/helpers/hooks/useBoxVisible";
 
 // Others
 import Link from "next/link";
@@ -25,7 +23,6 @@ import { AiOutlineClose } from "react-icons/ai";
 import { CgMenuGridR } from "react-icons/cg";
 import { FaRegNewspaper } from "react-icons/fa";
 import { FiTrendingUp } from "react-icons/fi";
-import { useBoxVisible } from "@/helpers/hooks/useBoxVisible";
 
 //////////////////////////////
 // Logo
@@ -50,9 +47,9 @@ const LogoSection: React.FC<FlagSchema> = (props) => {
 // Common Navbar menu, for both desktop and mobile view
 //////////////////////////////
 
-const CommonNavMenu: React.FC<CssSchema> = (props) => {
+const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
   // Props
-  const { css } = props;
+  const { css, isFlag } = props;
 
   // Hooks
   const pathname = usePathname();
@@ -65,7 +62,8 @@ const CommonNavMenu: React.FC<CssSchema> = (props) => {
           href={href}
           className={`${colors.navbar_link} ${styles.getActiveLink(
             href === pathname,
-            colors.sky
+            colors.sky,
+            isFlag
           )}`}
         >
           {label}
@@ -103,14 +101,17 @@ const MobileNavMenu = () => {
       {isBoxVisible && (
         <div
           ref={domRef}
-          className={`${styles.padding_x} ${styles.logo_padding_y} fixed top-0 left-0 bg-red-300 min-h-screen min-w-[280px]`}
+          className={`${styles.padding_x} ${styles.logo_padding_y} fixed top-0 left-0 bg-white min-h-screen min-w-[280px]`}
         >
           <AiOutlineClose
             className="absolute top-4 right-4"
             onClick={() => setIsBoxVisible(false)}
           />
           <LogoSection isFlag />
-          <CommonNavMenu css="mobile-navbar-menu flex flex-col lg:hidden gap-4" />
+          <CommonNavMenu
+            css="mobile-navbar-menu flex flex-col lg:hidden gap-4"
+            isFlag
+          />
         </div>
       )}
     </>

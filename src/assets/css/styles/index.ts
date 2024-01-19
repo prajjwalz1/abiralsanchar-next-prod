@@ -25,8 +25,16 @@ export const root_layout_css = {
 //////////////////////////////
 // Active links
 //////////////////////////////
-export const getActiveLink = (isFlag: boolean, color?: string) =>
-  isFlag ? color ?? colors.active_link : "text-white";
+export const getActiveLink = (
+  isSameLink: boolean,
+  color?: string,
+  isFlag?: boolean
+) =>
+  isSameLink
+    ? color ?? colors.active_link
+    : isFlag
+    ? colors.medium_black
+    : colors.white;
 
 //////////////////////////////
 // Icons
