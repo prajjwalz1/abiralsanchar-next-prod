@@ -8,6 +8,14 @@ export type IconSchema = {
 };
 
 //////////////////////////////
+//
+//////////////////////////////
+export interface OptionSchema extends IconSchema {
+  label: string;
+  value: string;
+}
+
+//////////////////////////////
 // Layouts
 //////////////////////////////
 export type RootLayoutSchema = {
@@ -20,4 +28,9 @@ export type RootLayoutSchema = {
 export interface LinkSchema extends IconSchema {
   label: string;
   href: string;
+}
+
+export interface NestedLinkSchema extends IconSchema {
+  label: string;
+  child: LinkSchema[];
 }
