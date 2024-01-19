@@ -11,6 +11,7 @@ import {
   OptionSchema,
 } from "@/utils/schemas/CommonSchema";
 import Link from "next/link";
+import { Logo } from "@/dynamic-imports/components";
 
 const Footer = () => {
   return (
@@ -39,7 +40,10 @@ const Footer = () => {
       <div
         className={`${colors.footer_end} footer-end px-32 flex-1 grid grid-cols-[150px_auto_auto_auto_auto_auto] auto-cols-max items-center divide-x divide-gray-400`}
       >
-        <div className="px-4">Logo</div>
+        <div className="pr-4">
+          <Logo />
+        </div>
+
         {footer_end_items.map(
           ({ label, icon, value }: OptionSchema, idx: number) => (
             <div

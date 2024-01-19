@@ -9,11 +9,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaRegNewspaper } from "react-icons/fa";
 import { FiTrendingUp } from "react-icons/fi";
+import { Logo } from "@/dynamic-imports/components";
 
 const LogoSection = () => {
   return (
     <div className="logo px-32 w-full h-[60px]">
-      <h1 className="text-3xl">Logo</h1>
+      <Logo />
     </div>
   );
 };
