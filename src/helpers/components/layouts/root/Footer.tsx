@@ -1,5 +1,6 @@
 import * as fonts from "@/assets/fonts/font";
 import * as colors from "@/assets/colors/color";
+import * as styles from "@/assets/css/styles";
 import {
   footer_end_items,
   footer_menu_items,
@@ -16,7 +17,9 @@ import { Logo } from "@/dynamic-imports/components";
 const Footer = () => {
   return (
     <footer className={`${colors.footer} footer pt-10 flex flex-col`}>
-      <div className={`footer-menu px-32 grid grid-cols-5`}>
+      <div
+        className={`${styles.paddingX} footer-menu grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5`}
+      >
         {footer_menu_items.map(
           ({ label, child }: NestedLinkSchema, idx: number) => (
             <div key={getUniqueKey(idx, label)} className="flex flex-col gap-4">
@@ -38,23 +41,25 @@ const Footer = () => {
         )}
       </div>
       <div
-        className={`${colors.footer_end} footer-end px-32 flex-1 grid grid-cols-[150px_auto_auto_auto_auto_auto] auto-cols-max items-center divide-x divide-gray-400`}
+        className={`${colors.footer_end} ${styles.paddingX} footer-end py-10 flex-1 flex flex-col lg:flex-row gap-5 lg:gap-1`}
       >
-        <div className="pr-4">
+        <div className="logo">
           <Logo />
         </div>
 
-        {footer_end_items.map(
-          ({ label, icon, value }: OptionSchema, idx: number) => (
-            <div
-              key={getUniqueKey(idx, value)}
-              className="px-4 flex flex-col gap-1"
-            >
-              <div className="">{label !== "copyright" ? label : icon}</div>
-              <div className="">{value}</div>
-            </div>
-          )
-        )}
+        <div className="footer-end grid grid-cols-[auto_auto] md:grid-cols-[auto_auto_auto] lg:grid-cols-[auto_auto_auto_auto_auto] gap-4 items-center divide-x divide-gray-400">
+          {footer_end_items.map(
+            ({ label, icon, value }: OptionSchema, idx: number) => (
+              <div
+                key={getUniqueKey(idx, value)}
+                className="first:px-0 px-4 flex flex-col gap-1"
+              >
+                <div className="">{label !== "copyright" ? label : icon}</div>
+                <div className="">{value}</div>
+              </div>
+            )
+          )}
+        </div>
       </div>
     </footer>
   );

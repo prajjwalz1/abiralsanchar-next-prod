@@ -1,6 +1,7 @@
 "use client";
 import * as colors from "@/assets/colors/color";
 import * as fonts from "@/assets/fonts/font";
+import * as styles from "@/assets/css/styles";
 import { getActiveLink } from "@/assets/css/styles/common";
 import { navbar_menu_items } from "@/utils/constants/layouts-constants";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
@@ -13,7 +14,7 @@ import { Logo } from "@/dynamic-imports/components";
 
 const LogoSection = () => {
   return (
-    <div className="logo px-32 w-full h-[60px]">
+    <div className={`${styles.paddingX} logo w-full h-[60px]`}>
       <Logo />
     </div>
   );
@@ -24,7 +25,7 @@ const Navbar = () => {
   console.log(pathname);
   return (
     <nav
-      className={`navbar ${fonts.navbar} ${colors.navbar} px-32 flex flex-1 justify-between items-center gap-8`}
+      className={`navbar ${fonts.navbar} ${colors.navbar} ${styles.paddingX} flex flex-1 justify-between items-center gap-8`}
     >
       <div className="navbar-menu flex gap-8">
         {navbar_menu_items.map(({ label, href }: LinkSchema, idx: number) => (
