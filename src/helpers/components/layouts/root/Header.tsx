@@ -12,7 +12,7 @@ import { FiTrendingUp } from "react-icons/fi";
 
 const LogoSection = () => {
   return (
-    <div className="logo px-12 w-full h-[60px]">
+    <div className="logo px-32 w-full h-[60px]">
       <h1 className="text-3xl">Logo</h1>
     </div>
   );
@@ -23,7 +23,7 @@ const Navbar = () => {
   console.log(pathname);
   return (
     <nav
-      className={`navbar ${fonts.navbar} ${colors.navbar} px-12 flex flex-1 justify-between items-center gap-8`}
+      className={`navbar ${fonts.navbar} ${colors.navbar} px-32 flex flex-1 justify-between items-center gap-8`}
     >
       <div className="navbar-menu flex gap-8">
         {navbar_menu_items.map(({ label, href }: LinkSchema, idx: number) => (

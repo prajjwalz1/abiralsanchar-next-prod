@@ -91,7 +91,7 @@ export const footer_end_items: OptionSchema[] = [
   {
     label: "copyright",
     icon: (
-      <div className="flex items-center gap-5">
+      <div className="flex items-center gap-3">
         <FaFacebookSquare />
         <FaXTwitter />
         <FaYoutube />

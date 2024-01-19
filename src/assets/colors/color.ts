@@ -8,3 +8,7 @@ export const navbar = "bg-blue-700";
 
 // Icons
 export const icon = "text-white hover:text-blue-sky";
+
+// Footer
+export const footer = "bg-slate-100";
+export const footer_end = "bg-green-200";
