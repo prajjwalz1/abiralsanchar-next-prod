@@ -1,6 +1,6 @@
 import { LinkSchema } from "../schemas/CommonSchema";
 
-export const navbar_items: LinkSchema[] = [
+export const navbar_menu_items: LinkSchema[] = [
   { label: "होमपेज", href: "/" },
   { label: "समाचार", href: "/news" },
   { label: "विजनेस", href: "/business" },
