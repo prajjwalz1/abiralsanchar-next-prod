@@ -12,6 +12,11 @@ const config: Config = {
       // fontFamily: {
       //   khand: "Khand, sans-serif",
       // },
+      colors: {
+        blue: {
+          sky: "#70c9ff",
+        },
+      },
     },
   },
   plugins: [],

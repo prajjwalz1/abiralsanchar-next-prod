@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import { RootLayoutSchema } from "@/utils/schemas/CommonSchema";
-import { RootLayoutMetadata } from "@/utils/seo/metadatas/common";
+import { RootLayoutMetadata } from "@/utils/seo/metadatas";
 import { rootLayoutCss } from "@/assets/css/styles/common";
 import { RootFooter, RootHeader } from "@/dynamic-imports/components";
 import "@/styles/globals.css";
 import Header from "../helpers/components/layouts/root/Header";
-
-// Metadata for SEO
-export const metadata: Metadata = RootLayoutMetadata;
 
 // Styles
 const { parent } = rootLayoutCss;

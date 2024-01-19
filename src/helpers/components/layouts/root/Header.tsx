@@ -1,8 +1,12 @@
-import { navbar_font } from "@/assets/fonts/font";
+"use client";
+import * as colors from "@/assets/colors/color";
+import * as fonts from "@/assets/fonts/font";
+import { getActiveLink } from "@/assets/css/styles/common";
 import { navbar_items } from "@/utils/constants/layouts-constants";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
 import { LinkSchema } from "@/utils/schemas/CommonSchema";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const LogoSection = () => {
   return (
@@ -13,12 +17,21 @@ const LogoSection = () => {
 };
 
 const Navbar = () => {
+  const pathname = usePathname();
+  console.log(pathname);
   return (
     <nav
-      className={`${navbar_font} px-12 flex flex-1 space-between items-center gap-5 bg-blue-400`}
+      className={`${fonts.navbar} ${colors.navbar} px-12 flex flex-1 space-between items-center gap-8`}
     >
       {navbar_items.map(({ label, href }: LinkSchema, idx: number) => (
-        <Link key={getUniqueKey(idx, label)} href={href}>
+        <Link
+          key={getUniqueKey(idx, label)}
+          href={href}
+          className={`${colors.navbar_link} ${getActiveLink(
+            href === pathname,
+            colors.sky
+          )}`}
+        >
           {label}
         </Link>
       ))}
