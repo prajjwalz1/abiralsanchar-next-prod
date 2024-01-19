@@ -4,7 +4,7 @@ import { RootFooter, RootHeader } from "@/dynamic-imports/components";
 import "@/styles/globals.css";
 
 // Styles
-const { parent } = styles.rootLayoutCss;
+const { parent } = styles.root_layout_css;
 
 const RootLayout: React.FC<RootLayoutSchema> = (props) => {
   // Props

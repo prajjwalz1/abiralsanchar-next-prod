@@ -22,6 +22,16 @@ export type RootLayoutSchema = {
   children: React.ReactNode;
 };
 
+// Css
+export type CssSchema = {
+  css: string;
+};
+
+export type FlagSchema = {
+  isFlag?: boolean;
+  setIsFlag?: (val: boolean) => void;
+};
+
 //////////////////////////////
 // Links
 //////////////////////////////
