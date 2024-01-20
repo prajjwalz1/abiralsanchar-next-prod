@@ -20,18 +20,18 @@ const Footer = () => {
         className={`${styles.padding_x} footer-menu grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5`}
       >
         {footer_menu_items.map(
-          ({ label, child }: NestedLinkSchema, idx: number) => (
-            <div key={getUniqueKey(idx, label)} className="flex flex-col gap-4">
-              <p className={styles.footer_menu_title}>{label}</p>
+          ({ title, child }: NestedLinkSchema, idx: number) => (
+            <div key={getUniqueKey(idx, title)} className="flex flex-col gap-4">
+              <p className={styles.footer_menu_title}>{title}</p>
 
               <div className="pb-10 flex flex-col gap-1">
-                {child.map(({ label, href }: LinkSchema, idx: number) => (
+                {child.map(({ title, slug }: LinkSchema, idx: number) => (
                   <Link
-                    key={getUniqueKey(idx, label)}
-                    href={href}
+                    key={getUniqueKey(idx, title)}
+                    href={slug}
                     className={styles.footer_menu_para}
                   >
-                    {label}
+                    {title}
                   </Link>
                 ))}
               </div>

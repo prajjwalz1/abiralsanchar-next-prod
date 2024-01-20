@@ -1,5 +1,4 @@
 // Just storing these values for future references
-
 import {
   GetAllArticlesResponse,
   GetHomepageResponseSchema,

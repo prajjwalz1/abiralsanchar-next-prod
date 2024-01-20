@@ -1,5 +1,8 @@
 //////////////////////////////
 // Redux error message type
+
+import { GetHomepageResponseSchema } from "./ApiSchema";
+
 //////////////////////////////
 export type ReduxErrorMessageSchema = {
   response?: {
@@ -14,15 +17,13 @@ export type ReduxErrorMessageSchema = {
 //////////////////////////////
 // API response schema
 //////////////////////////////
-export type ApiSchema = {
-  api: {
-    // Normal checks
-    isPending?: boolean;
-    isFulfilled?: boolean;
-    isRejected?: boolean;
-
-    // Response data
-    successResponse?: any;
-    errorResponse?: any;
-  };
+export type CommonApiSchema = {
+  isPending?: boolean;
+  isFulfilled?: boolean;
+  isRejected?: boolean;
 };
+export interface HomepageDataSchema extends CommonApiSchema {
+  successResponse?: GetHomepageResponseSchema | {};
+  testResponse?: GetHomepageResponseSchema;
+  errorResponse?: any | {};
+}

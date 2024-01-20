@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { GetHomepageDataThunk } from "./_thunks";
-import { ApiSchema } from "@/utils/schemas/ReduxSchema";
-import { InitialApiData } from "@/utils/constants/redux-constants";
+import { HomepageDataInitial } from "@/utils/constants/redux-constants";
+import { HomepageDataSchema } from "@/utils/schemas/ReduxSchema";
 
-interface ISchema extends ApiSchema {}
+type ISchema = {
+  homepage_data: HomepageDataSchema;
+};
 
 const initialState: ISchema = {
-  ...InitialApiData,
+  homepage_data: HomepageDataInitial,
 };
 
 export const NewsPortalSlice = createSlice({
@@ -17,27 +19,27 @@ export const NewsPortalSlice = createSlice({
     builder
       .addCase(GetHomepageDataThunk.pending, (state) => {
         // Normal states
-        state.api.isPending = true;
-        state.api.isFulfilled = false;
-        state.api.isRejected = false;
+        state.homepage_data.isPending = true;
+        state.homepage_data.isFulfilled = false;
+        state.homepage_data.isRejected = false;
       })
       .addCase(GetHomepageDataThunk.fulfilled, (state, action) => {
         // Normal states
-        state.api.isPending = false;
-        state.api.isFulfilled = true;
-        state.api.isRejected = false;
+        state.homepage_data.isPending = false;
+        state.homepage_data.isFulfilled = true;
+        state.homepage_data.isRejected = false;
 
         // Api states
-        state.api.successResponse = action.payload;
+        state.homepage_data.successResponse = action.payload;
       })
       .addCase(GetHomepageDataThunk.rejected, (state, action) => {
         // Normal states
-        state.api.isPending = false;
-        state.api.isFulfilled = false;
-        state.api.isRejected = true;
+        state.homepage_data.isPending = false;
+        state.homepage_data.isFulfilled = false;
+        state.homepage_data.isRejected = true;
 
         // Api states
-        state.api.errorResponse = action.payload;
+        state.homepage_data.errorResponse = action.payload;
       });
   },
 });

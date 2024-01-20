@@ -1,9 +1,16 @@
+"use client";
+
 import { Metadata } from "next";
 import { RootLayoutMetadata } from "@/utils/seo/metadatas";
+import TestOne from "@/helpers/components-extras/home/TestOne";
 
-// SEO Metadata for Home
-export const metadata: Metadata = RootLayoutMetadata;
+// Custom Imports
+import { ReduxProvider } from "@/dynamic-imports/redux-app";
 
 export default function Home() {
-  return <>Sample page</>;
+  return (
+    <ReduxProvider>
+      <TestOne />
+    </ReduxProvider>
+  );
 }

@@ -1,14 +1,14 @@
-import { ApiSchema } from "@/utils/schemas/ReduxSchema";
+import { HomepageDataSchema } from "@/utils/schemas/ReduxSchema";
+import { get_homepage_data } from "../data/backend_data";
 
-export const InitialApiData: ApiSchema = {
-  api: {
-    // Normal checks
-    isPending: false,
-    isFulfilled: false,
-    isRejected: false,
+export const HomepageDataInitial: HomepageDataSchema = {
+  // Normal checks
+  isPending: false,
+  isFulfilled: false,
+  isRejected: false,
 
-    // Response data
-    successResponse: [],
-    errorResponse: [],
-  },
+  // Response data
+  successResponse: {},
+  testResponse: get_homepage_data,
+  errorResponse: [],
 };

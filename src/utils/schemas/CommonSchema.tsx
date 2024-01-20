@@ -41,12 +41,12 @@ export type FlagSchema = {
 // Links
 //////////////////////////////
 export interface LinkSchema extends IconSchema {
-  label: string;
-  href: string;
+  title: string;
+  slug: string;
 }
 
 export interface NestedLinkSchema extends IconSchema {
-  label: string;
+  title: string;
   child: LinkSchema[];
 }
 

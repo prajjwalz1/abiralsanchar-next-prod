@@ -49,27 +49,34 @@ const LogoSection: React.FC<FlagSchema> = (props) => {
 //////////////////////////////
 // Common Navbar menu, for both desktop and mobile view
 //////////////////////////////
-
 const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
   // Props
   const { css, isFlag } = props;
+
+  // Redux
+  const { homepage_data } = useAppSelector(
+    (state: RootState) => state.NewsPortal
+  );
+
+  // Required variables
+  const nav_items = homepage_data?.testResponse?.data[0].navbar_category;
 
   // Hooks
   const pathname = usePathname();
 
   return (
     <div className={css}>
-      {navbar_menu_items.map(({ label, href }: LinkSchema, idx: number) => (
+      {nav_items?.map(({ title, slug }: LinkSchema, idx: number) => (
         <Link
-          key={getUniqueKey(idx, label)}
-          href={href}
+          key={getUniqueKey(idx, title)}
+          href={slug}
           className={`${colors.navbar_link} ${styles.getActiveLink(
-            href === pathname,
+            slug === pathname,
             colors.sky,
             isFlag
           )}`}
         >
-          {label}
+          {title}
         </Link>
       ))}
     </div>
