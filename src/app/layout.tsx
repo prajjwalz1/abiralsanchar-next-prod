@@ -1,7 +1,7 @@
 import * as styles from "@/assets/css/styles";
 import { RootLayoutSchema } from "@/utils/schemas/CommonSchema";
 import { RootFooter, RootHeader } from "@/dynamic-imports/components";
-import "@/styles/globals.css";
+import "@/assets/css/globals.css";
 
 // Styles
 const { parent } = styles.root_layout_css;
