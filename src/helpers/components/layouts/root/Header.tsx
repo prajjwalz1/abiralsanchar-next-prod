@@ -3,7 +3,11 @@
 // Default imports
 
 // Custom imports
-import { LogoSection, Navbar } from "@/dynamic-imports/components";
+import {
+  FeaturedHighlights,
+  LogoSection,
+  Navbar,
+} from "@/dynamic-imports/components";
 import { ReduxProvider } from "@/dynamic-imports/redux-app";
 
 //////////////////////////////
@@ -12,9 +16,11 @@ import { ReduxProvider } from "@/dynamic-imports/redux-app";
 export default function Header() {
   return (
     <ReduxProvider>
-      <header className="header text-green-400 min-h-[100rem] flex flex-col">
-        <LogoSection /> {/* Height = 60px */}
+      <header className="header grid grid-rows-[60px_50px_50px]">
+        {/* Height of each components below = 60px, 50px, 50px respectively */}
+        <LogoSection />
         <Navbar />
+        <FeaturedHighlights />
       </header>
     </ReduxProvider>
   );

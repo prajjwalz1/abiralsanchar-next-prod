@@ -68,7 +68,7 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
 const DesktopNavMenu = () => (
   <CommonNavMenu
     css={`
-      ${styles.padding_xl} desktop-navbar-menu w-full h-full hidden lg:flex gap-8
+      ${styles.padding_xl} desktop-navbar-menu hidden lg:flex gap-8
     `}
   />
 );
@@ -96,7 +96,7 @@ const MobileNavMenu = () => {
     <>
       <CgMenuGridR
         onClick={() => dispatch(setMobileNavPopuup(true))}
-        className={`${styles.margin_x} ${styles.nav_icon} lg:hidden w-full h-full`}
+        className={`${styles.margin_x} ${styles.nav_icon} lg:hidden`}
       />
 
       {is_mobile_menu && <BodyOverlay />}
@@ -123,7 +123,7 @@ const MobileNavMenu = () => {
 export default function Navbar() {
   return (
     <nav
-      className={`${fonts.navbar} ${colors.navbar} navbar relative min-h-[132px] max-h-[132px] flex justify-between items-center gap-8`}
+      className={`${fonts.navbar} ${colors.navbar} navbar relative flex justify-between items-center gap-8`}
     >
       <DesktopNavMenu />
       <MobileNavMenu />

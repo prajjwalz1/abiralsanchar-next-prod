@@ -37,6 +37,12 @@ export const RootHeader = dynamic(
   { ssr: false }
 );
 
+// FeaturedHighlights
+export const FeaturedHighlights = dynamic(
+  () => import("@/helpers/components/layouts/root/_comps/FeaturedHighlights"),
+  { ssr: false }
+);
+
 // LogoSection
 export const LogoSection = dynamic(
   () => import("@/helpers/components/layouts/root/_comps/LogoSection"),
