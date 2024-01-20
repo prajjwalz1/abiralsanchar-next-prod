@@ -1,6 +1,14 @@
 import dynamic from "next/dynamic";
 
 //////////////////////////////
+// buttons = helpers/components/buttons
+//////////////////////////////
+export const CloseButton = dynamic(
+  () => import("@/helpers/components/buttons/CloseButton"),
+  { ssr: false }
+);
+
+//////////////////////////////
 // images = helpers/components/images
 //////////////////////////////
 export const Logo = dynamic(() => import("@/helpers/components/images/Logo"), {

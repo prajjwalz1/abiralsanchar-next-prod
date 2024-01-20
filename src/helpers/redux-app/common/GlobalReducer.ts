@@ -9,7 +9,7 @@ type ISchema = {
   //////////////////////////////
   layouts: {
     menu: {
-      isMobileMenu: boolean;
+      is_mobile_menu: boolean;
     };
   };
 };
@@ -20,7 +20,7 @@ type ISchema = {
 const initialState: ISchema = {
   layouts: {
     menu: {
-      isMobileMenu: false,
+      is_mobile_menu: false,
     },
   },
 };
@@ -36,7 +36,7 @@ export const GlobalReducer = createSlice({
     // Layouts
     //////////////////////////////
     setMobileNavPopuup: (state, action) => {
-      state.layouts.menu.isMobileMenu = action.payload;
+      state.layouts.menu.is_mobile_menu = action.payload;
     },
   },
 });

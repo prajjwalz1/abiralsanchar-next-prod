@@ -22,3 +22,7 @@ export const close_icon = `${near_black} hover:text-red-500`;
 // Footer
 export const footer = "bg-slate-100";
 export const footer_end = "bg-gray-200";
+
+// Status
+export const danger = "bg-red-400";
+export const danger_icon_button = "text-black hover:text-red-500";

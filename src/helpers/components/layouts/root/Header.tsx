@@ -1,28 +1,28 @@
 "use client";
-// Assets
+
+// Default imports
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { CgMenuGridR } from "react-icons/cg";
+import { FaRegNewspaper } from "react-icons/fa";
+import { FiTrendingUp } from "react-icons/fi";
+
+// Custom imports
 import * as colors from "@/assets/colors";
 import * as fonts from "@/assets/fonts";
 import * as styles from "@/assets/css/styles";
-
-// Components
-import { Logo } from "@/dynamic-imports/components";
-
-// utils
+import { CloseButton, Logo } from "@/dynamic-imports/components";
+import { ReduxProvider } from "@/dynamic-imports/redux-app";
+import {
+  useAppSelector,
+  RootState,
+  useAppDispatch,
+} from "@/helpers/hooks/useStoreHooks";
+import { setMobileNavPopuup } from "@/helpers/redux-app/common/_actions";
 import { navbar_menu_items } from "@/utils/constants/layouts-constants";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
 import { FlagSchema, LinkSchema } from "@/utils/schemas/CommonSchema";
 import { CommonNavMenuSchema } from "@/utils/schemas/LayoutSchema";
-import { useBoxVisible } from "@/helpers/hooks/useBoxVisible";
-
-// Others
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-// Icons
-import { AiOutlineClose } from "react-icons/ai";
-import { CgMenuGridR } from "react-icons/cg";
-import { FaRegNewspaper } from "react-icons/fa";
-import { FiTrendingUp } from "react-icons/fi";
 
 //////////////////////////////
 // Logo
@@ -88,25 +88,24 @@ const DesktopNavMenu = () => (
 // Mobile navbar menu, Shown in medium(md) screens and below
 //////////////////////////////
 const MobileNavMenu = () => {
-  // Hooks
-  const { domRef, isBoxVisible, setIsBoxVisible } = useBoxVisible();
+  // Redux
+  const dispatch = useAppDispatch();
+  const { is_mobile_menu } = useAppSelector(
+    (state: RootState) => state.Global.layouts.menu
+  );
 
   return (
     <>
       <CgMenuGridR
-        onClick={() => setIsBoxVisible(true)}
+        onClick={() => dispatch(setMobileNavPopuup(true))}
         className={`${styles.margin_x} ${styles.nav_icon} lg:hidden`}
       />
 
-      {isBoxVisible && (
+      {is_mobile_menu && (
         <div
-          ref={domRef}
           className={`${styles.padding_x} ${styles.logo_padding_y} fixed top-0 left-0 bg-white min-h-screen min-w-[280px]`}
         >
-          <AiOutlineClose
-            className="absolute top-4 right-4"
-            onClick={() => setIsBoxVisible(false)}
-          />
+          <CloseButton onClick={() => dispatch(setMobileNavPopuup(false))} />
           <LogoSection isFlag />
           <CommonNavMenu
             css="mobile-navbar-menu flex flex-col lg:hidden gap-4"
@@ -143,10 +142,12 @@ const Navbar = () => {
 //////////////////////////////
 const Header = () => {
   return (
-    <header className="header max-h-[152px] py-4 flex flex-col">
-      <LogoSection />
-      <Navbar />
-    </header>
+    <ReduxProvider>
+      <header className="header max-h-[152px] py-4 flex flex-col">
+        <LogoSection />
+        <Navbar />
+      </header>
+    </ReduxProvider>
   );
 };
 

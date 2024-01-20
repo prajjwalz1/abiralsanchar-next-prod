@@ -46,3 +46,6 @@ export const nav_icon = `w-8 h-8 ${colors.icon}`;
 //////////////////////////////
 export const footer_menu_title = `${fonts.xl_bold} ${colors.header}`;
 export const footer_menu_para = `${colors.hover_link}`;
+
+// Buttons
+export const close_button = `absolute top-6 right-6 ${colors.danger_icon_button}`;

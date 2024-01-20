@@ -49,3 +49,15 @@ export interface NestedLinkSchema extends IconSchema {
   label: string;
   child: LinkSchema[];
 }
+
+//////////////////////////////
+//Functions
+//////////////////////////////
+export type HandleActionSchema = {
+  handleAction: () => void;
+};
+
+// Button
+export type ButtonSchema = {
+  onClick: () => void;
+};
