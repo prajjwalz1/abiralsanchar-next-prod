@@ -38,7 +38,13 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
   );
 
   // Required variables
-  const nav_items = homepage_data?.testResponse?.data[0].navbar_category;
+  let nav_items = [{ title: "होमपेज", slug: "/" }];
+  const nav_from_api =
+    homepage_data?.testResponse?.data[0].navbar_category ?? [];
+
+  if (nav_from_api.length) {
+    nav_items.push(...nav_from_api);
+  }
 
   // Hooks
   const pathname = usePathname();

@@ -8,7 +8,12 @@ export default function FeaturedHighlights() {
     <div
       className={`${styles.padding_xl} featured-higlights w-full h-full flex items-center gap-8 border-b-[1px]`}
     >
-      FeaturedHighlights
+      <p>Featured 1</p>
+      <p>Featured 2</p>
+      <p>Featured 3</p>
+      <p>Featured 4</p>
+      <p>Featured 5</p>
+      <p>Featured 6</p>
     </div>
   );
 }
