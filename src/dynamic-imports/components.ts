@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
 //////////////////////////////
-// buttons = helpers/components/buttons
+// Buttons
 //////////////////////////////
 export const CloseButton = dynamic(
   () => import("@/helpers/components/buttons/CloseButton"),
@@ -9,14 +9,24 @@ export const CloseButton = dynamic(
 );
 
 //////////////////////////////
-// images = helpers/components/images
+// Images
 //////////////////////////////
 export const Logo = dynamic(() => import("@/helpers/components/images/Logo"), {
   ssr: false,
 });
 
 //////////////////////////////
-// layouts = helpers/components/layouts
+// Sections
+//////////////////////////////
+export const BodyOverlay = dynamic(
+  () => import("@/helpers/components/sections/BodyOverlay"),
+  {
+    ssr: false,
+  }
+);
+
+//////////////////////////////
+// Layouts
 //////////////////////////////
 export const RootHeader = dynamic(
   () => import("@/helpers/components/layouts/root/Header"),

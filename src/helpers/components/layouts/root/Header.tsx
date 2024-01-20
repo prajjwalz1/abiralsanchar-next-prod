@@ -23,6 +23,9 @@ import { navbar_menu_items } from "@/utils/constants/layouts-constants";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
 import { FlagSchema, LinkSchema } from "@/utils/schemas/CommonSchema";
 import { CommonNavMenuSchema } from "@/utils/schemas/LayoutSchema";
+import { useEffect } from "react";
+import useScrollLock from "@/helpers/hooks/useScrollLock";
+import BodyOverlay from "../../sections/BodyOverlay";
 
 //////////////////////////////
 // Logo
@@ -94,6 +97,15 @@ const MobileNavMenu = () => {
     (state: RootState) => state.Global.layouts.menu
   );
 
+  // Hooks
+  const { lockScroll, unlockScroll } = useScrollLock();
+
+  // useEffect
+  useEffect(
+    () => (is_mobile_menu ? lockScroll() : unlockScroll()),
+    [is_mobile_menu, lockScroll, unlockScroll]
+  );
+
   return (
     <>
       <CgMenuGridR
@@ -101,9 +113,11 @@ const MobileNavMenu = () => {
         className={`${styles.margin_x} ${styles.nav_icon} lg:hidden`}
       />
 
+      {is_mobile_menu && <BodyOverlay />}
+
       {is_mobile_menu && (
         <div
-          className={`${styles.padding_x} ${styles.logo_padding_y} fixed top-0 left-0 bg-white min-h-screen min-w-[280px]`}
+          className={`${styles.padding_x} ${styles.logo_padding_y} z-drawer fixed top-0 left-0 bg-white min-h-screen min-w-[280px]`}
         >
           <CloseButton onClick={() => dispatch(setMobileNavPopuup(false))} />
           <LogoSection isFlag />
