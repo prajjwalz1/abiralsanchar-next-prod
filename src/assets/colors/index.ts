@@ -8,14 +8,14 @@ export const near_white = "text-[#e7e7e7]";
 // Links
 export const active_link = "text-blue-500";
 export const hover_link = "hover:text-blue-500";
-export const sky = "text-blue-sky";
+export const sky = "text-new-blue-sky";
 
 // Navbar
-export const navbar_link = "hover:text-blue-sky";
+export const navbar_link = "hover:text-new-blue-sky";
 export const navbar = "bg-blue-700";
 
 // Icons
-export const icon = "text-white hover:text-blue-sky";
+export const icon = "text-white hover:text-new-blue-sky";
 export const header = "text-blue-800";
 export const close_icon = `${near_black} hover:text-red-500`;
 

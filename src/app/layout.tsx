@@ -1,7 +1,7 @@
+import "@/assets/css/globals.css";
 import * as styles from "@/assets/css/styles";
 import { RootLayoutSchema } from "@/utils/schemas/CommonSchema";
 import { RootFooter, RootHeader } from "@/dynamic-imports/components";
-import "@/assets/css/globals.css";
 import { RootLayoutMetadata } from "@/utils/seo/metadatas";
 import { Metadata } from "next";
 

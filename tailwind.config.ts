@@ -13,7 +13,7 @@ const config: Config = {
       //   khand: "Khand, sans-serif",
       // },
       colors: {
-        blue: {
+        "new-blue": {
           sky: "#70c9ff",
         },
       },
