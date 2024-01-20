@@ -28,8 +28,8 @@ const initialState: ISchema = {
 //////////////////////////////
 // Main slice
 //////////////////////////////
-export const GlobalReducer = createSlice({
-  name: "common/GlobalReducer",
+export const GlobalSlice = createSlice({
+  name: "common/GlobalSlice",
   initialState,
   reducers: {
     //////////////////////////////

@@ -1,10 +1,10 @@
 "use client";
 import { configureStore } from "@reduxjs/toolkit";
-import { GlobalReducer } from "./common/GlobalReducer";
+import { GlobalSlice } from "./common/GlobalSlice";
 
 const store = configureStore({
   reducer: {
-    Global: GlobalReducer.reducer,
+    Global: GlobalSlice.reducer,
   },
 });
 

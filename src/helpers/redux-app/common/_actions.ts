@@ -1,6 +1,6 @@
-import { GlobalReducer } from "./GlobalReducer";
+import { GlobalSlice } from "./GlobalSlice";
 
 //////////////////////////////
 // Layouts
 //////////////////////////////
-export const { setMobileNavPopuup } = GlobalReducer.actions;
+export const { setMobileNavPopuup } = GlobalSlice.actions;
