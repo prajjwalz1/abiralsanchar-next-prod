@@ -9,8 +9,8 @@ import { close_button } from "@/assets/css/styles";
 // Main function
 export default function CloseButton(props: ButtonSchema) {
   // Props
-  const { ...rest } = props;
+  const { css, ...rest } = props;
 
   // Render
-  return <AiOutlineClose className={close_button} {...rest} />;
+  return <AiOutlineClose className={css ?? close_button} {...rest} />;
 }

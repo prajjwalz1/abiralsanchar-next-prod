@@ -16,7 +16,6 @@ export const navbar = "bg-blue-700";
 
 // Icons
 export const icon = "text-white hover:text-new-blue-sky";
-export const header = "text-blue-800";
 export const close_icon = `${near_black} hover:text-red-500`;
 
 // Footer
@@ -26,3 +25,11 @@ export const footer_end = "bg-gray-200";
 // Status
 export const danger = "bg-red-400";
 export const danger_icon_button = "text-black hover:text-red-500";
+
+// Border color
+export const normal_border = "border-gray-400";
+export const active_border = "border-blue-700";
+
+// Header / title
+export const header = "text-blue-800";
+export const title = "text-blue-700";

@@ -9,6 +9,8 @@ export const padding_x = "px-8 md:px-16 lg:px-32";
 export const padding_xl = "pl-8 md:pl-16 lg:pl-32";
 export const padding_xr = "pr-8 md:pr-16 lg:pr-32";
 export const padding_y = "py-8 md:py-16 lg:py-32";
+export const padding_y_medium = "py-5 md:py-10 lg:py-20";
+export const padding_y_small = "py-3 md:py-6 lg:py-12";
 export const logo_padding_y = "py-4";
 export const margin_x = "mx-8 md:mx-16 lg:mx-32";
 
@@ -49,3 +51,4 @@ export const footer_menu_para = `${colors.hover_link}`;
 
 // Buttons
 export const close_button = `absolute top-6 right-6 ${colors.danger_icon_button}`;
+export const current_news_close_button = `text-2xl ${colors.danger_icon_button}`;

@@ -59,5 +59,6 @@ export type HandleActionSchema = {
 
 // Button
 export type ButtonSchema = {
-  onClick: () => void;
+  onClick?: () => void;
+  css?: string;
 };

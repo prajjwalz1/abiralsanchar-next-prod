@@ -24,6 +24,7 @@ import { getUniqueKey } from "@/utils/methods/stringMethods";
 import { LinkSchema } from "@/utils/schemas/CommonSchema";
 import { CommonNavMenuSchema } from "@/utils/schemas/LayoutSchema";
 import LogoSection from "./LogoSection";
+import CurrentNews from "./CurrentNews";
 
 //////////////////////////////
 // Common Navbar menu, for both desktop and mobile view
@@ -129,7 +130,7 @@ const MobileNavMenu = () => {
 export default function Navbar() {
   return (
     <nav
-      className={`${fonts.navbar} ${colors.navbar} navbar relative flex justify-between items-center gap-8`}
+      className={`${fonts.navbar} ${colors.navbar} navbar flex justify-between items-center gap-8`}
     >
       <DesktopNavMenu />
       <MobileNavMenu />
@@ -138,6 +139,7 @@ export default function Navbar() {
       >
         <FaRegNewspaper className={styles.nav_icon} />
         <FiTrendingUp className={styles.nav_icon} />
+        <CurrentNews />
       </div>
     </nav>
   );
