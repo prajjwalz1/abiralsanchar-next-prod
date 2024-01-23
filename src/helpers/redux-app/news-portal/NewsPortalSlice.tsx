@@ -4,8 +4,8 @@ import * as C from "@/utils/constants/redux-constants";
 import * as S from "@/utils/schemas/ReduxSchema";
 
 type ISchema = {
-  header: S.HeaderSchema;
-  homepage_data: S.HomepageDataSchema;
+  header: S.HeaderIDSchema;
+  homepage_data: S.HomepageIDSchema;
 };
 
 const initialState: ISchema = {

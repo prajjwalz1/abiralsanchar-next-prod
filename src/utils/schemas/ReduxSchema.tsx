@@ -1,7 +1,7 @@
 //////////////////////////////
 // Redux error message type
 
-import { GetHomepageResponseSchema } from "./ApiSchema";
+import { ArticleSchema, GetHomepageResponseSchema } from "./ApiSchema";
 
 //////////////////////////////
 export type ReduxErrorMessageSchema = {
@@ -16,20 +16,20 @@ export type ReduxErrorMessageSchema = {
 
 // Header
 export type CurrentNewsTypeSchema = "trending" | "featured" | "latest";
-export type HeaderSchema = {
+export type HeaderIDSchema = {
   latest: {
     is_latest: boolean;
-    latest_data: any[];
+    latest_data: ArticleSchema[];
     latest_title: string;
   };
   trending: {
     is_trending: boolean;
-    trending_data: any[];
+    trending_data: ArticleSchema[];
     trending_title: string;
   };
   featured: {
     is_featured: boolean;
-    featured_data: any[];
+    featured_data: ArticleSchema[];
     featured_title: string;
   };
 };
@@ -50,7 +50,7 @@ export type CommonApiSchema = {
   isFulfilled?: boolean;
   isRejected?: boolean;
 };
-export interface HomepageDataSchema extends CommonApiSchema {
+export interface HomepageIDSchema extends CommonApiSchema {
   successResponse?: GetHomepageResponseSchema | {};
   testResponse?: GetHomepageResponseSchema;
   errorResponse?: any | {};

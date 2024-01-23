@@ -18,7 +18,7 @@ const RootLayout: React.FC<RootLayoutSchema> = (props) => {
   return (
     <html lang="en">
       <body style={parent}>
-        <div className="min-w-screen min-h-screen max-w-[2000px] mx-auto grid grid-rows-[160px_minmax(calc(100vh-160px),auto)_auto] tracking-wider">
+        <div className="min-w-screen min-h-screen max-w-[2000px] mx-auto grid grid-rows-[160px_minmax(calc(100vh-160px),auto)_auto] font-normal tracking-wider">
           <RootHeader /> {/* Height of header = 160px */}
           <main>{children}</main>
           <RootFooter />
