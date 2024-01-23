@@ -27,6 +27,34 @@ const config: Config = {
         snackbar: "1400",
         tooltip: "1500",
       },
+
+      keyframes: {
+        slideUp: {
+          "0%": { height: "400px" },
+          "100%": { height: "0" },
+        },
+        slideDown: {
+          "0%": { height: "0" },
+          "100%": { height: "400px" },
+        },
+        showUp: {
+          "0%": { opacity: "1" },
+          "30%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+        showDown: {
+          "0%": { opacity: "0" },
+          "30%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
+
+      animation: {
+        slideUp: "slideUp 0.7s ease-out",
+        slideDown: "slideDown 0.7s ease-out",
+        showUp: "showUp 1s ease-out",
+        showDown: "showDown 1s ease-in",
+      },
     },
   },
   plugins: [],

@@ -79,7 +79,9 @@ export interface NestedLinkSchema extends IconSchema, TitleSchema {
 export interface CustomTextSchema
   extends ChildrenSchema,
     CssSchema,
-    SlugSchema {}
+    SlugSchema {
+  font?: string;
+}
 
 //////////////////////////////
 // Functions

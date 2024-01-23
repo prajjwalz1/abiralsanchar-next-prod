@@ -3,7 +3,11 @@
 import * as styles from "@/assets/css/styles";
 import * as colors from "@/assets/colors";
 import * as fonts from "@/assets/fonts";
-import { CloseButton, CustomImage } from "@/dynamic-imports/components";
+import {
+  CloseButton,
+  CustomImage,
+  CustomText,
+} from "@/dynamic-imports/components";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
 import {
   RootState,
@@ -20,14 +24,11 @@ const SingleCurrentNews = (props: ArticleSchema) => {
   const { title, slug, image1 } = props;
 
   return (
-    <div className="h-[80px] p-5 flex justify-between items-center rounded-md rounded-r-none border-r-2 border-red-400">
+    <div className="h-[80px] pl-0 md:pl-5 p-5 flex justify-between items-center rounded-md rounded-r-none md:border-r-2 md:border-red-400">
       <div className="flex w-4/5">
-        <p
-          onClick={() => window.open(slug)}
-          className={`${fonts.paragraph} font-medium line-clamp-2`}
-        >
+        <CustomText slug={slug} css="line-clamp-2">
           {title}
-        </p>
+        </CustomText>
       </div>
       <CustomImage
         src={image1!}
@@ -65,11 +66,11 @@ export default function CurrentNews() {
     <>
       <BodyOverlay />
       <div
-        className={`${styles.padding_x} z-drawer py-[40px] bg-white absolute top-0 left-0 w-full h-[400px] shadow-md`}
+        className={`${styles.padding_x} z-drawer animate-slideDown py-[40px] bg-white absolute top-0 left-0 w-full h-[400px] shadow-md`}
       >
         {/* Header section */}
         <div
-          className={`${colors.normal_border} bg red-300 w-full h-[50px] flex justify-between items-center border-b-[1px]`}
+          className={`${colors.normal_border} animate-showDown bg red-300 w-full h-[50px] flex justify-between items-center border-b-[1px]`}
         >
           <p
             className={`${fonts.sub_title_bold} h-full ${colors.title} ${colors.active_border} border-b-[3px]`}
@@ -83,7 +84,7 @@ export default function CurrentNews() {
         </div>
 
         {/* Body section */}
-        <div className="fourth-element-padding-0 w-full flex-1 p-3 pl-0 grid grid-cols-3 max-h-[calc(400px-80px-50px-24px)] overflow-y-scroll">
+        <div className="animate-showDown md:fourth-element-padding-0 w-full flex-1 p-3 pl-0 grid grid-cols-1 md:grid-cols-3 max-h-[calc(400px-80px-50px-24px)] overflow-y-scroll">
           {data?.map((item: ArticleSchema, idx: number) => (
             <SingleCurrentNews key={getUniqueKey(idx, title)} {...item} />
           ))}

@@ -34,7 +34,7 @@ export default function FeaturedHighlights() {
               height={24}
               onClick={() => window.open(slug)}
             />
-            <CustomText>{title}</CustomText>
+            <CustomText font="font-medium">{title}</CustomText>
           </div>
         )
       )}

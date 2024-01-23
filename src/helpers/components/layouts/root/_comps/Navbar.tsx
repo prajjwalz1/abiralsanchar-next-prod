@@ -111,12 +111,12 @@ const MobileNavMenu = () => {
 
       {is_mobile_menu && (
         <div
-          className={`${styles.padding_x} ${styles.logo_padding_y} z-drawer fixed top-0 left-0 bg-white min-h-screen min-w-[280px]`}
+          className={`${styles.padding_x} ${styles.logo_padding_y} z-drawer fixed top-0 left-0 bg-white min-h-screen min-w-[280px] flex flex-col gap-3`}
         >
           <CloseButton onClick={() => dispatch(setMobileNavPopuup(false))} />
           <LogoSection isFlag />
           <CommonNavMenu
-            css="mobile-navbar-menu flex flex-col lg:hidden gap-4"
+            css="mobile-navbar-menu flex flex-col lg:hidden gap-3"
             isFlag
           />
         </div>
