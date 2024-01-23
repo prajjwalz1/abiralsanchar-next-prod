@@ -69,3 +69,11 @@ export const RootFooter = dynamic(
   () => import("@/helpers/components/layouts/root/Footer"),
   { ssr: false }
 );
+
+//////////////////////////////
+// texts
+//////////////////////////////
+export const CustomText = dynamic(
+  () => import("@/helpers/components/texts/CustomText"),
+  { ssr: false }
+);

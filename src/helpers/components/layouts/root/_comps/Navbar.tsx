@@ -56,7 +56,7 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
       {nav_items?.map(({ title, slug }: LinkSchema, idx: number) => (
         <Link
           key={getUniqueKey(idx, title)}
-          href={slug}
+          href={slug!}
           className={`${colors.navbar_link} ${styles.getActiveLink(
             slug === pathname,
             colors.sky,

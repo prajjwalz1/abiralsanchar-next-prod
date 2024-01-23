@@ -5,6 +5,18 @@ export type ChildrenSchema = {
   children?: ReactNode;
 };
 
+export type TitleSchema = {
+  title: string;
+};
+export type SlugSchema = {
+  slug?: string;
+};
+export interface TitleSlugSchema extends TitleSchema, SlugSchema {}
+
+export type OnClickSchema = {
+  onClick?: () => void;
+};
+
 //////////////////////////////
 // Image/Icons
 //////////////////////////////
@@ -12,7 +24,7 @@ export type IconSchema = {
   icon?: ReactNode;
 };
 
-export type CustomImageSchema = {
+export interface CustomImageSchema extends OnClickSchema {
   src: string;
   alt: string;
   width: number | `${number}` | undefined;
@@ -21,7 +33,7 @@ export type CustomImageSchema = {
   imgCss?: string;
   blurDataURL?: string;
   onClick?: () => void;
-};
+}
 
 export type ImagesSchema = {
   img: CustomImageSchema;
@@ -44,7 +56,7 @@ export type RootLayoutSchema = {
 
 // Css
 export type CssSchema = {
-  css: string;
+  css?: string;
 };
 
 export type FlagSchema = {
@@ -55,28 +67,29 @@ export type FlagSchema = {
 //////////////////////////////
 // Links
 //////////////////////////////
-export interface LinkSchema extends IconSchema {
-  title: string;
-  slug: string;
-}
+export interface LinkSchema extends TitleSlugSchema, IconSchema {}
 
-export interface NestedLinkSchema extends IconSchema {
-  title: string;
+export interface NestedLinkSchema extends IconSchema, TitleSchema {
   child: LinkSchema[];
 }
 
 //////////////////////////////
-//Functions
+// texts
+//////////////////////////////
+export interface CustomTextSchema
+  extends ChildrenSchema,
+    CssSchema,
+    SlugSchema {}
+
+//////////////////////////////
+// Functions
 //////////////////////////////
 export type HandleActionSchema = {
   handleAction: () => void;
 };
 
 // Button
-export type ButtonSchema = {
-  onClick?: () => void;
-  css?: string;
-};
+export interface ButtonSchema extends CssSchema, OnClickSchema {}
 
 // Title and Image
 export interface LinkImageSchema extends LinkSchema, ImagesSchema {}

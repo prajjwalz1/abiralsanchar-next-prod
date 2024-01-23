@@ -28,7 +28,7 @@ const Footer = () => {
                 {child.map(({ title, slug }: LinkSchema, idx: number) => (
                   <Link
                     key={getUniqueKey(idx, title)}
-                    href={slug}
+                    href={slug!}
                     className={styles.footer_menu_para}
                   >
                     {title}
