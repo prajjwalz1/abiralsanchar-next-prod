@@ -1,3 +1,7 @@
 import { NewsPortalSlice } from "./NewsPortalSlice";
 
-export const { setIsCurrentNews } = NewsPortalSlice.actions;
+export const {
+  // Current news
+  clearIsCurrentNews,
+  setIsCurrentNews,
+} = NewsPortalSlice.actions;

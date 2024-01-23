@@ -9,19 +9,29 @@ type ISchema = {
 };
 
 const initialState: ISchema = {
-  header: C.headerInitialData,
-  homepage_data: C.homepageDataInitialData,
+  header: C.HEADER_INITIAL_DATA,
+  homepage_data: C.HOMEPAGE_INITIAL_DATA,
 };
 
 export const NewsPortalSlice = createSlice({
   name: "news-portal/NewsPortalSlice",
   initialState,
   reducers: {
+    // Current news
+    clearIsCurrentNews: (state) => {
+      state.header = C.HEADER_INITIAL_DATA;
+    },
     setIsCurrentNews: (state, action) => {
-      state.header = {
-        ...state.header,
-        ...C.headerStateMap[action.payload],
-      };
+      const value: S.CurrentNewsTypeSchema = action.payload;
+      if (C.CURRENT_NEWS_TYPE.includes(value)) {
+        state.header = {
+          ...C.HEADER_INITIAL_DATA,
+          [value]: {
+            ...C.HEADER_INITIAL_DATA[value],
+            [`is_${value}`]: true,
+          },
+        };
+      }
     },
   },
   extraReducers: (builder) => {

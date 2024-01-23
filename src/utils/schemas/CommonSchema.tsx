@@ -12,6 +12,21 @@ export type IconSchema = {
   icon?: ReactNode;
 };
 
+export type CustomImageSchema = {
+  src: string;
+  alt: string;
+  width: number | `${number}` | undefined;
+  height: number | `${number}` | undefined;
+  divCss?: string;
+  imgCss?: string;
+  blurDataURL?: string;
+  onClick?: () => void;
+};
+
+export type ImagesSchema = {
+  img: CustomImageSchema;
+};
+
 //////////////////////////////
 //
 //////////////////////////////
@@ -62,3 +77,6 @@ export type ButtonSchema = {
   onClick?: () => void;
   css?: string;
 };
+
+// Title and Image
+export interface LinkImageSchema extends LinkSchema, ImagesSchema {}

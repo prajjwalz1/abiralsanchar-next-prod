@@ -15,18 +15,22 @@ export type ReduxErrorMessageSchema = {
 };
 
 // Header
+export type CurrentNewsTypeSchema = "trending" | "featured" | "latest";
 export type HeaderSchema = {
   latest: {
-    data: any[];
     is_latest: boolean;
+    latest_data: any[];
+    latest_title: string;
   };
   trending: {
-    data: any[];
     is_trending: boolean;
+    trending_data: any[];
+    trending_title: string;
   };
   featured: {
-    data: any[];
     is_featured: boolean;
+    featured_data: any[];
+    featured_title: string;
   };
 };
 

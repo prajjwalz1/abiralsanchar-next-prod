@@ -25,6 +25,7 @@ import { LinkSchema } from "@/utils/schemas/CommonSchema";
 import { CommonNavMenuSchema } from "@/utils/schemas/LayoutSchema";
 import LogoSection from "./LogoSection";
 import CurrentNews from "./CurrentNews";
+import { setIsCurrentNews } from "@/helpers/redux-app/news-portal/_actions";
 
 //////////////////////////////
 // Common Navbar menu, for both desktop and mobile view
@@ -128,6 +129,8 @@ const MobileNavMenu = () => {
 // Mobile navbar, Shown in medium(md) screens and below
 //////////////////////////////
 export default function Navbar() {
+  // Redux
+  const dispatch = useAppDispatch();
   return (
     <nav
       className={`${fonts.navbar} ${colors.navbar} navbar flex justify-between items-center gap-8`}
@@ -137,8 +140,14 @@ export default function Navbar() {
       <div
         className={`${styles.padding_xr} navbar-icons flex items-center gap-5`}
       >
-        <FaRegNewspaper className={styles.nav_icon} />
-        <FiTrendingUp className={styles.nav_icon} />
+        <FaRegNewspaper
+          className={styles.nav_icon}
+          onClick={() => dispatch(setIsCurrentNews("latest"))}
+        />
+        <FiTrendingUp
+          className={styles.nav_icon}
+          onClick={() => dispatch(setIsCurrentNews("trending"))}
+        />
         <CurrentNews />
       </div>
     </nav>

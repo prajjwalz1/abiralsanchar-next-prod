@@ -1,14 +1,5 @@
+import { CustomImageSchema } from "@/utils/schemas/CommonSchema";
 import Image from "next/image";
-
-export type CustomImageSchema = {
-  src: string;
-  alt: string;
-  width: number | `${number}` | undefined;
-  height: number | `${number}` | undefined;
-  divCss?: string;
-  imgCss?: string;
-  blurDataURL?: string;
-};
 
 export default function CustomImage(props: CustomImageSchema) {
   // Props

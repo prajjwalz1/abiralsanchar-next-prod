@@ -4,7 +4,7 @@ import {
 } from "@/utils/schemas/ReduxSchema";
 import { get_homepage_data } from "../data/backend_data";
 
-export const homepageDataInitialData: HomepageDataSchema = {
+export const HOMEPAGE_INITIAL_DATA: HomepageDataSchema = {
   // Normal checks
   isPending: false,
   isFulfilled: false,
@@ -17,24 +17,22 @@ export const homepageDataInitialData: HomepageDataSchema = {
 };
 
 // Default state of current news in header section
-export const headerInitialData = {
+export const HEADER_INITIAL_DATA = {
   featured: {
-    data: [],
     is_featured: false,
+    featured_data: [],
+    featured_title: "चित्रित",
   },
   latest: {
-    data: [],
     is_latest: false,
+    latest_data: [],
+    latest_title: "ताजा अपडेट",
   },
   trending: {
-    data: [],
     is_trending: false,
+    trending_data: [],
+    trending_title: "ट्रेन्डिङ",
   },
 };
 
-// This constant is used to change the state of the current news in header section
-export const headerStateMap: HeaderStateMap = {
-  featured: { is_trending: false, is_latest: false, is_featured: true },
-  latest: { is_trending: false, is_latest: true, is_featured: false },
-  trending: { is_trending: true, is_latest: false, is_featured: false },
-};
+export const CURRENT_NEWS_TYPE = ["trending", "latest", "featured"];
