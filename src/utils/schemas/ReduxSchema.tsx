@@ -14,6 +14,30 @@ export type ReduxErrorMessageSchema = {
   toString(): string;
 };
 
+// Header
+export type HeaderSchema = {
+  latest: {
+    data: any[];
+    is_latest: boolean;
+  };
+  trending: {
+    data: any[];
+    is_trending: boolean;
+  };
+  featured: {
+    data: any[];
+    is_featured: boolean;
+  };
+};
+
+export type HeaderStateMap = {
+  [key: string]: {
+    is_featured: boolean;
+    is_trending: boolean;
+    is_latest: boolean;
+  };
+};
+
 //////////////////////////////
 // API response schema
 //////////////////////////////

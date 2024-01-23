@@ -1,20 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { GetHomepageDataThunk } from "./_thunks";
-import { HomepageDataInitial } from "@/utils/constants/redux-constants";
-import { HomepageDataSchema } from "@/utils/schemas/ReduxSchema";
+import * as C from "@/utils/constants/redux-constants";
+import * as S from "@/utils/schemas/ReduxSchema";
 
 type ISchema = {
-  homepage_data: HomepageDataSchema;
+  header: S.HeaderSchema;
+  homepage_data: S.HomepageDataSchema;
 };
 
 const initialState: ISchema = {
-  homepage_data: HomepageDataInitial,
+  header: C.headerInitialData,
+  homepage_data: C.homepageDataInitialData,
 };
 
 export const NewsPortalSlice = createSlice({
   name: "news-portal/NewsPortalSlice",
   initialState,
-  reducers: {},
+  reducers: {
+    setIsCurrentNews: (state, action) => {
+      state.header = {
+        ...state.header,
+        ...C.headerStateMap[action.payload],
+      };
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(GetHomepageDataThunk.pending, (state) => {

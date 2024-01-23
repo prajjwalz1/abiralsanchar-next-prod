@@ -2,7 +2,8 @@ import axios from "axios";
 
 // Axios config
 const api = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_NEWS_PORTAL_URL}`,
+  // baseURL: `${process.env.NEXT_PUBLIC_NEWS_PORTAL_URL}`,
+  baseURL: "http://jsugauta1.pythonanywhere.com",
 });
 
 // Class containing the REST methods
