@@ -2,12 +2,22 @@ import * as styles from "@/assets/css/styles";
 import * as colors from "@/assets/colors";
 import * as fonts from "@/assets/fonts";
 
-import { CloseButton } from "@/dynamic-imports/components";
+import { CloseButton, CustomImage } from "@/dynamic-imports/components";
 
 export const SingleCurrentNews = () => {
   return (
-    <div className="bg-green-300 h-[60px] flex justify-between items-center">
-      NEws
+    <div className="h-[80px] p-5 flex justify-between items-center rounded-md rounded-r-none border-r-2 border-red-400">
+      <div className="flex w-4/5">
+        न्युजिल्यान्डको रोमाञ्चक जितले नेपाललाई फाइदा
+      </div>
+      <CustomImage
+        src="https://www.onlinekhabar.com/wp-content/uploads/2023/07/Gagan-Thapa-3-500x324.jpg"
+        alt="image"
+        divCss="w-1/5 h-[48px]"
+        imgCss="w-full h-full object-cover rounded-md"
+        width={40}
+        height={40}
+      />
     </div>
   );
 };
@@ -33,7 +43,7 @@ export default function CurrentNews() {
       </div>
 
       {/* Body section */}
-      <div className="w-full flex-1 p-3 pl-0 grid grid-cols-3 gap-3 max-h-[calc(400px-80px-50px-24px-24px)] overflow-y-scroll">
+      <div className="fourth-element-padding-0 w-full flex-1 p-3 pl-0 grid grid-cols-3 max-h-[calc(400px-80px-50px-24px)] overflow-y-scroll">
         <SingleCurrentNews />
         <SingleCurrentNews />
         <SingleCurrentNews />

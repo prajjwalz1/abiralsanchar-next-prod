@@ -11,6 +11,13 @@ export const CloseButton = dynamic(
 //////////////////////////////
 // Images
 //////////////////////////////
+export const CustomImage = dynamic(
+  () => import("@/helpers/components/images/CustomImage"),
+  {
+    ssr: false,
+  }
+);
+
 export const Logo = dynamic(() => import("@/helpers/components/images/Logo"), {
   ssr: false,
 });

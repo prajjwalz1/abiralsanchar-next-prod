@@ -6,6 +6,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .fourth-element-padding-0 > :nth-child(3n-2) {
+    padding-left: 0;
+  }
+}
 /* 
 :root {
   --foreground-rgb: 0, 0, 0;
