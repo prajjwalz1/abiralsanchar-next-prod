@@ -7,6 +7,7 @@ import { homepage_banner_jpeg } from "@/assets/images";
 
 // Custom Imports
 import { ReduxProvider } from "@/dynamic-imports/redux-app";
+import HeroArticle from "@/helpers/components-extras/home/HeroArticle";
 import CustomImage from "@/helpers/components/images/CustomImage";
 
 export default function Home() {
@@ -24,16 +25,7 @@ export default function Home() {
         </div>
 
         {/* Hero section */}
-        <div
-          className={`${styles.padding_x} banner-section py-5 divide-y divide-gray-400`}
-        >
-          <CustomImage
-            src={homepage_banner_jpeg.src}
-            alt="homepage_banner_jpeg"
-            width={100}
-            height={100}
-          />
-        </div>
+        <HeroArticle />
       </div>
     </ReduxProvider>
   );

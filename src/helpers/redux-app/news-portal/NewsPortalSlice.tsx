@@ -19,15 +19,17 @@ export const NewsPortalSlice = createSlice({
   reducers: {
     // Current news
     clearIsCurrentNews: (state) => {
-      state.header = C.HEADER_INITIAL_DATA;
+      state.header.featured.is_featured = false;
+      state.header.trending.is_trending = false;
+      state.header.latest.is_latest = false;
     },
     setIsCurrentNews: (state, action) => {
       const value: S.CurrentNewsTypeSchema = action.payload;
       if (C.CURRENT_NEWS_TYPE.includes(value)) {
         state.header = {
-          ...C.HEADER_INITIAL_DATA,
+          ...state.header,
           [value]: {
-            ...C.HEADER_INITIAL_DATA[value],
+            ...state.header[value],
             [`is_${value}`]: true,
           },
         };
@@ -52,9 +54,9 @@ export const NewsPortalSlice = createSlice({
         state.homepage_data.isRejected = false;
 
         // Header
-        state.header.featured.featured_data = payload.data[2].featured_articles;
+        state.header.featured.featured_data = payload.data[1].featured_articles;
         state.header.latest.latest_data = payload.data[3].latest_articles;
-        state.header.trending.trending_data = payload.data[1].trending_articles;
+        state.header.trending.trending_data = payload.data[2].trending_articles;
 
         // Homepage
         state.homepage_data.successResponse = action.payload;

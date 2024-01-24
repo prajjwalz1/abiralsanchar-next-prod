@@ -77,3 +77,11 @@ export const CustomText = dynamic(
   () => import("@/helpers/components/texts/CustomText"),
   { ssr: false }
 );
+
+//////////////////////////////
+// @/helpers/components-extras/home
+//////////////////////////////
+export const HeroArticle = dynamic(
+  () => import("@/helpers/components-extras/home/HeroArticle"),
+  { ssr: false }
+);

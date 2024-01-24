@@ -81,6 +81,7 @@ export interface CustomTextSchema
     CssSchema,
     SlugSchema {
   font?: string;
+  isLink?: boolean;
 }
 
 //////////////////////////////

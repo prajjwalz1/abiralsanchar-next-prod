@@ -50,6 +50,7 @@ export default function CurrentNews() {
   const dispatch = useAppDispatch();
   const { header } = useAppSelector((state: RootState) => state.NewsPortal);
 
+
   // Destructuring variables
   const { latest, trending } = header;
   const { is_latest, latest_data, latest_title } = latest;

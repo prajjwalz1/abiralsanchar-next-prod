@@ -61,14 +61,6 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
   // Hooks
   const pathname = usePathname();
 
-  // Redux
-  const dispatch = useAppDispatch();
-
-  // useEffect
-  useEffect(() => {
-    dispatch(GetHomepageDataThunk());
-  }, [dispatch]);
-
   return (
     <div className={css}>
       {isFixed && (
@@ -165,6 +157,12 @@ export default function Navbar() {
 
   // Hooks
   const { scrollCss } = useCustomScroll(80);
+
+  // useEffect
+  useEffect(() => {
+    dispatch(GetHomepageDataThunk());
+  }, [dispatch]);
+
   return (
     <nav
       className={`${fonts.navbar} ${colors.navbar} h-[50px] ${scrollCss} navbar flex justify-between items-center gap-8`}

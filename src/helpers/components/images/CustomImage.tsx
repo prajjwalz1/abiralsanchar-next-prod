@@ -19,7 +19,7 @@ export default function CustomImage(props: CustomImageSchema) {
         alt={alt}
         width={width}
         height={height}
-        placeholder="blur"
+        // placeholder="blur"
         blurDataURL={blurDataURL || defaultBlurImg}
         {...rest}
       />
