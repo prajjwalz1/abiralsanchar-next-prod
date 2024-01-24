@@ -37,6 +37,10 @@ const config: Config = {
           "0%": { height: "0" },
           "100%": { height: "400px" },
         },
+        slideRightMiniLogo: {
+          "0%": { marginLeft: "0" },
+          "80%": { marginLeft: "48px" },
+        },
         showUp: {
           "0%": { opacity: "1" },
           "30%": { opacity: "1" },
@@ -52,6 +56,7 @@ const config: Config = {
       animation: {
         slideUp: "slideUp 0.7s ease-out",
         slideDown: "slideDown 0.7s ease-out",
+        slideRightMiniLogo: "slideRightMiniLogo 0.7s ease-out",
         showUp: "showUp 1s ease-out",
         showDown: "showDown 1s ease-in",
       },

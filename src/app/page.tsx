@@ -1,16 +1,40 @@
 "use client";
+// import { Metadata } from "next";
+// import { RootLayoutMetadata } from "@/utils/seo/metadatas";
 
-import { Metadata } from "next";
-import { RootLayoutMetadata } from "@/utils/seo/metadatas";
-import TestOne from "@/helpers/components-extras/home/TestOne";
+import * as styles from "@/assets/css/styles";
+import { homepage_banner_jpeg } from "@/assets/images";
 
 // Custom Imports
 import { ReduxProvider } from "@/dynamic-imports/redux-app";
+import CustomImage from "@/helpers/components/images/CustomImage";
 
 export default function Home() {
   return (
     <ReduxProvider>
-      <TestOne />
+      <div className={`${styles.padding_x} divide-y divide-gray-200`}>
+        {/* Banner section */}
+        <div className="banner-section py-5">
+          <CustomImage
+            src={homepage_banner_jpeg.src}
+            alt="homepage_banner_jpeg"
+            width={100}
+            height={100}
+          />
+        </div>
+
+        {/* Hero section */}
+        <div
+          className={`${styles.padding_x} banner-section py-5 divide-y divide-gray-400`}
+        >
+          <CustomImage
+            src={homepage_banner_jpeg.src}
+            alt="homepage_banner_jpeg"
+            width={100}
+            height={100}
+          />
+        </div>
+      </div>
     </ReduxProvider>
   );
 }

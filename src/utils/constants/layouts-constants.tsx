@@ -86,7 +86,7 @@ export const footer_end_items: OptionSchema[] = [
   { label: "अध्यक्ष तथा प्रबन्ध निर्देशक", value: "धर्मराज भुसाल" },
   { label: "प्रधान सम्पादकः", value: "शिव गाउँले" },
   { label: "सूचना विभाग दर्ता नं.", value: "२१४ / ०७३–७४" },
-  { label: "+977-1-4790176, +977-1-4796489", value: "info@gmail.com" },
+  { label: "+977-1-4790176", value: "info@gmail.com" },
   {
     label: "copyright",
     icon: (

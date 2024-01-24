@@ -15,13 +15,14 @@ import { ReduxProvider } from "@/dynamic-imports/redux-app";
 //////////////////////////////
 export default function Header() {
   return (
-    <ReduxProvider>
-      <header className="header grid grid-rows-[60px_50px_50px]">
-        {/* Height of each components below = 60px, 50px, 50px respectively */}
-        <LogoSection />
+    <header className="header grid grid-rows-[60px_50px_50px]">
+      {/* Height of each components below = 60px, 50px, 50px respectively */}
+      <LogoSection />
+
+      <ReduxProvider>
         <Navbar />
         <FeaturedHighlights />
-      </header>
-    </ReduxProvider>
+      </ReduxProvider>
+    </header>
   );
 }

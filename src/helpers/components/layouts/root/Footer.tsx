@@ -51,11 +51,11 @@ const Footer = () => {
             ({ label, icon, value }: OptionSchema, idx: number) => {
               const isCopyright = label === "copyright";
               const newLabel = isCopyright ? icon : label;
-              const valueCss = isCopyright ? "text-xs" : "";
+              const valueCss = isCopyright ? "text-xs" : "text-sm";
               return (
                 <div
                   key={getUniqueKey(idx, value)}
-                  className="px-4 flex flex-col gap-1 border-l-[1px] border-l-gray-400"
+                  className="px-2.5 flex flex-col gap-1 border-l-[1px] border-l-gray-400"
                 >
                   <div className="">{newLabel}</div>
                   <div className={valueCss}>{value}</div>

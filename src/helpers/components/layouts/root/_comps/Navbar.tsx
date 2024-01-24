@@ -12,7 +12,11 @@ import { FiTrendingUp } from "react-icons/fi";
 import * as colors from "@/assets/colors";
 import * as fonts from "@/assets/fonts";
 import * as styles from "@/assets/css/styles";
-import { BodyOverlay, CloseButton } from "@/dynamic-imports/components";
+import {
+  BodyOverlay,
+  CloseButton,
+  CustomImage,
+} from "@/dynamic-imports/components";
 import useScrollLock from "@/helpers/hooks/useScrollLock";
 import {
   RootState,
@@ -26,6 +30,9 @@ import { CommonNavMenuSchema } from "@/utils/schemas/LayoutSchema";
 import LogoSection from "./LogoSection";
 import CurrentNews from "./CurrentNews";
 import { setIsCurrentNews } from "@/helpers/redux-app/news-portal/_actions";
+import useCustomScroll from "@/helpers/hooks/useCustomScroll";
+import { next_svg } from "@/assets/images";
+import { GetHomepageDataThunk } from "@/helpers/redux-app/news-portal/_thunks";
 
 //////////////////////////////
 // Common Navbar menu, for both desktop and mobile view
@@ -39,6 +46,9 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
     (state: RootState) => state.NewsPortal
   );
 
+  // Hooks
+  const { isFixed } = useCustomScroll(80);
+
   // Required variables
   let nav_items = [{ title: "होमपेज", slug: "/" }];
   const nav_from_api =
@@ -51,8 +61,25 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
   // Hooks
   const pathname = usePathname();
 
+  // Redux
+  const dispatch = useAppDispatch();
+
+  // useEffect
+  useEffect(() => {
+    dispatch(GetHomepageDataThunk());
+  }, [dispatch]);
+
   return (
     <div className={css}>
+      {isFixed && (
+        <CustomImage
+          src={next_svg}
+          alt="test-logo"
+          width={24}
+          height={24}
+          divCss="animate-showDown absolute left-10 md:left-32 lg:left-[172px] w-[24px] h-[24px]"
+        />
+      )}
       {nav_items?.map(({ title, slug }: LinkSchema, idx: number) => (
         <Link
           key={getUniqueKey(idx, title)}
@@ -73,14 +100,18 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
 //////////////////////////////
 // Desktop navbar menu, Shown in large(lg) screens and above
 //////////////////////////////
-const DesktopNavMenu = () => (
-  <CommonNavMenu
-    css={`
-      ${styles.padding_xl} desktop-navbar-menu hidden lg:flex gap-8
-    `}
-  />
-);
+const DesktopNavMenu = () => {
+  // Hooks
+  const { isFixed } = useCustomScroll(80);
 
+  // Css
+  const defaultCss = `
+  ${styles.padding_xl} desktop-navbar-menu hidden lg:flex gap-8`;
+  const animation = isFixed ? "ml-[48px] animate-slideRightMiniLogo" : "";
+  const css = `${defaultCss} ${animation}`;
+
+  return <CommonNavMenu css={css} />;
+};
 //////////////////////////////
 // Mobile navbar menu, Shown in medium(md) screens and below
 //////////////////////////////
@@ -131,9 +162,12 @@ const MobileNavMenu = () => {
 export default function Navbar() {
   // Redux
   const dispatch = useAppDispatch();
+
+  // Hooks
+  const { scrollCss } = useCustomScroll(80);
   return (
     <nav
-      className={`${fonts.navbar} ${colors.navbar} navbar flex justify-between items-center gap-8`}
+      className={`${fonts.navbar} ${colors.navbar} h-[50px] ${scrollCss} navbar flex justify-between items-center gap-8`}
     >
       <DesktopNavMenu />
       <MobileNavMenu />

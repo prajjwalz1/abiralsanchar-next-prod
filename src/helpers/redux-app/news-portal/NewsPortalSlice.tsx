@@ -43,12 +43,20 @@ export const NewsPortalSlice = createSlice({
         state.homepage_data.isRejected = false;
       })
       .addCase(GetHomepageDataThunk.fulfilled, (state, action) => {
+        // Variables
+        const payload = action.payload;
+
         // Normal states
         state.homepage_data.isPending = false;
         state.homepage_data.isFulfilled = true;
         state.homepage_data.isRejected = false;
 
-        // Api states
+        // Header
+        state.header.featured.featured_data = payload.data[2].featured_articles;
+        state.header.latest.latest_data = payload.data[3].latest_articles;
+        state.header.trending.trending_data = payload.data[1].trending_articles;
+
+        // Homepage
         state.homepage_data.successResponse = action.payload;
       })
       .addCase(GetHomepageDataThunk.rejected, (state, action) => {

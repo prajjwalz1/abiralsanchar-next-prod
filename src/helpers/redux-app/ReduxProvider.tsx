@@ -7,7 +7,7 @@ import { ChildrenSchema } from "@/utils/schemas/CommonSchema";
 import store from "@/helpers/redux-app/store";
 
 // Persist the store
-persistStore(store);
+// persistStore(store);
 
 // Main function
 export default function ReduxProvider(props: ChildrenSchema) {

@@ -5,10 +5,10 @@ import * as fonts from "@/assets/fonts";
 //////////////////////////////
 // Base css
 //////////////////////////////
-export const padding_x = "px-8 md:px-16 lg:px-32";
-export const padding_xl = "pl-8 md:pl-16 lg:pl-32";
-export const padding_xr = "pr-8 md:pr-16 lg:pr-32";
-export const padding_y = "py-8 md:py-16 lg:py-32";
+export const padding_x = "px-10 md:px-32 lg:px-[172px]";
+export const padding_xl = "pl-10 md:pl-32 lg:pl-[172px]";
+export const padding_xr = "pr-10 md:pr-32 lg:pr-[172px]";
+export const padding_y = "py-10 md:py-32 lg:py-[172px]";
 export const padding_y_medium = "py-5 md:py-10 lg:py-20";
 export const padding_y_small = "py-3 md:py-6 lg:py-12";
 export const logo_padding_y = "py-4";

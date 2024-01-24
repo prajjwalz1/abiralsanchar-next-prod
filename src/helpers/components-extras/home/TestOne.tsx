@@ -1,11 +1,4 @@
-// "use client";
-
-// // Common imports
-// import { useEffect } from "react";
-
-// // Custom imports
-// import { useAppDispatch } from "@/helpers/hooks/useStoreHooks";
-// import { GetHomepageDataThunk } from "@/helpers/redux-app/news-portal/_thunks";
+"use client";
 
 // export default function TestOne() {
 //   // Redux
@@ -19,6 +12,10 @@
 //   return <>Test</>;
 // }
 
-export default function TestOne() {
+import React from "react";
+
+const TestOne = () => {
   return <div>TestOne</div>;
-}
+};
+
+export default TestOne;
