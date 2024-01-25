@@ -86,16 +86,16 @@ export const footer_end_items: OptionSchema[] = [
   { label: "अध्यक्ष तथा प्रबन्ध निर्देशक", value: "धर्मराज भुसाल" },
   { label: "प्रधान सम्पादकः", value: "शिव गाउँले" },
   { label: "सूचना विभाग दर्ता नं.", value: "२१४ / ०७३–७४" },
-  { label: "+977-1-4790176", value: "info@gmail.com" },
+  { label: "+९७७-१-४७९०१७६", value: "info@gmail.com" },
   {
     label: "copyright",
     icon: (
-      <div className="flex items-center gap-3">
+      <div className="flex items-end gap-3">
         <FaFacebookSquare />
         <FaXTwitter />
         <FaYoutube />
       </div>
     ),
-    value: "© २००६-२०२४ udip.com सर्वाधिकार सुरक्षित",
+    value: "© २००६-२०२४ सर्वाधिकार सुरक्षित",
   },
 ];

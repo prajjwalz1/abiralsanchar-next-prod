@@ -76,11 +76,11 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
         <Link
           key={getUniqueKey(idx, title)}
           href={slug!}
-          className={`${colors.navbar_link} ${styles.getActiveLink(
+          className={styles.getActiveLink(
             slug === pathname,
             colors.sky,
             isFlag
-          )}`}
+          )}
         >
           {title}
         </Link>

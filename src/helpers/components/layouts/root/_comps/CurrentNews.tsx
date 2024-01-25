@@ -50,7 +50,6 @@ export default function CurrentNews() {
   const dispatch = useAppDispatch();
   const { header } = useAppSelector((state: RootState) => state.NewsPortal);
 
-
   // Destructuring variables
   const { latest, trending } = header;
   const { is_latest, latest_data, latest_title } = latest;
@@ -73,11 +72,12 @@ export default function CurrentNews() {
         <div
           className={`${colors.normal_border} animate-showDown bg red-300 w-full h-[50px] flex justify-between items-center border-b-[1px]`}
         >
-          <p
-            className={`${fonts.sub_title_bold} h-full ${colors.title} ${colors.active_border} border-b-[3px]`}
+          <CustomText
+            font={`${fonts.sub_title_bold} h-full ${colors.title} ${colors.active_border} border-b-[3px]`}
+            isKhand
           >
             {title}
-          </p>
+          </CustomText>
           <CloseButton
             css={styles.current_news_close_button}
             onClick={() => dispatch(clearIsCurrentNews())}

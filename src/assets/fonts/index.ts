@@ -1,4 +1,22 @@
 //////////////////////////////
+// Default fonts
+
+import { Khand, Mukta } from "next/font/google";
+
+//////////////////////////////
+export const khand = Khand({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-khand",
+});
+
+export const mukta = Mukta({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-mukta",
+});
+
+//////////////////////////////
 // Navbar font
 //////////////////////////////
 export const navbar = "text-xl font-semibold";

@@ -4,7 +4,7 @@ import { MouseEventHandler } from "react";
 
 export default function CustomText(props: CustomTextSchema) {
   // Props
-  const { css, font, isLink, slug, children } = props;
+  const { css, font, isLink, isKhand, slug, children } = props;
 
   // Actions
   const onClick: MouseEventHandler<HTMLParagraphElement> | undefined = slug
@@ -13,12 +13,10 @@ export default function CustomText(props: CustomTextSchema) {
 
   // Css
   const newFont = font ?? "text-md font-medium";
-
   const defaultCss = `${colors.near_black} ${newFont}`;
-
+  const fontFamily = isKhand ? "font-khand" : "font-mukta";
   const linkCss = isLink ? `${colors.hover_link} cursor-pointer` : "";
-
-  const className = `${defaultCss} ${linkCss} ${css ?? ""}`;
+  const className = `${defaultCss} ${fontFamily} ${linkCss} ${css ?? ""}`;
 
   // Text Props
   const textProps = { onClick, className, children };

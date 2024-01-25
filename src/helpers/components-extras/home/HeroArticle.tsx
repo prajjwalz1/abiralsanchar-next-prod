@@ -1,8 +1,8 @@
 import * as fonts from "@/assets/fonts";
-import * as styles from "@/assets/css/styles";
 import { CustomText } from "@/dynamic-imports/components";
 import CustomImage from "@/helpers/components/images/CustomImage";
 import { LuClock4 } from "react-icons/lu";
+import { FiMessageSquare } from "react-icons/fi";
 
 export default function HeroArticle() {
   return (
@@ -33,9 +33,13 @@ export default function HeroArticle() {
             />
             <CustomText>शैलेन्द्र महतो</CustomText>
           </div>
-          <div className="flex gap-1">
-            <LuClock4 />
+          <div className="flex items-center gap-1">
+            <LuClock4 className="mb-0.5" />
             <CustomText>८ घन्टा अगाडि</CustomText>
+          </div>
+          <div className="flex items-center gap-1">
+            <FiMessageSquare />
+            <CustomText>२</CustomText>
           </div>
         </div>
       </div>

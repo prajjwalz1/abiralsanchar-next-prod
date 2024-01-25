@@ -1,3 +1,4 @@
+import { Khand, Mukta } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -9,9 +10,10 @@ const config: Config = {
       //   'gradient-conic':
       //     'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       // },
-      // fontFamily: {
-      //   khand: "Khand, sans-serif",
-      // },
+      fontFamily: {
+        khand: "var(--font-khand)", // note: you can call the left side of this whatever you want - barlow-bold or title-font or foo-bar, this is what you'll use in your Tailwind css classes to use this font
+        mukta: "var(--font-mukta)",
+      },
       colors: {
         "new-blue": {
           sky: "#70c9ff",
@@ -54,11 +56,11 @@ const config: Config = {
       },
 
       animation: {
-        slideUp: "slideUp 0.7s ease-out",
-        slideDown: "slideDown 0.7s ease-out",
-        slideRightMiniLogo: "slideRightMiniLogo 0.7s ease-out",
-        showUp: "showUp 1s ease-out",
-        showDown: "showDown 1s ease-in",
+        slideUp: "slideUp 0.3s ease-out",
+        slideDown: "slideDown 0.3s ease-out",
+        slideRightMiniLogo: "slideRightMiniLogo 0.5s ease-out",
+        showUp: "showUp 0.6s ease-out",
+        showDown: "showDown 0.6s ease-in",
       },
     },
   },

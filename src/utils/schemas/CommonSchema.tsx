@@ -82,6 +82,7 @@ export interface CustomTextSchema
     SlugSchema {
   font?: string;
   isLink?: boolean;
+  isKhand?: boolean;
 }
 
 //////////////////////////////

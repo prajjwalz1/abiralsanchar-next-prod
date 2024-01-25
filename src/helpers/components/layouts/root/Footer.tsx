@@ -12,6 +12,7 @@ import {
 } from "@/utils/schemas/CommonSchema";
 import Link from "next/link";
 import { Logo } from "@/dynamic-imports/components";
+import CustomText from "../../texts/CustomText";
 
 const Footer = () => {
   return (
@@ -22,7 +23,9 @@ const Footer = () => {
         {footer_menu_items.map(
           ({ title, child }: NestedLinkSchema, idx: number) => (
             <div key={getUniqueKey(idx, title)} className="flex flex-col gap-4">
-              <p className={styles.footer_menu_title}>{title}</p>
+              <CustomText font={styles.footer_menu_title} isKhand>
+                {title}
+              </CustomText>
 
               <div className="pb-10 flex flex-col gap-1">
                 {child.map(({ title, slug }: LinkSchema, idx: number) => (
@@ -31,7 +34,7 @@ const Footer = () => {
                     href={slug!}
                     className={styles.footer_menu_para}
                   >
-                    {title}
+                    <CustomText isLink>{title}</CustomText>
                   </Link>
                 ))}
               </div>
@@ -51,14 +54,18 @@ const Footer = () => {
             ({ label, icon, value }: OptionSchema, idx: number) => {
               const isCopyright = label === "copyright";
               const newLabel = isCopyright ? icon : label;
-              const valueCss = isCopyright ? "text-xs" : "text-sm";
+              const valueCss = "text-sm";
               return (
                 <div
                   key={getUniqueKey(idx, value)}
-                  className="px-2.5 flex flex-col gap-1 border-l-[1px] border-l-gray-400"
+                  className="px-2.5 flex flex-col gap-1 justify-between h-full border-l-[1px] border-l-gray-400"
                 >
-                  <div className="">{newLabel}</div>
-                  <div className={valueCss}>{value}</div>
+                  <div className="">
+                    <CustomText>{newLabel}</CustomText>
+                  </div>
+                  <div className={valueCss}>
+                    <CustomText>{value}</CustomText>
+                  </div>
                 </div>
               );
             }

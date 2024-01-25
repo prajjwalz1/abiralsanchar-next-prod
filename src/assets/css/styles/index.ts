@@ -1,4 +1,3 @@
-import { Khand } from "next/font/google";
 import * as colors from "@/assets/colors";
 import * as fonts from "@/assets/fonts";
 
@@ -16,28 +15,21 @@ export const logo_padding_y = "py-4";
 export const margin_x = "mx-8 md:mx-16 lg:mx-32";
 
 //////////////////////////////
-// Root layout css
-//////////////////////////////
-const khand = Khand({ weight: "400", subsets: ["latin"] });
-export const root_layout_css = {
-  parent: {
-    fontFamily: khand.style.fontFamily,
-  },
-};
-
-//////////////////////////////
 // Active links
 //////////////////////////////
 export const getActiveLink = (
   isSameLink: boolean,
   color?: string,
   isFlag?: boolean
-) =>
-  isSameLink
+) => {
+  const active = isSameLink
     ? color ?? colors.active_link
     : isFlag
     ? colors.medium_black
     : colors.white;
+
+  return `${colors.navbar_link} ${active} font-khand`;
+};
 
 //////////////////////////////
 // Icons
@@ -47,7 +39,7 @@ export const nav_icon = `w-8 h-8 ${colors.icon}`;
 //////////////////////////////
 // Footer
 //////////////////////////////
-export const footer_menu_title = `${fonts.xl_bold} ${colors.header}`;
+export const footer_menu_title = `${fonts.sub_heading_bold} ${colors.header}`;
 export const footer_menu_para = `${colors.hover_link}`;
 
 // Buttons
