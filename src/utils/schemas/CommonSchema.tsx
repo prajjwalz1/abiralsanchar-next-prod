@@ -74,6 +74,15 @@ export interface NestedLinkSchema extends IconSchema, TitleSchema {
 }
 
 //////////////////////////////
+// tags
+//////////////////////////////
+export type CustomTagSchema = {
+  title: string;
+  status?: "success" | "warning" | "error" | "info";
+  css?: string;
+};
+
+//////////////////////////////
 // texts
 //////////////////////////////
 export interface CustomTextSchema

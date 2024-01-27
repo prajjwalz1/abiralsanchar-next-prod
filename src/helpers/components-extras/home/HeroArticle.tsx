@@ -1,5 +1,5 @@
 import * as fonts from "@/assets/fonts";
-import { CustomText } from "@/dynamic-imports/components";
+import { CustomTag, CustomText } from "@/dynamic-imports/components";
 import CustomImage from "@/helpers/components/images/CustomImage";
 import { LuClock4 } from "react-icons/lu";
 import { FiMessageSquare } from "react-icons/fi";
@@ -8,9 +8,8 @@ export default function HeroArticle() {
   return (
     <div className={"w-full py-5 flex flex-col items-center gap-5"}>
       {/* Category/Tag section */}
-      <div className="w-fit px-2.5 py-0.5 bg-red-600 text-white rounded-md">
-        उपेन्द्र सीके टकराव
-      </div>
+
+      <CustomTag status="error" title="उपेन्द्र सीके टकराव" />
 
       <div className="flex flex-col items-center gap-1">
         {/* Title of the article section */}

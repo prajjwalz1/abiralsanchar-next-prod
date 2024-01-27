@@ -71,6 +71,14 @@ export const RootFooter = dynamic(
 );
 
 //////////////////////////////
+// tags
+//////////////////////////////
+export const CustomTag = dynamic(
+  () => import("@/helpers/components/tags/CustomTag"),
+  { ssr: false }
+);
+
+//////////////////////////////
 // texts
 //////////////////////////////
 export const CustomText = dynamic(
