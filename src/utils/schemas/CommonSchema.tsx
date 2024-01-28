@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 
-//
 export type ChildrenSchema = {
   children?: ReactNode;
 };
@@ -25,7 +24,7 @@ export type IconSchema = {
 };
 
 export interface CustomImageSchema extends OnClickSchema {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
   width: number | `${number}` | undefined;
   height: number | `${number}` | undefined;
@@ -72,6 +71,13 @@ export interface LinkSchema extends TitleSlugSchema, IconSchema {}
 export interface NestedLinkSchema extends IconSchema, TitleSchema {
   child: LinkSchema[];
 }
+//////////////////////////////
+// sections
+//////////////////////////////
+export type BannerSectionSchema = {
+  imageProps?: CustomImageSchema;
+  divProps?: CustomImageSchema;
+};
 
 //////////////////////////////
 // tags

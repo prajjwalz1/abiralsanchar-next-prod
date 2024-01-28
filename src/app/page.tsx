@@ -3,29 +3,41 @@
 // import { RootLayoutMetadata } from "@/utils/seo/metadatas";
 
 import * as styles from "@/assets/css/styles";
-import { homepage_banner_jpeg } from "@/assets/images";
+import { bank_gif, homepage_banner_jpeg } from "@/assets/images";
+import { BannerSection } from "@/dynamic-imports/components";
 
 // Custom Imports
 import { ReduxProvider } from "@/dynamic-imports/redux-app";
 import HeroArticle from "@/helpers/components-extras/home/HeroArticle";
-import CustomImage from "@/helpers/components/images/CustomImage";
 
 export default function Home() {
   return (
     <ReduxProvider>
       <div className={`${styles.padding_x} divide-y divide-gray-200`}>
         {/* Banner section */}
-        <div className="banner-section py-5">
-          <CustomImage
-            src={homepage_banner_jpeg.src}
-            alt="homepage_banner_jpeg"
-            width={100}
-            height={100}
-          />
-        </div>
+        <BannerSection
+          imageProps={{
+            src: homepage_banner_jpeg.src,
+            alt: "homepage_banner_jpeg",
+            width: 100,
+            height: 100,
+          }}
+        />
 
         {/* Hero section */}
         <HeroArticle />
+        <HeroArticle />
+        <HeroArticle />
+
+        {/* Banner section */}
+        <BannerSection
+          imageProps={{
+            src: bank_gif,
+            alt: "homepage_banner_jpeg",
+            width: 100,
+            height: 100,
+          }}
+        />
       </div>
     </ReduxProvider>
   );

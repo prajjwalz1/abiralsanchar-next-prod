@@ -16,7 +16,9 @@ import {
 } from "@/helpers/hooks/useStoreHooks";
 import { clearIsCurrentNews } from "@/helpers/redux-app/news-portal/_actions";
 import { ArticleSchema } from "@/utils/schemas/ApiSchema";
-import BodyOverlay from "@/helpers/components/sections/BodyOverlay";
+import BodyOverlaySection from "@/helpers/components/sections/BodyOverlaySection";
+import useScrollLock from "@/helpers/hooks/useScrollLock";
+import { useEffect } from "react";
 
 // This component will display individual current news data with a title and image (also will forward to a link)
 const SingleCurrentNews = (props: ArticleSchema) => {
@@ -24,16 +26,20 @@ const SingleCurrentNews = (props: ArticleSchema) => {
   const { title, slug, image1 } = props;
 
   return (
-    <div className="h-[80px] pl-0 md:pl-5 p-5 flex justify-between items-center rounded-md rounded-r-none md:border-r-2 md:border-red-400">
+    <div className="h-[80px] pl-0 md:pl-5 p-2 flex justify-between items-start rounded-md rounded-r-none md:border-r-2 md:border-red-400">
       <div className="flex w-4/5">
-        <CustomText slug={slug} css="line-clamp-2">
+        <CustomText
+          font={`${fonts.slight_para} font-medium`}
+          slug={slug}
+          css="line-clamp-2"
+        >
           {title}
         </CustomText>
       </div>
       <CustomImage
         src={image1!}
-        alt={title}
-        divCss="w-1/5 h-[56px] font-medium"
+        alt={title.slice(0, 18)}
+        divCss={`${fonts.span} font-medium w-1/5 h-[56px]`}
         imgCss="w-full h-full object-cover rounded-md"
         width={40}
         height={40}
@@ -48,12 +54,20 @@ const SingleCurrentNews = (props: ArticleSchema) => {
 export default function CurrentNews() {
   // Redux
   const dispatch = useAppDispatch();
+  const { lockScroll, unlockScroll } = useScrollLock();
   const { header } = useAppSelector((state: RootState) => state.NewsPortal);
 
   // Destructuring variables
   const { latest, trending } = header;
   const { is_latest, latest_data, latest_title } = latest;
   const { is_trending, trending_data, trending_title } = trending;
+
+  // useEffect
+  useEffect(() => {
+    if (is_trending || is_latest) lockScroll();
+
+    return () => unlockScroll();
+  }, [is_latest, is_trending, lockScroll, unlockScroll]);
 
   // Return nothing if the condition is not satisfied
   if (!is_trending && !is_latest) return;
@@ -62,9 +76,15 @@ export default function CurrentNews() {
   const title = is_latest ? latest_title : is_trending ? trending_title : "";
   const data = is_latest ? latest_data : is_trending ? trending_data : [];
 
+  // Css to handle scrollbar
+  const scrollCss =
+    data.length > 6
+      ? "max-h-[calc(400px-80px-50px-24px)] overflow-y-scroll"
+      : "";
+
   return (
     <>
-      <BodyOverlay />
+      <BodyOverlaySection />
       <div
         className={`${styles.padding_x} z-drawer animate-slideDown py-[40px] bg-white absolute top-0 left-0 w-full h-[400px] shadow-md`}
       >
@@ -85,7 +105,9 @@ export default function CurrentNews() {
         </div>
 
         {/* Body section */}
-        <div className="animate-showDown md:fourth-element-padding-0 w-full flex-1 p-3 pl-0 grid grid-cols-1 md:grid-cols-3 max-h-[calc(400px-80px-50px-24px)] overflow-y-scroll">
+        <div
+          className={`${scrollCss} animate-showDown md:fourth-element-padding-0 w-full flex-1 p-3 pl-0 grid grid-cols-1 md:grid-cols-3`}
+        >
           {data?.map((item: ArticleSchema, idx: number) => (
             <SingleCurrentNews key={getUniqueKey(idx, title)} {...item} />
           ))}

@@ -25,8 +25,14 @@ export const Logo = dynamic(() => import("@/helpers/components/images/Logo"), {
 //////////////////////////////
 // Sections
 //////////////////////////////
-export const BodyOverlay = dynamic(
-  () => import("@/helpers/components/sections/BodyOverlay"),
+export const BannerSection = dynamic(
+  () => import("@/helpers/components/sections/BannerSection"),
+  {
+    ssr: false,
+  }
+);
+export const BodyOverlaySection = dynamic(
+  () => import("@/helpers/components/sections/BodyOverlaySection"),
   {
     ssr: false,
   }

@@ -5,15 +5,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 import { CgMenuGridR } from "react-icons/cg";
-import { FaRegNewspaper } from "react-icons/fa";
-import { FiTrendingUp } from "react-icons/fi";
+import { IoTrendingUpOutline } from "react-icons/io5";
+import { PiNewspaperClippingLight } from "react-icons/pi";
 
 // Custom imports
 import * as colors from "@/assets/colors";
 import * as fonts from "@/assets/fonts";
 import * as styles from "@/assets/css/styles";
 import {
-  BodyOverlay,
+  BodyOverlaySection,
   CloseButton,
   CustomImage,
 } from "@/dynamic-imports/components";
@@ -130,7 +130,7 @@ const MobileNavMenu = () => {
         className={`${styles.margin_x} ${styles.nav_icon} lg:hidden`}
       />
 
-      {is_mobile_menu && <BodyOverlay />}
+      {is_mobile_menu && <BodyOverlaySection />}
 
       {is_mobile_menu && (
         <div
@@ -170,13 +170,14 @@ export default function Navbar() {
       <DesktopNavMenu />
       <MobileNavMenu />
       <div
-        className={`${styles.padding_xr} navbar-icons flex items-center gap-5`}
+        className={`${styles.padding_xr} navbar-icons flex items-center gap-3`}
       >
-        <FaRegNewspaper
+        <PiNewspaperClippingLight
           className={styles.nav_icon}
           onClick={() => dispatch(setIsCurrentNews("latest"))}
         />
-        <FiTrendingUp
+
+        <IoTrendingUpOutline
           className={styles.nav_icon}
           onClick={() => dispatch(setIsCurrentNews("trending"))}
         />

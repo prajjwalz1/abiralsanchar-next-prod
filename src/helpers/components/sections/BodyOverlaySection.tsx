@@ -1,6 +1,6 @@
 import { ChildrenSchema } from "@/utils/schemas/CommonSchema";
 
-export default function BodyOverlay(props: ChildrenSchema) {
+export default function BodyOverlaySection(props: ChildrenSchema) {
   // Props
   const { children } = props;
 
