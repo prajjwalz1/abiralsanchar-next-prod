@@ -33,3 +33,7 @@ export const active_border = "border-blue-700";
 // Header / title
 export const header = "text-blue-800";
 export const title = "text-blue-700";
+
+// Dividers
+export const divider = "divider-gray-200";
+export const divider_bg = "bg-gray-200";

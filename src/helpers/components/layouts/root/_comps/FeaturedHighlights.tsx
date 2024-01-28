@@ -5,7 +5,11 @@ import * as styles from "@/assets/css/styles";
 import { RootState, useAppSelector } from "@/helpers/hooks/useStoreHooks";
 import { ArticleSchema } from "@/utils/schemas/ApiSchema";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
-import { CustomImage, CustomText } from "@/dynamic-imports/components";
+import {
+  CustomImage,
+  CustomText,
+  DividerSection,
+} from "@/dynamic-imports/components";
 
 export default function FeaturedHighlights() {
   // Redux
@@ -15,7 +19,7 @@ export default function FeaturedHighlights() {
 
   return (
     <div
-      className={`${styles.padding_xl} featured-higlights w-full h-full flex items-center gap-8 border-b-[1px]`}
+      className={`${styles.width_x} featured-highlights relative thin-scrollbar overflow-x-auto overflow-y-hidden mx-auto flex items-center gap-8`}
     >
       {featured_data?.map(
         ({ title, image1, slug }: ArticleSchema, idx: number) => (
@@ -35,6 +39,7 @@ export default function FeaturedHighlights() {
           </div>
         )
       )}
+      <DividerSection />
     </div>
   );
 }

@@ -20,6 +20,9 @@ const config: Config = {
         },
       },
       zIndex: {
+        minus_100: "-100",
+        minus_10: "-10",
+        minus_1: "-1",
         mobile_stepper: "1000",
         fab: "1050",
         speed_dial: "1050",

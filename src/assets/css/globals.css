@@ -38,3 +38,30 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Thin Scrollbar Start */
+.thin-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  scrollbar-gutter: stable both-edges;
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  border-radius: 2rem;
+  background: #b5b5b5;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: #4339f2;
+  border-radius: 100vh;
+  border: 0.5px solid #6d64e4;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #3d34ee;
+}
+/* Thin Scrollbar End */

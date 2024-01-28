@@ -165,7 +165,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`${fonts.navbar} ${colors.navbar} h-[50px] ${scrollCss} navbar flex justify-between items-center gap-8`}
+      className={`${fonts.navbar} ${colors.navbar} navbar z-drawer h-[50px] ${scrollCss} navbar flex justify-between items-center gap-8`}
     >
       <DesktopNavMenu />
       <MobileNavMenu />

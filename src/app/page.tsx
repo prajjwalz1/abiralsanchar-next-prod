@@ -3,6 +3,7 @@
 // import { RootLayoutMetadata } from "@/utils/seo/metadatas";
 
 import * as styles from "@/assets/css/styles";
+import * as colors from "@/assets/colors";
 import { bank_gif, homepage_banner_jpeg } from "@/assets/images";
 import { BannerSection } from "@/dynamic-imports/components";
 
@@ -13,7 +14,7 @@ import HeroArticle from "@/helpers/components-extras/home/HeroArticle";
 export default function Home() {
   return (
     <ReduxProvider>
-      <div className={`${styles.padding_x} divide-y divide-gray-200`}>
+      <div className={`${styles.padding_x} ${colors.divider} divide-y`}>
         {/* Banner section */}
         <BannerSection
           imageProps={{

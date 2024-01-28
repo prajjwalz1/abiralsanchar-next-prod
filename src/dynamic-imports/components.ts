@@ -37,6 +37,12 @@ export const BodyOverlaySection = dynamic(
     ssr: false,
   }
 );
+export const DividerSection = dynamic(
+  () => import("@/helpers/components/sections/DividerSection"),
+  {
+    ssr: false,
+  }
+);
 
 //////////////////////////////
 // Layouts
