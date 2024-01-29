@@ -1,4 +1,5 @@
 import * as colors from "@/assets/colors";
+import * as fonts from "@/assets/fonts";
 import * as styles from "@/assets/css/styles";
 import {
   footer_end_items,
@@ -54,17 +55,17 @@ const Footer = () => {
             ({ label, icon, value }: OptionSchema, idx: number) => {
               const isCopyright = label === "copyright";
               const newLabel = isCopyright ? icon : label;
-              const valueCss = "text-sm";
+              const font = fonts.getFont("span");
               return (
                 <div
                   key={getUniqueKey(idx, value)}
                   className="px-2.5 flex flex-col gap-1 justify-between h-full border-l-[1px] border-l-gray-400"
                 >
                   <div className="">
-                    <CustomText>{newLabel}</CustomText>
+                    <CustomText font={font}>{newLabel}</CustomText>
                   </div>
-                  <div className={valueCss}>
-                    <CustomText>{value}</CustomText>
+                  <div>
+                    <CustomText font={font}>{value}</CustomText>
                   </div>
                 </div>
               );

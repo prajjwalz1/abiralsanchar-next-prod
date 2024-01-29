@@ -1,9 +1,16 @@
-import { Khand, Mukta } from "next/font/google";
+/** @type {import('tailwindcss').Config} */
+import defaultTheme from "tailwindcss/defaultTheme";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
+    screens: {
+      "3xs": "175px",
+      "2xs": "300px",
+      xs: "475px",
+      ...defaultTheme.screens,
+    },
     extend: {
       // backgroundImage: {
       //   'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

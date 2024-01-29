@@ -1,6 +1,22 @@
 import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 
+//
+export type FontSizeSchema =
+  | "main_title"
+  | "title"
+  | "sub_title"
+  | "heading"
+  | "sub_heading"
+  | "large"
+  | "body"
+  | "paragraph"
+  | "slight_para"
+  | "span"
+  | "small";
+
+export type FontWeightSchema = "normal" | "medium" | "semi_bold" | "bold";
+
 export type ChildrenSchema = {
   children?: ReactNode;
 };

@@ -13,12 +13,12 @@ export default function HeroArticle() {
 
       <div className="flex flex-col items-center gap-1">
         {/* Title of the article section */}
-        <CustomText font={fonts.title_bold}>
+        <CustomText font={fonts.getFont("title", "bold")}>
           मधेश सरकार छाडेको जनमत आन्दोलनको मुडमा
         </CustomText>
 
         {/* Author details for the article */}
-        <div className="author-details w-full flex justify-center items-center gap-6">
+        <div className="author-details w-full flex justify-between sm:justify-center items-center gap-1.5 sm:gap-6">
           <div className="flex items-center gap-1.5">
             <CustomImage
               src={

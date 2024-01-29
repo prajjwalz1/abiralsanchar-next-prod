@@ -16,6 +16,7 @@ import {
   BodyOverlaySection,
   CloseButton,
   CustomImage,
+  CustomText,
 } from "@/dynamic-imports/components";
 import useScrollLock from "@/helpers/hooks/useScrollLock";
 import {
@@ -73,16 +74,14 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
         />
       )}
       {nav_items?.map(({ title, slug }: LinkSchema, idx: number) => (
-        <Link
-          key={getUniqueKey(idx, title)}
-          href={slug!}
-          className={styles.getActiveLink(
-            slug === pathname,
-            colors.sky,
-            isFlag
-          )}
-        >
-          {title}
+        <Link key={getUniqueKey(idx, title)} href={slug!}>
+          <CustomText
+            font={fonts.getFont("sub_heading", "bold")}
+            css={styles.getActiveLink(slug === pathname, colors.sky, isFlag)}
+            isKhand
+          >
+            {title}
+          </CustomText>
         </Link>
       ))}
     </div>

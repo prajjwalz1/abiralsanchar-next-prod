@@ -29,7 +29,7 @@ const SingleCurrentNews = (props: ArticleSchema) => {
     <div className="h-[80px] pl-0 md:pl-5 p-2 flex justify-between items-start rounded-md rounded-r-none md:border-r-2 md:border-red-400">
       <div className="flex w-4/5">
         <CustomText
-          font={`${fonts.slight_para} font-medium`}
+          font={fonts.getFont("slight_para")}
           slug={slug}
           css="line-clamp-2"
         >
@@ -93,7 +93,9 @@ export default function CurrentNews() {
           className={`${colors.normal_border} animate-showDown bg red-300 w-full h-[50px] flex justify-between items-center border-b-[1px]`}
         >
           <CustomText
-            font={`${fonts.sub_title_bold} h-full ${colors.title} ${colors.active_border} border-b-[3px]`}
+            font={`${fonts.getFont("sub_title", "bold")} h-full ${
+              colors.title
+            } ${colors.active_border} border-b-[3px]`}
             isKhand
           >
             {title}
