@@ -10,17 +10,8 @@ import {
   CustomText,
   TimeCard,
 } from "@/dynamic-imports/components";
+import { PosterImageSchema } from "@/utils/schemas/ComponentsSchema";
 import { useState } from "react";
-
-export type PosterImageSchema = {
-  tag?: string;
-  title: string;
-  time?: string;
-  titleFont?: string;
-  timeFont?: string;
-  isTransparent?: boolean;
-  isZoomable?: boolean;
-};
 
 export default function PosterImage(props: PosterImageSchema) {
   // Props
@@ -31,8 +22,7 @@ export default function PosterImage(props: PosterImageSchema) {
   const [zoomImg, setZoomImg] = useState("");
 
   // Css variables
-
-  const newTitleFont = titleFont ?? fonts.getFont("main_title", "extra_bold");
+  const newTitleFont = titleFont ?? fonts.getFont("sub_title", "extra_bold");
   const newTimeFont = timeFont ?? fonts.getFont("slight_para");
   const color = colors.white;
   const zoom = isZoomable ? zoomImg : "";

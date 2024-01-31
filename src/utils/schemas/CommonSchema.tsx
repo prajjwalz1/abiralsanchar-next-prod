@@ -29,12 +29,28 @@ export type ChildrenSchema = {
   children?: ReactNode;
 };
 
+export type InfoPlacingSchema = {
+  info_placing?: string;
+};
+
 export type ColorSchema = {
   color?: string;
 };
 
+export type TimeSchema = {
+  time?: string;
+};
+
 export type TitleSchema = {
   title?: string;
+};
+
+export type TitleLineClampSchema = {
+  titleLineClamp?: number;
+};
+
+export type DescriptionSchema = {
+  description?: string;
 };
 
 export type FontSchema = {
@@ -70,6 +86,10 @@ export interface CustomImageSchema extends OnClickSchema {
   blurDataURL?: string;
   onClick?: () => void;
 }
+
+export type ImageArrSchema = {
+  imgList: CustomImageSchema[];
+};
 
 export type ImagesSchema = {
   img: CustomImageSchema;

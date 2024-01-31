@@ -11,6 +11,7 @@ export default function MiniUpdatesSection() {
     slug: "/ठमेलको होटल",
     image1:
       "https://www.onlinekhabar.com/wp-content/uploads/2023/12/arrested-teacher.jpg",
+    time: "८ घन्टा अगाडि",
   };
 
   // Css

@@ -23,14 +23,17 @@ const Footer = () => {
       >
         {footer_menu_items.map(
           ({ title, child }: NestedLinkSchema, idx: number) => (
-            <div key={getUniqueKey(idx, title)} className="flex flex-col gap-4">
+            <div
+              key={getUniqueKey(idx, title!)}
+              className="flex flex-col gap-4"
+            >
               <CustomText isKhand isHeaderColor isSubHeading>
                 {title}
               </CustomText>
 
               <div className="pb-10 flex flex-col gap-1">
                 {child.map(({ title, slug }: LinkSchema, idx: number) => (
-                  <Link key={getUniqueKey(idx, title)} href={slug!}>
+                  <Link key={getUniqueKey(idx, title!)} href={slug!}>
                     <CustomText isLinkColor>{title}</CustomText>
                   </Link>
                 ))}
@@ -40,7 +43,7 @@ const Footer = () => {
         )}
       </div>
       <div
-        className={`${colors.footer_end} ${styles.padding_x} footer-end py-10 flex-1 flex flex-col xl:flex-row gap-5 xl:gap-1`}
+        className={`${colors.light_gray_bg} ${styles.padding_x} footer-end py-10 flex-1 flex flex-col xl:flex-row gap-5 xl:gap-1`}
       >
         <div className="logo">
           <Logo />

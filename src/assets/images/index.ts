@@ -8,6 +8,10 @@ export { default as next_svg } from "./common/next.svg";
 export { default as ad_kmc_gif } from "./homepage/ad_kmc_gif.gif";
 export { default as ad_kbc_gif } from "./homepage/ad_kbc_gif.gif";
 export { default as ad_tata_jpg } from "./homepage/ad_tata_jpg.jpg";
+export { default as ad_krishi_gif } from "./homepage/ad_krishi_gif.gif";
+export { default as ad_muktinath_gif } from "./homepage/ad_muktinath_gif.gif";
+export { default as ad_nepal_airlines_gif } from "./homepage/ad_nepal_airlines_gif.gif";
+export { default as ad_shangrila_gif } from "./homepage/ad_shangrila_gif.gif";
 
 // banners
 export { default as banner_bank_gif } from "./homepage/banner_bank_gif.gif";

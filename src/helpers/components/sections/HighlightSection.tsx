@@ -1,8 +1,9 @@
-import { MiniUpdatesSection, PosterImage } from "@/dynamic-imports/components";
-import CustomImage from "../images/CustomImage";
-import { CustomImageSchema } from "@/utils/schemas/CommonSchema";
-import { getUniqueKey } from "@/utils/methods/stringMethods";
-import { highlightAds } from "@/utils/constants/homepage-constants";
+import {
+  AdsSection,
+  MiniUpdatesSection,
+  PosterImage,
+} from "@/dynamic-imports/components";
+import { adsSection } from "@/utils/constants/homepage-constants";
 
 export default function HighlightSection() {
   return (
@@ -16,16 +17,7 @@ export default function HighlightSection() {
 
       <MiniUpdatesSection />
 
-      <div className="hidden lg:flex lg:flex-col lg:gap-4 lg:justify-between">
-        {highlightAds.map((item: CustomImageSchema, idx: number) => (
-          <CustomImage
-            key={getUniqueKey(idx, item.alt)}
-            {...item}
-            divCss="w-full h-[155px] bg-red-300 rounded-md"
-            imgCss="w-full h-full object-cover rounded-md"
-          />
-        ))}
-      </div>
+      <AdsSection imgList={adsSection.highlights} />
     </div>
   );
 }

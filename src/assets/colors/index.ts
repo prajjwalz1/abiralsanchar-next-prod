@@ -26,7 +26,7 @@ export const close_icon = `${near_black} hover:text-red-500`;
 
 // Footer
 export const footer = "bg-slate-100";
-export const footer_end = "bg-gray-200";
+export const light_gray_bg = "bg-gray-200";
 
 // Status
 export const warning = "bg-red-600 hover:bg-red-700";

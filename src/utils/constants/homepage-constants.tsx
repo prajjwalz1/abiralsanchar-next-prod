@@ -33,23 +33,75 @@ export const banners = [
   },
 ];
 
-export const highlightAds = [
-  {
-    src: images.ad_kbc_gif,
-    alt: "ad_kbc_gif",
-    width: 100,
-    height: 100,
-  },
-  {
-    src: images.ad_kmc_gif,
-    alt: "ad_kmc_gif",
-    width: 100,
-    height: 100,
-  },
-  {
-    src: images.ad_tata_jpg,
-    alt: "ad_tata_jpg",
-    width: 100,
-    height: 100,
-  },
-];
+export const adsSection = {
+  highlights: [
+    {
+      src: images.ad_kbc_gif,
+      alt: "ad_kbc_gif",
+      width: 100,
+      height: 100,
+    },
+    {
+      src: images.ad_kmc_gif,
+      alt: "ad_kmc_gif",
+      width: 100,
+      height: 100,
+    },
+    {
+      src: images.ad_tata_jpg,
+      alt: "ad_tata_jpg",
+      width: 100,
+      height: 100,
+    },
+  ],
+  news: [
+    {
+      src: images.ad_krishi_gif,
+      alt: "ad_krishi_gif",
+      width: 100,
+      height: 100,
+    },
+    {
+      src: images.ad_muktinath_gif,
+      alt: "ad_muktinath_gif",
+      width: 100,
+      height: 100,
+    },
+    {
+      src: images.ad_nepal_airlines_gif,
+      alt: "ad_nepal_airlines_gif",
+      width: 100,
+      height: 100,
+    },
+    {
+      src: images.ad_shangrila_gif,
+      alt: "ad_shangrila_gif",
+      width: 100,
+      height: 100,
+    },
+    {
+      src: images.ad_krishi_gif,
+      alt: "ad_krishi_gif",
+      width: 100,
+      height: 100,
+    },
+    {
+      src: images.ad_muktinath_gif,
+      alt: "ad_muktinath_gif",
+      width: 100,
+      height: 100,
+    },
+    {
+      src: images.ad_nepal_airlines_gif,
+      alt: "ad_nepal_airlines_gif",
+      width: 100,
+      height: 100,
+    },
+    {
+      src: images.ad_shangrila_gif,
+      alt: "ad_shangrila_gif",
+      width: 100,
+      height: 100,
+    },
+  ],
+};

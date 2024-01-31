@@ -15,6 +15,10 @@ export const CloseButton = dynamic(
 //////////////////////////////
 // cards
 //////////////////////////////
+export const DescriptionCard = dynamic(
+  () => import("@/helpers/components/cards/DescriptionCard"),
+  { ssr: false }
+);
 export const MediaCard = dynamic(
   () => import("@/helpers/components/cards/MediaCard"),
   { ssr: false }
@@ -46,6 +50,12 @@ export const PosterImage = dynamic(
 //////////////////////////////
 // Sections
 //////////////////////////////
+export const AdsSection = dynamic(
+  () => import("@/helpers/components/sections/AdsSection"),
+  {
+    ssr: false,
+  }
+);
 export const BannerSection = dynamic(
   () => import("@/helpers/components/sections/BannerSection"),
   {
