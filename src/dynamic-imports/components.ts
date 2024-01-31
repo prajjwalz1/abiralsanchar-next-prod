@@ -3,6 +3,10 @@ import dynamic from "next/dynamic";
 //////////////////////////////
 // Buttons
 //////////////////////////////
+export const Button = dynamic(
+  () => import("@/helpers/components/buttons/Button"),
+  { ssr: false }
+);
 export const CloseButton = dynamic(
   () => import("@/helpers/components/buttons/CloseButton"),
   { ssr: false }

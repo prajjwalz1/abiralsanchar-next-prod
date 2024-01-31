@@ -55,7 +55,7 @@ const Footer = () => {
             ({ label, icon, value }: OptionSchema, idx: number) => {
               const isCopyright = label === "copyright";
               const newLabel = isCopyright ? icon : label;
-              const font = fonts.getFont("span");
+              const font = fonts.getFont("slight_para");
               return (
                 <div
                   key={getUniqueKey(idx, value)}

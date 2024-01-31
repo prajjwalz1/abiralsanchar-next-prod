@@ -14,7 +14,7 @@ export default function MediaCard(props: MediaCardSchema) {
   const titleCss = `${fonts.slight_large_line_height} line-clamp-3 cursor-pointer tracking-wide`;
 
   return (
-    <div className="h-[80px] flex gap-3 justify-between items-start rounded-sm">
+    <div className="h-[84px] flex gap-3 justify-between items-start rounded-sm">
       <CustomImage
         src={image1!}
         alt={title.slice(0, 18)}

@@ -1,8 +1,12 @@
 import { MiniUpdatesSection, PosterImage } from "@/dynamic-imports/components";
+import CustomImage from "../images/CustomImage";
+import { CustomImageSchema } from "@/utils/schemas/CommonSchema";
+import { getUniqueKey } from "@/utils/methods/stringMethods";
+import { highlightAds } from "@/utils/constants/homepage-constants";
 
 export default function HighlightSection() {
   return (
-    <div className="relative w-full py-5 h-full grid grid-cols-3 gap-6">
+    <div className="relative w-full py-5 h-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <PosterImage
         title="गोरहा र बालापन"
         time="४९ मिनेट अगाडि"
@@ -12,14 +16,16 @@ export default function HighlightSection() {
 
       <MiniUpdatesSection />
 
-      <div className="bg-green-400">dfMini</div>
-      {/* <CustomImage
-        src="https://www.onlinekhabar.com/wp-content/uploads/2024/01/taapsee-pannu-bhumi-pednekar-in-saand-ki-aankh-main.jpg"
-        alt="some alt"
-        divCss="absolute "
-        width={100}
-        height={100}
-      /> */}
+      <div className="hidden lg:flex lg:flex-col lg:gap-4">
+        {highlightAds.map((item: CustomImageSchema, idx: number) => (
+          <CustomImage
+            key={getUniqueKey(idx, item.alt)}
+            {...item}
+            divCss="w-full h-2/6 bg-red-300 rounded-md"
+            imgCss="w-full h-full object-cover rounded-md"
+          />
+        ))}
+      </div>
     </div>
   );
 }

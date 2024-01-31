@@ -29,8 +29,11 @@ export const footer = "bg-slate-100";
 export const footer_end = "bg-gray-200";
 
 // Status
+export const warning = "bg-red-600 hover:bg-red-700";
 export const danger = "bg-red-400";
 export const danger_icon_button = "text-black hover:text-red-500";
+export const warning_button = `${warning} transition-all`;
+export const warning_button_color = "text-white hover:text-yellow-600";
 
 // Border color
 export const normal_border = "border-gray-400";
