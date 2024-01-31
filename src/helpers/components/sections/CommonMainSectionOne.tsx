@@ -12,15 +12,17 @@ export default function CommonMainSectionOne(
   // Props
   const { bannerImg, posterImg, imgList } = props;
 
-  <>
-    <BannerImage imageProps={bannerImg} />
+  return (
+    <>
+      <BannerImage imageProps={bannerImg} />
 
-    <div className="relative w-full py-5 h-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[360px_1fr_280px] gap-6">
-      <PosterImage {...posterImg} />
+      <div className="relative w-full py-5 h-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[360px_1fr_280px] gap-6">
+        <PosterImage {...posterImg} />
 
-      <MiniUpdatesSection />
+        <MiniUpdatesSection />
 
-      <AdsSection imgList={imgList} />
-    </div>
-  </>;
+        <AdsSection imgList={imgList} />
+      </div>
+    </>
+  );
 }

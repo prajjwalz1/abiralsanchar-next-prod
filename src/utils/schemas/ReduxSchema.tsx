@@ -51,7 +51,7 @@ export type CommonApiSchema = {
   isRejected?: boolean;
 };
 export interface HomepageIDSchema extends CommonApiSchema {
-  successResponse?: GetHomepageResponseSchema | {};
+  successResponse: GetHomepageResponseSchema;
   testResponse?: GetHomepageResponseSchema;
   errorResponse?: any | {};
 }

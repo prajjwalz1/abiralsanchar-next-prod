@@ -5,7 +5,7 @@ export default function LogoImage() {
     <CustomImage
       src="/image/logo_full.png"
       alt="logo_full"
-      divCss="w-[172px] h-full"
+      divCss="w-[156px] h-9/12"
       width={100}
       height={100}
     />

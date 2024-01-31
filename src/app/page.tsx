@@ -5,10 +5,8 @@ import * as styles from "@/assets/css/styles";
 import * as colors from "@/assets/colors";
 
 import {
-  BusinessSection,
-  HeroSection,
+  FeaturedSection,
   HighlightSection,
-  SamacharSection,
 } from "@/dynamic-imports/components";
 
 // Custom Imports
@@ -18,10 +16,8 @@ export default function Home() {
   return (
     <ReduxProvider>
       <div className={`${styles.padding_x} ${colors.divider} divide-y`}>
-        <HeroSection />
+        <FeaturedSection />
         <HighlightSection />
-        <SamacharSection />
-        <BusinessSection />
       </div>
     </ReduxProvider>
   );

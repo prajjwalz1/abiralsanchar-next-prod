@@ -107,8 +107,8 @@ export const BusinessSection = dynamic(
   () => import("@/helpers/components/sections/main/BusinessSection"),
   { ssr: false }
 );
-export const HeroSection = dynamic(
-  () => import("@/helpers/components/sections/main/HeroSection"),
+export const FeaturedSection = dynamic(
+  () => import("@/helpers/components/sections/main/FeaturedSection"),
   { ssr: false }
 );
 export const HighlightSection = dynamic(
