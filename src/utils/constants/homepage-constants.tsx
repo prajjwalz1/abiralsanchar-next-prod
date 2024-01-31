@@ -1,37 +1,43 @@
 import * as images from "@/assets/images";
 
-export const banners = [
-  {
+export const banners = {
+  hero_section: {
     src: images.banner_bank_gif,
     alt: "banner_bank_gif",
     width: 100,
     height: 100,
   },
-  {
+  highlight_section: {
+    src: images.banner_bank_gif,
+    alt: "banner_bank_gif",
+    width: 100,
+    height: 100,
+  },
+  samachar_section: {
     src: images.banner_bhatbhateni_jpeg.src,
     alt: "banner_bhatbhateni_jpeg",
     width: 100,
     height: 100,
   },
-  {
+  business_section: {
     src: images.banner_hotel_yak_gif,
     alt: "banner_hotel_yak_gif",
     width: 100,
     height: 100,
   },
-  {
-    src: images.banner_nmb_visa_gif,
-    alt: "banner_nmb_visa_gif",
-    width: 100,
-    height: 100,
-  },
-  {
-    src: images.banner_nt_fiber_gif,
-    alt: "banner_nt_fiber_gif",
-    width: 100,
-    height: 100,
-  },
-];
+  // {
+  //   src: images.banner_nmb_visa_gif,
+  //   alt: "banner_nmb_visa_gif",
+  //   width: 100,
+  //   height: 100,
+  // },
+  // {
+  //   src: images.banner_nt_fiber_gif,
+  //   alt: "banner_nt_fiber_gif",
+  //   width: 100,
+  //   height: 100,
+  // },
+};
 
 export const adsSection = {
   highlights: [
