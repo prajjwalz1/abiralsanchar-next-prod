@@ -24,9 +24,17 @@ export type ChildrenSchema = {
 export type TitleSchema = {
   title: string;
 };
+
+export type FontSchema = {
+  font?: string;
+};
+
 export type SlugSchema = {
   slug?: string;
 };
+
+export interface TitleFontSchema extends TitleSchema, FontSchema, CssSchema {}
+
 export interface TitleSlugSchema extends TitleSchema, SlugSchema {}
 
 export type OnClickSchema = {
@@ -111,8 +119,8 @@ export type CustomTagSchema = {
 export interface CustomTextSchema
   extends ChildrenSchema,
     CssSchema,
-    SlugSchema {
-  font?: string;
+    SlugSchema,
+    FontSchema {
   isLink?: boolean;
   isKhand?: boolean;
 }

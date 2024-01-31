@@ -5,7 +5,7 @@ import * as styles from "@/assets/css/styles";
 import { Logo } from "@/dynamic-imports/components";
 import { FlagSchema } from "@/utils/schemas/CommonSchema";
 
-export default function LogoSection(props: FlagSchema) {
+export default function RootLayoutLogo(props: FlagSchema) {
   // Props
   const { isFlag } = props;
 

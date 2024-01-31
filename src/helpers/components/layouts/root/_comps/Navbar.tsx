@@ -28,7 +28,7 @@ import { setMobileNavPopuup } from "@/helpers/redux-app/common/_actions";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
 import { LinkSchema } from "@/utils/schemas/CommonSchema";
 import { CommonNavMenuSchema } from "@/utils/schemas/LayoutSchema";
-import LogoSection from "./LogoSection";
+import RootLayoutLogo from "./RootLayoutLogo";
 import CurrentNews from "./CurrentNews";
 import { setIsCurrentNews } from "@/helpers/redux-app/news-portal/_actions";
 import useCustomScroll from "@/helpers/hooks/useCustomScroll";
@@ -136,7 +136,7 @@ const MobileNavMenu = () => {
           className={`${styles.padding_x} ${styles.logo_padding_y} z-drawer fixed top-0 left-0 bg-white min-h-screen min-w-[280px] flex flex-col gap-3`}
         >
           <CloseButton onClick={() => dispatch(setMobileNavPopuup(false))} />
-          <LogoSection isFlag />
+          <RootLayoutLogo isFlag />
           <CommonNavMenu
             css="mobile-navbar-menu flex flex-col lg:hidden gap-3"
             isFlag

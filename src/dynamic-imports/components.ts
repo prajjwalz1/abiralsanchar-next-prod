@@ -9,6 +9,18 @@ export const CloseButton = dynamic(
 );
 
 //////////////////////////////
+// cards
+//////////////////////////////
+export const MediaCard = dynamic(
+  () => import("@/helpers/components/cards/MediaCard"),
+  { ssr: false }
+);
+export const TimeCard = dynamic(
+  () => import("@/helpers/components/cards/TimeCard"),
+  { ssr: false }
+);
+
+//////////////////////////////
 // Images
 //////////////////////////////
 export const CustomImage = dynamic(
@@ -17,10 +29,15 @@ export const CustomImage = dynamic(
     ssr: false,
   }
 );
-
 export const Logo = dynamic(() => import("@/helpers/components/images/Logo"), {
   ssr: false,
 });
+export const PosterImage = dynamic(
+  () => import("@/helpers/components/images/PosterImage"),
+  {
+    ssr: false,
+  }
+);
 
 //////////////////////////////
 // Sections
@@ -43,6 +60,14 @@ export const DividerSection = dynamic(
     ssr: false,
   }
 );
+export const HighlightSection = dynamic(
+  () => import("@/helpers/components/sections/HighlightSection"),
+  { ssr: false }
+);
+export const MiniUpdatesSection = dynamic(
+  () => import("@/helpers/components/sections/MiniUpdatesSection"),
+  { ssr: false }
+);
 
 //////////////////////////////
 // Layouts
@@ -62,9 +87,9 @@ export const FeaturedHighlights = dynamic(
   { ssr: false }
 );
 
-// LogoSection
-export const LogoSection = dynamic(
-  () => import("@/helpers/components/layouts/root/_comps/LogoSection"),
+// RootLayoutLogo
+export const RootLayoutLogo = dynamic(
+  () => import("@/helpers/components/layouts/root/_comps/RootLayoutLogo"),
   { ssr: false }
 );
 
