@@ -1,5 +1,5 @@
 // Assets
-import { warning_button, warning_button_color } from "@/assets/colors";
+import { warning_button } from "@/assets/colors";
 import * as fonts from "@/assets/fonts";
 
 import { Button, MediaCard } from "@/dynamic-imports/components";

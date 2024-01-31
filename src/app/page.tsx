@@ -12,18 +12,17 @@ export default function Home() {
   return (
     <ReduxProvider>
       <div className={`${styles.padding_x} ${colors.divider} divide-y`}>
-        {/* Banner section */}
         <BannerSection imageProps={banners[0]} />
 
-        {/* Hero section */}
         <HeroArticle />
         <HeroArticle />
         <HeroArticle />
 
-        {/* Banner section */}
         <BannerSection imageProps={banners[1]} />
 
         <HighlightSection />
+
+        <BannerSection imageProps={banners[2]} />
       </div>
     </ReduxProvider>
   );
