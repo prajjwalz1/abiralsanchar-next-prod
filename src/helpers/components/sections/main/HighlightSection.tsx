@@ -1,28 +1,19 @@
-import {
-  AdsSection,
-  BannerImage,
-  MiniUpdatesSection,
-  PosterImage,
-} from "@/dynamic-imports/components";
+import { CommonMainSectionOne } from "@/dynamic-imports/components";
 import { ads_section, banners } from "@/utils/constants/homepage-constants";
 
 export default function HighlightSection() {
-  return (
-    <>
-      <BannerImage imageProps={banners.highlight_section} />
+  // Variables
+  const bannerImg = banners.highlight_section;
+  const posterImg = {
+    title: "गोरहा र बालापन",
+    time: "४९ मिनेट अगाडि",
+    isTransparent: true,
+    isZoomable: true,
+  };
+  const imgList = ads_section.highlights;
 
-      <div className="relative w-full py-5 h-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[360px_1fr_280px] gap-6">
-        <PosterImage
-          title="गोरहा र बालापन"
-          time="४९ मिनेट अगाडि"
-          isTransparent
-          isZoomable
-        />
+  // Custom props
+  const highlightProps = { bannerImg, posterImg, imgList };
 
-        <MiniUpdatesSection />
-
-        <AdsSection imgList={ads_section.highlights} />
-      </div>
-    </>
-  );
+  return <CommonMainSectionOne {...highlightProps} />;
 }

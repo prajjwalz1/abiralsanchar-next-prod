@@ -91,8 +91,12 @@ export type ImageArrSchema = {
   imgList: CustomImageSchema[];
 };
 
-export type ImagesSchema = {
+export type ImageSchema = {
   img: CustomImageSchema;
+};
+
+export type BannerImgSchema = {
+  bannerImg: CustomImageSchema;
 };
 
 //////////////////////////////
@@ -190,4 +194,4 @@ export type HandleActionSchema = {
 };
 
 // Title and Image
-export interface LinkImageSchema extends LinkSchema, ImagesSchema {}
+export interface LinkImageSchema extends LinkSchema, ImageSchema {}

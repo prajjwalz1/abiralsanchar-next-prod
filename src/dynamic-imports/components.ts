@@ -91,6 +91,10 @@ export const CommonMainSection = dynamic(
   () => import("@/helpers/components/sections/CommonMainSection"),
   { ssr: false }
 );
+export const CommonMainSectionOne = dynamic(
+  () => import("@/helpers/components/sections/CommonMainSectionOne"),
+  { ssr: false }
+);
 export const MiniUpdatesSection = dynamic(
   () => import("@/helpers/components/sections/MiniUpdatesSection"),
   { ssr: false }

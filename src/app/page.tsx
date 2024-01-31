@@ -1,6 +1,9 @@
 "use client";
+
+// Assets
 import * as styles from "@/assets/css/styles";
 import * as colors from "@/assets/colors";
+
 import {
   BusinessSection,
   HeroSection,

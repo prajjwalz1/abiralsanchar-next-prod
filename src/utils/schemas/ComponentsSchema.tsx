@@ -14,7 +14,8 @@ import {
   TitleFontSchema,
   TitleLineClampSchema,
   TitleSchema,
-  CustomImageSchema,
+  BannerImgSchema,
+  ImageArrSchema,
 } from "./CommonSchema";
 
 //////////////////////////////
@@ -67,9 +68,14 @@ export interface PosterImageSchema extends TitleSchema, TimeSchema {
 }
 
 // sections
-export interface CommonMainSectionSchema extends TitleSchema {
-  bannerImg: CustomImageSchema;
+export interface CommonMainSectionSchema extends TitleSchema, BannerImgSchema {
   descProps: DescriptionCardSchema;
   newsChildren: ReactNode;
   highlightChildren: ReactNode;
+}
+
+export interface CommonMainSectionOneSchema
+  extends BannerImgSchema,
+    ImageArrSchema {
+  posterImg: PosterImageSchema;
 }
