@@ -1,4 +1,6 @@
 import {
+  ChildrenSchema,
+  ColorSchema,
   CssSchema,
   FlagSchema,
   FontSchema,
@@ -14,4 +16,7 @@ export interface TimeCardSchema
   extends CssSchema,
     TitleSchema,
     FontSchema,
+    ColorSchema,
     FlagSchema {}
+
+export interface BodyOverlaySectionSchema extends ChildrenSchema, CssSchema {}

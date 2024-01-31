@@ -18,6 +18,9 @@ export const padding_y_small = "py-3 md:py-6 lg:py-12";
 export const logo_padding_y = "py-4";
 export const margin_x = "mx-8 md:mx-16 lg:mx-32";
 
+// Transitions
+export const imgTransition = "transition ease-in-out duration-[900ms]";
+
 //////////////////////////////
 // Active links
 //////////////////////////////

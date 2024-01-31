@@ -22,7 +22,7 @@ export default function CustomTag(props: CustomTagSchema) {
 
   return (
     <div className={className}>
-      <CustomText css="text-white tracking-wide">{title}</CustomText>
+      <CustomText css="text-white">{title}</CustomText>
     </div>
   );
 }

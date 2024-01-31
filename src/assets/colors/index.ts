@@ -8,6 +8,9 @@ export const near_black = "text-[#121212]";
 export const white = "text-white";
 export const near_white = "text-[#e7e7e7]";
 
+// Background
+export const transparent_black_bg = "bg-black/40";
+
 // Links
 export const active_link = "text-blue-500";
 export const hover_link = "hover:text-blue-500";

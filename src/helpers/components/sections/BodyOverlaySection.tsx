@@ -1,11 +1,14 @@
-import { ChildrenSchema } from "@/utils/schemas/CommonSchema";
+import { transparent_black_bg } from "@/assets/colors";
+import { BodyOverlaySectionSchema } from "@/utils/schemas/ComponentsSchema";
 
-export default function BodyOverlaySection(props: ChildrenSchema) {
+export default function BodyOverlaySection(props: BodyOverlaySectionSchema) {
   // Props
-  const { children } = props;
+  const { children, css } = props;
 
   // Css
-  const css = "z-app_bar fixed top-0 left-0 w-screen min-h-screen bg-black/40";
+  const defaultCss = `${transparent_black_bg} top-0 left-0`;
+  const c = css ?? "z-app_bar fixed w-screen min-h-screen";
+  const className = `${defaultCss} ${c}`;
 
-  return <div className={css}>{children}</div>;
+  return <div className={className}>{children}</div>;
 }

@@ -11,7 +11,7 @@ export default function MediaCard(props: MediaCardSchema) {
   const { title, slug, image1 } = props;
 
   // Css
-  const titleCss = `${fonts.slight_large_line_height} line-clamp-3 cursor-pointer`;
+  const titleCss = `${fonts.slight_large_line_height} line-clamp-3 cursor-pointer tracking-wide`;
 
   return (
     <div className="h-[80px] flex gap-3 justify-between items-start rounded-sm">

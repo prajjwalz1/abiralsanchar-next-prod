@@ -48,6 +48,7 @@ export const getFont = (size: FontSizeSchema, weight?: FontWeightSchema) => {
     medium: "font-medium",
     semi_bold: "font-semi-bold",
     bold: "font-bold",
+    extra_bold: "font-extrabold",
   };
 
   const getSize = (key: FontSizeSchema) =>

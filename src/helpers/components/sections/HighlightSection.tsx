@@ -1,11 +1,14 @@
-// import { CustomImage } from "@/dynamic-imports/components";
-
-import { MiniUpdatesSection } from "@/dynamic-imports/components";
+import { MiniUpdatesSection, PosterImage } from "@/dynamic-imports/components";
 
 export default function HighlightSection() {
   return (
     <div className="relative w-full py-5 h-full grid grid-cols-3 gap-6">
-      <div className="bg-green-400">df</div>
+      <PosterImage
+        title="गोरहा र बालापन"
+        time="४९ मिनेट अगाडि"
+        isTransparent
+        isZoomable
+      />
 
       <MiniUpdatesSection />
 

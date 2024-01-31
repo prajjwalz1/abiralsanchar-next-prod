@@ -15,10 +15,19 @@ export type FontSizeSchema =
   | "span"
   | "small";
 
-export type FontWeightSchema = "normal" | "medium" | "semi_bold" | "bold";
+export type FontWeightSchema =
+  | "normal"
+  | "medium"
+  | "semi_bold"
+  | "bold"
+  | "extra_bold";
 
 export type ChildrenSchema = {
   children?: ReactNode;
+};
+
+export type ColorSchema = {
+  color?: string;
 };
 
 export type TitleSchema = {
