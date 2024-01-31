@@ -1,5 +1,8 @@
 // Normal
 export const medium_black = "text-[#5d5d5d]";
+export const gray = "text-gray-400";
+export const light_gray = "text-gray-300";
+export const dark_gray = "text-gray-600";
 export const black = "text-[#000]";
 export const near_black = "text-[#121212]";
 export const white = "text-white";

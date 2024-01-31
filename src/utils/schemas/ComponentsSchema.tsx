@@ -1,4 +1,5 @@
 import {
+  CssSchema,
   FlagSchema,
   FontSchema,
   SlugSchema,
@@ -9,4 +10,8 @@ export interface MediaCardSchema extends TitleSchema, SlugSchema {
   image1: string | null;
 }
 
-export interface TimeCardSchema extends TitleSchema, FontSchema, FlagSchema {}
+export interface TimeCardSchema
+  extends CssSchema,
+    TitleSchema,
+    FontSchema,
+    FlagSchema {}
