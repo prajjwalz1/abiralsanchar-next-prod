@@ -5,8 +5,11 @@ export const light_gray = "text-gray-300";
 export const dark_gray = "text-gray-600";
 export const black = "text-[#000]";
 export const near_black = "text-[#121212]";
+export const hover_red_dark = "hover:text-red-700";
 export const white = "text-white";
 export const near_white = "text-[#e7e7e7]";
+export const hover_near_white = "hover:text-[#e7e7e7]";
+export const hover_orange = "hover:text-orange-400";
 
 // Background
 export const transparent_black_bg = "bg-black/40";
@@ -19,6 +22,7 @@ export const sky = "text-new-blue-sky";
 // Navbar
 export const navbar_link = "hover:text-new-blue-sky";
 export const navbar_bg = "bg-blue-700";
+export const info_bg = "bg-blue-400";
 
 // Icons
 export const icon = "text-white hover:text-new-blue-sky";

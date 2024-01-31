@@ -1,4 +1,4 @@
-import { light_gray_bg } from "@/assets/colors";
+import { hover_link, hover_red_dark, light_gray_bg } from "@/assets/colors";
 import { span } from "@/assets/fonts";
 import { CustomImage, CustomText } from "@/dynamic-imports/components";
 import { DescriptionCardSchema } from "@/utils/schemas/ComponentsSchema";
@@ -8,9 +8,10 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
   const { color, title, slug, image1, description } = props;
 
   // Css
-  const titleCss = `line-clamp-3 cursor-pointer tracking-wide`;
-  const descCss = `line-clamp-6 tracking-wide`;
   const bgColor = color ?? light_gray_bg;
+  const hoverColor = color ? hover_red_dark : hover_link;
+  const titleCss = `${hoverColor} line-clamp-3 cursor-pointer tracking-wide`;
+  const descCss = `line-clamp-6 tracking-wide`;
 
   return (
     <div
@@ -26,7 +27,7 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
         onClick={() => window.open(slug)}
       />
       <div className="flex-1 h-full p-8 flex flex-col justify-center gap-6">
-        <CustomText slug={slug} css={titleCss} isLinkColor isHeading isBold>
+        <CustomText slug={slug} css={titleCss} isHeading isBold>
           {title}
         </CustomText>
 

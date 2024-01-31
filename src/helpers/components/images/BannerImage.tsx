@@ -6,7 +6,7 @@ export default function BannerImage(props: BannerImageSchema) {
   const { imageProps, divProps, css } = props;
 
   return (
-    <div className={css ?? "py-5"}>
+    <div className={css ?? "py-5 rounded-md"}>
       {imageProps && <CustomImage {...imageProps} />}
       {divProps && <div>div</div>}
     </div>

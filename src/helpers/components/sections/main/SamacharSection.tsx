@@ -17,6 +17,7 @@ export default function SamacharSection() {
   const title = "समाचार";
   const bannerImg = banners.samachar_section;
   const descProps = samachar_desc;
+
   const newsChildren = (
     <div className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
       {samachar_children.map((item: MediaCardSchema, idx: number) => (
@@ -24,6 +25,7 @@ export default function SamacharSection() {
       ))}
     </div>
   );
+
   const highlightChildren = <AdsSection imgList={ads_section.news} />;
 
   // Custom Props

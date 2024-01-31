@@ -1,6 +1,7 @@
 import {
   AdsSection,
   BannerImage,
+  BoardSection,
   CommonMainSection,
   MediaCard,
 } from "@/dynamic-imports/components";
@@ -9,7 +10,7 @@ import {
   banners,
   business_children_1,
   business_children_2,
-  samachar_desc,
+  business_desc,
 } from "@/utils/constants/homepage-constants";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
 import { MediaCardSchema } from "@/utils/schemas/ComponentsSchema";
@@ -18,17 +19,19 @@ export default function BusinessSection() {
   // Variables
   const title = "विजनेस";
   const bannerImg = banners.business_section[0];
-  const descProps = samachar_desc;
+  const descProps = business_desc;
+  const bannerCss = { css: "pt-6 rounded-md" };
+
   const newsChildren = (
-    <div className="bg-green-300">
-      <BannerImage imageProps={banners.business_section[1]} css="" />
+    <div className="">
+      <BannerImage imageProps={banners.business_section[1]} {...bannerCss} />
       <div className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
         {business_children_1.map((item: MediaCardSchema, idx: number) => (
           <MediaCard key={getUniqueKey(idx, item.title!)} {...item} />
         ))}
       </div>
 
-      <BannerImage imageProps={banners.business_section[2]} css="" />
+      <BannerImage imageProps={banners.business_section[2]} {...bannerCss} />
       <div className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
         {business_children_2.map((item: MediaCardSchema, idx: number) => (
           <MediaCard key={getUniqueKey(idx, item.title!)} {...item} />
@@ -36,10 +39,11 @@ export default function BusinessSection() {
       </div>
     </div>
   );
-  const highlightChildren = <AdsSection imgList={ads_section.news} />;
+
+  const highlightChildren = <BoardSection />;
 
   // Custom Props
-  const samacharProps = {
+  const businessProps = {
     title,
     bannerImg,
     descProps,
@@ -47,5 +51,5 @@ export default function BusinessSection() {
     highlightChildren,
   };
 
-  return <CommonMainSection {...samacharProps} />;
+  return <CommonMainSection {...businessProps} />;
 }

@@ -1,4 +1,7 @@
+// assets
+import * as colors from "@/assets/colors";
 import * as images from "@/assets/images";
+
 import {
   DescriptionCardSchema,
   MediaCardSchema,
@@ -31,22 +34,22 @@ export const banners = {
       src: images.banner_hotel_yak_gif,
       alt: "banner_hotel_yak_gif",
       divCss: "h-[100px]",
-      width: 100,
-      height: 100,
+      width: 80,
+      height: 80,
     },
     {
       src: images.banner_nmb_visa_gif,
       alt: "banner_nmb_visa_gif",
-      divCss: "h-[100px]",
-      width: 100,
-      height: 100,
+      divCss: "h-[80px]",
+      width: 80,
+      height: 80,
     },
     {
       src: images.banner_nt_fiber_gif,
       alt: "banner_nt_fiber_gif",
-      divCss: "h-[100px]",
-      width: 100,
-      height: 100,
+      divCss: "h-[80px]",
+      width: 80,
+      height: 80,
     },
   ],
 };
@@ -313,6 +316,7 @@ export const business_desc: DescriptionCardSchema = {
   slug: "/ठमेलको होटल",
   image1:
     "https://www.onlinekhabar.com/wp-content/uploads/2024/01/bombahadur-mishra-768x428.jpg",
+  color: colors.info_bg,
 };
 
 export const business_children_1: MediaCardSchema[] = [
