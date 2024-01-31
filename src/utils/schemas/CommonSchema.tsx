@@ -131,10 +131,10 @@ export interface NestedLinkSchema extends IconSchema, TitleSchema {
 //////////////////////////////
 // sections
 //////////////////////////////
-export type BannerImageSchema = {
+export interface BannerImageSchema extends CssSchema {
   imageProps?: CustomImageSchema;
   divProps?: CustomImageSchema;
-};
+}
 
 //////////////////////////////
 // tags

@@ -4,12 +4,12 @@ import {
   MiniUpdatesSection,
   PosterImage,
 } from "@/dynamic-imports/components";
-import { adsSection, banners } from "@/utils/constants/homepage-constants";
+import { ads_section, banners } from "@/utils/constants/homepage-constants";
 
 export default function HighlightSection() {
   return (
     <>
-      <BannerImage imageProps={banners.business_section} />
+      <BannerImage imageProps={banners.highlight_section} />
 
       <div className="relative w-full py-5 h-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[360px_1fr_280px] gap-6">
         <PosterImage
@@ -21,7 +21,7 @@ export default function HighlightSection() {
 
         <MiniUpdatesSection />
 
-        <AdsSection imgList={adsSection.highlights} />
+        <AdsSection imgList={ads_section.highlights} />
       </div>
     </>
   );

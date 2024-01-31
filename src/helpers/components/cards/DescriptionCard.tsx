@@ -5,15 +5,16 @@ import { DescriptionCardSchema } from "@/utils/schemas/ComponentsSchema";
 
 export default function DescriptionCard(props: DescriptionCardSchema) {
   // Props
-  const { title, slug, image1, description } = props;
+  const { color, title, slug, image1, description } = props;
 
   // Css
   const titleCss = `line-clamp-3 cursor-pointer tracking-wide`;
   const descCss = `line-clamp-6 tracking-wide`;
+  const bgColor = color ?? light_gray_bg;
 
   return (
     <div
-      className={`${light_gray_bg} h-[360px] flex gap-3 justify-between items-start rounded-md`}
+      className={`${bgColor} h-[360px] flex gap-3 justify-between items-start rounded-md`}
     >
       <CustomImage
         src={image1!}

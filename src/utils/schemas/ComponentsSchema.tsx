@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import {
   ButtonTypeSchema,
   ChildrenSchema,
@@ -13,6 +14,7 @@ import {
   TitleFontSchema,
   TitleLineClampSchema,
   TitleSchema,
+  CustomImageSchema,
 } from "./CommonSchema";
 
 //////////////////////////////
@@ -40,7 +42,8 @@ export interface MediaCardSchema
 }
 
 export interface DescriptionCardSchema
-  extends MediaCardSchema,
+  extends ColorSchema,
+    MediaCardSchema,
     DescriptionSchema {}
 
 export interface TimeCardSchema
@@ -61,4 +64,12 @@ export interface PosterImageSchema extends TitleSchema, TimeSchema {
   timeFont?: string;
   isTransparent?: boolean;
   isZoomable?: boolean;
+}
+
+// sections
+export interface CommonMainSectionSchema extends TitleSchema {
+  bannerImg: CustomImageSchema;
+  descProps: DescriptionCardSchema;
+  newsChildren: ReactNode;
+  highlightChildren: ReactNode;
 }

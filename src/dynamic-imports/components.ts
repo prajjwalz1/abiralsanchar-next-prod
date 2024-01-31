@@ -81,6 +81,16 @@ export const AdsSection = dynamic(
     ssr: false,
   }
 );
+export const BoardSection = dynamic(
+  () => import("@/helpers/components/sections/BoardSection"),
+  {
+    ssr: false,
+  }
+);
+export const CommonMainSection = dynamic(
+  () => import("@/helpers/components/sections/CommonMainSection"),
+  { ssr: false }
+);
 export const MiniUpdatesSection = dynamic(
   () => import("@/helpers/components/sections/MiniUpdatesSection"),
   { ssr: false }
