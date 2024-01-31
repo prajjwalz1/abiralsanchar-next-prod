@@ -1,5 +1,4 @@
 import * as colors from "@/assets/colors";
-import * as fonts from "@/assets/fonts";
 
 //////////////////////////////
 // Base css

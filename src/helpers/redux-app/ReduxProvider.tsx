@@ -1,5 +1,4 @@
 // Package imports
-import { persistStore } from "redux-persist";
 import { Provider } from "react-redux";
 
 // Custom imports

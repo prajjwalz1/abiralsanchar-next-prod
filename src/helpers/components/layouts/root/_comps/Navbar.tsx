@@ -31,7 +31,6 @@ import RootLayoutLogo from "./RootLayoutLogo";
 import CurrentNews from "./CurrentNews";
 import { setIsCurrentNews } from "@/helpers/redux-app/news-portal/_actions";
 import useCustomScroll from "@/helpers/hooks/useCustomScroll";
-import { next_svg } from "@/assets/images";
 import { GetHomepageDataThunk } from "@/helpers/redux-app/news-portal/_thunks";
 
 //////////////////////////////

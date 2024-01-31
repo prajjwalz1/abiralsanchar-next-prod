@@ -1,12 +1,10 @@
 import {
-  AdsSection,
   BannerImage,
   BoardSection,
   CommonMainSection,
   MediaCard,
 } from "@/dynamic-imports/components";
 import {
-  ads_section,
   banners,
   business_children_1,
   business_children_2,
