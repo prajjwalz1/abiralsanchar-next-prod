@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
 //////////////////////////////
-// Buttons
+// buttons
 //////////////////////////////
 export const Button = dynamic(
   () => import("@/helpers/components/buttons/Button"),
@@ -31,15 +31,24 @@ export const TimeCard = dynamic(
 //////////////////////////////
 // Images
 //////////////////////////////
+export const BannerImage = dynamic(
+  () => import("@/helpers/components/images/BannerImage"),
+  {
+    ssr: false,
+  }
+);
 export const CustomImage = dynamic(
   () => import("@/helpers/components/images/CustomImage"),
   {
     ssr: false,
   }
 );
-export const Logo = dynamic(() => import("@/helpers/components/images/Logo"), {
-  ssr: false,
-});
+export const LogoImage = dynamic(
+  () => import("@/helpers/components/images/LogoImage"),
+  {
+    ssr: false,
+  }
+);
 export const PosterImage = dynamic(
   () => import("@/helpers/components/images/PosterImage"),
   {
@@ -48,7 +57,23 @@ export const PosterImage = dynamic(
 );
 
 //////////////////////////////
-// Sections
+// others
+//////////////////////////////
+export const BodyOverlay = dynamic(
+  () => import("@/helpers/components/others/BodyOverlay"),
+  {
+    ssr: false,
+  }
+);
+export const Divider = dynamic(
+  () => import("@/helpers/components/others/Divider"),
+  {
+    ssr: false,
+  }
+);
+
+//////////////////////////////
+// sections
 //////////////////////////////
 export const AdsSection = dynamic(
   () => import("@/helpers/components/sections/AdsSection"),
@@ -56,34 +81,20 @@ export const AdsSection = dynamic(
     ssr: false,
   }
 );
-export const BannerSection = dynamic(
-  () => import("@/helpers/components/sections/BannerSection"),
-  {
-    ssr: false,
-  }
-);
-export const BodyOverlaySection = dynamic(
-  () => import("@/helpers/components/sections/BodyOverlaySection"),
-  {
-    ssr: false,
-  }
-);
-export const DividerSection = dynamic(
-  () => import("@/helpers/components/sections/DividerSection"),
-  {
-    ssr: false,
-  }
-);
-export const HighlightSection = dynamic(
-  () => import("@/helpers/components/sections/HighlightSection"),
-  { ssr: false }
-);
 export const MiniUpdatesSection = dynamic(
   () => import("@/helpers/components/sections/MiniUpdatesSection"),
   { ssr: false }
 );
-export const NewsSection = dynamic(
-  () => import("@/helpers/components/sections/NewsSection"),
+
+//////////////////////////////
+// sections/main
+//////////////////////////////
+export const HighlightSection = dynamic(
+  () => import("@/helpers/components/sections/main/HighlightSection"),
+  { ssr: false }
+);
+export const SamacharSection = dynamic(
+  () => import("@/helpers/components/sections/main/SamacharSection"),
   { ssr: false }
 );
 
@@ -144,7 +155,7 @@ export const CustomText = dynamic(
 //////////////////////////////
 // @/helpers/components-extras/home
 //////////////////////////////
-export const HeroArticle = dynamic(
-  () => import("@/helpers/components-extras/home/HeroArticle"),
+export const HeroArticleSection = dynamic(
+  () => import("@/helpers/components/sections/HeroArticleSection"),
   { ssr: false }
 );

@@ -13,7 +13,7 @@ import * as colors from "@/assets/colors";
 import * as fonts from "@/assets/fonts";
 import * as styles from "@/assets/css/styles";
 import {
-  BodyOverlaySection,
+  BodyOverlay,
   CloseButton,
   CustomImage,
   CustomText,
@@ -130,7 +130,7 @@ const MobileNavMenu = () => {
         className={`${styles.margin_x} ${styles.nav_icon} lg:hidden`}
       />
 
-      {is_mobile_menu && <BodyOverlaySection />}
+      {is_mobile_menu && <BodyOverlay />}
 
       {is_mobile_menu && (
         <div

@@ -50,7 +50,7 @@ export interface TimeCardSchema
     ColorSchema,
     FlagSchema {}
 
-export interface BodyOverlaySectionSchema extends ChildrenSchema, CssSchema {}
+export interface BodyOverlaySchema extends ChildrenSchema, CssSchema {}
 
 //////////////////////////////
 // images

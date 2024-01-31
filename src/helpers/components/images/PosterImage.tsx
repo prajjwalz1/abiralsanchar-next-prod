@@ -4,7 +4,7 @@ import * as colors from "@/assets/colors";
 import { imgTransition } from "@/assets/css/styles";
 import * as fonts from "@/assets/fonts";
 import {
-  BodyOverlaySection,
+  BodyOverlay,
   CustomImage,
   CustomTag,
   CustomText,
@@ -46,7 +46,7 @@ export default function PosterImage(props: PosterImageSchema) {
       className="relative max-w-full max-h-full flex flex-col justify-end rounded-md overflow-hidden"
     >
       {isTransparent && (
-        <BodyOverlaySection css="z-minus_1 absolute w-full min-h-full rounded-md" />
+        <BodyOverlay css="z-minus_1 absolute w-full min-h-full rounded-md" />
       )}
       <CustomImage
         src="https://www.onlinekhabar.com/wp-content/uploads/2023/12/arrested-teacher.jpg"

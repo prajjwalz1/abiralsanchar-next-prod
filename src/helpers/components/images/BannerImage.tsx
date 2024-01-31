@@ -1,7 +1,7 @@
 import { CustomImage } from "@/dynamic-imports/components";
-import { BannerSectionSchema } from "@/utils/schemas/CommonSchema";
+import { BannerImageSchema } from "@/utils/schemas/CommonSchema";
 
-export default function BannerSection(props: BannerSectionSchema) {
+export default function BannerImage(props: BannerImageSchema) {
   // Props
   const { imageProps, divProps } = props;
 

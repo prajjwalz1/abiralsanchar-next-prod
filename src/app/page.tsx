@@ -2,33 +2,33 @@
 import * as styles from "@/assets/css/styles";
 import * as colors from "@/assets/colors";
 import {
-  BannerSection,
+  BannerImage,
   HighlightSection,
-  NewsSection,
+  SamacharSection,
 } from "@/dynamic-imports/components";
 
 // Custom Imports
 import { ReduxProvider } from "@/dynamic-imports/redux-app";
-import HeroArticle from "@/helpers/components-extras/home/HeroArticle";
+import HeroArticleSection from "@/helpers/components/sections/HeroArticleSection";
 import { banners } from "@/utils/constants/homepage-constants";
 
 export default function Home() {
   return (
     <ReduxProvider>
       <div className={`${styles.padding_x} ${colors.divider} divide-y`}>
-        <BannerSection imageProps={banners[0]} />
+        <BannerImage imageProps={banners[0]} />
 
-        <HeroArticle />
-        <HeroArticle />
-        <HeroArticle />
+        <HeroArticleSection />
+        <HeroArticleSection />
+        <HeroArticleSection />
 
-        <BannerSection imageProps={banners[1]} />
+        <BannerImage imageProps={banners[1]} />
 
         <HighlightSection />
 
-        <BannerSection imageProps={banners[2]} />
+        <BannerImage imageProps={banners[2]} />
 
-        <NewsSection />
+        <SamacharSection />
       </div>
     </ReduxProvider>
   );

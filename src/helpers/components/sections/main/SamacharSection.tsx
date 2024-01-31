@@ -7,7 +7,7 @@ import {
 } from "@/dynamic-imports/components";
 import { adsSection } from "@/utils/constants/homepage-constants";
 
-export default function NewsSection() {
+export default function SamacharSection() {
   const descProps = {
     title: "अस्पताल व्यवस्थापनको दरबन्दी सिर्जना गर्न ध्यानाकर्षण",
     description:

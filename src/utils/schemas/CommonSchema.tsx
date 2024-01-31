@@ -131,7 +131,7 @@ export interface NestedLinkSchema extends IconSchema, TitleSchema {
 //////////////////////////////
 // sections
 //////////////////////////////
-export type BannerSectionSchema = {
+export type BannerImageSchema = {
   imageProps?: CustomImageSchema;
   divProps?: CustomImageSchema;
 };

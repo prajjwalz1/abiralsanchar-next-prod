@@ -16,7 +16,7 @@ import {
 } from "@/helpers/hooks/useStoreHooks";
 import { clearIsCurrentNews } from "@/helpers/redux-app/news-portal/_actions";
 import { ArticleSchema } from "@/utils/schemas/ApiSchema";
-import BodyOverlaySection from "@/helpers/components/sections/BodyOverlaySection";
+import BodyOverlay from "@/helpers/components/others/BodyOverlay";
 import useScrollLock from "@/helpers/hooks/useScrollLock";
 import { useEffect } from "react";
 
@@ -84,7 +84,7 @@ export default function CurrentNews() {
 
   return (
     <>
-      <BodyOverlaySection />
+      <BodyOverlay />
       <div
         className={`${styles.padding_x} z-drawer animate-slideDown py-[40px] bg-white absolute top-0 left-0 w-full h-[400px] shadow-md`}
       >

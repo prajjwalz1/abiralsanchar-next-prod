@@ -1,5 +1,4 @@
 import * as colors from "@/assets/colors";
-import * as fonts from "@/assets/fonts";
 import * as styles from "@/assets/css/styles";
 import {
   footer_end_items,
@@ -12,7 +11,7 @@ import {
   OptionSchema,
 } from "@/utils/schemas/CommonSchema";
 import Link from "next/link";
-import { Logo } from "@/dynamic-imports/components";
+import { LogoImage } from "@/dynamic-imports/components";
 import CustomText from "../../texts/CustomText";
 
 const Footer = () => {
@@ -27,7 +26,7 @@ const Footer = () => {
               key={getUniqueKey(idx, title!)}
               className="flex flex-col gap-4"
             >
-              <CustomText isKhand isHeaderColor isSubHeading>
+              <CustomText isKhand isHeaderColor isSubHeading isBold>
                 {title}
               </CustomText>
 
@@ -46,7 +45,7 @@ const Footer = () => {
         className={`${colors.light_gray_bg} ${styles.padding_x} footer-end py-10 flex-1 flex flex-col xl:flex-row gap-5 xl:gap-1`}
       >
         <div className="logo">
-          <Logo />
+          <LogoImage />
         </div>
 
         <div className="footer-end w-full grid grid-cols-1 sm:grid-cols-[auto_auto_auto] md:grid-cols-[auto_auto_auto] lg:grid-cols-[auto_auto_auto_auto] xl:grid-cols-[auto_auto_auto_auto_auto] 2xl:grid-cols-5 gap-4 items-center divide-x divide-gray-400">

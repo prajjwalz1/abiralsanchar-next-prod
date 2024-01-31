@@ -2,7 +2,7 @@
 
 // Custom imports
 import * as styles from "@/assets/css/styles";
-import { Logo } from "@/dynamic-imports/components";
+import { LogoImage } from "@/dynamic-imports/components";
 import { FlagSchema } from "@/utils/schemas/CommonSchema";
 
 export default function RootLayoutLogo(props: FlagSchema) {
@@ -16,7 +16,7 @@ export default function RootLayoutLogo(props: FlagSchema) {
 
   return (
     <div className={css}>
-      <Logo />
+      <LogoImage />
     </div>
   );
 }

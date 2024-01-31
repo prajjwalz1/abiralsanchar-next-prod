@@ -1,7 +1,7 @@
 import * as colors from "@/assets/colors";
 import { CssSchema } from "@/utils/schemas/CommonSchema";
 
-export default function DividerSection(props: CssSchema) {
+export default function Divider(props: CssSchema) {
   // Props
   const { css } = props;
 

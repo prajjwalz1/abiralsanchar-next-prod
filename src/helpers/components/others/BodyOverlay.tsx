@@ -1,7 +1,7 @@
 import { transparent_black_bg } from "@/assets/colors";
-import { BodyOverlaySectionSchema } from "@/utils/schemas/ComponentsSchema";
+import { BodyOverlaySchema } from "@/utils/schemas/ComponentsSchema";
 
-export default function BodyOverlaySection(props: BodyOverlaySectionSchema) {
+export default function BodyOverlay(props: BodyOverlaySchema) {
   // Props
   const { children, css } = props;
 

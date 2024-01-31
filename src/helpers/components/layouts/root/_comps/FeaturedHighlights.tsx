@@ -5,11 +5,7 @@ import * as styles from "@/assets/css/styles";
 import { RootState, useAppSelector } from "@/helpers/hooks/useStoreHooks";
 import { ArticleSchema } from "@/utils/schemas/ApiSchema";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
-import {
-  CustomImage,
-  CustomText,
-  DividerSection,
-} from "@/dynamic-imports/components";
+import { CustomImage, CustomText, Divider } from "@/dynamic-imports/components";
 
 export default function FeaturedHighlights() {
   // Redux
@@ -39,7 +35,7 @@ export default function FeaturedHighlights() {
           </div>
         )
       )}
-      <DividerSection />
+      <Divider />
     </div>
   );
 }

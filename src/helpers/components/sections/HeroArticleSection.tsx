@@ -3,7 +3,7 @@ import { CustomTag, CustomText, TimeCard } from "@/dynamic-imports/components";
 import CustomImage from "@/helpers/components/images/CustomImage";
 import { FiMessageSquare } from "react-icons/fi";
 
-export default function HeroArticle() {
+export default function HeroArticleSection() {
   return (
     <div className={"w-full py-5 flex flex-col items-center gap-5"}>
       {/* Category/Tag section */}

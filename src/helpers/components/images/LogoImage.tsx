@@ -1,4 +1,4 @@
-const Logo = () => {
+const LogoImage = () => {
   return (
     <div>
       <h1 className="text-red-500 text-3xl w-[150px]">Logo</h1>
@@ -6,4 +6,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default LogoImage;
