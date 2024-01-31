@@ -43,13 +43,6 @@ export const getActiveLink = (
 //////////////////////////////
 export const nav_icon = `w-8 h-8 ${colors.icon}`;
 
-//////////////////////////////
-// Footer
-//////////////////////////////
-export const footer_menu_title = `${fonts.getFont("sub_heading", "bold")} ${
-  colors.header
-}`;
-export const footer_menu_para = `${colors.hover_link}`;
 
 // Buttons
 export const close_button = `absolute top-6 right-6 ${colors.danger_icon_button}`;

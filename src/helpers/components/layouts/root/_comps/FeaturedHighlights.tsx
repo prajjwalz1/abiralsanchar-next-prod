@@ -23,7 +23,7 @@ export default function FeaturedHighlights() {
     >
       {featured_data?.map(
         ({ title, image1, slug }: ArticleSchema, idx: number) => (
-          <div key={getUniqueKey(idx, title)} className="flex gap-1">
+          <div key={getUniqueKey(idx, title!)} className="flex gap-1">
             <CustomImage
               src={image1!}
               alt={slug}

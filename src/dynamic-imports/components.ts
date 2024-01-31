@@ -72,6 +72,10 @@ export const MiniUpdatesSection = dynamic(
   () => import("@/helpers/components/sections/MiniUpdatesSection"),
   { ssr: false }
 );
+export const NewsSection = dynamic(
+  () => import("@/helpers/components/sections/NewsSection"),
+  { ssr: false }
+);
 
 //////////////////////////////
 // Layouts

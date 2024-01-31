@@ -1,6 +1,9 @@
 import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 
+export type ButtonTypeSchema = {
+  type?: "button" | "submit" | "reset" | undefined;
+};
 //
 export type FontSizeSchema =
   | "main_title"
@@ -31,7 +34,7 @@ export type ColorSchema = {
 };
 
 export type TitleSchema = {
-  title: string;
+  title?: string;
 };
 
 export type FontSchema = {
@@ -130,8 +133,33 @@ export interface CustomTextSchema
     CssSchema,
     SlugSchema,
     FontSchema {
-  isLink?: boolean;
+  // font family
   isKhand?: boolean;
+
+  // color
+  isHeaderColor?: boolean;
+  isLinkColor?: boolean;
+  isTitleColor?: boolean;
+
+  // font size
+  isMainTitle?: boolean;
+  isTitle?: boolean;
+  isSubTitle?: boolean;
+  isHeading?: boolean;
+  isSubHeading?: boolean;
+  isLarge?: boolean;
+  isBody?: boolean;
+  isParagraph?: boolean;
+  isSlightPara?: boolean;
+  isSpan?: boolean;
+  isSmall?: boolean;
+
+  // font weight
+  isNormal?: boolean;
+  isMedium?: boolean;
+  isSemiBold?: boolean;
+  isBold?: boolean;
+  isExtraBold?: boolean;
 }
 
 //////////////////////////////
@@ -140,9 +168,6 @@ export interface CustomTextSchema
 export type HandleActionSchema = {
   handleAction: () => void;
 };
-
-// Button
-export interface ButtonSchema extends CssSchema, OnClickSchema {}
 
 // Title and Image
 export interface LinkImageSchema extends LinkSchema, ImagesSchema {}

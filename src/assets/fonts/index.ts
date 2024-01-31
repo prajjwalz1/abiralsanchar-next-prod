@@ -18,21 +18,14 @@ export const mukta = Mukta({
 });
 
 //////////////////////////////
-// Navbar font
-//////////////////////////////
-export const navbar = "text-xl font-semibold";
-
-//////////////////////////////
-// Footer
-//////////////////////////////
-export const xl_bold = "text-xl font-bold";
-
-//////////////////////////////
 // Font sizes
 //////////////////////////////
-export const main_title = "text-[26px] xs:text-[29px] sm:text-[32px]",
-  title = "text-[24px] xs:text-[27px] sm:text-[30px]",
-  sub_title = "text-[22px] xs:text-[25px] sm:text-[28px]",
+export const main_title =
+    "text-[26px] xs:text-[29px] sm:text-[32px] md:text-[40px] lg:text-[48px]",
+  title =
+    "text-[24px] xs:text-[27px] sm:text-[30px] md:text-[38px] lg:text-[46px]",
+  sub_title =
+    "text-[22px] xs:text-[25px] sm:text-[28px] md:text-[36px] lg:text-[44px]",
   heading = "text-[20px] xs:text-[23px] sm:text-[26px]",
   sub_heading = "text-[18px] xs:text-[21px] sm:text-[24px]",
   large = "text-[16px] xs:text-[19px] sm:text-[22px]",
@@ -84,7 +77,6 @@ export const main_title_line_height = "leading-[56px]",
   paragraph_line_height = "leading-[8px]",
   span_line_height = "leading-[4px]",
   small_line_height = "leading-[0]";
-
 // title
 // sub_title
 // heading

@@ -3,8 +3,8 @@ import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
 // Custom imports
-import { ButtonSchema } from "@/utils/schemas/CommonSchema";
 import { close_button } from "@/assets/css/styles";
+import { ButtonSchema } from "@/utils/schemas/ComponentsSchema";
 
 // Main function
 export default function CloseButton(props: ButtonSchema) {

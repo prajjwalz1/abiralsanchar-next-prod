@@ -1,7 +1,6 @@
 import * as fonts from "@/assets/fonts";
 import { CustomTag, CustomText, TimeCard } from "@/dynamic-imports/components";
 import CustomImage from "@/helpers/components/images/CustomImage";
-import { LuClock4 } from "react-icons/lu";
 import { FiMessageSquare } from "react-icons/fi";
 
 export default function HeroArticle() {
@@ -13,7 +12,7 @@ export default function HeroArticle() {
 
       <div className="flex flex-col items-center gap-1">
         {/* Title of the article section */}
-        <CustomText font={fonts.getFont("title", "bold")}>
+        <CustomText isBold isTitle>
           मधेश सरकार छाडेको जनमत आन्दोलनको मुडमा
         </CustomText>
 

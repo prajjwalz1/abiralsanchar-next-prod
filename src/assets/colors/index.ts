@@ -18,7 +18,7 @@ export const sky = "text-new-blue-sky";
 
 // Navbar
 export const navbar_link = "hover:text-new-blue-sky";
-export const navbar = "bg-blue-700";
+export const navbar_bg = "bg-blue-700";
 
 // Icons
 export const icon = "text-white hover:text-new-blue-sky";

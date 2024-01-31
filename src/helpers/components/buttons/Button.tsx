@@ -3,16 +3,8 @@ import * as fonts from "@/assets/fonts";
 
 // Custom imports
 import { CustomText } from "@/dynamic-imports/components";
+import { ButtonSchema } from "@/utils/schemas/ComponentsSchema";
 import { LuClock4 } from "react-icons/lu";
-
-export type ButtonSchema = {
-  title: string;
-  type?: "button" | "submit" | "reset" | undefined;
-  font?: string;
-  color?: string;
-  css?: string;
-  isClock?: boolean;
-};
 
 export default function Button(props: ButtonSchema) {
   // Props

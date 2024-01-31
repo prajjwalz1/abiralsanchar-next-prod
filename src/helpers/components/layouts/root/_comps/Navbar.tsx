@@ -74,11 +74,12 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
         />
       )}
       {nav_items?.map(({ title, slug }: LinkSchema, idx: number) => (
-        <Link key={getUniqueKey(idx, title)} href={slug!}>
+        <Link key={getUniqueKey(idx, title!)} href={slug!}>
           <CustomText
-            font={fonts.getFont("sub_heading", "bold")}
             css={styles.getActiveLink(slug === pathname, colors.sky, isFlag)}
             isKhand
+            isSubHeading
+            isBold
           >
             {title}
           </CustomText>
@@ -164,7 +165,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`${fonts.navbar} ${colors.navbar} navbar z-drawer h-[50px] ${scrollCss} navbar flex justify-between items-center gap-8`}
+      className={`${scrollCss} ${colors.navbar_bg} text-xl navbar z-drawer h-[50px] navbar flex justify-between items-center gap-8`}
     >
       <DesktopNavMenu />
       <MobileNavMenu />

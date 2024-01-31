@@ -1,7 +1,11 @@
 "use client";
 import * as styles from "@/assets/css/styles";
 import * as colors from "@/assets/colors";
-import { BannerSection, HighlightSection } from "@/dynamic-imports/components";
+import {
+  BannerSection,
+  HighlightSection,
+  NewsSection,
+} from "@/dynamic-imports/components";
 
 // Custom Imports
 import { ReduxProvider } from "@/dynamic-imports/redux-app";
@@ -23,6 +27,8 @@ export default function Home() {
         <HighlightSection />
 
         <BannerSection imageProps={banners[2]} />
+
+        <NewsSection />
       </div>
     </ReduxProvider>
   );

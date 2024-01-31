@@ -93,9 +93,9 @@ export default function CurrentNews() {
           className={`${colors.normal_border} animate-showDown bg red-300 w-full h-[50px] flex justify-between items-center border-b-[1px]`}
         >
           <CustomText
-            font={`${fonts.getFont("sub_title", "bold")} h-full ${
-              colors.title
-            } ${colors.active_border} border-b-[3px]`}
+            font={`h-full ${colors.active_border} border-b-[3px]`}
+            isSubTitle
+            isTitleColor
             isKhand
           >
             {title}
@@ -111,7 +111,7 @@ export default function CurrentNews() {
           className={`${scrollCss} animate-showDown md:fourth-element-padding-0 w-full flex-1 p-3 pl-0 grid grid-cols-1 md:grid-cols-3`}
         >
           {data?.map((item: ArticleSchema, idx: number) => (
-            <SingleCurrentNews key={getUniqueKey(idx, title)} {...item} />
+            <SingleCurrentNews key={getUniqueKey(idx, title!)} {...item} />
           ))}
         </div>
       </div>
