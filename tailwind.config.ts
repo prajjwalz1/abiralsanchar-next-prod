@@ -12,13 +12,9 @@ const config: Config = {
       ...defaultTheme.screens,
     },
     extend: {
-      // backgroundImage: {
-      //   'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      //   'gradient-conic':
-      //     'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      // },
       fontFamily: {
-        khand: "var(--font-khand)", // note: you can call the left side of this whatever you want - barlow-bold or title-font or foo-bar, this is what you'll use in your Tailwind css classes to use this font
+        // note: you can call the left side of this whatever you want - barlow-bold or title-font or foo-bar, this is what you'll use in your Tailwind css classes to use this font
+        khand: "var(--font-khand)",
         mukta: "var(--font-mukta)",
       },
       colors: {

@@ -50,7 +50,7 @@ const Footer = () => {
           <Logo />
         </div>
 
-        <div className="footer-end grid grid-cols-1 sm:grid-cols-[auto_auto_auto] md:grid-cols-[auto_auto_auto] lg:grid-cols-[auto_auto_auto_auto] xl:grid-cols-[auto_auto_auto_auto_auto] gap-4 items-center divide-x divide-gray-400">
+        <div className="footer-end w-full grid grid-cols-1 sm:grid-cols-[auto_auto_auto] md:grid-cols-[auto_auto_auto] lg:grid-cols-[auto_auto_auto_auto] xl:grid-cols-[auto_auto_auto_auto_auto] 2xl:grid-cols-5 gap-4 items-center divide-x divide-gray-400">
           {footer_end_items.map(
             ({ label, icon, value }: OptionSchema, idx: number) => {
               const isCopyright = label === "copyright";

@@ -37,3 +37,5 @@ export const title = "text-blue-700";
 // Dividers
 export const divider = "divider-gray-200";
 export const divider_bg = "bg-gray-200";
+export const divider_x = `${divider} divide-x`;
+export const divider_y = `${divider} divide-x`;
