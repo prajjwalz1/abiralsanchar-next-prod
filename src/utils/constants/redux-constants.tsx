@@ -8,7 +8,7 @@ export const HOMEPAGE_INITIAL_DATA: HomepageIDSchema = {
   isRejected: false,
 
   // Response data
-  successResponse: {},
+  successResponse: { success: false, data: [] },
   testResponse: get_homepage_data,
   errorResponse: [],
 };

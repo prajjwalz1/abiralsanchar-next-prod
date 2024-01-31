@@ -39,31 +39,33 @@ export type GetAllArticlesResponse = {
 //////////////////////////////
 export type GetHomepageResponseSchema = {
   success: boolean;
-  data: [
-    {
-      navbar_category_totalHits: number;
-      navbar_category: TitleSlugSchema[];
-    },
-    {
-      featured_articles_totalHits: number;
-      featured_articles: ArticleSchema[];
-    },
-    {
-      trending_articles_totalHits: number;
-      trending_articles: ArticleSchema[];
-    },
-    {
-      latest_articles_totalHits: number;
-      latest_articles: ArticleSchema[];
-    },
-    {
-      articles_categorized_totalHits: number;
-      articles_categorized: {
-        category_article_data: {
-          category_title: string;
-          articles: ArticleSchema[];
-        }[];
-      };
-    }
-  ];
+  data:
+    | [
+        {
+          navbar_category_totalHits: number;
+          navbar_category: TitleSlugSchema[];
+        },
+        {
+          featured_articles_totalHits: number;
+          featured_articles: ArticleSchema[];
+        },
+        {
+          trending_articles_totalHits: number;
+          trending_articles: ArticleSchema[];
+        },
+        {
+          latest_articles_totalHits: number;
+          latest_articles: ArticleSchema[];
+        },
+        {
+          articles_categorized_totalHits: number;
+          articles_categorized: {
+            category_article_data: {
+              category_title: string;
+              articles: ArticleSchema[];
+            }[];
+          };
+        }
+      ]
+    | [];
 };

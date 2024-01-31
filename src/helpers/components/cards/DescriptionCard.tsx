@@ -1,6 +1,7 @@
 import { hover_link, hover_red_dark, light_gray_bg } from "@/assets/colors";
 import { span } from "@/assets/fonts";
 import { CustomImage, CustomText } from "@/dynamic-imports/components";
+import { getAbiralImg } from "@/utils/methods/imgMethods";
 import { DescriptionCardSchema } from "@/utils/schemas/ComponentsSchema";
 
 export default function DescriptionCard(props: DescriptionCardSchema) {
@@ -18,7 +19,7 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
       className={`${bgColor} h-[360px] flex gap-3 justify-between items-start rounded-md`}
     >
       <CustomImage
-        src={image1!}
+        src={getAbiralImg(image1!)}
         alt={title!.slice(0, 18)}
         divCss={`${span} font-medium w-[300px] h-full cursor-pointer rounded-md`}
         imgCss="w-full h-full object-cover rounded-l-md"

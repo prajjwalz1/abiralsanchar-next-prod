@@ -6,6 +6,7 @@ import { RootState, useAppSelector } from "@/helpers/hooks/useStoreHooks";
 import { ArticleSchema } from "@/utils/schemas/ApiSchema";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
 import { CustomImage, CustomText, Divider } from "@/dynamic-imports/components";
+import { getAbiralImg } from "@/utils/methods/imgMethods";
 
 export default function FeaturedHighlights() {
   // Redux
@@ -21,9 +22,9 @@ export default function FeaturedHighlights() {
         ({ title, image1, slug }: ArticleSchema, idx: number) => (
           <div key={getUniqueKey(idx, title!)} className="flex gap-1">
             <CustomImage
-              src={image1!}
+              src={getAbiralImg(image1!)}
               alt={slug}
-              divCss="w-[24px] h-[24px] rounded-full"
+              divCss="w-[24px] h-[24px] rounded-full border-[1px] border-black"
               imgCss="w-full h-full object-cover rounded-full"
               width={24}
               height={24}

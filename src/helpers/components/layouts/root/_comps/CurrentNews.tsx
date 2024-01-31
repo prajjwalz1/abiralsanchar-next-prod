@@ -19,6 +19,7 @@ import { ArticleSchema } from "@/utils/schemas/ApiSchema";
 import BodyOverlay from "@/helpers/components/others/BodyOverlay";
 import useScrollLock from "@/helpers/hooks/useScrollLock";
 import { useEffect } from "react";
+import { getAbiralImg } from "@/utils/methods/imgMethods";
 
 // This component will display individual current news data with a title and image (also will forward to a link)
 const SingleCurrentNews = (props: ArticleSchema) => {
@@ -33,9 +34,9 @@ const SingleCurrentNews = (props: ArticleSchema) => {
         </CustomText>
       </div>
       <CustomImage
-        src={image1!}
+        src={getAbiralImg(image1!)}
         alt={title.slice(0, 18)}
-        divCss={`${fonts.span} font-medium w-1/5 h-[56px]`}
+        divCss={`${fonts.span} font-medium w-1/5 h-[56px] rounded-md border-[1px] border-black`}
         imgCss="w-full h-full object-cover rounded-md"
         width={40}
         height={40}
