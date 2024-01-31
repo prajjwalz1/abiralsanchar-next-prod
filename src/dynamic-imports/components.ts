@@ -89,6 +89,14 @@ export const MiniUpdatesSection = dynamic(
 //////////////////////////////
 // sections/main
 //////////////////////////////
+export const BusinessSection = dynamic(
+  () => import("@/helpers/components/sections/main/BusinessSection"),
+  { ssr: false }
+);
+export const HeroSection = dynamic(
+  () => import("@/helpers/components/sections/main/HeroSection"),
+  { ssr: false }
+);
 export const HighlightSection = dynamic(
   () => import("@/helpers/components/sections/main/HighlightSection"),
   { ssr: false }

@@ -1,9 +1,13 @@
-const LogoImage = () => {
-  return (
-    <div>
-      <h1 className="text-red-500 text-3xl w-[150px]">Logo</h1>
-    </div>
-  );
-};
+import { CustomImage } from "@/dynamic-imports/components";
 
-export default LogoImage;
+export default function LogoImage() {
+  return (
+    <CustomImage
+      src="/image/logo_full.png"
+      alt="logo_full"
+      divCss="w-[172px] h-full"
+      width={100}
+      height={100}
+    />
+  );
+}

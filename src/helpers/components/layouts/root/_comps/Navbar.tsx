@@ -10,7 +10,6 @@ import { PiNewspaperClippingLight } from "react-icons/pi";
 
 // Custom imports
 import * as colors from "@/assets/colors";
-import * as fonts from "@/assets/fonts";
 import * as styles from "@/assets/css/styles";
 import {
   BodyOverlay,
@@ -66,11 +65,11 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
     <div className={css}>
       {isFixed && (
         <CustomImage
-          src={next_svg}
-          alt="test-logo"
-          width={24}
-          height={24}
-          divCss="animate-showDown absolute left-10 md:left-32 lg:left-[172px] w-[24px] h-[24px]"
+          src="/image/logo_small.png"
+          alt="logo_small"
+          divCss="animate-showDown absolute left-10 md:left-32 lg:left-[172px] w-[40px] h-[24px]"
+          width={32}
+          height={32}
         />
       )}
       {nav_items?.map(({ title, slug }: LinkSchema, idx: number) => (
@@ -99,7 +98,7 @@ const DesktopNavMenu = () => {
   // Css
   const defaultCss = `
   ${styles.padding_xl} desktop-navbar-menu hidden lg:flex gap-8`;
-  const animation = isFixed ? "ml-[48px] animate-slideRightMiniLogo" : "";
+  const animation = isFixed ? "ml-[56px] animate-slideRightMiniLogo" : "";
   const css = `${defaultCss} ${animation}`;
 
   return <CommonNavMenu css={css} />;

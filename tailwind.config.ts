@@ -47,7 +47,7 @@ const config: Config = {
         },
         slideRightMiniLogo: {
           "0%": { marginLeft: "0" },
-          "80%": { marginLeft: "48px" },
+          "80%": { marginLeft: "56px" },
         },
         showUp: {
           "0%": { opacity: "1" },
