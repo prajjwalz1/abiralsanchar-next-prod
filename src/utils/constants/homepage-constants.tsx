@@ -1,14 +1,7 @@
 // assets
-import * as colors from "@/assets/colors";
 import * as images from "@/assets/images";
 
-import {
-  DescriptionCardSchema,
-  MediaCardSchema,
-} from "@/utils/schemas/ComponentsSchema";
-import { getRelativeTime } from "../methods/timeMethods";
-import { LatestSchema, TrendingSchema } from "../schemas/ReduxSchema";
-import { ArticlesCategorizedSchema } from "../schemas/ApiSchema";
+import { LatestSchema, TrendingSchema } from "@/utils/schemas/ReduxSchema";
 
 export const banners = {
   featured_section: {

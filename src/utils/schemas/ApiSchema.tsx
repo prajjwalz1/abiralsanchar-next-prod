@@ -42,8 +42,8 @@ export type NavbarArticlesSchema = {
   navbar_category: TitleSlugSchema[];
 };
 export type FeaturedArticlesSchema = {
-  navbar_category_totalHits: number;
-  navbar_category: TitleSlugSchema[];
+  featured_articles_totalHits: number;
+  featured_articles: ArticleSchema[];
 };
 export type TrendingArticlesSchema = {
   trending_articles_totalHits: number;
