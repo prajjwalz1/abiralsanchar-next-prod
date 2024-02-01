@@ -18,6 +18,7 @@ import {
   AllArticlesSchema,
   UpdatedAtSchema,
   Image1Schema,
+  ShowClockSchema,
 } from "./CommonSchema";
 import { ArticleSchema } from "./ApiSchema";
 
@@ -28,9 +29,9 @@ export interface ButtonSchema
   extends ButtonTypeSchema,
     TitleFontSchema,
     CssSchema,
-    OnClickSchema {
+    OnClickSchema,
+    ShowClockSchema {
   color?: string;
-  isClock?: boolean;
 }
 
 //////////////////////////////
@@ -42,12 +43,15 @@ export interface MediaCardSchema
     TitleSchema,
     TitleLineClampSchema,
     SlugSchema,
-    UpdatedAtSchema {}
+    UpdatedAtSchema,
+    ShowClockSchema {}
 
 export interface DescriptionCardSchema
-  extends ColorSchema,
+  extends ShowClockSchema,
+    ColorSchema,
     MediaCardSchema,
-    DescriptionSchema {}
+    DescriptionSchema,
+    Image1Schema {}
 
 export interface TimeCardSchema
   extends CssSchema,
@@ -70,7 +74,7 @@ export interface PosterImageSchema extends ArticleSchema {
 }
 
 // sections
-export interface SingleNewsCategorySectionSchema
+export interface NewsCategorySectionSchema
   extends TitleSchema,
     BannerImgSchema {
   descProps: DescriptionCardSchema;

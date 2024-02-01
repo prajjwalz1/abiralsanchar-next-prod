@@ -8,7 +8,7 @@ import { LuClock4 } from "react-icons/lu";
 
 export default function Button(props: ButtonSchema) {
   // Props
-  const { font, title, type, color, css, isClock } = props;
+  const { font, title, type, color, css, showClock } = props;
 
   // Variables
   const newType = type ?? "button";
@@ -26,7 +26,7 @@ export default function Button(props: ButtonSchema) {
 
   return (
     <button {...btnProps}>
-      {isClock && <LuClock4 className={iconCss} />}
+      {showClock && <LuClock4 className={iconCss} />}
       <CustomText font={newFont} css={titleCss}>
         {title}
       </CustomText>

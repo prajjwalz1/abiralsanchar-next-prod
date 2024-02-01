@@ -16,11 +16,11 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
 
   return (
     <div
-      className={`${bgColor} h-[360px] flex gap-3 justify-between items-start rounded-md`}
+      className={`${bgColor} h-[360px] flex gap-3 justify-between items-start rounded-md border-[1px] border-gray-300 shadow-md`}
     >
       <CustomImage
         src={getAbiralImg(image1!)}
-        alt={title!.slice(0, 18)}
+        alt={title?.slice(0, 18) ?? "Description Card Image"}
         divCss={`${span} font-medium w-[300px] h-full cursor-pointer rounded-md`}
         imgCss="w-full h-full object-cover rounded-l-md"
         width={40}

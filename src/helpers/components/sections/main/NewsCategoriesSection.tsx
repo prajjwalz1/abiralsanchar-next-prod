@@ -1,16 +1,9 @@
+import { NewsCategorySection } from "@/dynamic-imports/components";
 import { RootState, useAppSelector } from "@/helpers/hooks/useStoreHooks";
-import { ArticleSchema } from "@/utils/schemas/ApiSchema";
-import { CustomImageSchema } from "@/utils/schemas/CommonSchema";
-import { ReactNode } from "react";
+import { getUniqueKey } from "@/utils/methods/stringMethods";
+import { ArticleCategorizedSchema } from "@/utils/schemas/ApiSchema";
 
-export type NewsCategorySectionSchema = {
-  title: string;
-  banner_img: CustomImageSchema;
-  newsChildren: ArticleSchema[];
-  highlightChildren: ReactNode;
-};
-
-export default function NewsCategorySection() {
+export default function NewsCategoriesSection() {
   // Redux
   const { successResponse } = useAppSelector(
     (state: RootState) => state.NewsPortal.homepage_data
@@ -18,35 +11,17 @@ export default function NewsCategorySection() {
 
   // Variables
   const newsCategoryData = successResponse?.data?.length
-    ? successResponse?.data[4]
+    ? successResponse?.data[4]?.articles_categorized?.category_article_data
     : [];
 
-  console.log(newsCategoryData);
-
-  // const categories_arr = [
-  //   {
-  //     title:
-  //   }
-  // ]
-  // // Variables
-  // const title = "समाचार";
-  // const bannerImg = banners.samachar_section;
-  // const descProps = samachar_desc;
-
-  // const newsChildren = samachar_children;
-
-  // const highlightChildren = <AdsSection imgList={ads_section.news} />;
-
-  // Custom Props
-  // const samacharProps = {
-  //   title,
-  //   bannerImg,
-  //   descProps,
-  //   newsChildren,
-  //   highlightChildren,
-  // };
-
-  const twoChildrenProps = {};
-
-  return <></>;
+  return (
+    <>
+      {newsCategoryData?.map((item: ArticleCategorizedSchema, idx: number) => (
+        <NewsCategorySection
+          key={getUniqueKey(idx, item?.category_title)}
+          {...item}
+        />
+      ))}
+    </>
+  );
 }

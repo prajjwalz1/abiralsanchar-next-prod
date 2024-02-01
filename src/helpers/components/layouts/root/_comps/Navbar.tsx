@@ -3,7 +3,7 @@
 // Default imports
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { CgMenuGridR } from "react-icons/cg";
 import { IoTrendingUpOutline } from "react-icons/io5";
 import { PiNewspaperClippingLight } from "react-icons/pi";
@@ -151,6 +151,7 @@ const MobileNavMenu = () => {
 export default function Navbar() {
   // Redux
   const dispatch = useAppDispatch();
+  const didMountRef = useRef(false);
 
   // Hooks
   const css = `fixed transition delay-150 duration-300 ease-in-out top-0 w-full max-w-[2000px] mx-auto`;
@@ -158,7 +159,10 @@ export default function Navbar() {
 
   // useEffect
   useEffect(() => {
-    dispatch(GetHomepageDataThunk());
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      dispatch(GetHomepageDataThunk());
+    }
   }, [dispatch]);
 
   return (

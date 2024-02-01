@@ -26,6 +26,8 @@ export type FontWeightSchema =
   | "bold"
   | "extra_bold";
 
+export type ShowClockSchema = { showClock?: boolean };
+
 export type ChildrenSchema = {
   children?: ReactNode;
 };

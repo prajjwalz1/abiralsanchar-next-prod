@@ -18,14 +18,14 @@ export default function MiniUpdatesSection(props: MiniUpdatesSectionSchema) {
     <div className="flex flex-col justify-between gap-8 rounded-sm">
       <div className="flex flex-col gap-8 rounded-sm">
         {articles?.slice(0, 4)?.map((item: ArticleSchema, idx: number) => (
-          <MediaCard key={getUniqueKey(idx, item?.title)} {...item} />
+          <MediaCard key={getUniqueKey(idx, item?.title)} {...item} showClock />
         ))}
       </div>
       <Button
         title={`२४ घन्टाका ${title}`}
         font={fonts.getFont("paragraph")}
         css={btnCss}
-        isClock
+        showClock
       />
     </div>
   );

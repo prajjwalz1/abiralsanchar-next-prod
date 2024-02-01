@@ -8,7 +8,7 @@ import {
 export default function AdsSection({ imgList }: ImageArrSchema) {
   return (
     <div className="hidden lg:flex lg:flex-col lg:gap-5 lg:justify-between">
-      {imgList.map((item: CustomImageSchema, idx: number) => (
+      {imgList?.map((item: CustomImageSchema, idx: number) => (
         <CustomImage
           key={getUniqueKey(idx, item.alt)}
           {...item}

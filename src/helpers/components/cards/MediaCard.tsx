@@ -17,6 +17,7 @@ export default function MediaCard(props: MediaCardSchema) {
     info_placing,
     titleLineClamp: t,
     image1,
+    showClock,
   } = props;
 
   // Line clamp
@@ -44,9 +45,9 @@ export default function MediaCard(props: MediaCardSchema) {
         <CustomText slug={slug} css={titleCss} isLinkColor>
           {title}
         </CustomText>
-        {updated_at && (
+        {showClock && (
           <TimeCard
-            title={getRelativeTime(updated_at)}
+            title={getRelativeTime(updated_at!)}
             font={fonts.getFont("small")}
           />
         )}
