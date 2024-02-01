@@ -3,12 +3,13 @@ import * as fonts from "@/assets/fonts";
 import { CustomTag, CustomText, TimeCard } from "@/dynamic-imports/components";
 import CustomImage from "@/helpers/components/images/CustomImage";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
+import { getRealtiveTime } from "@/utils/methods/timeMethods";
 import { ArticleSchema } from "@/utils/schemas/ApiSchema";
 import { FiMessageSquare } from "react-icons/fi";
 
 export default function HeroArticleSection(props: ArticleSchema) {
   // Props
-  const { author, description, title, slug, image1 } = props;
+  const { author, description, title, slug, image1, updated_at } = props;
 
   return (
     <div className="w-full py-5 flex flex-col items-center gap-5">
@@ -33,7 +34,9 @@ export default function HeroArticleSection(props: ArticleSchema) {
             />
             <CustomText>{author}</CustomText>
           </div>
-          <TimeCard title="८ घन्टा अगाडि" color={black} isFlag />
+          <TimeCard title={getRealtiveTime(updated_at)} color={black} isFlag />
+
+          {/* Comments section */}
           <div className="flex items-center gap-1">
             <FiMessageSquare />
             <CustomText>२</CustomText>
@@ -41,6 +44,7 @@ export default function HeroArticleSection(props: ArticleSchema) {
         </div>
       </div>
 
+      {/* Content description */}
       <div className="w-full flex flex-col gap-5">
         <CustomImage
           src={getAbiralImg(image1!)}
