@@ -2,7 +2,7 @@ import { ThreeColumnSection } from "@/dynamic-imports/components";
 import { RootState, useAppSelector } from "@/helpers/hooks/useStoreHooks";
 import { highlight_arr } from "@/utils/constants/homepage-constants";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
-import { LatestSchema, TrendingSchema } from "@/utils/schemas/ReduxSchema";
+import { ThreeColumnSectionSchema } from "@/utils/schemas/ComponentsSchema";
 
 export default function HighlightSection() {
   // Redux
@@ -13,8 +13,8 @@ export default function HighlightSection() {
   return (
     <>
       {highlight_arr(latest, trending)?.map(
-        (item: LatestSchema | TrendingSchema | any, idx: number) => (
-          <ThreeColumnSection key={getUniqueKey(idx, item.title)} {...item} />
+        (item: ThreeColumnSectionSchema, idx: number) => (
+          <ThreeColumnSection key={getUniqueKey(idx, item.title!)} {...item} />
         )
       )}
     </>

@@ -46,6 +46,8 @@ export type UpdatedAtSchema = {
   updated_at?: string;
 };
 
+export type Image1Schema = { image1: string | null };
+
 export type TitleSchema = {
   title?: string;
 };

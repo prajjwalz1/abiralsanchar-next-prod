@@ -7,10 +7,12 @@ import {
 import { getUniqueKey } from "@/utils/methods/stringMethods";
 import {
   MediaCardSchema,
-  TwoColumnSectionSchema,
+  SingleNewsCategorySectionSchema,
 } from "@/utils/schemas/ComponentsSchema";
 
-export default function TwoColumnSection(props: TwoColumnSectionSchema) {
+export default function SingleNewsCategorySection(
+  props: SingleNewsCategorySectionSchema
+) {
   // Props
   const { bannerImg, descProps, title, newsChildren, highlightChildren } =
     props;

@@ -87,8 +87,8 @@ export const BoardSection = dynamic(
     ssr: false,
   }
 );
-export const TwoColumnSection = dynamic(
-  () => import("@/helpers/components/sections/TwoColumnSection"),
+export const NewsCategorySection = dynamic(
+  () => import("@/helpers/components/sections/NewsCategorySection"),
   { ssr: false }
 );
 export const ThreeColumnSection = dynamic(
@@ -103,8 +103,8 @@ export const MiniUpdatesSection = dynamic(
 //////////////////////////////
 // sections/main
 //////////////////////////////
-export const CategoriesSection = dynamic(
-  () => import("@/helpers/components/sections/main/CategoriesSection"),
+export const NewsCategoriesSection = dynamic(
+  () => import("@/helpers/components/sections/main/NewsCategoriesSection"),
   { ssr: false }
 );
 export const FeaturedSection = dynamic(
@@ -113,10 +113,6 @@ export const FeaturedSection = dynamic(
 );
 export const HighlightSection = dynamic(
   () => import("@/helpers/components/sections/main/HighlightSection"),
-  { ssr: false }
-);
-export const SamacharSection = dynamic(
-  () => import("@/helpers/components/sections/main/SamacharSection"),
   { ssr: false }
 );
 

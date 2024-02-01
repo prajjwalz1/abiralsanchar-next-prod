@@ -8,6 +8,7 @@ import {
 } from "@/utils/schemas/ComponentsSchema";
 import { getRelativeTime } from "../methods/timeMethods";
 import { LatestSchema, TrendingSchema } from "../schemas/ReduxSchema";
+import { ArticlesCategorizedSchema } from "../schemas/ApiSchema";
 
 export const banners = {
   featured_section: {
@@ -110,9 +111,7 @@ export const highlight_arr = (
     title: latest?.latest_title,
     bannerImg: banners.highlight_section,
     posterImg: {
-      title: latest?.latest_data[0]?.title,
-      image1: latest?.latest_data[0]?.image1,
-      time: getRelativeTime(latest?.latest_data[0]?.updated_at),
+      ...latest.latest_data[0],
       isTransparent: true,
       isZoomable: true,
     },
@@ -123,9 +122,7 @@ export const highlight_arr = (
     title: trending?.trending_title,
     bannerImg: banners.samachar_section,
     posterImg: {
-      title: trending?.trending_data[0]?.title,
-      image1: latest?.latest_data[0]?.image1,
-      time: getRelativeTime(trending?.trending_data[0]?.updated_at),
+      ...trending.trending_data[0],
       isTransparent: true,
       isZoomable: true,
     },
@@ -134,6 +131,23 @@ export const highlight_arr = (
   },
 ];
 
+// News category section
+// export const news_category_section = (
+//   arr: ArticlesCategorizedSchema,
+// ) => [
+//   {
+//     title:arr
+//     bannerImg: banners.highlight_section,
+//     posterImg: {
+//       ...latest.latest_data[0],
+//       isTransparent: true,
+//       isZoomable: true,
+//     },
+//     articles: latest?.latest_data,
+//     imgList: ads_section.highlights,
+//   },
+
+// ];
 //////////////////////////////
 // Samachar section
 //////////////////////////////

@@ -5,7 +5,7 @@ import * as styles from "@/assets/css/styles";
 import * as colors from "@/assets/colors";
 
 import {
-  CategoriesSection,
+  NewsCategorySection,
   FeaturedSection,
   HighlightSection,
 } from "@/dynamic-imports/components";
@@ -19,7 +19,7 @@ export default function Home() {
       <div className={`${styles.padding_x} ${colors.divider} divide-y`}>
         <FeaturedSection />
         <HighlightSection />
-        <CategoriesSection />
+        <NewsCategorySection />
       </div>
     </ReduxProvider>
   );

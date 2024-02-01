@@ -17,7 +17,9 @@ import {
   ImageArrSchema,
   AllArticlesSchema,
   UpdatedAtSchema,
+  Image1Schema,
 } from "./CommonSchema";
+import { ArticleSchema } from "./ApiSchema";
 
 //////////////////////////////
 // buttons
@@ -35,13 +37,12 @@ export interface ButtonSchema
 // cards
 //////////////////////////////
 export interface MediaCardSchema
-  extends InfoPlacingSchema,
+  extends Image1Schema,
+    InfoPlacingSchema,
     TitleSchema,
     TitleLineClampSchema,
     SlugSchema,
-    UpdatedAtSchema {
-  image1: string | null;
-}
+    UpdatedAtSchema {}
 
 export interface DescriptionCardSchema
   extends ColorSchema,
@@ -60,9 +61,8 @@ export interface BodyOverlaySchema extends ChildrenSchema, CssSchema {}
 //////////////////////////////
 // images
 //////////////////////////////
-export interface PosterImageSchema extends TitleSchema, UpdatedAtSchema {
+export interface PosterImageSchema extends ArticleSchema {
   tag?: string;
-  image1?: string;
   titleFont?: string;
   timeFont?: string;
   isTransparent?: boolean;
@@ -70,7 +70,9 @@ export interface PosterImageSchema extends TitleSchema, UpdatedAtSchema {
 }
 
 // sections
-export interface TwoColumnSectionSchema extends TitleSchema, BannerImgSchema {
+export interface SingleNewsCategorySectionSchema
+  extends TitleSchema,
+    BannerImgSchema {
   descProps: DescriptionCardSchema;
   newsChildren: MediaCardSchema[];
   highlightChildren: ReactNode;

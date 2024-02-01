@@ -37,6 +37,15 @@ export type GetAllArticlesResponse = {
 //////////////////////////////
 // GetHomepageResponseSchema
 //////////////////////////////
+export type ArticlesCategorizedSchema = {
+  articles_categorized_totalHits: number;
+  articles_categorized: {
+    category_article_data: {
+      category_title: string;
+      articles: ArticleSchema[];
+    }[];
+  };
+};
 export type GetHomepageResponseSchema = {
   success: boolean;
   data:
@@ -57,15 +66,7 @@ export type GetHomepageResponseSchema = {
           latest_articles_totalHits: number;
           latest_articles: ArticleSchema[];
         },
-        {
-          articles_categorized_totalHits: number;
-          articles_categorized: {
-            category_article_data: {
-              category_title: string;
-              articles: ArticleSchema[];
-            }[];
-          };
-        }
+        ArticlesCategorizedSchema
       ]
     | [];
 };
