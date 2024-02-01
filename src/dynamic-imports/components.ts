@@ -87,8 +87,8 @@ export const BoardSection = dynamic(
     ssr: false,
   }
 );
-export const CommonMainSection = dynamic(
-  () => import("@/helpers/components/sections/CommonMainSection"),
+export const TwoColumnSection = dynamic(
+  () => import("@/helpers/components/sections/TwoColumnSection"),
   { ssr: false }
 );
 export const ThreeColumnSection = dynamic(
@@ -103,10 +103,6 @@ export const MiniUpdatesSection = dynamic(
 //////////////////////////////
 // sections/main
 //////////////////////////////
-export const BusinessSection = dynamic(
-  () => import("@/helpers/components/sections/main/BusinessSection"),
-  { ssr: false }
-);
 export const CategoriesSection = dynamic(
   () => import("@/helpers/components/sections/main/CategoriesSection"),
   { ssr: false }

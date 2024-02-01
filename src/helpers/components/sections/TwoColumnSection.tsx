@@ -2,10 +2,15 @@ import {
   BannerImage,
   CustomText,
   DescriptionCard,
+  MediaCard,
 } from "@/dynamic-imports/components";
-import { CommonMainSectionSchema } from "@/utils/schemas/ComponentsSchema";
+import { getUniqueKey } from "@/utils/methods/stringMethods";
+import {
+  MediaCardSchema,
+  TwoColumnSectionSchema,
+} from "@/utils/schemas/ComponentsSchema";
 
-export default function CommonMainSection(props: CommonMainSectionSchema) {
+export default function TwoColumnSection(props: TwoColumnSectionSchema) {
   // Props
   const { bannerImg, descProps, title, newsChildren, highlightChildren } =
     props;
@@ -22,7 +27,11 @@ export default function CommonMainSection(props: CommonMainSectionSchema) {
 
           <DescriptionCard {...descProps} />
 
-          {newsChildren}
+          <div className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {newsChildren?.map((item: MediaCardSchema, idx: number) => (
+              <MediaCard key={getUniqueKey(idx, item.title!)} {...item} />
+            ))}
+          </div>
         </div>
         <div className="h-full flex flex-col justify-between pt-5 gap-4">
           {highlightChildren}

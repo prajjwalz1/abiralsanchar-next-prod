@@ -70,9 +70,9 @@ export interface PosterImageSchema extends TitleSchema, UpdatedAtSchema {
 }
 
 // sections
-export interface CommonMainSectionSchema extends TitleSchema, BannerImgSchema {
+export interface TwoColumnSectionSchema extends TitleSchema, BannerImgSchema {
   descProps: DescriptionCardSchema;
-  newsChildren: ReactNode;
+  newsChildren: MediaCardSchema[];
   highlightChildren: ReactNode;
 }
 

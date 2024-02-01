@@ -153,7 +153,8 @@ export default function Navbar() {
   const dispatch = useAppDispatch();
 
   // Hooks
-  const { scrollCss } = useCustomScroll(80);
+  const css = `fixed transition delay-150 duration-300 ease-in-out top-0 w-full max-w-[2000px] mx-auto`;
+  const { scrollCss } = useCustomScroll(80, css);
 
   // useEffect
   useEffect(() => {
