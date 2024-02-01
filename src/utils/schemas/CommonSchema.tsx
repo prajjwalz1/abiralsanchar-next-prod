@@ -1,5 +1,6 @@
 import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
+import { ArticleSchema } from "./ApiSchema";
 
 export type ButtonTypeSchema = {
   type?: "button" | "submit" | "reset" | undefined;
@@ -39,6 +40,10 @@ export type ColorSchema = {
 
 export type TimeSchema = {
   time?: string;
+};
+
+export type UpdatedAtSchema = {
+  updated_at?: string;
 };
 
 export type TitleSchema = {
@@ -195,3 +200,8 @@ export type HandleActionSchema = {
 
 // Title and Image
 export interface LinkImageSchema extends LinkSchema, ImageSchema {}
+
+// Articles
+export type AllArticlesSchema = {
+  articles: ArticleSchema[];
+};

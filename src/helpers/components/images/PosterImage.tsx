@@ -10,13 +10,23 @@ import {
   CustomText,
   TimeCard,
 } from "@/dynamic-imports/components";
+import { getAbiralImg } from "@/utils/methods/imgMethods";
+import { getRelativeTime } from "@/utils/methods/timeMethods";
 import { PosterImageSchema } from "@/utils/schemas/ComponentsSchema";
 import { useState } from "react";
 
 export default function PosterImage(props: PosterImageSchema) {
   // Props
-  const { tag, time, title, titleFont, timeFont, isTransparent, isZoomable } =
-    props;
+  const {
+    tag,
+    image1,
+    title,
+    titleFont,
+    timeFont,
+    updated_at,
+    isTransparent,
+    isZoomable,
+  } = props;
 
   // State
   const [zoomImg, setZoomImg] = useState("");
@@ -28,7 +38,7 @@ export default function PosterImage(props: PosterImageSchema) {
   const zoom = isZoomable ? zoomImg : "";
 
   // Title css
-  const titleCss = `${color} ${newTitleFont} tracking-wider`;
+  const titleCss = `${color} tracking-wide`;
 
   // Action when the mouse enters the div
   const handleMouseEnter = () => {
@@ -49,8 +59,8 @@ export default function PosterImage(props: PosterImageSchema) {
         <BodyOverlay css="z-minus_1 absolute w-full min-h-full rounded-md" />
       )}
       <CustomImage
-        src="https://www.onlinekhabar.com/wp-content/uploads/2023/12/arrested-teacher.jpg"
-        alt="main alt"
+        src={getAbiralImg(image1!)}
+        alt={title!}
         divCss={`${zoom} z-minus_10 absolute w-full h-full rounded-md`}
         imgCss="w-full h-full object-cover rounded-md"
         width={100}
@@ -62,9 +72,15 @@ export default function PosterImage(props: PosterImageSchema) {
             <CustomTag title={tag} status="error" />
           </div>
         )}
-        <CustomText css={titleCss}>{title}</CustomText>
-        {time && (
-          <TimeCard {...{ font: newTimeFont, color }} title={time} isFlag />
+        <CustomText font={newTitleFont} css={titleCss}>
+          {title}
+        </CustomText>
+        {updated_at && (
+          <TimeCard
+            {...{ font: newTimeFont, color }}
+            title={getRelativeTime(updated_at)}
+            isFlag
+          />
         )}
       </div>
     </div>

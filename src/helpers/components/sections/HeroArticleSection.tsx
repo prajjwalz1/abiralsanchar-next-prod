@@ -3,7 +3,7 @@ import * as fonts from "@/assets/fonts";
 import { CustomTag, CustomText, TimeCard } from "@/dynamic-imports/components";
 import CustomImage from "@/helpers/components/images/CustomImage";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
-import { getRealtiveTime } from "@/utils/methods/timeMethods";
+import { getRelativeTime } from "@/utils/methods/timeMethods";
 import { ArticleSchema } from "@/utils/schemas/ApiSchema";
 import { FiMessageSquare } from "react-icons/fi";
 
@@ -34,7 +34,7 @@ export default function HeroArticleSection(props: ArticleSchema) {
             />
             <CustomText>{author}</CustomText>
           </div>
-          <TimeCard title={getRealtiveTime(updated_at)} color={black} isFlag />
+          <TimeCard title={getRelativeTime(updated_at)} color={black} isFlag />
 
           {/* Comments section */}
           <div className="flex items-center gap-1">

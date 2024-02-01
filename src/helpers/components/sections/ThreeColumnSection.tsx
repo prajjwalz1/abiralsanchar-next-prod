@@ -4,13 +4,11 @@ import {
   MiniUpdatesSection,
   PosterImage,
 } from "@/dynamic-imports/components";
-import { CommonMainSectionOneSchema } from "@/utils/schemas/ComponentsSchema";
+import { ThreeColumnSectionSchema } from "@/utils/schemas/ComponentsSchema";
 
-export default function CommonMainSectionOne(
-  props: CommonMainSectionOneSchema
-) {
+export default function ThreeColumnSection(props: ThreeColumnSectionSchema) {
   // Props
-  const { bannerImg, posterImg, imgList } = props;
+  const { title, bannerImg, posterImg, articles, imgList } = props;
 
   return (
     <>
@@ -19,7 +17,7 @@ export default function CommonMainSectionOne(
       <div className="relative w-full py-5 h-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[360px_1fr_280px] gap-6">
         <PosterImage {...posterImg} />
 
-        <MiniUpdatesSection />
+        <MiniUpdatesSection title={title} articles={articles} />
 
         <AdsSection imgList={imgList} />
       </div>

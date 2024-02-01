@@ -6,9 +6,11 @@ import {
   DescriptionCardSchema,
   MediaCardSchema,
 } from "@/utils/schemas/ComponentsSchema";
+import { getRelativeTime } from "../methods/timeMethods";
+import { LatestSchema, TrendingSchema } from "../schemas/ReduxSchema";
 
 export const banners = {
-  hero_section: {
+  featured_section: {
     src: images.banner_bank_gif,
     alt: "banner_bank_gif",
     divCss: "h-[100px]",
@@ -94,38 +96,43 @@ export const ads_section = {
       width: 100,
       height: 100,
     },
-    {
-      src: images.ad_shangrila_gif,
-      alt: "ad_shangrila_gif",
-      width: 100,
-      height: 100,
-    },
-    {
-      src: images.ad_krishi_gif,
-      alt: "ad_krishi_gif",
-      width: 100,
-      height: 100,
-    },
-    {
-      src: images.ad_muktinath_gif,
-      alt: "ad_muktinath_gif",
-      width: 100,
-      height: 100,
-    },
-    {
-      src: images.ad_nepal_airlines_gif,
-      alt: "ad_nepal_airlines_gif",
-      width: 100,
-      height: 100,
-    },
-    {
-      src: images.ad_shangrila_gif,
-      alt: "ad_shangrila_gif",
-      width: 100,
-      height: 100,
-    },
   ],
 };
+
+//////////////////////////////
+// Highlights section
+//////////////////////////////
+export const highlight_arr = (
+  latest: LatestSchema,
+  trending: TrendingSchema
+) => [
+  {
+    title: latest?.latest_title,
+    bannerImg: banners.highlight_section,
+    posterImg: {
+      title: latest?.latest_data[0]?.title,
+      image1: latest?.latest_data[0]?.image1,
+      time: getRelativeTime(latest?.latest_data[0]?.updated_at),
+      isTransparent: true,
+      isZoomable: true,
+    },
+    articles: latest?.latest_data,
+    imgList: ads_section.highlights,
+  },
+  {
+    title: trending?.trending_title,
+    bannerImg: banners.samachar_section,
+    posterImg: {
+      title: trending?.trending_data[0]?.title,
+      image1: latest?.latest_data[0]?.image1,
+      time: getRelativeTime(trending?.trending_data[0]?.updated_at),
+      isTransparent: true,
+      isZoomable: true,
+    },
+    articles: trending?.trending_data,
+    imgList: ads_section.news,
+  },
+];
 
 //////////////////////////////
 // Samachar section

@@ -27,7 +27,7 @@ const SingleCurrentNews = (props: ArticleSchema) => {
   const { title, slug, image1 } = props;
 
   return (
-    <div className="h-[80px] pl-0 md:pl-5 p-2 flex justify-between items-start rounded-md rounded-r-none md:border-r-2 md:border-red-400">
+    <div className="h-[80px] pl-0 md:pl-5 p-2 flex justify-between items-start rounded-md rounded-r-none md:border-r-2 md:border-gray-300">
       <div className="flex w-4/5">
         <CustomText slug={slug} css="line-clamp-2" isSlightPara>
           {title}

@@ -10,12 +10,13 @@ import {
   FontSchema,
   OnClickSchema,
   SlugSchema,
-  TimeSchema,
   TitleFontSchema,
   TitleLineClampSchema,
   TitleSchema,
   BannerImgSchema,
   ImageArrSchema,
+  AllArticlesSchema,
+  UpdatedAtSchema,
 } from "./CommonSchema";
 
 //////////////////////////////
@@ -34,11 +35,11 @@ export interface ButtonSchema
 // cards
 //////////////////////////////
 export interface MediaCardSchema
-  extends TimeSchema,
-    InfoPlacingSchema,
+  extends InfoPlacingSchema,
     TitleSchema,
     TitleLineClampSchema,
-    SlugSchema {
+    SlugSchema,
+    UpdatedAtSchema {
   image1: string | null;
 }
 
@@ -59,8 +60,9 @@ export interface BodyOverlaySchema extends ChildrenSchema, CssSchema {}
 //////////////////////////////
 // images
 //////////////////////////////
-export interface PosterImageSchema extends TitleSchema, TimeSchema {
+export interface PosterImageSchema extends TitleSchema, UpdatedAtSchema {
   tag?: string;
+  image1?: string;
   titleFont?: string;
   timeFont?: string;
   isTransparent?: boolean;
@@ -74,8 +76,14 @@ export interface CommonMainSectionSchema extends TitleSchema, BannerImgSchema {
   highlightChildren: ReactNode;
 }
 
-export interface CommonMainSectionOneSchema
-  extends BannerImgSchema,
-    ImageArrSchema {
+export interface ThreeColumnSectionSchema
+  extends TitleSchema,
+    BannerImgSchema,
+    ImageArrSchema,
+    AllArticlesSchema {
   posterImg: PosterImageSchema;
 }
+
+export interface MiniUpdatesSectionSchema
+  extends AllArticlesSchema,
+    TitleSchema {}

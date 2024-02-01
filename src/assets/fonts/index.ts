@@ -39,7 +39,7 @@ export const getFont = (size: FontSizeSchema, weight?: FontWeightSchema) => {
   const weights = {
     normal: "font-normal",
     medium: "font-medium",
-    semi_bold: "font-semi-bold",
+    semi_bold: "font-semibold",
     bold: "font-bold",
     extra_bold: "font-extrabold",
   };

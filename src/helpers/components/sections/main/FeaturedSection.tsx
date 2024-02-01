@@ -6,7 +6,7 @@ import { banners } from "@/utils/constants/homepage-constants";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
 import { ArticleSchema } from "@/utils/schemas/ApiSchema";
 
-export default function FeaturedSection() {
+export default function ThreeColumnSection() {
   // Redux
   const { featured_data } = useAppSelector(
     (state: RootState) => state.NewsPortal.header.featured
@@ -14,8 +14,8 @@ export default function FeaturedSection() {
 
   return (
     <>
-      <BannerImage imageProps={banners.hero_section} />
-      {featured_data?.map((item: ArticleSchema, idx: number) => (
+      <BannerImage imageProps={banners.featured_section} />
+      {featured_data?.slice(0, 3)?.map((item: ArticleSchema, idx: number) => (
         <HeroArticleSection
           key={getUniqueKey(idx, item?.title ?? "H")}
           {...item}

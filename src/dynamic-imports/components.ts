@@ -91,8 +91,8 @@ export const CommonMainSection = dynamic(
   () => import("@/helpers/components/sections/CommonMainSection"),
   { ssr: false }
 );
-export const CommonMainSectionOne = dynamic(
-  () => import("@/helpers/components/sections/CommonMainSectionOne"),
+export const ThreeColumnSection = dynamic(
+  () => import("@/helpers/components/sections/ThreeColumnSection"),
   { ssr: false }
 );
 export const MiniUpdatesSection = dynamic(
@@ -105,6 +105,10 @@ export const MiniUpdatesSection = dynamic(
 //////////////////////////////
 export const BusinessSection = dynamic(
   () => import("@/helpers/components/sections/main/BusinessSection"),
+  { ssr: false }
+);
+export const CategoriesSection = dynamic(
+  () => import("@/helpers/components/sections/main/CategoriesSection"),
   { ssr: false }
 );
 export const FeaturedSection = dynamic(
