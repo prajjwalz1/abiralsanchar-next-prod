@@ -1,3 +1,5 @@
+"use client";
+
 import * as colors from "@/assets/colors";
 import * as styles from "@/assets/css/styles";
 import {
@@ -10,9 +12,7 @@ import {
   NestedLinkSchema,
   OptionSchema,
 } from "@/utils/schemas/CommonSchema";
-import Link from "next/link";
-import { LogoImage } from "@/dynamic-imports/components";
-import CustomText from "../../texts/CustomText";
+import { CustomText, LogoImage } from "@/dynamic-imports/components";
 
 const Footer = () => {
   return (
@@ -24,7 +24,7 @@ const Footer = () => {
           ({ title, child }: NestedLinkSchema, idx: number) => (
             <div
               key={getUniqueKey(idx, title!)}
-              className="flex flex-col gap-4"
+              className="flex flex-col gap-2"
             >
               <CustomText isKhand isHeaderColor isSubHeading isBold>
                 {title}
@@ -32,9 +32,13 @@ const Footer = () => {
 
               <div className="pb-10 flex flex-col gap-1">
                 {child.map(({ title, slug }: LinkSchema, idx: number) => (
-                  <Link key={getUniqueKey(idx, title!)} href={slug!}>
-                    <CustomText isLinkColor>{title}</CustomText>
-                  </Link>
+                  <CustomText
+                    key={getUniqueKey(idx, title!)}
+                    slug={slug!}
+                    isLinkColor
+                  >
+                    {title}
+                  </CustomText>
                 ))}
               </div>
             </div>
@@ -52,19 +56,19 @@ const Footer = () => {
           {footer_end_items.map(
             ({ label, icon, value }: OptionSchema, idx: number) => {
               const isCopyright = label === "copyright";
-              const newLabel = isCopyright ? icon : label;
+              const newLabel = !isCopyright ? label : icon;
 
               return (
                 <div
                   key={getUniqueKey(idx, value)}
                   className="px-2.5 flex flex-col gap-1 justify-between h-full border-l-[1px] border-l-gray-400"
                 >
-                  <div className="">
+                  {!isCopyright ? (
                     <CustomText isSlightPara>{newLabel}</CustomText>
-                  </div>
-                  <div>
-                    <CustomText isSlightPara>{value}</CustomText>
-                  </div>
+                  ) : (
+                    newLabel
+                  )}
+                  <CustomText isSlightPara>{value}</CustomText>
                 </div>
               );
             }

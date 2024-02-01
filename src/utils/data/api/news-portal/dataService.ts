@@ -3,7 +3,7 @@ import axios from "axios";
 // Axios config
 const api = axios.create({
   // baseURL: `${process.env.NEXT_PUBLIC_NEWS_PORTAL_URL}`,
-  baseURL: "http://jsugauta1.pythonanywhere.com",
+  baseURL: "https://jsugauta1.pythonanywhere.com",
 });
 
 // Class containing the REST methods
@@ -50,6 +50,6 @@ class DataService {
 }
 
 // Create a instance of the class
-const newsPortalService = new DataService();
+const dataService = new DataService();
 
-export default newsPortalService;
+export default dataService;

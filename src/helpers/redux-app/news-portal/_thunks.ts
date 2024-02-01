@@ -1,4 +1,4 @@
-import newsPortalService from "@/utils/data/api/news-portal/dataService";
+import dataService from "@/utils/data/api/news-portal/dataService";
 import { getReduxErrorMsg } from "@/utils/methods/reduxMethods";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
@@ -17,7 +17,7 @@ export const GetHomepageDataThunk = createAsyncThunk(
   "GetHomepageDataThunk",
   async (_, thunkAPI) => {
     try {
-      return await newsPortalService.getData("/api/v1/news/homepage/");
+      return await dataService.getData("/api/v1/news/homepage/");
     } catch (error: any) {
       return thunkAPI.rejectWithValue(getReduxErrorMsg(error));
     }
