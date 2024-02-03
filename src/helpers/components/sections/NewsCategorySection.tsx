@@ -47,11 +47,11 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
           <DescriptionCard {...articles[0]} />
 
           {isNoArticles ? (
-            <CenterContainer>
+            <CenterContainer css="mt-5 w-full h-[calc(100%-260px-72px-22px)] grid place-items-center bg-white rounded-md shadow-md border-[1px] border-gray-200">
               <CustomText>Currently there are no articles to show</CustomText>
             </CenterContainer>
           ) : (
-            <div className="h-[calc(100%-260px-72px)] max-h-[calc(100%-260px-72px)] flex gap-3">
+            <div className="h-[calc(100%-260px-72px)] max-h-[calc(100%-260px-72px)] flex flex-col sm:flex-row gap-3">
               <div
                 className={`${a1Css} basis-1/2 pt-3 grid grid-rows-3 gap-3 items-end`}
               >

@@ -34,8 +34,9 @@ const SingleCurrentNews = (props: ArticleSchema) => {
         </CustomText>
       </div>
       <CustomImage
+        priority
         src={getAbiralImg(image1!)}
-        alt={title.slice(0, 18)}
+        alt={title?.slice(0, 18) ?? "single_news_image"}
         divCss={`${fonts.span} font-medium w-1/5 h-[56px] rounded-md border-[1px] border-black`}
         imgCss="w-full h-full object-cover rounded-md"
         width={40}

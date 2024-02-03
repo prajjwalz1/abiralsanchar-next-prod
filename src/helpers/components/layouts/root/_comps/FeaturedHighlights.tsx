@@ -22,8 +22,9 @@ export default function FeaturedHighlights() {
         ({ title, image1, slug }: ArticleSchema, idx: number) => (
           <div key={getUniqueKey(idx, title!)} className="flex gap-1">
             <CustomImage
+              priority
               src={getAbiralImg(image1!)}
-              alt={slug}
+              alt={title ?? "featured_image_avatar"}
               divCss="w-[24px] h-[24px] rounded-full border-[1px] border-black"
               imgCss="w-full h-full object-cover rounded-full"
               width={24}

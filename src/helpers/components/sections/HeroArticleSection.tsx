@@ -25,10 +25,11 @@ export default function HeroArticleSection(props: ArticleSchema) {
         <div className="author-details w-full flex justify-between sm:justify-center items-center gap-1.5 sm:gap-6">
           <div className="flex items-center gap-1.5">
             <CustomImage
+              priority
               src="https://www.onlinekhabar.com/wp-content/uploads/2022/09/Shailendra-Mahato-1-270x170.jpg"
               alt={author.toString()}
               divCss="w-[40px] h-[40px] rounded-full"
-              imgCss="object-cover w-full h-full rounded-full"
+              imgCss="object-cover w-[40px] h-[40px] rounded-full"
               width={40}
               height={40}
             />
@@ -48,11 +49,11 @@ export default function HeroArticleSection(props: ArticleSchema) {
       <div className="w-full flex flex-col gap-5">
         <CustomImage
           src={getAbiralImg(image1!)}
-          alt={title}
+          alt={title ?? "hero_description_image"}
           divCss="w-full bg-red-300 h-[520px] rounded-md border-[1px] border-black"
           imgCss="object-cover w-full h-full rounded-md"
-          width={520}
-          height={520}
+          width={100}
+          height={100}
           onClick={() => window.open(slug)}
         />
         <CustomText font={fonts.large} css="line-clamp-3">

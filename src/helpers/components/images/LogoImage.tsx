@@ -8,6 +8,7 @@ export default function LogoImage() {
       divCss="w-[156px] h-9/12"
       width={100}
       height={100}
+      priority
     />
   );
 }

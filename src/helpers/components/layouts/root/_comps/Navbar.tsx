@@ -63,11 +63,12 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
     <div className={css}>
       {isFixed && (
         <CustomImage
+          priority
           src="/image/logo_small.png"
           alt="logo_small"
           divCss="animate-showDown absolute left-10 md:left-32 lg:left-[172px] w-[40px] h-[24px]"
-          width={32}
-          height={32}
+          width={40}
+          height={24}
         />
       )}
       {nav_items?.map(({ title, slug }: LinkSchema, idx: number) => (

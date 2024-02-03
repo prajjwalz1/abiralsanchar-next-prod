@@ -23,7 +23,7 @@ const RootLayout: React.FC<RootLayoutSchema> = (props) => {
         <link rel="icon" href="/image/logo_small.png" type="image/png" />
       </head>
       <body
-        className={`${fonts.khand.variable} ${fonts.mukta.variable} min-w-screen min-h-screen max-w-[2000px] mx-auto grid grid-rows-[160px_minmax(calc(100vh-160px),auto)_auto] font-normal`}
+        className={`${fonts.khand.variable} ${fonts.mukta.variable} w-screen min-h-screen max-w-[2000px] mx-auto grid grid-rows-[160px_minmax(calc(100vh-160px),auto)_auto] font-normal`}
       >
         <RootHeader />
         <main>{children}</main>

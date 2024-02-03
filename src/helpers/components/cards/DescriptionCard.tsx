@@ -15,19 +15,20 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
   const descCss = `line-clamp-4 tracking-wide`;
 
   return (
-    <div
-      className={`${bgColor} h-[260px] flex gap-3 justify-between items-start rounded-md border-[1px] border-gray-300 shadow-md`}
-    >
+    <div className="h-auto sm:h-[260px] flex flex-col sm:flex-row justify-between items-start rounded-md border-[1px] border-gray-300 shadow-md">
       <CustomImage
+        priority
         src={getAbiralImg(image1!)}
         alt={title?.slice(0, 18) ?? "Description Card Image"}
-        divCss={`${span} font-medium w-[300px] h-full cursor-pointer rounded-md`}
-        imgCss="w-full h-full object-cover rounded-l-md"
+        divCss={`${span} font-medium w-full sm:w-[300px] h-[260px] cursor-pointer rounded-md`}
+        imgCss="w-full h-full object-cover rounded-t-md sm:rounded-l-md sm:rounded-t-none"
         width={40}
         height={40}
         onClick={() => window.open(slug)}
       />
-      <div className="flex-1 h-full px-8 py-2 flex flex-col justify-center gap-6">
+      <div
+        className={`${bgColor} flex-1 h-full px-8 py-2 flex flex-col justify-center gap-6`}
+      >
         <CustomText slug={slug} css={titleCss} isHeading isBold>
           {title}
         </CustomText>

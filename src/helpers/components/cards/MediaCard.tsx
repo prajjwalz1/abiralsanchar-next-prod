@@ -27,6 +27,7 @@ export default function MediaCard(props: MediaCardSchema) {
   // Css
   const divCss = css ?? "h-[84px]";
   const titleCss = `${fonts.slight_large_line_height} ${titleLineClamp} cursor-pointer tracking-wide`;
+  const placingCss = info_placing ?? "justify-between";
 
   return (
     <div
@@ -34,18 +35,14 @@ export default function MediaCard(props: MediaCardSchema) {
     >
       <CustomImage
         src={getAbiralImg(image1!)}
-        alt={title!.slice(0, 18)}
+        alt={title?.slice(0, 18) ?? "media_card_img"}
         divCss={`${fonts.span} font-medium w-[120px] h-full cursor-pointer rounded-md border-[1px] border-black`}
         imgCss="w-full h-full object-cover rounded-md"
         width={40}
         height={40}
         onClick={() => window.open(slug)}
       />
-      <div
-        className={`${
-          info_placing ?? "justify-between"
-        } h-full flex-1 flex flex-col gap-1`}
-      >
+      <div className={`${placingCss} h-full flex-1 flex flex-col gap-1`}>
         <CustomText slug={slug} css={titleCss} isLinkColor>
           {title}
         </CustomText>

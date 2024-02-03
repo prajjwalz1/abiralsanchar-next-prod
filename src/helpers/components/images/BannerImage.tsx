@@ -7,7 +7,7 @@ export default function BannerImage(props: BannerImageSchema) {
 
   return (
     <div className={css ?? "py-5 rounded-md"}>
-      {imageProps && <CustomImage {...imageProps} />}
+      {imageProps && <CustomImage {...imageProps} priority />}
       {divProps && <div>div</div>}
     </div>
   );

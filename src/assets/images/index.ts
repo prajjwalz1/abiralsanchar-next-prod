@@ -14,7 +14,6 @@ export { default as ad_nepal_airlines_gif } from "./homepage/ad_nepal_airlines_g
 export { default as ad_shangrila_gif } from "./homepage/ad_shangrila_gif.gif";
 
 // banners
-export { default as banner_bank_gif } from "./homepage/banner_bank_gif.gif";
 export { default as banner_bhatbhateni_jpeg } from "./homepage/banner_bhatbhateni_jpeg.jpeg";
 export { default as banner_nt_fiber_gif } from "./homepage/banner_nt_fiber_gif.gif";
 export { default as banner_nmb_visa_gif } from "./homepage/banner_nmb_visa_gif.gif";

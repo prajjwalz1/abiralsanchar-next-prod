@@ -3,8 +3,7 @@ import Image from "next/image";
 
 export default function CustomImage(props: CustomImageSchema) {
   // Props
-  const { src, alt, width, height, divCss, imgCss, blurDataURL, ...rest } =
-    props;
+  const { src, alt, divCss, imgCss, blurDataURL, priority, ...rest } = props;
 
   // Default Blur Image
   const defaultBlurImg =
@@ -13,14 +12,15 @@ export default function CustomImage(props: CustomImageSchema) {
   return (
     <div className={divCss ?? "w-full h-full"}>
       <Image
-        priority
-        className={imgCss ?? "w-full h-full object-cover"}
+        priority={priority}
+        className={imgCss ?? "w-full h-full object-cover rounded-md"}
         src={src}
         alt={alt}
-        width={width}
-        height={height}
+        // fill={rest.height ? false : true}
+        // layout="responsive"
+        // placeholder={ ? "empty" : "blur"}
         // placeholder="blur"
-        blurDataURL={blurDataURL || defaultBlurImg}
+        blurDataURL={blurDataURL ?? defaultBlurImg}
         {...rest}
       />
     </div>

@@ -59,8 +59,9 @@ export default function PosterImage(props: PosterImageSchema) {
         <BodyOverlay css="z-minus_1 absolute w-full min-h-full rounded-md" />
       )}
       <CustomImage
+        priority
         src={getAbiralImg(image1!)}
-        alt={title!}
+        alt={title ?? "featured_highlight_image"}
         divCss={`${zoom} z-minus_10 absolute w-full h-full rounded-md`}
         imgCss="w-full h-full object-cover rounded-md"
         width={100}

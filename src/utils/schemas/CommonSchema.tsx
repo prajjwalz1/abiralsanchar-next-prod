@@ -88,12 +88,13 @@ export type IconSchema = {
 export interface CustomImageSchema extends OnClickSchema {
   src: string | StaticImageData;
   alt: string;
-  width: number | `${number}` | undefined;
-  height: number | `${number}` | undefined;
+  width?: number | `${number}`;
+  height?: number | `${number}`;
   divCss?: string;
   imgCss?: string;
   blurDataURL?: string;
   onClick?: () => void;
+  priority?: boolean;
 }
 
 export type ImageArrSchema = {
@@ -126,6 +127,10 @@ export type RootLayoutSchema = {
 // Css
 export type CssSchema = {
   css?: string;
+};
+
+export type ExtendCssSchema = {
+  extendCss?: string;
 };
 
 export type FlagSchema = {
