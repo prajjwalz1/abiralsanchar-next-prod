@@ -44,7 +44,8 @@ export interface MediaCardSchema
     TitleLineClampSchema,
     SlugSchema,
     UpdatedAtSchema,
-    ShowClockSchema {}
+    ShowClockSchema,
+    CssSchema {}
 
 export interface DescriptionCardSchema
   extends ShowClockSchema,

@@ -115,7 +115,7 @@ export const highlight_arr = (
       isZoomable: true,
     },
     articles: latest?.latest_data,
-    imgList: ads_section.highlights,
+    imgList: ads_section.highlights.slice(0, 3),
   },
   {
     title: trending?.trending_title,
@@ -126,7 +126,7 @@ export const highlight_arr = (
       isZoomable: true,
     },
     articles: trending?.trending_data,
-    imgList: ads_section.news,
+    imgList: ads_section.news.slice(0, 3),
   },
 ];
 

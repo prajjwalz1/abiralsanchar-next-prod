@@ -18,16 +18,20 @@ export default function MediaCard(props: MediaCardSchema) {
     titleLineClamp: t,
     image1,
     showClock,
+    css,
   } = props;
 
   // Line clamp
   const titleLineClamp = t ? `line-clamp-${t}` : "line-clamp-3";
 
   // Css
+  const divCss = css ?? "h-[84px]";
   const titleCss = `${fonts.slight_large_line_height} ${titleLineClamp} cursor-pointer tracking-wide`;
 
   return (
-    <div className="h-[84px] flex gap-3 justify-between items-start rounded-sm">
+    <div
+      className={`${divCss} flex gap-3 justify-between items-start rounded-sm`}
+    >
       <CustomImage
         src={getAbiralImg(image1!)}
         alt={title!.slice(0, 18)}

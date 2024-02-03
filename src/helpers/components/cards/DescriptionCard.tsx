@@ -12,11 +12,11 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
   const bgColor = color ?? light_gray_bg;
   const hoverColor = color ? hover_red_dark : hover_link;
   const titleCss = `${hoverColor} line-clamp-3 cursor-pointer tracking-wide`;
-  const descCss = `line-clamp-6 tracking-wide`;
+  const descCss = `line-clamp-4 tracking-wide`;
 
   return (
     <div
-      className={`${bgColor} h-[360px] flex gap-3 justify-between items-start rounded-md border-[1px] border-gray-300 shadow-md`}
+      className={`${bgColor} h-[260px] flex gap-3 justify-between items-start rounded-md border-[1px] border-gray-300 shadow-md`}
     >
       <CustomImage
         src={getAbiralImg(image1!)}
@@ -27,7 +27,7 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
         height={40}
         onClick={() => window.open(slug)}
       />
-      <div className="flex-1 h-full px-8 flex flex-col justify-center gap-6">
+      <div className="flex-1 h-full px-8 py-2 flex flex-col justify-center gap-6">
         <CustomText slug={slug} css={titleCss} isHeading isBold>
           {title}
         </CustomText>
