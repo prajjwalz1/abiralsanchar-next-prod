@@ -16,11 +16,14 @@ export default function FeaturedHighlights() {
 
   return (
     <div
-      className={`${styles.width_x} featured-highlights relative thin-scrollbar overflow-x-auto overflow-y-hidden mx-auto flex items-center gap-8`}
+      className={`${styles.width_x} featured-highlights thin-scrollbar overflow-x-auto relative flex items-center gap-8`}
     >
       {featured_data?.map(
         ({ title, image1, slug }: ArticleSchema, idx: number) => (
-          <div key={getUniqueKey(idx, title!)} className="flex gap-1">
+          <div
+            key={getUniqueKey(idx, title!)}
+            className="flex items-center gap-1"
+          >
             <CustomImage
               priority
               src={getAbiralImg(image1!)}

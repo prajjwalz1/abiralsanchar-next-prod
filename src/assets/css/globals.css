@@ -39,6 +39,12 @@ body {
     rgb(var(--background-start-rgb));
 } */
 
+body {
+  min-width: 360px;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -52,7 +58,7 @@ body {
 
 .thin-scrollbar::-webkit-scrollbar-track {
   border-radius: 2rem;
-  background: #b5b5b5;
+  background: #ddd;
 }
 
 .thin-scrollbar::-webkit-scrollbar-thumb {

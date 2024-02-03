@@ -155,7 +155,7 @@ export default function Navbar() {
   const didMountRef = useRef(false);
 
   // Hooks
-  const css = `fixed transition delay-150 duration-300 ease-in-out top-0 w-full max-w-[2000px] mx-auto`;
+  const css = `fixed transition delay-150 duration-300 ease-in-out top-0 w-full max-w-[2000px]`;
   const { scrollCss } = useCustomScroll(80, css);
 
   // useEffect

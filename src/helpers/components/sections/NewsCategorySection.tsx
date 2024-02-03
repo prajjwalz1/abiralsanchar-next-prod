@@ -31,7 +31,7 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
     <>
       <BannerImage imageProps={banners.samachar_section} />
 
-      <div className="pb-5 grid grid-cols-[1fr_280px] gap-3">
+      <div className="pb-5 grid md:grid-cols-[auto_280px] gap-3">
         {/* First column */}
         <div className="flex flex-col first-of-type:gap-0 gap-3">
           <CustomText
@@ -47,11 +47,11 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
           <DescriptionCard {...articles[0]} />
 
           {isNoArticles ? (
-            <CenterContainer css="mt-5 w-full h-[calc(100%-260px-72px-22px)] grid place-items-center bg-white rounded-md shadow-md border-[1px] border-gray-200">
+            <CenterContainer css="mt-5 w-full h-auto md:h-[calc(100%-260px-72px-22px)] grid place-items-center bg-white rounded-md shadow-md border-[1px] border-gray-200 p-8 md:p-0">
               <CustomText>Currently there are no articles to show</CustomText>
             </CenterContainer>
           ) : (
-            <div className="h-[calc(100%-260px-72px)] max-h-[calc(100%-260px-72px)] flex flex-col sm:flex-row gap-3">
+            <div className="h-auto md:h-[calc(100%-260px-72px)] max-h-[calc(100%-260px-72px)] flex flex-col sm:flex-row gap-3">
               <div
                 className={`${a1Css} basis-1/2 pt-3 grid grid-rows-3 gap-3 items-end`}
               >
@@ -65,7 +65,7 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
                 ))}
               </div>
               <div
-                className={`${a2Css} basis-1/2 pt-3 grid grid-rows-3 gap-3 items-end`}
+                className={`${a2Css} basis-1/2 md:pt-3 grid grid-rows-3 gap-3 items-end`}
               >
                 {articles2?.map((item: MediaCardSchema, idx: number) => (
                   <MediaCard

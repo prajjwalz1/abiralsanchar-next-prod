@@ -4,9 +4,7 @@ import * as colors from "@/assets/colors";
 // Base css
 //////////////////////////////
 export const width_x =
-  "w-[calc(100%-80px)] max-w-[calc(100%-80px)] md:w-[calc(100%-256px)] md:max-w-[calc(100%-256px)] lg:w-[calc(100%-344px)] lg:max-w-[calc(100%-344px)]";
-export const max_width_x =
-  "max-w-[calc(100%-80px)] md:max-w-[calc(100%-256px)] lg:max-w-[calc(100%-344px)]";
+  "w-[calc(100%-80px)] md:w-[calc(100%-256px)] lg:w-[calc(100%-344px)] mx-auto";
 export const padding_x = "px-10 md:px-32 lg:px-[172px]";
 export const padding_x_medium = "px-5 md:px-10 lg:px-20";
 export const padding_xl = "pl-10 md:pl-32 lg:pl-[172px]";
@@ -41,7 +39,6 @@ export const getActiveLink = (
 // Icons
 //////////////////////////////
 export const nav_icon = `w-8 h-8 ${colors.icon}`;
-
 
 // Buttons
 export const close_button = `absolute top-6 right-6 ${colors.danger_icon_button}`;
