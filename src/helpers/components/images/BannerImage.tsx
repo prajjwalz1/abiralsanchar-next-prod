@@ -3,10 +3,14 @@ import { BannerImageSchema } from "@/utils/schemas/CommonSchema";
 
 export default function BannerImage(props: BannerImageSchema) {
   // Props
-  const { imageProps, divProps, css } = props;
+  const { imageProps, divProps, css, extendCss } = props;
 
   return (
-    <div className={css ?? "py-5 rounded-md"}>
+    <div
+      className={
+        css ?? `${extendCss} rounded-md border-[1px] border-gray-200 shadow-md`
+      }
+    >
       {imageProps && <CustomImage {...imageProps} priority />}
       {divProps && <div>div</div>}
     </div>

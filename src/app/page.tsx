@@ -16,7 +16,9 @@ import { ReduxProvider } from "@/dynamic-imports/redux-app";
 export default function Home() {
   return (
     <ReduxProvider>
-      <div className={`${styles.padding_x} ${colors.divider} divide-y`}>
+      <div
+        className={`${styles.padding_x} ${colors.divider} w-full flex flex-col gap-5 divide-y`}
+      >
         <FeaturedSection />
         <HighlightSection />
         <NewsCategoriesSection />
