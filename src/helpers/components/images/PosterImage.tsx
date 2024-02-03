@@ -53,7 +53,7 @@ export default function PosterImage(props: PosterImageSchema) {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="relative max-w-full max-h-full flex flex-col justify-end rounded-md overflow-hidden"
+      className="relative max-w-full h-[300px] md:h-full flex flex-col justify-end rounded-md overflow-hidden"
     >
       {isTransparent && (
         <BodyOverlay css="z-minus_1 absolute w-full min-h-full rounded-md" />
@@ -61,11 +61,11 @@ export default function PosterImage(props: PosterImageSchema) {
       <CustomImage
         priority
         src={getAbiralImg(image1!)}
-        alt={title ?? "featured_highlight_image"}
+        alt={title ?? "Featured Highlight Image"}
         divCss={`${zoom} z-minus_10 absolute w-full h-full rounded-md`}
         imgCss="w-full h-full object-cover rounded-md"
-        width={100}
-        height={100}
+        width={0}
+        height={0}
       />
       <div className="p-5">
         {tag && (

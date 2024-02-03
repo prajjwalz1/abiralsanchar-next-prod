@@ -53,7 +53,7 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
           ) : (
             <div className="h-auto md:h-[calc(100%-260px-72px)] max-h-[calc(100%-260px-72px)] flex flex-col sm:flex-row gap-3">
               <div
-                className={`${a1Css} basis-1/2 pt-3 grid grid-rows-3 gap-3 items-end`}
+                className={`${a1Css} basis-1/2 pt-4 md:pt-3 grid grid-rows-3 gap-3 items-end`}
               >
                 {articles1?.map((item: MediaCardSchema, idx: number) => (
                   <MediaCard
