@@ -90,6 +90,12 @@ export const ads_section = {
       width: 0,
       height: 0,
     },
+    {
+      src: images.ad_shangrila_gif,
+      alt: "ad_shangrila_gif",
+      width: 0,
+      height: 0,
+    },
   ],
 };
 

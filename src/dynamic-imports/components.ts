@@ -29,6 +29,14 @@ export const TimeCard = dynamic(
 );
 
 //////////////////////////////
+// containers
+//////////////////////////////
+export const CenterContainer = dynamic(
+  () => import("@/helpers/components/containers/CenterContainer"),
+  { ssr: false }
+);
+
+//////////////////////////////
 // Images
 //////////////////////////////
 export const BannerImage = dynamic(

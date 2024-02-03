@@ -12,7 +12,7 @@ export default function AdsSection({ imgList }: ImageArrSchema) {
         <CustomImage
           key={getUniqueKey(idx, item.alt)}
           {...item}
-          divCss="w-full h-[155px] rounded-md shadow-md"
+          divCss="w-full h-[155px] rounded-md shadow-md border-[1px] border-gray-200"
           imgCss="w-full h-full object-cover rounded-md"
         />
       ))}

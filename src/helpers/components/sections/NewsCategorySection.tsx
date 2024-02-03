@@ -14,6 +14,9 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
   // Props
   const { category_title, articles } = props;
 
+  // Conditions
+  const isNoArticles = articles?.length < 1;
+
   return (
     <>
       <BannerImage imageProps={banners.samachar_section} />
@@ -26,15 +29,21 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
 
           <DescriptionCard {...articles[0]} />
 
-          <div className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {articles?.map((item: MediaCardSchema, idx: number) => (
-              <MediaCard
-                key={getUniqueKey(idx, item.title!)}
-                {...item}
-                info_placing="justify-center"
-              />
-            ))}
-          </div>
+          {isNoArticles ? (
+            <div className="w-full h-full grid place-items-center bg-white shadow-md">
+              <CustomText>Currently there are no articles to show</CustomText>
+            </div>
+          ) : (
+            <div className="w-full h-full pt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {articles?.map((item: MediaCardSchema, idx: number) => (
+                <MediaCard
+                  key={getUniqueKey(idx, item.title!)}
+                  {...item}
+                  info_placing="justify-center"
+                />
+              ))}
+            </div>
+          )}
         </div>
         <div className="h-full flex flex-col justify-between pt-5 gap-4">
           <AdsSection imgList={ads_section.news} />

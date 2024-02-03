@@ -27,7 +27,7 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
         height={40}
         onClick={() => window.open(slug)}
       />
-      <div className="flex-1 h-full p-8 flex flex-col justify-center gap-6">
+      <div className="flex-1 h-full px-8 flex flex-col justify-center gap-6">
         <CustomText slug={slug} css={titleCss} isHeading isBold>
           {title}
         </CustomText>
