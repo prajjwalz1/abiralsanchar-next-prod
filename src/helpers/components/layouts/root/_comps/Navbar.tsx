@@ -4,7 +4,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useRef } from "react";
-import { CgMenuGridR } from "react-icons/cg";
 import { IoTrendingUpOutline } from "react-icons/io5";
 import { TbNews } from "react-icons/tb";
 
@@ -126,7 +125,10 @@ const MobileNavMenu = () => {
         <div
           className={`${styles.padding_x} ${styles.logo_padding_y} z-drawer fixed top-0 left-0 bg-white min-h-screen min-w-[280px] flex flex-col gap-3`}
         >
-          <CloseButton onClick={() => dispatch(setMobileNavPopuup(false))} />
+          <CloseButton
+            extendCss="top-9 right-6 text-2xl"
+            onClick={() => dispatch(setMobileNavPopuup(false))}
+          />
           <RootLayoutLogo isFlag />
           <CommonNavMenu
             css="mobile-navbar-menu flex flex-col lg:hidden gap-3"

@@ -42,5 +42,4 @@ export const getActiveLink = (
 export const nav_icon = `w-8 h-8 ${colors.icon}`;
 
 // Buttons
-export const close_button = `absolute top-6 right-6 ${colors.danger_icon_button}`;
 export const current_news_close_button = `text-2xl ${colors.danger_icon_button}`;

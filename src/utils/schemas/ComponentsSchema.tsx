@@ -19,7 +19,6 @@ import {
   UpdatedAtSchema,
   Image1Schema,
   ShowClockSchema,
-  ExtendCssSchema,
 } from "./CommonSchema";
 import { ArticleSchema } from "./ApiSchema";
 
@@ -67,10 +66,7 @@ export interface BodyOverlaySchema extends ChildrenSchema, CssSchema {}
 //////////////////////////////
 // containers
 //////////////////////////////
-export interface ContainerSchema
-  extends CssSchema,
-    ChildrenSchema,
-    ExtendCssSchema {}
+export interface ContainerSchema extends CssSchema, ChildrenSchema {}
 
 //////////////////////////////
 // images

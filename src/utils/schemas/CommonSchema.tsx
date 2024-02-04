@@ -127,9 +127,6 @@ export type RootLayoutSchema = {
 // Css
 export type CssSchema = {
   css?: string;
-};
-
-export type ExtendCssSchema = {
   extendCss?: string;
 };
 
@@ -149,7 +146,7 @@ export interface NestedLinkSchema extends IconSchema, TitleSchema {
 //////////////////////////////
 // sections
 //////////////////////////////
-export interface BannerImageSchema extends CssSchema, ExtendCssSchema {
+export interface BannerImageSchema extends CssSchema {
   imageProps?: CustomImageSchema;
   divProps?: CustomImageSchema;
 }

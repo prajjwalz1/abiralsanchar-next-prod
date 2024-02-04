@@ -3,14 +3,18 @@ import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
 // Custom imports
-import { close_button } from "@/assets/css/styles";
 import { ButtonSchema } from "@/utils/schemas/ComponentsSchema";
 
 // Main function
 export default function CloseButton(props: ButtonSchema) {
   // Props
-  const { css, ...rest } = props;
+  const { css, extendCss, ...rest } = props;
+
+  // Css
+  const defaultCss = "absolute text-red-500 hover:text-red-700";
+  const postion = extendCss ?? "top-6 right-6";
+  const className = css ?? `${postion} ${defaultCss}`;
 
   // Render
-  return <AiOutlineClose className={css ?? close_button} {...rest} />;
+  return <AiOutlineClose className={className} {...rest} />;
 }
