@@ -16,13 +16,14 @@ export default function FeaturedHighlights() {
 
   return (
     <div
-      className={`${styles.width_x} featured-highlights thin-scrollbar overflow-x-auto relative flex items-center gap-8`}
+      className={`${styles.width_x} featured-highlights thin-scrollbar overflow-x-auto relative flex items-center gap-4 sm:gap-6`}
     >
-      {featured_data?.map(
-        ({ title, image1, slug }: ArticleSchema, idx: number) => (
+      {featured_data
+        ?.slice(0, 9)
+        ?.map(({ title, image1, slug }: ArticleSchema, idx: number) => (
           <div
             key={getUniqueKey(idx, title!)}
-            className="flex items-center gap-1"
+            className="min-w-[84px] flex items-center gap-1"
           >
             <CustomImage
               priority
@@ -38,8 +39,7 @@ export default function FeaturedHighlights() {
               {title.slice(0, 10)}
             </CustomText>
           </div>
-        )
-      )}
+        ))}
       <Divider />
     </div>
   );
