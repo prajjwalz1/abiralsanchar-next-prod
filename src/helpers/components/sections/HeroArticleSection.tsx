@@ -17,10 +17,10 @@ export default function HeroArticleSection(props: ArticleSchema) {
   const { author, description, title, slug, image1, updated_at } = props;
 
   return (
-    <div className="w-full py-5 flex flex-col items-center gap-1">
+    <div className="w-full pt-4 flex flex-col items-center gap-1">
       <CustomTag status="error" title="उपेन्द्र सीके टकराव" />
 
-      <div className="flex flex-col items-center gap-1">
+      <div className="flex flex-col gap-0 items-center">
         {/* Title of the article section */}
         <TitleText>{title}</TitleText>
 
@@ -49,7 +49,7 @@ export default function HeroArticleSection(props: ArticleSchema) {
       </div>
 
       {/* Content description */}
-      <div className="w-full flex flex-col gap-5">
+      <div className="w-full flex flex-col gap-3 sm:gap-5">
         <CustomImage
           src={getAbiralImg(image1!)}
           alt={title ?? "hero_description_image"}

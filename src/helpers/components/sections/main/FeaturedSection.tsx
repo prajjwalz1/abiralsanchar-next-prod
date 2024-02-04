@@ -14,7 +14,7 @@ export default function ThreeColumnSection() {
 
   return (
     <>
-      <BannerImage imageProps={banners.featured_section} extendCss="mt-5" />
+      <BannerImage imageProps={banners.featured_section} extendCss="mt-3" />
       {featured_data?.slice(0, 3)?.map((item: ArticleSchema, idx: number) => (
         <HeroArticleSection
           key={getUniqueKey(idx, item?.title ?? "Hero Article")}

@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <ReduxProvider>
       <div
-        className={`${styles.padding_x} ${colors.divider} w-full flex flex-col gap-5 divide-y`}
+        className={`${styles.padding_x} ${colors.divider} w-full flex flex-col gap-4 divide-y`}
       >
         <FeaturedSection />
         <HighlightSection />
