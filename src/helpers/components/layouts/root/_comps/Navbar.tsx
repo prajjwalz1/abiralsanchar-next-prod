@@ -76,7 +76,7 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
           <CustomText
             css={styles.getActiveLink(slug === pathname, colors.sky, isFlag)}
             isKhand
-            isSubHeading
+            isLarge
             isBold
           >
             {title}

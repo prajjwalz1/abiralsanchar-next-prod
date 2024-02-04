@@ -11,7 +11,8 @@ export default function RootLayoutLogo(props: FlagSchema) {
 
   // Css
   const padding = !isFlag ? styles.padding_x : "";
-  const defaultCss = "logo w-full h-[60px] max-h-[60px] flex items-center";
+  const defaultCss =
+    "logo w-full h-[60px] max-h-[60px] flex justify-center sm:justify-start items-center";
   const css = `${padding} ${defaultCss}`;
 
   return (
