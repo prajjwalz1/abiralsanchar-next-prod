@@ -185,6 +185,10 @@ export const SubHeadingText = dynamic(
   () => import("@/helpers/components/texts/SubHeadingText"),
   { ssr: false }
 );
+export const TitleText = dynamic(
+  () => import("@/helpers/components/texts/TitleText"),
+  { ssr: false }
+);
 
 //////////////////////////////
 // @/helpers/components-extras/home

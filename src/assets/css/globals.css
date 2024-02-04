@@ -13,6 +13,20 @@
   .fourth-element-padding-0 > :nth-child(3n-2) {
     padding-left: 0;
   }
+
+  /* Media query for small screen sizes */
+  @media screen and (max-width: 767px) {
+    .single-news-border-r-0 > :nth-child(n) {
+      padding-left: 0;
+      padding-right: 12px;
+    }
+
+    .single-news-border-r-0 > :nth-child(2n) {
+      border-right: 0;
+      padding-left: 12px;
+      padding-right: 0;
+    }
+  }
 }
 /* 
 :root {

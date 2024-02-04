@@ -27,7 +27,7 @@ const SingleCurrentNews = (props: ArticleSchema) => {
   const { title, slug, image1 } = props;
 
   return (
-    <div className="h-[80px] pl-0 md:pl-5 p-2 flex justify-between items-start rounded-md rounded-r-none md:border-r-2 md:border-gray-300">
+    <div className="h-[64px] md:h-[80px] md:px-5 py-2 flex justify-between items-start rounded-md rounded-r-none border-r-2 border-gray-300">
       <div className="flex w-4/5">
         <CustomText slug={slug} css="line-clamp-2" isSlightPara>
           {title}
@@ -37,7 +37,7 @@ const SingleCurrentNews = (props: ArticleSchema) => {
         priority
         src={getAbiralImg(image1!)}
         alt={title?.slice(0, 18) ?? "single_news_image"}
-        divCss={`${fonts.span} font-medium w-1/5 h-[56px] rounded-md border-[1px] border-black`}
+        divCss={`${fonts.span} font-medium w-[56px] h-[40px] md:h-[56px] rounded-md border-[1px] border-black`}
         imgCss="w-full h-full object-cover rounded-md"
         width={40}
         height={40}
@@ -107,7 +107,7 @@ export default function CurrentNews() {
 
         {/* Body section */}
         <div
-          className={`${scrollCss} animate-showDown md:fourth-element-padding-0 w-full flex-1 p-3 pl-0 grid grid-cols-1 md:grid-cols-3`}
+          className={`${scrollCss} single-news-border-r-0 animate-showDown md:fourth-element-padding-0 w-full flex-1 p-3 pl-0 grid grid-cols-2 md:grid-cols-3`}
         >
           {data?.map((item: ArticleSchema, idx: number) => (
             <SingleCurrentNews key={getUniqueKey(idx, title!)} {...item} />

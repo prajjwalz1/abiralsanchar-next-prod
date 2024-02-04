@@ -1,6 +1,11 @@
 import { black } from "@/assets/colors";
 import * as fonts from "@/assets/fonts";
-import { CustomTag, CustomText, TimeCard } from "@/dynamic-imports/components";
+import {
+  CustomTag,
+  CustomText,
+  TimeCard,
+  TitleText,
+} from "@/dynamic-imports/components";
 import CustomImage from "@/helpers/components/images/CustomImage";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
 import { getRelativeTime } from "@/utils/methods/timeMethods";
@@ -12,14 +17,12 @@ export default function HeroArticleSection(props: ArticleSchema) {
   const { author, description, title, slug, image1, updated_at } = props;
 
   return (
-    <div className="w-full py-5 flex flex-col items-center gap-5">
+    <div className="w-full py-5 flex flex-col items-center gap-1">
       <CustomTag status="error" title="उपेन्द्र सीके टकराव" />
 
       <div className="flex flex-col items-center gap-1">
         {/* Title of the article section */}
-        <CustomText isBold isTitle>
-          {title}
-        </CustomText>
+        <TitleText>{title}</TitleText>
 
         {/* Author details for the article */}
         <div className="author-details w-full flex justify-between sm:justify-center items-center gap-1.5 sm:gap-6">
@@ -50,7 +53,7 @@ export default function HeroArticleSection(props: ArticleSchema) {
         <CustomImage
           src={getAbiralImg(image1!)}
           alt={title ?? "hero_description_image"}
-          divCss="w-full h-[328px] rounded-md shadow-md border-[1px] border-gray-200"
+          divCss="w-full h-[208px] md:h-[424px] rounded-md shadow-md border-[1px] border-gray-200"
           imgCss="object-cover w-full h-full rounded-md"
           width={100}
           height={100}
