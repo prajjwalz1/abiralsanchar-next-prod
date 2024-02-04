@@ -1,5 +1,6 @@
 // common
 export { default as next_svg } from "./common/next.svg";
+export { default as menu_png } from "./common/menu-bar.png";
 
 //////////////////////////////
 // homepage

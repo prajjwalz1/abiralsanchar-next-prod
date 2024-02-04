@@ -57,6 +57,18 @@ export const LogoImage = dynamic(
     ssr: false,
   }
 );
+export const MenuIcon = dynamic(
+  () => import("@/helpers/components/images/MenuIcon"),
+  {
+    ssr: false,
+  }
+);
+export const MiniLogoImage = dynamic(
+  () => import("@/helpers/components/images/MiniLogoImage"),
+  {
+    ssr: false,
+  }
+);
 export const PosterImage = dynamic(
   () => import("@/helpers/components/images/PosterImage"),
   {

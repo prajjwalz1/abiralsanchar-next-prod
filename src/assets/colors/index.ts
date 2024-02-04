@@ -25,7 +25,7 @@ export const navbar_bg = "bg-blue-700";
 export const info_bg = "bg-blue-400";
 
 // Icons
-export const icon = "text-white hover:text-new-blue-sky";
+export const icon = `${near_white} hover:text-new-blue-sky`;
 export const close_icon = `${near_black} hover:text-red-500`;
 
 // Footer

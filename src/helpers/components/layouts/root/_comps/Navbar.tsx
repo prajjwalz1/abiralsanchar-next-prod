@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useRef } from "react";
 import { CgMenuGridR } from "react-icons/cg";
 import { IoTrendingUpOutline } from "react-icons/io5";
-import { PiNewspaperClippingLight } from "react-icons/pi";
+import { TbNews } from "react-icons/tb";
 
 // Custom imports
 import * as colors from "@/assets/colors";
@@ -14,8 +14,9 @@ import * as styles from "@/assets/css/styles";
 import {
   BodyOverlay,
   CloseButton,
-  CustomImage,
   CustomText,
+  MenuIcon,
+  MiniLogoImage,
 } from "@/dynamic-imports/components";
 import useScrollLock from "@/helpers/hooks/useScrollLock";
 import {
@@ -61,16 +62,7 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
 
   return (
     <div className={css}>
-      {isFixed && (
-        <CustomImage
-          priority
-          src="/image/logo_small.png"
-          alt="logo_small"
-          divCss="animate-showDown absolute left-10 md:left-32 lg:left-[172px] w-[40px] h-[24px]"
-          width={40}
-          height={24}
-        />
-      )}
+      {isFixed && <MiniLogoImage />}
       {nav_items?.map(({ title, slug }: LinkSchema, idx: number) => (
         <Link key={getUniqueKey(idx, title!)} href={slug!}>
           <CustomText
@@ -123,10 +115,10 @@ const MobileNavMenu = () => {
 
   return (
     <>
-      <CgMenuGridR
-        onClick={() => dispatch(setMobileNavPopuup(true))}
-        className={`${styles.margin_x} ${styles.nav_icon} lg:hidden`}
-      />
+      <div className={`${styles.margin_xl} flex lg:hidden items-center gap-1`}>
+        <MenuIcon onClick={() => dispatch(setMobileNavPopuup(true))} />
+        <MiniLogoImage isFlag />
+      </div>
 
       {is_mobile_menu && <BodyOverlay />}
 
@@ -175,7 +167,7 @@ export default function Navbar() {
       <div
         className={`${styles.padding_xr} navbar-icons flex items-center gap-3`}
       >
-        <PiNewspaperClippingLight
+        <TbNews
           className={styles.nav_icon}
           onClick={() => dispatch(setIsCurrentNews("latest"))}
         />

@@ -14,6 +14,7 @@ export const padding_y_medium = "py-5 md:py-10 lg:py-20";
 export const padding_y_small = "py-3 md:py-6 lg:py-12";
 export const logo_padding_y = "py-4";
 export const margin_x = "mx-4 sm:mx-8 md:mx-16 lg:mx-32";
+export const margin_xl = "ml-5 sm:ml-10 md:ml-32 lg:ml-[172px]";
 
 // Transitions
 export const imgTransition = "transition ease-in-out duration-[900ms]";
