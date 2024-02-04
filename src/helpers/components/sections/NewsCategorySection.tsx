@@ -4,6 +4,7 @@ import {
   CenterContainer,
   CustomText,
   DescriptionCard,
+  HeaderText,
   MediaCard,
 } from "@/dynamic-imports/components";
 import { ads_section, banners } from "@/utils/constants/homepage-constants";
@@ -34,21 +35,13 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
       <div className="pb-5 grid md:grid-cols-[auto_280px] gap-3">
         {/* First column */}
         <div className="flex flex-col first-of-type:gap-0 gap-3">
-          <CustomText
-            css="leading-[72px]"
-            isHeaderColor
-            isTitle
-            isKhand
-            isExtraBold
-          >
-            {category_title}
-          </CustomText>
+          <HeaderText>{category_title}</HeaderText>
 
           <DescriptionCard {...articles[0]} />
 
           {isNoArticles ? (
-            <CenterContainer css="mt-5 w-full h-auto md:h-[calc(100%-260px-72px-22px)] grid place-items-center bg-white rounded-md shadow-md border-[1px] border-gray-200 p-8 md:p-0">
-              <CustomText>Currently there are no articles to show</CustomText>
+            <CenterContainer css="mt-5 w-full h-auto md:h-[calc(100%-260px-72px-20px)] grid place-items-center bg-white rounded-md shadow-md border-[1px] border-gray-200 p-8 md:p-0">
+              <CustomText>हाल देखाउनको लागि कुनै लेखहरू छैनन्।</CustomText>
             </CenterContainer>
           ) : (
             <div className="h-auto md:h-[calc(100%-260px-72px)] max-h-[calc(100%-260px-72px)] flex flex-col sm:flex-row gap-3">

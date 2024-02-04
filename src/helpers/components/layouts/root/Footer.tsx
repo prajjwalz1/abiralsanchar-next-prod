@@ -12,7 +12,11 @@ import {
   NestedLinkSchema,
   OptionSchema,
 } from "@/utils/schemas/CommonSchema";
-import { CustomText, LogoImage } from "@/dynamic-imports/components";
+import {
+  CustomText,
+  LogoImage,
+  SubHeadingText,
+} from "@/dynamic-imports/components";
 
 const Footer = () => {
   return (
@@ -26,9 +30,7 @@ const Footer = () => {
               key={getUniqueKey(idx, title!)}
               className="flex flex-col gap-2"
             >
-              <CustomText isKhand isHeaderColor isSubHeading isBold>
-                {title}
-              </CustomText>
+              <SubHeadingText>{title}</SubHeadingText>
 
               <div className="pb-10 flex flex-col gap-1">
                 {child.map(({ title, slug }: LinkSchema, idx: number) => (

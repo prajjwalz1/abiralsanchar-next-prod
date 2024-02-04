@@ -177,6 +177,14 @@ export const CustomText = dynamic(
   () => import("@/helpers/components/texts/CustomText"),
   { ssr: false }
 );
+export const HeaderText = dynamic(
+  () => import("@/helpers/components/texts/HeaderText"),
+  { ssr: false }
+);
+export const SubHeadingText = dynamic(
+  () => import("@/helpers/components/texts/SubHeadingText"),
+  { ssr: false }
+);
 
 //////////////////////////////
 // @/helpers/components-extras/home
