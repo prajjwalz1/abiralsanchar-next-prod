@@ -7,21 +7,21 @@ export const banners = {
   featured_section: {
     src: images.banner_hotel_yak_gif,
     alt: "banner_hotel_yak_gif",
-    divCss: "w-full h-[100px] rounded-md rounded-md",
+    divCss: "w-full h-[80px] rounded-md rounded-md",
     width: 0,
     height: 0,
   },
   highlight_section: {
     src: images.banner_hotel_yak_gif,
     alt: "banner_hotel_yak_gif",
-    divCss: "w-full h-[100px] rounded-md",
+    divCss: "w-full h-[80px] rounded-md",
     width: 0,
     height: 0,
   },
   samachar_section: {
     src: images.banner_bhatbhateni_jpeg.src,
     alt: "banner_bhatbhateni_jpeg",
-    divCss: "w-full h-[100px] rounded-md",
+    divCss: "w-full h-[80px] rounded-md",
     width: 0,
     height: 0,
   },
@@ -29,7 +29,7 @@ export const banners = {
     {
       src: images.banner_hotel_yak_gif,
       alt: "banner_hotel_yak_gif",
-      divCss: "h-[100px] rounded-md",
+      divCss: "h-[80px] rounded-md",
       width: 0,
       height: 0,
     },
