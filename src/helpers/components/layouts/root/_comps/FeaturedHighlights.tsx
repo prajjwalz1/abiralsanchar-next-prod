@@ -16,7 +16,7 @@ export default function FeaturedHighlights() {
 
   return (
     <div
-      className={`${styles.width_x} featured-highlights thin-scrollbar overflow-x-auto relative flex items-center gap-4 sm:gap-6`}
+      className={`${styles.width_x} ${styles.padding_x} featured-highlights thin-scrollbar overflow-x-auto relative flex items-center gap-4 sm:gap-6`}
     >
       {featured_data
         ?.slice(0, 9)

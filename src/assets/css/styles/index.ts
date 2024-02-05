@@ -39,11 +39,11 @@ export const getActiveLink = (
       ? color ?? colors.active_link
       : isFlag && !isLogo
       ? colors.medium_black
-      : isLogo
-      ? "text-brand-red"
+      : isSameLink && isLogo
+      ? colors.sky
       : colors.white;
 
-  return `${colors.logo} ${active} font-khand`;
+  return `${colors.navbar_link} ${active} font-khand`;
 };
 
 //////////////////////////////

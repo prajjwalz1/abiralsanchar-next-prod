@@ -8,12 +8,10 @@ import { IoTrendingUpOutline } from "react-icons/io5";
 import { TbNews } from "react-icons/tb";
 
 // Custom imports
-import * as colors from "@/assets/colors";
 import * as styles from "@/assets/css/styles";
 import {
   BodyOverlay,
   CloseButton,
-  CustomText,
   MenuIcon,
   MiniLogoImage,
   NavbarText,
@@ -110,7 +108,9 @@ const MobileNavMenu = () => {
 
   return (
     <>
-      <div className={`${styles.margin_xl} flex lg:hidden items-center gap-1`}>
+      <div
+        className={`${styles.margin_xl} py-5 flex lg:hidden items-center gap-2`}
+      >
         <MenuIcon onClick={() => dispatch(setMobileNavPopuup(true))} />
         <MiniLogoImage isFlag />
       </div>
@@ -161,7 +161,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`${scrollCss} ${shadow} bg-white text-xl navbar z-drawer h-[50px] navbar flex justify-between items-center gap-8`}
+      className={`${scrollCss} ${shadow} bg-brand-blue text-xl navbar z-drawer h-[50px] navbar flex justify-between items-center gap-8`}
     >
       <DesktopNavMenu />
       <MobileNavMenu />

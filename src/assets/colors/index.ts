@@ -15,18 +15,18 @@ export const hover_orange = "hover:text-orange-400";
 export const transparent_black_bg = "bg-black/40";
 
 // Links
-export const active_link = "text-blue-500";
-export const hover_link = "hover:text-blue-500";
+export const active_link = "text-new-blue-sky";
+export const hover_link = "hover:text-new-blue-sky";
 export const sky = "text-new-blue-sky";
 
 // Navbar
-export const logo = "hover:text-brand-blue";
+export const logo = "hover:text-brand-red";
 export const navbar_link = "hover:text-new-blue-sky";
 export const navbar_bg = "bg-blue-700";
 export const info_bg = "bg-blue-400";
 
 // Icons
-export const logo_icon = `text-brand-red hover:text-brand-blue`;
+export const logo_icon = `${white} ${hover_link}`;
 export const icon = `${near_white} hover:text-new-blue-sky`;
 export const close_icon = `${near_black} hover:text-red-500`;
 
