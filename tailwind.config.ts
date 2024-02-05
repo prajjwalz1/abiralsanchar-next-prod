@@ -18,6 +18,10 @@ const config: Config = {
         mukta: "var(--font-mukta)",
       },
       colors: {
+        brand: {
+          red: "#C62026",
+          blue: "#2E3092",
+        },
         "new-blue": {
           sky: "#70c9ff",
         },

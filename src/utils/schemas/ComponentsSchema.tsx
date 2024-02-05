@@ -102,3 +102,8 @@ export interface MiniUpdatesSectionSchema
 
 // texts
 export interface TextSchema extends CssSchema, ChildrenSchema {}
+
+export interface NavbarTextSchema extends CssSchema, ChildrenSchema {
+  isSameLink: boolean;
+  isFlag?: boolean;
+}

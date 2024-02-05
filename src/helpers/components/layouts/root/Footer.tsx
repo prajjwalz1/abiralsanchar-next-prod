@@ -48,7 +48,7 @@ const Footer = () => {
         )}
       </div>
       <div
-        className={`${colors.light_gray_bg} ${styles.padding_x} footer-end py-10 flex-1 flex flex-col xl:flex-row gap-5 xl:gap-1`}
+        className={`${colors.light_blue_bg} ${styles.padding_x} footer-end py-10 flex-1 flex flex-col xl:flex-row gap-5 xl:gap-1`}
       >
         <div className="logo">
           <LogoImage />

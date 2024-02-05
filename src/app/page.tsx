@@ -1,9 +1,7 @@
 "use client";
 
-// Assets
-import * as styles from "@/assets/css/styles";
-import * as colors from "@/assets/colors";
-
+import { divider } from "@/assets/colors";
+import { padding_x } from "@/assets/css/styles";
 import {
   NewsCategoriesSection,
   FeaturedSection,
@@ -17,7 +15,7 @@ export default function Home() {
   return (
     <ReduxProvider>
       <div
-        className={`${styles.padding_x} ${colors.divider} w-full flex flex-col gap-3 md:gap-5 divide-y`}
+        className={`${padding_x} ${divider} w-full flex flex-col gap-3 md:gap-5 divide-y pb-10`}
       >
         <FeaturedSection />
         <HighlightSection />

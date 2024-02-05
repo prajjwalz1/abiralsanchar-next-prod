@@ -20,11 +20,13 @@ export const hover_link = "hover:text-blue-500";
 export const sky = "text-new-blue-sky";
 
 // Navbar
+export const logo = "hover:text-brand-blue";
 export const navbar_link = "hover:text-new-blue-sky";
 export const navbar_bg = "bg-blue-700";
 export const info_bg = "bg-blue-400";
 
 // Icons
+export const logo_icon = `text-brand-red hover:text-brand-blue`;
 export const icon = `${near_white} hover:text-new-blue-sky`;
 export const close_icon = `${near_black} hover:text-red-500`;
 

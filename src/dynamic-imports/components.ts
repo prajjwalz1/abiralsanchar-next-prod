@@ -193,6 +193,10 @@ export const HeaderText = dynamic(
   () => import("@/helpers/components/texts/HeaderText"),
   { ssr: false }
 );
+export const NavbarText = dynamic(
+  () => import("@/helpers/components/texts/NavbarText"),
+  { ssr: false }
+);
 export const SubHeadingText = dynamic(
   () => import("@/helpers/components/texts/SubHeadingText"),
   { ssr: false }

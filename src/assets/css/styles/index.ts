@@ -31,21 +31,25 @@ export const imgTransition = "transition ease-in-out duration-[900ms]";
 export const getActiveLink = (
   isSameLink: boolean,
   color?: string,
-  isFlag?: boolean
+  isFlag?: boolean,
+  isLogo?: boolean
 ) => {
-  const active = isSameLink
-    ? color ?? colors.active_link
-    : isFlag
-    ? colors.medium_black
-    : colors.white;
+  const active =
+    isSameLink && !isLogo
+      ? color ?? colors.active_link
+      : isFlag && !isLogo
+      ? colors.medium_black
+      : isLogo
+      ? "text-brand-red"
+      : colors.white;
 
-  return `${colors.navbar_link} ${active} font-khand`;
+  return `${colors.logo} ${active} font-khand`;
 };
 
 //////////////////////////////
 // Icons
 //////////////////////////////
-export const nav_icon = `w-8 h-8 ${colors.icon}`;
+export const nav_icon = `w-8 h-8 ${colors.logo_icon}`;
 
 // Buttons
 export const current_news_close_button = `text-2xl ${colors.danger_icon_button}`;

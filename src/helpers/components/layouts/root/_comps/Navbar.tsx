@@ -16,6 +16,7 @@ import {
   CustomText,
   MenuIcon,
   MiniLogoImage,
+  NavbarText,
 } from "@/dynamic-imports/components";
 import useScrollLock from "@/helpers/hooks/useScrollLock";
 import {
@@ -64,14 +65,9 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
       {isFixed && <MiniLogoImage />}
       {nav_items?.map(({ title, slug }: LinkSchema, idx: number) => (
         <Link key={getUniqueKey(idx, title!)} href={slug!}>
-          <CustomText
-            css={styles.getActiveLink(slug === pathname, colors.sky, isFlag)}
-            isKhand
-            isLarge
-            isBold
-          >
+          <NavbarText isSameLink={slug === pathname} isFlag={isFlag}>
             {title}
-          </CustomText>
+          </NavbarText>
         </Link>
       ))}
     </div>
@@ -91,7 +87,7 @@ const DesktopNavMenu = () => {
   const animation = isFixed ? "ml-[56px] animate-slideRightMiniLogo" : "";
   const css = `${defaultCss} ${animation}`;
 
-  return <CommonNavMenu css={css} />;
+  return <CommonNavMenu css={css} isFlag />;
 };
 //////////////////////////////
 // Mobile navbar menu, Shown in medium(md) screens and below
@@ -150,7 +146,7 @@ export default function Navbar() {
 
   // Hooks
   const css = `fixed transition delay-150 duration-300 ease-in-out top-0 w-full max-w-[2000px]`;
-  const { scrollCss } = useCustomScroll(80, css);
+  const { isFixed, scrollCss } = useCustomScroll(80, css);
 
   // useEffect
   useEffect(() => {
@@ -160,9 +156,12 @@ export default function Navbar() {
     }
   }, [dispatch]);
 
+  // Other css
+  const shadow = isFixed ? "shadow-md" : "";
+
   return (
     <nav
-      className={`${scrollCss} ${colors.navbar_bg} text-xl navbar z-drawer h-[50px] navbar flex justify-between items-center gap-8`}
+      className={`${scrollCss} ${shadow} bg-white text-xl navbar z-drawer h-[50px] navbar flex justify-between items-center gap-8`}
     >
       <DesktopNavMenu />
       <MobileNavMenu />
