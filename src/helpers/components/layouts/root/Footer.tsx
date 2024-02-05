@@ -66,7 +66,9 @@ const Footer = () => {
                   className="px-2.5 flex flex-col gap-1 justify-between h-full border-l-[1px] border-l-gray-400"
                 >
                   {!isCopyright ? (
-                    <CustomText isSlightPara>{newLabel}</CustomText>
+                    <CustomText isParagraph isSemiBold>
+                      {newLabel}
+                    </CustomText>
                   ) : (
                     newLabel
                   )}

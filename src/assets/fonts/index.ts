@@ -26,14 +26,14 @@ export const main_title =
     "text-[24px] xs:text-[27px] sm:text-[30px] md:text-[38px] lg:text-[46px]",
   sub_title =
     "text-[22px] xs:text-[25px] sm:text-[28px] md:text-[36px] lg:text-[44px]",
-  heading = "text-[20px] xs:text-[23px] sm:text-[26px]",
-  sub_heading = "text-[18px] xs:text-[21px] sm:text-[24px]",
-  large = "text-[16px] xs:text-[19px] sm:text-[22px]",
-  body = "text-[14px] xs:text-[17px] sm:text-[20px]",
-  paragraph = "text-[12px] xs:text-[15px] sm:text-[18px]",
-  slight_para = "text-[10px] xs:text-[13px] sm:text-[16px]",
-  span = "text-[9px] xs:text-sm",
-  small = "text-[8px] xs:text-xs";
+  heading = "text-[36px]",
+  sub_heading = "text-[30px]",
+  large = "text-[24px]",
+  body = "text-[20px]",
+  paragraph = "text-[16px]",
+  slight_para = "text-[14px]",
+  span = "text-[12px]",
+  small = "text-[10px]";
 
 export const getFont = (size: FontSizeSchema, weight?: FontWeightSchema) => {
   const weights = {

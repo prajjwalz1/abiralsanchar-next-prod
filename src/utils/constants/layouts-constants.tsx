@@ -96,6 +96,6 @@ export const footer_end_items: OptionSchema[] = [
         <FaYoutube />
       </div>
     ),
-    value: "© २००६-२०२४ सर्वाधिकार सुरक्षित",
+    value: "© २०२४ सर्वाधिकार सुरक्षित",
   },
 ];
