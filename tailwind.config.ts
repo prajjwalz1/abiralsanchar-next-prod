@@ -43,7 +43,7 @@ const config: Config = {
         },
         slideDown: {
           "0%": { height: "0" },
-          "100%": { height: "400px" },
+          "80%": { height: "h-fit" },
         },
         slideRightMiniLogo: {
           "0%": { marginLeft: "0" },

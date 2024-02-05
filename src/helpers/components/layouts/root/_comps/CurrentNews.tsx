@@ -37,7 +37,7 @@ const SingleCurrentNews = (props: ArticleSchema) => {
         priority
         src={getAbiralImg(image1!)}
         alt={title?.slice(0, 18) ?? "single_news_image"}
-        divCss={`${fonts.span} font-medium w-[56px] h-[40px] md:h-[56px] rounded-md border-[1px] border-black`}
+        divCss={`${fonts.span} font-medium w-[84px] h-[40px] md:h-[56px] rounded-md border-[1px] border-black`}
         imgCss="w-full h-full object-cover rounded-md"
         width={40}
         height={40}
@@ -84,7 +84,7 @@ export default function CurrentNews() {
     <>
       <BodyOverlay />
       <div
-        className={`${styles.padding_x} z-drawer animate-slideDown py-[40px] bg-white absolute top-0 left-0 w-full h-[400px] shadow-md`}
+        className={`${styles.padding_x} min-w-[360px] h-[306px] md:h-[400px] z-drawer animate-slideDown pt-10 bg-white absolute top-0 left-0 w-full shadow-md`}
       >
         {/* Header section */}
         <div
@@ -109,7 +109,7 @@ export default function CurrentNews() {
         <div
           className={`${scrollCss} single-news-border-r-0 animate-showDown md:fourth-element-padding-0 w-full flex-1 p-3 pl-0 grid grid-cols-2 md:grid-cols-3`}
         >
-          {data?.map((item: ArticleSchema, idx: number) => (
+          {data?.slice(0, 6)?.map((item: ArticleSchema, idx: number) => (
             <SingleCurrentNews key={getUniqueKey(idx, title!)} {...item} />
           ))}
         </div>

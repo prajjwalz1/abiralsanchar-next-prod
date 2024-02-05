@@ -17,7 +17,7 @@ export default function HeroArticleSection(props: ArticleSchema) {
   const { author, description, title, slug, image1, updated_at } = props;
 
   return (
-    <div className="w-full pt-4 flex flex-col items-center gap-1">
+    <div className="w-full pt-3 flex flex-col items-center gap-1">
       <CustomTag status="error" title="उपेन्द्र सीके टकराव" />
 
       <div className="flex flex-col gap-0 items-center">
@@ -30,7 +30,7 @@ export default function HeroArticleSection(props: ArticleSchema) {
             <CustomImage
               priority
               src="https://www.onlinekhabar.com/wp-content/uploads/2022/09/Shailendra-Mahato-1-270x170.jpg"
-              alt={author.toString()}
+              alt={author?.toString()}
               divCss="w-[40px] h-[40px] rounded-full"
               imgCss="object-cover w-[40px] h-[40px] rounded-full"
               width={40}

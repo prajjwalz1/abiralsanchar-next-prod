@@ -15,10 +15,15 @@ export default function MiniUpdatesSection(props: MiniUpdatesSectionSchema) {
   const btnCss = `${warning_button} px-5 py-2 w-full h-fit flex justify-center items-center gap-2 rounded-md`;
 
   return (
-    <div className="flex flex-col justify-between gap-8 rounded-sm">
-      <div className="flex flex-col gap-8 rounded-sm">
+    <div className="flex flex-col justify-between gap-3 rounded-sm">
+      <div className="flex flex-col gap-3 md:gap-5 rounded-sm">
         {articles?.slice(0, 4)?.map((item: ArticleSchema, idx: number) => (
-          <MediaCard key={getUniqueKey(idx, item?.title)} {...item} showClock />
+          <MediaCard
+            key={getUniqueKey(idx, item?.title)}
+            {...item}
+            css="h-[95px]"
+            showClock
+          />
         ))}
       </div>
       <Button
