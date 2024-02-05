@@ -1,5 +1,6 @@
 "use client";
 
+import { rMarginTop } from "@/assets/css/styles";
 import { BannerImage, HeroArticleSection } from "@/dynamic-imports/components";
 import { RootState, useAppSelector } from "@/helpers/hooks/useStoreHooks";
 import { banners } from "@/utils/constants/homepage-constants";
@@ -14,7 +15,10 @@ export default function ThreeColumnSection() {
 
   return (
     <>
-      <BannerImage imageProps={banners.featured_section} extendCss="mt-3" />
+      <BannerImage
+        imageProps={banners.featured_section}
+        extendCss={rMarginTop}
+      />
       {featured_data?.slice(0, 3)?.map((item: ArticleSchema, idx: number) => (
         <HeroArticleSection
           key={getUniqueKey(idx, item?.title ?? "Hero Article")}

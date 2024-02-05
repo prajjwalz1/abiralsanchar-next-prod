@@ -1,3 +1,4 @@
+import { rGap, rPaddingT } from "@/assets/css/styles";
 import {
   AdsSection,
   BannerImage,
@@ -14,7 +15,9 @@ export default function ThreeColumnSection(props: ThreeColumnSectionSchema) {
     <>
       <BannerImage imageProps={bannerImg} />
 
-      <div className="relative w-full pt-3 h-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[360px_1fr_280px] gap-3 md:gap-5">
+      <div
+        className={`${rPaddingT} ${rGap} relative w-full h-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[360px_1fr_280px]`}
+      >
         <PosterImage {...posterImg} />
 
         <MiniUpdatesSection title={title} articles={articles} />

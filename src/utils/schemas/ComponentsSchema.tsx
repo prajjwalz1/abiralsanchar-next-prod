@@ -99,3 +99,6 @@ export interface ThreeColumnSectionSchema
 export interface MiniUpdatesSectionSchema
   extends AllArticlesSchema,
     TitleSchema {}
+
+// texts
+export interface TextSchema extends CssSchema, ChildrenSchema {}

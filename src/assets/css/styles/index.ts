@@ -17,7 +17,9 @@ export const margin_x = "mx-4 sm:mx-8 md:mx-16 lg:mx-32";
 export const margin_xl = "ml-5 sm:ml-10 md:ml-32 lg:ml-[172px]";
 export const rPadding = "p-3 md:p-5";
 export const rPaddingX = "px-3 md:px-5";
+export const rPaddingT = "pt-3 md:pt-5";
 export const rPaddingY = "py-3 md:py-5";
+export const rMarginTop = "mt-3 md:mt-5";
 export const rGap = "gap-3 md:gap-5";
 
 // Transitions

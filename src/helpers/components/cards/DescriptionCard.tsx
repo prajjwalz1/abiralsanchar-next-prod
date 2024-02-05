@@ -1,4 +1,4 @@
-import { hover_link, hover_red_dark, light_gray_bg } from "@/assets/colors";
+import { hover_link, hover_red_dark, light_blue_bg } from "@/assets/colors";
 import { span } from "@/assets/fonts";
 import { CustomImage, CustomText } from "@/dynamic-imports/components";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
@@ -9,10 +9,10 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
   const { color, title, slug, image1, description } = props;
 
   // Css
-  const bgColor = color ?? light_gray_bg;
+  const bgColor = color ?? light_blue_bg;
   const hoverColor = color ? hover_red_dark : hover_link;
   const titleCss = `${hoverColor} line-clamp-3 cursor-pointer tracking-wide`;
-  const descCss = `line-clamp-4 tracking-wide`;
+  const descCss = `line-clamp-6 tracking-wide`;
 
   return (
     <div className="h-auto sm:h-[260px] flex flex-col sm:flex-row justify-between items-start rounded-md border-[1px] border-gray-300 shadow-md">
@@ -27,7 +27,7 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
         onClick={() => window.open(slug)}
       />
       <div
-        className={`${bgColor} flex-1 h-full px-8 py-2 flex flex-col justify-center md:gap-6`}
+        className={`${bgColor} flex-1 h-full px-8 py-2 flex flex-col justify-center`}
       >
         <CustomText slug={slug} css={titleCss} isHeading isBold>
           {title}

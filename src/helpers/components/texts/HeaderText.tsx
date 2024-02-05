@@ -1,9 +1,17 @@
-import { ChildrenSchema } from "@/utils/schemas/CommonSchema";
 import CustomText from "./CustomText";
+import { TextSchema } from "@/utils/schemas/ComponentsSchema";
 
-export default function HeaderText({ children }: ChildrenSchema) {
+export default function HeaderText(props: TextSchema) {
+  // props
+  const { children, css, extendCss } = props;
   return (
-    <CustomText css="leading-[72px]" isHeaderColor isTitle isKhand isExtraBold>
+    <CustomText
+      css={css ?? `${extendCss} leading-[48px] md:leading-[72px]`}
+      isHeaderColor
+      isTitle
+      isKhand
+      isExtraBold
+    >
       {children}
     </CustomText>
   );

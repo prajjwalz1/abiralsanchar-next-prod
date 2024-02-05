@@ -1,4 +1,5 @@
 import { black } from "@/assets/colors";
+import { rPaddingT } from "@/assets/css/styles";
 import * as fonts from "@/assets/fonts";
 import {
   CustomTag,
@@ -17,7 +18,9 @@ export default function HeroArticleSection(props: ArticleSchema) {
   const { author, description, title, slug, image1, updated_at } = props;
 
   return (
-    <div className="w-full pt-3 flex flex-col items-center gap-1">
+    <div
+      className={`${rPaddingT} w-full flex flex-col items-center gap-1 md:gap-2`}
+    >
       <CustomTag status="error" title="उपेन्द्र सीके टकराव" />
 
       <div className="flex flex-col gap-0 items-center">

@@ -1,3 +1,4 @@
+import { rGap, rMarginTop } from "@/assets/css/styles";
 import {
   AdsSection,
   BannerImage,
@@ -32,21 +33,25 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
     <>
       <BannerImage imageProps={banners.samachar_section} />
 
-      <div className="pb-5 grid md:grid-cols-[auto_280px] gap-3">
+      <div className={`${rGap} md:grid md:grid-cols-[auto_280px]`}>
         {/* First column */}
-        <div className="flex flex-col first-of-type:gap-0 gap-3">
-          <HeaderText>{category_title}</HeaderText>
+        <div className="flex flex-col">
+          <HeaderText extendCss="pt-1">{category_title}</HeaderText>
 
           <DescriptionCard {...articles[0]} />
 
           {isNoArticles ? (
-            <CenterContainer css="mt-5 w-full h-auto md:h-[calc(100%-260px-72px-20px)] grid place-items-center bg-white rounded-md shadow-md border-[1px] border-gray-200 p-8 md:p-0">
+            <CenterContainer
+              css={`
+                ${rMarginTop} w-full h-auto md:h-[calc(100%-260px-72px-20px)] grid place-items-center bg-white rounded-md shadow-md border-[1px] border-gray-200 p-8 md:p-0
+              `}
+            >
               <CustomText>हाल देखाउनको लागि कुनै लेखहरू छैनन्।</CustomText>
             </CenterContainer>
           ) : (
-            <div className="h-auto md:h-[calc(100%-260px-72px)] max-h-[calc(100%-260px-72px)] flex flex-col sm:flex-row gap-3">
+            <div className="h-fit md:h-[calc(100%-260px-72px)] max-h-[calc(100%-260px-72px)] flex flex-col sm:flex-row gap-3">
               <div
-                className={`${a1Css} basis-1/2 pt-4 md:pt-3 grid grid-rows-3 gap-3 items-end`}
+                className={`${a1Css} basis-1/2 pt-4 md:pt-3 md:grid md:grid-rows-3 gap-3 items-end`}
               >
                 {articles1?.map((item: MediaCardSchema, idx: number) => (
                   <MediaCard
@@ -58,7 +63,7 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
                 ))}
               </div>
               <div
-                className={`${a2Css} basis-1/2 md:pt-3 grid grid-rows-3 gap-3 items-end`}
+                className={`${a2Css} basis-1/2 md:pt-3 md:grid md:grid-rows-3 gap-3 items-end`}
               >
                 {articles2?.map((item: MediaCardSchema, idx: number) => (
                   <MediaCard
@@ -74,7 +79,7 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
         </div>
 
         {/* Second column */}
-        <div className="h-full flex flex-col justify-between pt-5 gap-4">
+        <div className="h-full hidden lg:flex flex-col justify-between pt-5 gap-4 ">
           <AdsSection imgList={ads_section.news} />
         </div>
       </div>
