@@ -1,9 +1,9 @@
 import { CustomImage } from "@/dynamic-imports/components";
-import { FlagSchema } from "@/utils/schemas/CommonSchema";
+import { MiniLogoImageSchema } from "@/utils/schemas/ComponentsSchema";
 
-export default function MiniLogoImage(props: FlagSchema) {
+export default function MiniLogoImage(props: MiniLogoImageSchema) {
   // Props
-  const { isFlag } = props;
+  const { isFlag, ...rest } = props;
 
   // Css
   const absoluteCss =
@@ -19,6 +19,7 @@ export default function MiniLogoImage(props: FlagSchema) {
       divCss={divCss}
       width={40}
       height={24}
+      {...rest}
     />
   );
 }

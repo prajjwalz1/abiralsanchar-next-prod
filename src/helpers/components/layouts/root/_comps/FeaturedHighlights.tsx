@@ -5,7 +5,7 @@ import * as styles from "@/assets/css/styles";
 import { RootState, useAppSelector } from "@/helpers/hooks/useStoreHooks";
 import { ArticleSchema } from "@/utils/schemas/ApiSchema";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
-import { CustomImage, CustomText, Divider } from "@/dynamic-imports/components";
+import { CustomImage, CustomText } from "@/dynamic-imports/components";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
 
 export default function FeaturedHighlights() {
@@ -29,7 +29,7 @@ export default function FeaturedHighlights() {
               priority
               src={getAbiralImg(image1!)}
               alt={title ?? "featured_image_avatar"}
-              divCss="w-[24px] h-[24px] rounded-full border-[1px] border-black"
+              divCss="w-[24px] h-[24px] rounded-full"
               imgCss="w-full h-full object-cover rounded-full"
               width={24}
               height={24}
@@ -40,7 +40,6 @@ export default function FeaturedHighlights() {
             </CustomText>
           </div>
         ))}
-      <Divider />
     </div>
   );
 }

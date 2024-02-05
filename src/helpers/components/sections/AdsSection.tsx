@@ -13,7 +13,7 @@ export default function AdsSection({ imgList }: ImageArrSchema) {
           {...item}
           priority
           key={getUniqueKey(idx, item.alt)}
-          divCss="w-full h-[155px] rounded-md shadow-md border-[1px] border-gray-200"
+          divCss="w-full h-[155px] rounded-md shadow-md"
           imgCss="w-full h-full object-cover rounded-md"
           width={0}
           height={0}

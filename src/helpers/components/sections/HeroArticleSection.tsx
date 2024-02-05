@@ -56,7 +56,7 @@ export default function HeroArticleSection(props: ArticleSchema) {
         <CustomImage
           src={getAbiralImg(image1!)}
           alt={title ?? "hero_description_image"}
-          divCss="w-full h-[208px] md:h-[424px] rounded-md shadow-md border-[1px] border-gray-200"
+          divCss="w-full h-[208px] md:h-[424px] rounded-md shadow-md"
           imgCss="object-cover w-full h-full rounded-md"
           width={100}
           height={100}

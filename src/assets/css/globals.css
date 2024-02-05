@@ -65,8 +65,8 @@ body {
 
 /* Thin Scrollbar Start */
 .thin-scrollbar::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 3px;
+  height: 3px;
   scrollbar-gutter: stable both-edges;
 }
 

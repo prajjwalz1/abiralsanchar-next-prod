@@ -12,7 +12,6 @@ import * as styles from "@/assets/css/styles";
 import {
   BodyOverlay,
   CloseButton,
-  MenuIcon,
   MiniLogoImage,
   NavbarText,
 } from "@/dynamic-imports/components";
@@ -111,8 +110,10 @@ const MobileNavMenu = () => {
       <div
         className={`${styles.margin_xl} py-5 flex lg:hidden items-center gap-2`}
       >
-        <MenuIcon onClick={() => dispatch(setMobileNavPopuup(true))} />
-        <MiniLogoImage isFlag />
+        <MiniLogoImage
+          isFlag
+          onClick={() => dispatch(setMobileNavPopuup(true))}
+        />
       </div>
 
       {is_mobile_menu && <BodyOverlay />}

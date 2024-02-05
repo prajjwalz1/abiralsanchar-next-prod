@@ -37,7 +37,7 @@ const SingleCurrentNews = (props: ArticleSchema) => {
         priority
         src={getAbiralImg(image1!)}
         alt={title?.slice(0, 18) ?? "single_news_image"}
-        divCss={`${fonts.span} font-medium w-[84px] h-[40px] md:h-[56px] rounded-md border-[1px] border-black`}
+        divCss={`${fonts.span} font-medium w-[84px] h-[40px] md:h-[56px] rounded-md`}
         imgCss="w-full h-full object-cover rounded-md"
         width={40}
         height={40}

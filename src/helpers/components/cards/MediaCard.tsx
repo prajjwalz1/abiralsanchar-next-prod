@@ -36,7 +36,7 @@ export default function MediaCard(props: MediaCardSchema) {
       <CustomImage
         src={getAbiralImg(image1!)}
         alt={title?.slice(0, 18) ?? "media_card_img"}
-        divCss={`${fonts.span} font-medium w-[120px] h-full cursor-pointer rounded-md border-[1px] border-black`}
+        divCss={`${fonts.span} font-medium w-[120px] h-full cursor-pointer rounded-md`}
         imgCss="w-full h-full object-cover rounded-md"
         width={40}
         height={40}

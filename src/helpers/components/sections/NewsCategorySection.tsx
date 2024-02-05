@@ -43,7 +43,7 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
           {isNoArticles ? (
             <CenterContainer
               css={`
-                ${rMarginTop} w-full h-auto md:h-[calc(100%-260px-72px-20px)] grid place-items-center bg-white rounded-md shadow-md border-[1px] border-gray-200 p-8 md:p-0
+                ${rMarginTop} w-full h-auto md:h-[calc(100%-260px-72px-20px)] grid place-items-center bg-white rounded-md shadow-md p-8 md:p-0
               `}
             >
               <CustomText>हाल देखाउनको लागि कुनै लेखहरू छैनन्।</CustomText>

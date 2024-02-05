@@ -6,11 +6,7 @@ export default function BannerImage(props: BannerImageSchema) {
   const { imageProps, divProps, css, extendCss } = props;
 
   return (
-    <div
-      className={
-        css ?? `${extendCss} rounded-md border-[1px] border-gray-200 shadow-md`
-      }
-    >
+    <div className={css ?? `${extendCss} rounded-md shadow-md`}>
       {imageProps && <CustomImage {...imageProps} priority />}
       {divProps && <div>div</div>}
     </div>

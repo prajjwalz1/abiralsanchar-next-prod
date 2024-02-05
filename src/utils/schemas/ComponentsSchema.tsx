@@ -71,6 +71,9 @@ export interface ContainerSchema extends CssSchema, ChildrenSchema {}
 //////////////////////////////
 // images
 //////////////////////////////
+
+export interface MiniLogoImageSchema extends FlagSchema, OnClickSchema {}
+
 export interface PosterImageSchema extends ArticleSchema {
   tag?: string;
   titleFont?: string;
