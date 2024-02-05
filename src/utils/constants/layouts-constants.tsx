@@ -83,10 +83,10 @@ export const footer_menu_items: NestedLinkSchema[] = [
 ];
 
 export const footer_end_items: OptionSchema[] = [
-  { label: "अध्यक्ष तथा प्रबन्ध निर्देशक", value: "धर्मराज भुसाल" },
-  { label: "प्रधान सम्पादकः", value: "शिव गाउँले" },
-  { label: "सूचना विभाग दर्ता नं.", value: "२१४ / ०७३–७४" },
-  { label: "+९७७-१-४७९०१७६", value: "info@gmail.com" },
+  { label: "संचालक सम्पादक", value: "अभिनास केसी" },
+  { label: "हाम्रो बारेमा", value: "ए डि के मिडिया प्रा.ली." },
+  { label: "सम्पर्क ठेगाना", value: "काठमाडौं ३१, शान्तीनगर" },
+  { label: "+९७७-९८१३१११५४०", value: "www.abiralsanchar.com" },
   {
     label: "copyright",
     icon: (
