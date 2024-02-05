@@ -644,3 +644,22 @@ export const get_all_articles: GetAllArticlesResponse = {
     },
   ],
 };
+
+export const testArticle = {
+  id: 27,
+  title:
+    "मुद्रण र टाइपसेटिंग उद्योगको केवल डमी पाठ हो। लोरेम इप्सम 1500 को दशकदेखि उद्योगको मानक डमी पाठ भएको छ, जब एक अज्ञात प्रिन्टरले टाइ",
+  slug: "mudrnn-r-ttaaipsetting-udyogko-kevl-ddmii-paatth-ho-lorem-ipsm-1500-ko-dshkdekhi-udyogko-maank-ddmii-paatth-bheko-ch-jb-ek-ajnyaat-printtrle-ttaai",
+  content:
+    "मुद्रण र टाइपसेटिंग उद्योगको केवल डमी पाठ हो। लोरेम इप्सम 1500 को दशकदेखि उद्योगको मानक डमी पाठ भएको छ, जब एक अज्ञात प्रिन्टरले टाइ",
+  description:
+    "मुद्रण र टाइपसेटिंग उद्योगको केवल डमी पाठ हो। लोरेम इप्सम 1500 को दशकदेखि उद्योगको मानक डमी पाठ भएको छ, जब एक अज्ञात प्रिन्टरले टाइ",
+  created_at: "2024-01-06T14:47:26.374485+05:45",
+  updated_at: "2024-01-06T14:47:26.374536+05:45",
+  image1: "/media/articles/YuriBoyka.jpg",
+  image2: null,
+  is_featured: false,
+  is_trending: false,
+  category: 5,
+  author: 2,
+};

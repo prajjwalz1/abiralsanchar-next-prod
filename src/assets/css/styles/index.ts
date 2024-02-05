@@ -3,8 +3,10 @@ import * as colors from "@/assets/colors";
 //////////////////////////////
 // Base css
 //////////////////////////////
+export const new_width_x =
+  "mx-auto w-[calc(100%-20px)] sm:w-[calc(100%-40px)] md:w-[calc(100%-64px)] lg:w-[calc(100%-344px)]";
 export const width_x =
-  "w-[calc(100%-40px)] sm:w-[calc(100%-80px)] md:w-[calc(100%-256px)] lg:w-[calc(100%-344px)] mx-auto min-w-[360px]";
+  "w-[calc(100%-40px)] sm:w-[calc(100%-80px)] md:w-[calc(100%-256px)] lg:w-[calc(100%-344px)] mx-auto";
 export const padding_x = "px-5 sm:px-10 md:px-32 lg:px-[172px]";
 export const padding_x_medium = "px-5 md:px-10 lg:px-20";
 export const padding_xl = "pl-5 sm:pl-10 md:pl-32 lg:pl-[172px]";
