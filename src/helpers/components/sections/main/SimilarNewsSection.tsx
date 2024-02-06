@@ -8,7 +8,7 @@ export default function SimilarNewsSection() {
     <div className="w-full h-full flex flex-col">
       <HeaderText>सम्बन्धित खबर</HeaderText>
 
-      <div className={`${rGap} grid grid-cols-3`}>
+      <div className={`${rGap} grid grid-cols-1 md:grid-cols-3`}>
         <MediaCard {...testArticle} isColumn />
         <MediaCard {...testArticle} isColumn />
         <MediaCard {...testArticle} isColumn />

@@ -16,7 +16,9 @@ export default function Home() {
   // Variables
   return (
     <ReduxProvider>
-      <div className={`${padding_x} ${divider} flex flex-col ${rGap} divide-y`}>
+      <div
+        className={`${padding_x} ${divider} flex flex-col ${rGap} divide-y pb-10 md:pb:0`}
+      >
         <HeroArticleSection {...testArticle} isFlag />
         <SimilarNewsSection />
         <DidYouLeaveSection />

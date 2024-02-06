@@ -51,7 +51,7 @@ export default function MediaCard(props: MediaCardSchema) {
         imgCss="w-full h-full object-cover rounded-md"
         width={40}
         height={40}
-        onClick={() => window.open(slug)}
+        onClick={() => window.open("/article")}
       />
       <div className={`${placingCss} h-full flex-1 flex flex-col gap-1`}>
         <CustomText

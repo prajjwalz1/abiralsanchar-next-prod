@@ -12,7 +12,7 @@ export default function DidYouLeaveSection() {
     <div className="w-full h-full">
       <HeaderText>छुटाउनुभयो कि ?</HeaderText>
 
-      <div className={`${rGap} grid grid-cols-2 sm:grid-cols-4 h-[300px]`}>
+      <div className={`${rGap} grid grid-cols-1 md:grid-cols-4 md:h-[300px]`}>
         <PosterImage {...testArticle} {...commonProps} />
         <PosterImage {...testArticle} {...commonProps} />
         <PosterImage {...testArticle} {...commonProps} />

@@ -33,7 +33,7 @@ export default function FeaturedHighlights() {
               imgCss="w-full h-full object-cover rounded-full"
               width={24}
               height={24}
-              onClick={() => window.open(slug)}
+              onClick={() => window.open("/article")}
             />
             <CustomText isKhand isBold>
               {title.slice(0, 10)}

@@ -62,10 +62,10 @@ export default function HeroArticleSection(props: HeroArticleSectionSchema) {
           imgCss="object-cover w-full h-full rounded-md"
           width={100}
           height={100}
-          onClick={() => window.open(slug)}
+          onClick={() => window.open("/article")}
           isFlag={isFlag}
         />
-        <CustomText font={fonts.large} css={!isFlag ? "line-clamp-3" : ""}>
+        <CustomText css={!isFlag ? "line-clamp-3" : ""}>
           {description}
         </CustomText>
       </div>

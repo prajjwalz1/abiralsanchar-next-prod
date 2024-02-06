@@ -9,7 +9,7 @@ export default function CustomText(props: CustomTextSchema) {
 
   // Actions
   const onClick: MouseEventHandler<HTMLParagraphElement> | undefined = slug
-    ? () => window.open(slug)
+    ? () => window.open("/article")
     : undefined;
 
   // Color

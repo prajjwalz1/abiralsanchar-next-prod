@@ -24,7 +24,7 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
         imgCss="w-full h-full object-cover rounded-t-md sm:rounded-l-md sm:rounded-t-none"
         width={40}
         height={40}
-        onClick={() => window.open(slug)}
+        onClick={() => window.open("/article")}
       />
       <div
         className={`${bgColor} flex-1 h-full px-8 py-2 flex gap-0 md:gap-1 flex-col justify-center`}
