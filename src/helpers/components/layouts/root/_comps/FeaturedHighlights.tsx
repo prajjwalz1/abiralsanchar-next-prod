@@ -22,7 +22,7 @@ export default function FeaturedHighlights() {
         ?.slice(0, 9)
         ?.map(({ title, image1, slug }: ArticleSchema, idx: number) => (
           <div
-            key={getUniqueKey(idx, title!)}
+            key={getUniqueKey(idx, title! + slug)}
             className="min-w-[84px] flex items-center gap-1"
           >
             <CustomImage
@@ -35,7 +35,7 @@ export default function FeaturedHighlights() {
               height={24}
               onClick={() => window.open("/article")}
             />
-            <CustomText isKhand isBold>
+            <CustomText css="min-w-fit" isKhand isBold>
               {title.slice(0, 10)}
             </CustomText>
           </div>

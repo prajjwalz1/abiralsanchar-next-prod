@@ -40,8 +40,8 @@ export const getActiveLink = (
   const active =
     isSameLink && !isLogo
       ? color ?? colors.active_link
-      : isFlag && !isLogo
-      ? colors.medium_black
+      : isFlag
+      ? `text-black lg:text-white`
       : isSameLink && isLogo
       ? colors.sky
       : colors.white;

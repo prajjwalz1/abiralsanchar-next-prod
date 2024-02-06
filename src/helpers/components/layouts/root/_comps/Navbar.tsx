@@ -61,7 +61,10 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
     <div className={css}>
       {isFixed && <MiniLogoImage />}
       {nav_items?.map(({ title, slug }: LinkSchema, idx: number) => (
-        <Link key={getUniqueKey(idx, title!)} href={slug!}>
+        <Link
+          key={getUniqueKey(idx, title!)}
+          href={title === "होमपेज" ? "/" : "/article"}
+        >
           <NavbarText isSameLink={slug === pathname} isFlag={isFlag}>
             {title}
           </NavbarText>

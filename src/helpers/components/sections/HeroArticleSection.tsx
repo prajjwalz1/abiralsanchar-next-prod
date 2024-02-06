@@ -1,6 +1,5 @@
 import { black } from "@/assets/colors";
 import { rPaddingT } from "@/assets/css/styles";
-import * as fonts from "@/assets/fonts";
 import {
   CustomTag,
   CustomText,
@@ -15,8 +14,7 @@ import { FiMessageSquare } from "react-icons/fi";
 
 export default function HeroArticleSection(props: HeroArticleSectionSchema) {
   // Props
-  const { author, description, title, slug, image1, updated_at, isFlag } =
-    props;
+  const { author, description, title, image1, updated_at, isFlag } = props;
 
   return (
     <div
@@ -26,7 +24,7 @@ export default function HeroArticleSection(props: HeroArticleSectionSchema) {
 
       <div className="flex flex-col gap-0 items-center">
         {/* Title of the article section */}
-        <TitleText>{title}</TitleText>
+        <TitleText slug="/article">{title}</TitleText>
 
         {/* Author details for the article */}
         <div className="author-details w-full flex justify-between sm:justify-center items-center gap-1.5 sm:gap-6">
