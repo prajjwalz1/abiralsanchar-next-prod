@@ -83,6 +83,7 @@ export interface PosterImageSchema extends ArticleSchema {
 }
 
 // sections
+export interface HeroArticleSectionSchema extends ArticleSchema, FlagSchema {}
 export interface NewsCategorySectionSchema
   extends TitleSchema,
     BannerImgSchema {

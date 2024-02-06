@@ -85,7 +85,7 @@ export type IconSchema = {
   icon?: ReactNode;
 };
 
-export interface CustomImageSchema extends OnClickSchema {
+export interface CustomImageSchema extends OnClickSchema, FlagSchema {
   src: string | StaticImageData;
   alt: string;
   width?: number | `${number}`;

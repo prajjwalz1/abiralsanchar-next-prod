@@ -10,12 +10,13 @@ import {
 import CustomImage from "@/helpers/components/images/CustomImage";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
 import { getRelativeTime } from "@/utils/methods/timeMethods";
-import { ArticleSchema } from "@/utils/schemas/ApiSchema";
+import { HeroArticleSectionSchema } from "@/utils/schemas/ComponentsSchema";
 import { FiMessageSquare } from "react-icons/fi";
 
-export default function HeroArticleSection(props: ArticleSchema) {
+export default function HeroArticleSection(props: HeroArticleSectionSchema) {
   // Props
-  const { author, description, title, slug, image1, updated_at } = props;
+  const { author, description, title, slug, image1, updated_at, isFlag } =
+    props;
 
   return (
     <div
@@ -38,6 +39,7 @@ export default function HeroArticleSection(props: ArticleSchema) {
               imgCss="object-cover w-[40px] h-[40px] rounded-full"
               width={40}
               height={40}
+              isFlag={isFlag}
             />
             <CustomText>{author}</CustomText>
           </div>
@@ -61,6 +63,7 @@ export default function HeroArticleSection(props: ArticleSchema) {
           width={100}
           height={100}
           onClick={() => window.open(slug)}
+          isFlag={isFlag}
         />
         <CustomText font={fonts.large} css="line-clamp-3">
           {description}

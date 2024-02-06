@@ -649,7 +649,7 @@ export const testArticle = {
   id: 27,
   title:
     "मुद्रण र टाइपसेटिंग उद्योगको केवल डमी पाठ हो। लोरेम इप्सम 1500 को दशकदेखि उद्योगको मानक डमी पाठ भएको छ, जब एक अज्ञात प्रिन्टरले टाइ",
-  slug: "mudrnn-r-ttaaipsetting-udyogko-kevl-ddmii-paatth-ho-lorem-ipsm-1500-ko-dshkdekhi-udyogko-maank-ddmii-paatth-bheko-ch-jb-ek-ajnyaat-printtrle-ttaai",
+  slug: "media/articles/tia_airlines.jpg",
   content:
     "मुद्रण र टाइपसेटिंग उद्योगको केवल डमी पाठ हो। लोरेम इप्सम 1500 को दशकदेखि उद्योगको मानक डमी पाठ भएको छ, जब एक अज्ञात प्रिन्टरले टाइ",
   description:

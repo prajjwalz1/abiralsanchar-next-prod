@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <ReduxProvider>
       <div className={`${padding_x} ${divider} divide-y`}>
-        <HeroArticleSection {...testArticle} />
+        <HeroArticleSection {...testArticle} isFlag />
       </div>
     </ReduxProvider>
   );

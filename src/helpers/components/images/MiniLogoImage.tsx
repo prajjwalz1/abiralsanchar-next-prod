@@ -7,7 +7,7 @@ export default function MiniLogoImage(props: MiniLogoImageSchema) {
 
   // Css
   const absoluteCss =
-    "animate-showDown absolute top-2 left-10 md:left-32 lg:left-[172px] w-[36px] h-[36px] bg-white rounded-full";
+    "animate-showDown absolute left-10 md:left-32 lg:left-[172px] w-[36px] h-[36px] bg-white rounded-full";
   const css = "w-[36px] h-[36px] bg-white rounded-full";
   const divCss = isFlag ? css : absoluteCss;
 

@@ -3,11 +3,26 @@ import Image from "next/image";
 
 export default function CustomImage(props: CustomImageSchema) {
   // Props
-  const { src, alt, divCss, imgCss, blurDataURL, priority, ...rest } = props;
+  const {
+    src,
+    alt,
+    divCss,
+    imgCss,
+    blurDataURL,
+    priority,
+    isFlag,
+    onClick,
+    ...rest
+  } = props;
 
   // Default Blur Image
   const defaultBlurImg =
     "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8cPNmPQAIBgMD669M5AAAAABJRU5ErkJggg==";
+
+  // Action when image is clicked
+  const handleImageClick = () => {
+    isFlag || (onClick && onClick());
+  };
 
   return (
     <div className={divCss ?? "w-full h-full"}>
@@ -21,6 +36,7 @@ export default function CustomImage(props: CustomImageSchema) {
         // placeholder={ ? "empty" : "blur"}
         // placeholder="blur"
         blurDataURL={blurDataURL ?? defaultBlurImg}
+        onClick={handleImageClick}
         {...rest}
       />
     </div>

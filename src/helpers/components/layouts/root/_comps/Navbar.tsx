@@ -80,7 +80,7 @@ const DesktopNavMenu = () => {
 
   // Css
   const defaultCss = `
-  ${styles.padding_xl} desktop-navbar-menu hidden lg:flex gap-8`;
+  ${styles.padding_xl} desktop-navbar-menu hidden lg:flex lg:items-center gap-8`;
   const animation = isFixed ? "ml-[56px] animate-slideRightMiniLogo" : "";
   const css = `${defaultCss} ${animation}`;
 
