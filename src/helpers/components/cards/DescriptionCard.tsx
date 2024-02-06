@@ -12,7 +12,7 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
   const bgColor = color ?? light_blue_bg;
   const hoverColor = color ? hover_red_dark : hover_link;
   const titleCss = `${hoverColor} line-clamp-3 cursor-pointer tracking-wide`;
-  const descCss = `line-clamp-6 tracking-wide`;
+  const descCss = `line-clamp-4 tracking-wide`;
 
   return (
     <div className="h-auto sm:h-[260px] flex flex-col sm:flex-row justify-between items-start rounded-md border-[1px] border-gray-300 shadow-md">
@@ -27,9 +27,9 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
         onClick={() => window.open(slug)}
       />
       <div
-        className={`${bgColor} flex-1 h-full px-8 py-2 flex flex-col justify-center`}
+        className={`${bgColor} flex-1 h-full px-8 py-2 flex gap-0 md:gap-1 flex-col justify-center`}
       >
-        <CustomText slug={slug} css={titleCss} isHeading isBold>
+        <CustomText slug={slug} css={titleCss} isLarge isBold>
           {title}
         </CustomText>
 

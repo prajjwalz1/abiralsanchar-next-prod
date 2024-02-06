@@ -19,31 +19,48 @@ export default function MediaCard(props: MediaCardSchema) {
     image1,
     showClock,
     css,
+    extendCss,
+    isColumn,
   } = props;
 
-  // Line clamp
-  const titleLineClamp = t ? `line-clamp-${t}` : "line-clamp-3";
+  // Container css
+  const rowCss = `${
+    extendCss ? "" : "h-[84px]"
+  } flex gap-3 justify-between items-start rounded-sm`;
+  const columnCss =
+    "flex flex-col gap-3 justify-between items-start rounded-sm";
+  const dimensionCss = isColumn ? columnCss : rowCss;
+  const divCss = css ?? `${extendCss} ${dimensionCss} `;
 
-  // Css
-  const divCss = css ?? "h-[84px]";
-  const titleCss = `${fonts.slight_large_line_height} ${titleLineClamp} cursor-pointer tracking-wide`;
+  // Image css
+  const defaultImgCss = `${fonts.span} font-medium cursor-pointer rounded-md`;
+  const imgCss = isColumn ? "w-full" : "w-[120px] h-full";
+  const imgDivCss = `${defaultImgCss} ${imgCss}`;
+
+  // Text css
+  const titleLineClamp = t ? `line-clamp-${t}` : "line-clamp-3";
+  const titleCss = `${titleLineClamp} cursor-pointer tracking-wide`;
   const placingCss = info_placing ?? "justify-between";
 
   return (
-    <div
-      className={`${divCss} flex gap-3 justify-between items-start rounded-sm`}
-    >
+    <div className={divCss}>
       <CustomImage
         src={getAbiralImg(image1!)}
         alt={title?.slice(0, 18) ?? "media_card_img"}
-        divCss={`${fonts.span} font-medium w-[120px] h-full cursor-pointer rounded-md`}
+        divCss={imgDivCss}
         imgCss="w-full h-full object-cover rounded-md"
         width={40}
         height={40}
         onClick={() => window.open(slug)}
       />
       <div className={`${placingCss} h-full flex-1 flex flex-col gap-1`}>
-        <CustomText slug={slug} css={titleCss} isLinkColor>
+        <CustomText
+          slug={slug}
+          css={titleCss}
+          isLinkColor
+          isBody={isColumn}
+          isSemiBold
+        >
           {title}
         </CustomText>
         {showClock && (

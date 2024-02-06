@@ -16,7 +16,7 @@ export const transparent_black_bg = "bg-black/40";
 
 // Links
 export const active_link = "text-new-blue-sky";
-export const hover_link = "hover:text-new-blue-sky";
+export const hover_link = "hover:text-brand-blue";
 export const sky = "text-new-blue-sky";
 
 // Navbar

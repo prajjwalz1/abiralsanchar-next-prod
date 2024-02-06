@@ -123,6 +123,10 @@ export const MiniUpdatesSection = dynamic(
 //////////////////////////////
 // sections/main
 //////////////////////////////
+export const DidYouLeaveSection = dynamic(
+  () => import("@/helpers/components/sections/main/DidYouLeaveSection"),
+  { ssr: false }
+);
 export const NewsCategoriesSection = dynamic(
   () => import("@/helpers/components/sections/main/NewsCategoriesSection"),
   { ssr: false }
@@ -133,6 +137,10 @@ export const FeaturedSection = dynamic(
 );
 export const HighlightSection = dynamic(
   () => import("@/helpers/components/sections/main/HighlightSection"),
+  { ssr: false }
+);
+export const SimilarNewsSection = dynamic(
+  () => import("@/helpers/components/sections/main/SimilarNewsSection"),
   { ssr: false }
 );
 

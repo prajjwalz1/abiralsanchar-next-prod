@@ -19,6 +19,7 @@ import {
   UpdatedAtSchema,
   Image1Schema,
   ShowClockSchema,
+  IsDimensionSchema,
 } from "./CommonSchema";
 import { ArticleSchema } from "./ApiSchema";
 
@@ -45,7 +46,8 @@ export interface MediaCardSchema
     SlugSchema,
     UpdatedAtSchema,
     ShowClockSchema,
-    CssSchema {}
+    CssSchema,
+    IsDimensionSchema {}
 
 export interface DescriptionCardSchema
   extends ShowClockSchema,
@@ -74,7 +76,7 @@ export interface ContainerSchema extends CssSchema, ChildrenSchema {}
 
 export interface MiniLogoImageSchema extends FlagSchema, OnClickSchema {}
 
-export interface PosterImageSchema extends ArticleSchema {
+export interface PosterImageSchema extends ArticleSchema, ShowClockSchema {
   tag?: string;
   titleFont?: string;
   timeFont?: string;
@@ -105,7 +107,7 @@ export interface MiniUpdatesSectionSchema
     TitleSchema {}
 
 // texts
-export interface TextSchema extends CssSchema, ChildrenSchema {}
+export interface TextSchema extends CssSchema, ChildrenSchema, FlagSchema {}
 
 export interface NavbarTextSchema extends CssSchema, ChildrenSchema {
   isSameLink: boolean;

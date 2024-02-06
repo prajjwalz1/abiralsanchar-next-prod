@@ -1,9 +1,12 @@
 "use client";
 
 import { divider } from "@/assets/colors";
-import { padding_x } from "@/assets/css/styles";
-import { HeroArticleSection } from "@/dynamic-imports/components";
-// Assets
+import { padding_x, rGap } from "@/assets/css/styles";
+import {
+  DidYouLeaveSection,
+  HeroArticleSection,
+  SimilarNewsSection,
+} from "@/dynamic-imports/components";
 
 // Custom Imports
 import { ReduxProvider } from "@/dynamic-imports/redux-app";
@@ -13,8 +16,10 @@ export default function Home() {
   // Variables
   return (
     <ReduxProvider>
-      <div className={`${padding_x} ${divider} divide-y`}>
+      <div className={`${padding_x} ${divider} flex flex-col ${rGap} divide-y`}>
         <HeroArticleSection {...testArticle} isFlag />
+        <SimilarNewsSection />
+        <DidYouLeaveSection />
       </div>
     </ReduxProvider>
   );

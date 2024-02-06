@@ -20,6 +20,7 @@ export default function PosterImage(props: PosterImageSchema) {
   const {
     tag,
     image1,
+    showClock,
     title,
     titleFont,
     timeFont,
@@ -32,13 +33,13 @@ export default function PosterImage(props: PosterImageSchema) {
   const [zoomImg, setZoomImg] = useState("");
 
   // Css variables
-  const newTitleFont = titleFont ?? fonts.getFont("sub_title", "extra_bold");
   const newTimeFont = timeFont ?? fonts.getFont("slight_para");
   const color = colors.white;
   const zoom = isZoomable ? zoomImg : "";
 
   // Title css
-  const titleCss = `${color} tracking-wide`;
+  const font = titleFont ?? fonts.getFont("sub_title", "extra_bold");
+  const titleCss = `${font} ${color} tracking-wide line-clamp-3`;
 
   // Action when the mouse enters the div
   const handleMouseEnter = () => {
@@ -73,10 +74,10 @@ export default function PosterImage(props: PosterImageSchema) {
             <CustomTag title={tag} status="error" />
           </div>
         )}
-        <CustomText font={newTitleFont} css={titleCss}>
+        <CustomText css={titleCss} isExtraBold>
           {title}
         </CustomText>
-        {updated_at && (
+        {showClock && updated_at && (
           <TimeCard
             {...{ font: newTimeFont, color }}
             title={getRelativeTime(updated_at)}

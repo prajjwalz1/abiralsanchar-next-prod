@@ -21,7 +21,7 @@ export default function MiniUpdatesSection(props: MiniUpdatesSectionSchema) {
           <MediaCard
             key={getUniqueKey(idx, item?.title)}
             {...item}
-            css="h-[95px]"
+            extendCss="h-[95px]"
             showClock
           />
         ))}

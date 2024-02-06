@@ -65,7 +65,7 @@ export default function HeroArticleSection(props: HeroArticleSectionSchema) {
           onClick={() => window.open(slug)}
           isFlag={isFlag}
         />
-        <CustomText font={fonts.large} css="line-clamp-3">
+        <CustomText font={fonts.large} css={!isFlag ? "line-clamp-3" : ""}>
           {description}
         </CustomText>
       </div>

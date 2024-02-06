@@ -85,6 +85,11 @@ export type IconSchema = {
   icon?: ReactNode;
 };
 
+export type IsDimensionSchema = {
+  isRow?: boolean;
+  isColumn?: boolean;
+};
+
 export interface CustomImageSchema extends OnClickSchema, FlagSchema {
   src: string | StaticImageData;
   alt: string;

@@ -23,6 +23,7 @@ export const rPaddingT = "pt-3 md:pt-5";
 export const rPaddingY = "py-3 md:py-5";
 export const rMarginTop = "mt-3 md:mt-5";
 export const rGap = "gap-3 md:gap-5";
+export const rGapMini = "gap-1 md:gap-3";
 
 // Transitions
 export const imgTransition = "transition ease-in-out duration-[900ms]";

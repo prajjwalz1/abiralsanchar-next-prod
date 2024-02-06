@@ -36,7 +36,7 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
       <div className={`${rGap} md:grid md:grid-cols-[auto_280px]`}>
         {/* First column */}
         <div className="flex flex-col">
-          <HeaderText extendCss="pt-1">{category_title}</HeaderText>
+          <HeaderText>{category_title}</HeaderText>
 
           <DescriptionCard {...articles[0]} />
 
@@ -57,7 +57,7 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
                   <MediaCard
                     {...item}
                     key={getUniqueKey(idx, item.title!)}
-                    css="h-[104px]"
+                    extendCss="h-[104px]"
                     info_placing="justify-center"
                   />
                 ))}
@@ -69,7 +69,7 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
                   <MediaCard
                     {...item}
                     key={getUniqueKey(idx, item.title!)}
-                    css="h-[104px]"
+                    extendCss="h-[104px]"
                     info_placing="justify-center"
                   />
                 ))}
