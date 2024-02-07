@@ -38,7 +38,7 @@ export const GetCategoriesNewsDataThunk = createAsyncThunk(
 
 // articles news data
 export const GetArticlesNewsDataThunk = createAsyncThunk(
-  "GetArticleDataByIdThunk",
+  "GetArticlesNewsDataThunk",
   async (_, thunkAPI) => {
     try {
       return await dataService.getData("/api/v1/news/article");
