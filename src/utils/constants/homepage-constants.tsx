@@ -1,23 +1,23 @@
 // assets
-import * as images from "@/assets/images";
+import { getImgSrc } from "../methods/imageMethods";
 
 export const banners = {
   featured_section: {
-    src: images.banner_hotel_yak_gif,
+    src: getImgSrc("homepage/banner_hotel_yak_gif"),
     alt: "banner_hotel_yak_gif",
     divCss: "w-full h-[80px] rounded-md rounded-md",
     width: 0,
     height: 0,
   },
   highlight_section: {
-    src: images.banner_hotel_yak_gif,
+    src: getImgSrc("homepage/banner_hotel_yak_gif"),
     alt: "banner_hotel_yak_gif",
     divCss: "w-full h-[80px] rounded-md",
     width: 0,
     height: 0,
   },
   samachar_section: {
-    src: images.banner_bhatbhateni_jpeg.src,
+    src: getImgSrc("homepage/banner_bhatbhateni_jpeg"),
     alt: "banner_bhatbhateni_jpeg",
     divCss: "w-full h-[80px] rounded-md",
     width: 0,
@@ -25,21 +25,21 @@ export const banners = {
   },
   business_section: [
     {
-      src: images.banner_hotel_yak_gif,
+      src: getImgSrc("homepage/banner_hotel_yak_gif"),
       alt: "banner_hotel_yak_gif",
       divCss: "h-[80px] rounded-md",
       width: 0,
       height: 0,
     },
     {
-      src: images.banner_nmb_visa_gif,
+      src: getImgSrc("homepage/banner_nmb_visa_gif"),
       alt: "banner_nmb_visa_gif",
       divCss: "h-[80px] rounded-md",
       width: 0,
       height: 0,
     },
     {
-      src: images.banner_nt_fiber_gif,
+      src: getImgSrc("homepage/banner_nt_fiber_gif"),
       alt: "banner_nt_fiber_gif",
       divCss: "h-[80px] rounded-md",
       width: 0,
@@ -51,19 +51,19 @@ export const banners = {
 export const ads_section = {
   highlights: [
     {
-      src: images.ad_kbc_gif,
+      src: getImgSrc("homepage/ad_kbc_gif"),
       alt: "ad_kbc_gif",
       width: 0,
       height: 0,
     },
     {
-      src: images.ad_kmc_gif,
+      src: getImgSrc("homepage/ad_kmc_gif"),
       alt: "ad_kmc_gif",
       width: 0,
       height: 0,
     },
     {
-      src: images.ad_tata_jpg,
+      src: getImgSrc("homepage/ad_tata_jpg"),
       alt: "ad_tata_jpg",
       width: 0,
       height: 0,
@@ -71,25 +71,25 @@ export const ads_section = {
   ],
   news: [
     {
-      src: images.ad_krishi_gif,
+      src: getImgSrc("homepage/ad_krishi_gif"),
       alt: "ad_krishi_gif",
       width: 0,
       height: 0,
     },
     {
-      src: images.ad_muktinath_gif,
+      src: getImgSrc("homepage/ad_muktinath_gif"),
       alt: "ad_muktinath_gif",
       width: 0,
       height: 0,
     },
     {
-      src: images.ad_nepal_airlines_gif,
+      src: getImgSrc("homepage/ad_nepal_airlines_gif"),
       alt: "ad_nepal_airlines_gif",
       width: 0,
       height: 0,
     },
     {
-      src: images.ad_shangrila_gif,
+      src: getImgSrc("homepage/ad_nepal_airlines_gif"),
       alt: "ad_shangrila_gif",
       width: 0,
       height: 0,
