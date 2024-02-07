@@ -42,8 +42,8 @@ const SingleCurrentNews = (props: SingleCurrentNewsSchema) => {
   // Slug1
   const slug1 = getRouteUrl("/article", {
     id,
-    isTrending: getStatus("trending"),
-    isLatest: getStatus("latest"),
+    isTrending: getStatus("ट्रेन्डिङ"),
+    isLatest: getStatus("ताजा अपडेट"),
   });
 
   return (
@@ -112,7 +112,7 @@ export default function CurrentNews() {
         >
           <CustomText
             css={`h-full ${colors.active_border} border-b-[3px] leading-[56px]`}
-            isTitle
+            isSubTitle
             isTitleColor
             isKhand
             isExtraBold

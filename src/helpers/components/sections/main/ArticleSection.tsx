@@ -3,10 +3,8 @@
 import { divider } from "@/assets/colors";
 import { padding_x, rGap } from "@/assets/css/styles";
 import {
-  // DidYouLeaveSection,
   HeroArticleSection,
   SimilarNewsSection,
-  // SimilarNewsSection,
 } from "@/dynamic-imports/components";
 import {
   useAppDispatch,
@@ -47,11 +45,11 @@ export default function ArticleSection(props: any) {
   const all_articles = isArticle
     ? d(articles_news_data)
     : isFeatured
-    ? featured_data
+    ? d(featured_data)
     : isLatest
-    ? latest_data
+    ? d(latest_data)
       ? isTrending
-      : trending_data
+      : d(trending_data)
     : [];
 
   // Show hero article when
