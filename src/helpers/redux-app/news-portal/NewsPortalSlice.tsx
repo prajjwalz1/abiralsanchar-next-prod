@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   GetArticleDataByIdThunk,
+  GetArticlesNewsDataThunk,
   GetCategoriesNewsDataThunk,
   GetHomepageDataThunk,
 } from "./_thunks";
@@ -16,6 +17,9 @@ type ISchema = {
   // Categories news get (whole)
   categories_news_data: S.CategoriesNewsDataSchema;
 
+  // Articles' data
+  articles_news_data: S.ArticlesNewsDataSchema;
+
   // Article news get (single)
   article_data_by_id: S.ArticleDataByIdSchema;
 };
@@ -24,6 +28,7 @@ const initialState: ISchema = {
   header: C.HEADER_INITIAL_DATA,
   homepage_data: C.HOMEPAGE_INITIAL_DATA,
   categories_news_data: C.CATEGORIES_NEWS_INITIAL_DATA,
+  articles_news_data: C.ARTICLES_NEWS_INITIAL_DATA,
   article_data_by_id: C.ARTICLE_INITIAL_DATA,
 };
 
@@ -117,6 +122,36 @@ export const NewsPortalSlice = createSlice({
 
         // Rejected data
         state.categories_news_data.errorResponse = action.payload;
+      })
+
+      ////////////////////////////////////////
+      ////////////////////////////////////////
+      // Articles' data
+      ////////////////////////////////////////
+      ////////////////////////////////////////
+      .addCase(GetArticlesNewsDataThunk.pending, (state) => {
+        // Normal states
+        state.articles_news_data.isPending = true;
+        state.articles_news_data.isFulfilled = false;
+        state.articles_news_data.isRejected = false;
+      })
+      .addCase(GetArticlesNewsDataThunk.fulfilled, (state, action) => {
+        // Normal states
+        state.articles_news_data.isPending = false;
+        state.articles_news_data.isFulfilled = true;
+        state.articles_news_data.isRejected = false;
+
+        // Success data
+        state.articles_news_data.successResponse = action.payload;
+      })
+      .addCase(GetArticlesNewsDataThunk.rejected, (state, action) => {
+        // Normal states
+        state.articles_news_data.isPending = false;
+        state.articles_news_data.isFulfilled = false;
+        state.articles_news_data.isRejected = true;
+
+        // Rejected data
+        state.articles_news_data.errorResponse = action.payload;
       })
 
       ////////////////////////////////////////

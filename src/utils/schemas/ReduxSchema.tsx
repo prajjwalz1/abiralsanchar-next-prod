@@ -65,6 +65,12 @@ export interface CategoriesNewsDataSchema extends CommonApiSchema {
   errorResponse?: any | {};
 }
 
+export interface ArticlesNewsDataSchema extends CommonApiSchema {
+  successResponse: any;
+  testResponse?: any;
+  errorResponse?: any | {};
+}
+
 export interface ArticleDataByIdSchema extends CommonApiSchema {
   successResponse: any;
   testResponse?: any;

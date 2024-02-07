@@ -48,6 +48,15 @@ export const CATEGORIES_NEWS_INITIAL_DATA: HomepageIDSchema = {
   errorResponse: [],
 };
 
+export const ARTICLES_NEWS_INITIAL_DATA: HomepageIDSchema = {
+  ...NORMAL_CHECK,
+
+  // Response data
+  successResponse: { success: false, data: [] },
+  testResponse: { success: false, data: [] },
+  errorResponse: [],
+};
+
 export const ARTICLE_INITIAL_DATA: HomepageIDSchema = {
   ...NORMAL_CHECK,
 

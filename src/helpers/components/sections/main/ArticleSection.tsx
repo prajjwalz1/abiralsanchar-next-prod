@@ -12,7 +12,10 @@ import {
   useAppSelector,
   RootState,
 } from "@/helpers/hooks/useStoreHooks";
-import { GetArticleDataByIdThunk } from "@/helpers/redux-app/news-portal/_thunks";
+import {
+  GetArticleDataByIdThunk,
+  GetArticlesNewsDataThunk,
+} from "@/helpers/redux-app/news-portal/_thunks";
 import { useEffect } from "react";
 
 // export type ArticleSectionSchema = {
@@ -21,7 +24,7 @@ import { useEffect } from "react";
 
 export default function ArticleSection(props: any) {
   // Props
-  const { id, isArticle, isTrending, isLatest } = props;
+  const { id, isArticle, isTrending, isLatest, isFeatured } = props;
 
   // Redux
   const dispatch = useAppDispatch();
@@ -35,9 +38,14 @@ export default function ArticleSection(props: any) {
     : [];
 
   // Show hero article when
-  const showArticle = isArticle;
+  const showArticle = isArticle || isTrending || isLatest || isFeatured;
 
   useEffect(() => {
+    if (isArticle) {
+      dispatch(GetArticleDataByIdThunk(id));
+      dispatch(GetArticlesNewsDataThunk());
+      return;
+    }
     if (isArticle) {
       dispatch(GetArticleDataByIdThunk(id));
       return;

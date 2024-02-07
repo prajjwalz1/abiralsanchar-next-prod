@@ -36,6 +36,18 @@ export const GetCategoriesNewsDataThunk = createAsyncThunk(
   }
 );
 
+// articles news data
+export const GetArticlesNewsDataThunk = createAsyncThunk(
+  "GetArticleDataByIdThunk",
+  async (_, thunkAPI) => {
+    try {
+      return await dataService.getData("/api/v1/news/article");
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(getReduxErrorMsg(error));
+    }
+  }
+);
+
 // article news get (single)
 export const GetArticleDataByIdThunk = createAsyncThunk(
   "GetArticleDataByIdThunk",
