@@ -12,8 +12,8 @@ export default function CloseButton(props: ButtonSchema) {
 
   // Css
   const defaultCss = "absolute text-red-500 hover:text-red-700";
-  const postion = extendCss ?? "top-6 right-6";
-  const className = css ?? `${postion} ${defaultCss}`;
+  const position = extendCss ?? "top-6 right-6";
+  const className = css ?? `${position} ${defaultCss}`;
 
   // Render
   return <AiOutlineClose className={className} {...rest} />;

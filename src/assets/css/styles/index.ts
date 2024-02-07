@@ -53,6 +53,3 @@ export const getActiveLink = (
 // Icons
 //////////////////////////////
 export const nav_icon = `w-8 h-8 ${colors.logo_icon}`;
-
-// Buttons
-export const current_news_close_button = `text-2xl ${colors.danger_icon_button}`;

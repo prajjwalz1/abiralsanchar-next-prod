@@ -104,8 +104,8 @@ export default function CurrentNews() {
           className={`${colors.normal_border} animate-showDown bg red-300 w-full h-[50px] flex justify-between items-center border-b-[1px]`}
         >
           <CustomText
-            css={`h-full ${colors.active_border} border-b-[3px]`}
-            isSubTitle
+            css={`h-full ${colors.active_border} border-b-[3px] leading-[56px]`}
+            isTitle
             isTitleColor
             isKhand
             isExtraBold
@@ -113,7 +113,7 @@ export default function CurrentNews() {
             {title}
           </CustomText>
           <CloseButton
-            css={styles.current_news_close_button}
+            css="text-red-500 hover:text-red-700 text-2xl"
             onClick={() => dispatch(clearIsCurrentNews())}
           />
         </div>
