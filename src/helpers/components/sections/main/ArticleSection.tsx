@@ -21,7 +21,7 @@ import { useEffect } from "react";
 
 export default function ArticleSection(props: any) {
   // Props
-  const { id, isArticle } = props;
+  const { id, isArticle, isTrending, isLatest } = props;
 
   // Redux
   const dispatch = useAppDispatch();
@@ -30,7 +30,12 @@ export default function ArticleSection(props: any) {
   );
 
   // Variables
-  const chosen_article = article_data_by_id?.successResponse?.data;
+  const chosen_article = isArticle
+    ? article_data_by_id?.successResponse?.data
+    : [];
+
+  // Show hero article when
+  const showArticle = isArticle;
 
   useEffect(() => {
     if (isArticle) {
@@ -43,7 +48,7 @@ export default function ArticleSection(props: any) {
     <div
       className={`${padding_x} ${divider} flex flex-col ${rGap} divide-y pb-10 md:pb:0`}
     >
-      <HeroArticleSection {...chosen_article} isFlag />
+      {showArticle && <HeroArticleSection {...chosen_article} isFlag />}
       {/* <SimilarNewsSection articles={similar_articles} />
       <DidYouLeaveSection articles={did_you_leave_articles} /> */}
     </div>

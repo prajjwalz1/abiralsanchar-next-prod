@@ -1,15 +1,19 @@
 import { hover_link, hover_red_dark, light_blue_bg } from "@/assets/colors";
 import { span } from "@/assets/fonts";
 import { CustomImage, CustomText } from "@/dynamic-imports/components";
+import { getRouteUrl } from "@/utils/methods/defaultMethods";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
 import { DescriptionCardSchema } from "@/utils/schemas/ComponentsSchema";
 import { useRouter } from "next/navigation";
 
 export default function DescriptionCard(props: DescriptionCardSchema) {
   // Props
-  const { id, color, title, slug, image1, description } = props;
+  const { id, color, title, image1, description } = props;
 
   const router = useRouter();
+
+  // Slug1
+  const slug1 = getRouteUrl("/article", { id, isArticle: true });
 
   // Css
   const bgColor = color ?? light_blue_bg;
@@ -27,16 +31,18 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
         imgCss="w-full h-full object-cover rounded-t-md sm:rounded-l-md sm:rounded-t-none"
         width={40}
         height={40}
-        onClick={() => router.push(`/article/${id}`)}
+        onClick={() => router.push(slug1)}
       />
       <div
         className={`${bgColor} flex-1 h-full px-8 py-2 flex gap-0 md:gap-1 flex-col justify-center`}
       >
-        <CustomText slug={slug} css={titleCss} isLarge isBold>
+        <CustomText slug={slug1} css={titleCss} isLarge isBold>
           {title}
         </CustomText>
 
-        <CustomText css={descCss}>{description}</CustomText>
+        <CustomText slug={slug1} css={descCss}>
+          {description}
+        </CustomText>
       </div>
     </div>
   );

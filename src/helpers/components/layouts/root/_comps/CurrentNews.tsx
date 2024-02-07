@@ -22,6 +22,7 @@ import { useEffect } from "react";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
 import { CurrentTitleSchema } from "@/utils/schemas/CommonSchema";
 import { useRouter } from "next/navigation";
+import { getRouteUrl } from "@/utils/methods/defaultMethods";
 
 export interface SingleCurrentNewsSchema
   extends ArticleSchema,
@@ -36,8 +37,14 @@ const SingleCurrentNews = (props: SingleCurrentNewsSchema) => {
   const router = useRouter();
 
   // Variables
-  const temp = currentTitle === "latest" ? "latest=true" : "trending=true";
-  const slug1 = `article/id=${id}&${temp}`;
+  const getStatus = (str: string) => (currentTitle === str ? true : false);
+
+  // Slug1
+  const slug1 = getRouteUrl("/article", {
+    id,
+    isTrending: getStatus("trending"),
+    isLatest: getStatus("latest"),
+  });
 
   return (
     <div className="h-[64px] md:h-[80px] md:px-5 py-2 flex justify-between items-start rounded-md rounded-r-none border-r-2 border-gray-300">

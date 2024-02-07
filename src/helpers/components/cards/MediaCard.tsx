@@ -4,6 +4,7 @@ import {
   CustomText,
   TimeCard,
 } from "@/dynamic-imports/components";
+import { getRouteUrl } from "@/utils/methods/defaultMethods";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
 import { getRelativeTime } from "@/utils/methods/timeMethods";
 import { MediaCardSchema } from "@/utils/schemas/ComponentsSchema";
@@ -27,6 +28,9 @@ export default function MediaCard(props: MediaCardSchema) {
 
   // Hooks
   const router = useRouter();
+
+  // Slug1
+  const slug1 = getRouteUrl("/article", { id, isArticle: true });
 
   // Container css
   const rowCss = `${
@@ -56,7 +60,7 @@ export default function MediaCard(props: MediaCardSchema) {
         imgCss="w-full h-full object-cover rounded-md"
         width={40}
         height={40}
-        onClick={() => router.push(`/article/id=${id}&article=true`)}
+        onClick={() => router.push(slug1)}
       />
       <div className={`${placingCss} h-full flex-1 flex flex-col gap-1`}>
         <CustomText

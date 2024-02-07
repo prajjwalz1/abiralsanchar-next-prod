@@ -8,6 +8,7 @@ import { getUniqueKey } from "@/utils/methods/stringMethods";
 import { CustomImage, CustomText } from "@/dynamic-imports/components";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
 import { useRouter } from "next/navigation";
+import { getRouteUrl } from "@/utils/methods/defaultMethods";
 
 export default function FeaturedHighlights() {
   // Redux
@@ -18,8 +19,12 @@ export default function FeaturedHighlights() {
   // Hooks
   const router = useRouter();
 
-  // Variables
-  const slug1 = (id: number) => `/article/id=${id}&featured=true`;
+  // Slug1
+  const slug1 = (id: number) =>
+    getRouteUrl("/article", {
+      id,
+      isFeatured: true,
+    });
 
   return (
     <div
