@@ -7,6 +7,7 @@ import { ArticleSchema } from "@/utils/schemas/ApiSchema";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
 import { CustomImage, CustomText } from "@/dynamic-imports/components";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
+import { useRouter } from "next/navigation";
 
 export default function FeaturedHighlights() {
   // Redux
@@ -14,13 +15,19 @@ export default function FeaturedHighlights() {
     (state: RootState) => state.NewsPortal.header.featured
   );
 
+  // Hooks
+  const router = useRouter();
+
+  // Variables
+  const slug1 = (id: number) => `/article/id=${id}&featured=true`;
+
   return (
     <div
       className={`${styles.width_x} featured-highlights thin-scrollbar overflow-x-auto overflow-y-hidden relative flex items-center gap-4 sm:gap-6`}
     >
       {featured_data
         ?.slice(0, 9)
-        ?.map(({ title, image1, slug }: ArticleSchema, idx: number) => (
+        ?.map(({ id, title, image1, slug }: ArticleSchema, idx: number) => (
           <div
             key={getUniqueKey(idx, title! + slug)}
             className="min-w-[84px] flex items-center gap-1"
@@ -33,7 +40,7 @@ export default function FeaturedHighlights() {
               imgCss="w-full h-full object-cover rounded-full"
               width={24}
               height={24}
-              onClick={() => window.open("/article")}
+              onClick={() => router.push(slug1(id))}
             />
             <CustomText css="min-w-fit" isKhand isBold>
               {title.slice(0, 10)}

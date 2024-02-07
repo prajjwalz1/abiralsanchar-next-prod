@@ -20,6 +20,7 @@ import {
   Image1Schema,
   ShowClockSchema,
   IsDimensionSchema,
+  IdSchema,
 } from "./CommonSchema";
 import { ArticleSchema } from "./ApiSchema";
 
@@ -47,14 +48,16 @@ export interface MediaCardSchema
     UpdatedAtSchema,
     ShowClockSchema,
     CssSchema,
-    IsDimensionSchema {}
+    IsDimensionSchema,
+    IdSchema {}
 
 export interface DescriptionCardSchema
   extends ShowClockSchema,
     ColorSchema,
     MediaCardSchema,
     DescriptionSchema,
-    Image1Schema {}
+    Image1Schema,
+    IdSchema {}
 
 export interface TimeCardSchema
   extends CssSchema,
@@ -86,6 +89,7 @@ export interface PosterImageSchema extends ArticleSchema, ShowClockSchema {
 
 // sections
 export interface HeroArticleSectionSchema extends ArticleSchema, FlagSchema {}
+
 export interface NewsCategorySectionSchema
   extends TitleSchema,
     BannerImgSchema {
@@ -100,6 +104,11 @@ export interface ThreeColumnSectionSchema
     ImageArrSchema,
     AllArticlesSchema {
   posterImg: PosterImageSchema;
+}
+
+export interface ArticleSectionSchema extends IdSchema {
+  similar_articles: ArticleSchema[];
+  did_you_leave_articles: ArticleSchema[];
 }
 
 export interface MiniUpdatesSectionSchema

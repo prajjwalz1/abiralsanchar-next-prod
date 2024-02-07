@@ -123,6 +123,10 @@ export const MiniUpdatesSection = dynamic(
 //////////////////////////////
 // sections/main
 //////////////////////////////
+export const ArticleSection = dynamic(
+  () => import("@/helpers/components/sections/main/ArticleSection"),
+  { ssr: false }
+);
 export const DidYouLeaveSection = dynamic(
   () => import("@/helpers/components/sections/main/DidYouLeaveSection"),
   { ssr: false }

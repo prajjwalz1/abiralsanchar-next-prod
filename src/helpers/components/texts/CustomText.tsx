@@ -1,15 +1,19 @@
 import * as colors from "@/assets/colors";
 import * as fonts from "@/assets/fonts";
 import { CustomTextSchema } from "@/utils/schemas/CommonSchema";
+import { useRouter } from "next/navigation";
 import { MouseEventHandler } from "react";
 
 export default function CustomText(props: CustomTextSchema) {
   // Props
   const { css, font, isKhand, slug, children, ...rest } = props;
 
+  // Hooks
+  const router = useRouter();
+
   // Actions
   const onClick: MouseEventHandler<HTMLParagraphElement> | undefined = slug
-    ? () => window.open("/article")
+    ? () => router.push(slug)
     : undefined;
 
   // Color

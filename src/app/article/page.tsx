@@ -1,28 +1,21 @@
 "use client";
 
-import { divider } from "@/assets/colors";
-import { padding_x, rGap } from "@/assets/css/styles";
-import {
-  DidYouLeaveSection,
-  HeroArticleSection,
-  SimilarNewsSection,
-} from "@/dynamic-imports/components";
+// Default imports
+import { ArticleSection } from "@/dynamic-imports/components";
 
-// Custom Imports
+// Custom imports
 import { ReduxProvider } from "@/dynamic-imports/redux-app";
-import { testArticle } from "@/utils/data/backend_data";
+import { ArticleSectionSchema } from "@/utils/schemas/ComponentsSchema";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 
-export default function Home() {
-  // Variables
+export default function Article(props: any) {
+  // Hooks
+
+  const { searchParams } = props;
+
   return (
     <ReduxProvider>
-      <div
-        className={`${padding_x} ${divider} flex flex-col ${rGap} divide-y pb-10 md:pb:0`}
-      >
-        <HeroArticleSection {...testArticle} isFlag />
-        <SimilarNewsSection />
-        <DidYouLeaveSection />
-      </div>
+      <ArticleSection {...searchParams} />
     </ReduxProvider>
   );
 }

@@ -1,22 +1,32 @@
 import { rGap } from "@/assets/css/styles";
 import { getFont } from "@/assets/fonts";
 import { HeaderText, PosterImage } from "@/dynamic-imports/components";
-import { testArticle } from "@/utils/data/backend_data";
+import { getUniqueKey } from "@/utils/methods/stringMethods";
+import { ArticleSchema } from "@/utils/schemas/ApiSchema";
+import { CommonNewsSectionSchema } from "@/utils/schemas/CommonSchema";
 
-export default function DidYouLeaveSection() {
+export default function DidYouLeaveSection(props: CommonNewsSectionSchema) {
+  // Props
+  const { title, articles } = props;
+
+  // Variables
   const commonProps = {
     titleFont: getFont("body", "semi_bold"),
     isTransparent: true,
   };
+
   return (
     <div className="w-full h-full">
-      <HeaderText>छुटाउनुभयो कि ?</HeaderText>
+      <HeaderText>{title ?? "छुटाउनुभयो कि ?"}</HeaderText>
 
       <div className={`${rGap} grid grid-cols-1 md:grid-cols-4 md:h-[300px]`}>
-        <PosterImage {...testArticle} {...commonProps} />
-        <PosterImage {...testArticle} {...commonProps} />
-        <PosterImage {...testArticle} {...commonProps} />
-        <PosterImage {...testArticle} {...commonProps} />
+        {articles?.map((item: ArticleSchema, idx: number) => (
+          <PosterImage
+            key={getUniqueKey(idx, item.title!)}
+            {...item}
+            {...commonProps}
+          />
+        ))}
       </div>
     </div>
   );

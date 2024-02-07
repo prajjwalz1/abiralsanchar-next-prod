@@ -3,10 +3,13 @@ import { span } from "@/assets/fonts";
 import { CustomImage, CustomText } from "@/dynamic-imports/components";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
 import { DescriptionCardSchema } from "@/utils/schemas/ComponentsSchema";
+import { useRouter } from "next/navigation";
 
 export default function DescriptionCard(props: DescriptionCardSchema) {
   // Props
-  const { color, title, slug, image1, description } = props;
+  const { id, color, title, slug, image1, description } = props;
+
+  const router = useRouter();
 
   // Css
   const bgColor = color ?? light_blue_bg;
@@ -24,7 +27,7 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
         imgCss="w-full h-full object-cover rounded-t-md sm:rounded-l-md sm:rounded-t-none"
         width={40}
         height={40}
-        onClick={() => window.open("/article")}
+        onClick={() => router.push(`/article/${id}`)}
       />
       <div
         className={`${bgColor} flex-1 h-full px-8 py-2 flex gap-0 md:gap-1 flex-col justify-center`}

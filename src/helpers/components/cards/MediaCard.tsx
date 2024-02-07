@@ -7,10 +7,12 @@ import {
 import { getAbiralImg } from "@/utils/methods/imgMethods";
 import { getRelativeTime } from "@/utils/methods/timeMethods";
 import { MediaCardSchema } from "@/utils/schemas/ComponentsSchema";
+import { useRouter } from "next/navigation";
 
 export default function MediaCard(props: MediaCardSchema) {
   // Props
   const {
+    id,
     title,
     updated_at,
     slug,
@@ -22,6 +24,9 @@ export default function MediaCard(props: MediaCardSchema) {
     extendCss,
     isColumn,
   } = props;
+
+  // Hooks
+  const router = useRouter();
 
   // Container css
   const rowCss = `${
@@ -51,7 +56,7 @@ export default function MediaCard(props: MediaCardSchema) {
         imgCss="w-full h-full object-cover rounded-md"
         width={40}
         height={40}
-        onClick={() => window.open("/article")}
+        onClick={() => router.push(`/article/id=${id}&article=true`)}
       />
       <div className={`${placingCss} h-full flex-1 flex flex-col gap-1`}>
         <CustomText

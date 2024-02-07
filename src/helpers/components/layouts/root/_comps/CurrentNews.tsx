@@ -20,16 +20,29 @@ import BodyOverlay from "@/helpers/components/others/BodyOverlay";
 import useScrollLock from "@/helpers/hooks/useScrollLock";
 import { useEffect } from "react";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
+import { CurrentTitleSchema } from "@/utils/schemas/CommonSchema";
+import { useRouter } from "next/navigation";
+
+export interface SingleCurrentNewsSchema
+  extends ArticleSchema,
+    CurrentTitleSchema {}
 
 // This component will display individual current news data with a title and image (also will forward to a link)
-const SingleCurrentNews = (props: ArticleSchema) => {
+const SingleCurrentNews = (props: SingleCurrentNewsSchema) => {
   // Props
-  const { title, slug, image1 } = props;
+  const { id, currentTitle, title, image1 } = props;
+
+  // Hooks
+  const router = useRouter();
+
+  // Variables
+  const temp = currentTitle === "latest" ? "latest=true" : "trending=true";
+  const slug1 = `article/id=${id}&${temp}`;
 
   return (
     <div className="h-[64px] md:h-[80px] md:px-5 py-2 flex justify-between items-start rounded-md rounded-r-none border-r-2 border-gray-300">
       <div className="flex w-4/5">
-        <CustomText slug={slug} css="line-clamp-2" isSlightPara>
+        <CustomText slug={slug1} css="line-clamp-2" isSlightPara>
           {title}
         </CustomText>
       </div>
@@ -41,7 +54,7 @@ const SingleCurrentNews = (props: ArticleSchema) => {
         imgCss="w-full h-full object-cover rounded-md"
         width={40}
         height={40}
-        onClick={() => window.open(slug)}
+        onClick={() => router.push(slug1)}
       />
     </div>
   );
@@ -110,7 +123,11 @@ export default function CurrentNews() {
           className={`${scrollCss} single-news-border-r-0 animate-showDown md:fourth-element-padding-0 w-full flex-1 p-3 pl-0 grid grid-cols-2 md:grid-cols-3`}
         >
           {data?.slice(0, 6)?.map((item: ArticleSchema, idx: number) => (
-            <SingleCurrentNews key={getUniqueKey(idx, title!)} {...item} />
+            <SingleCurrentNews
+              key={getUniqueKey(idx, title!)}
+              {...item}
+              currentTitle={title}
+            />
           ))}
         </div>
       </div>

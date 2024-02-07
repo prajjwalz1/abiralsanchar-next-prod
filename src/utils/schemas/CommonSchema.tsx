@@ -48,6 +48,8 @@ export type UpdatedAtSchema = {
   updated_at?: string;
 };
 
+export type IdSchema = { id: number };
+
 export type Image1Schema = { image1: string | null };
 
 export type TitleSchema = {
@@ -64,6 +66,10 @@ export type DescriptionSchema = {
 
 export type FontSchema = {
   font?: string;
+};
+
+export type CurrentTitleSchema = {
+  currentTitle?: string;
 };
 
 export type SlugSchema = {
@@ -155,6 +161,10 @@ export interface BannerImageSchema extends CssSchema {
   imageProps?: CustomImageSchema;
   divProps?: CustomImageSchema;
 }
+
+export interface CommonNewsSectionSchema
+  extends TitleSchema,
+    AllArticlesSchema {}
 
 //////////////////////////////
 // tags

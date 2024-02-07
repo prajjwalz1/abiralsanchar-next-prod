@@ -7,14 +7,23 @@ import {
   TitleText,
 } from "@/dynamic-imports/components";
 import CustomImage from "@/helpers/components/images/CustomImage";
+import { getRouteUrl } from "@/utils/methods/defaultMethods";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
 import { getRelativeTime } from "@/utils/methods/timeMethods";
 import { HeroArticleSectionSchema } from "@/utils/schemas/ComponentsSchema";
+import { useRouter } from "next/navigation";
 import { FiMessageSquare } from "react-icons/fi";
 
 export default function HeroArticleSection(props: HeroArticleSectionSchema) {
   // Props
-  const { author, description, title, image1, updated_at, isFlag } = props;
+  const { id, author, description, title, image1, updated_at, isFlag } = props;
+
+  // Hooks
+  const router = useRouter();
+
+  // Variables
+  // const slug1 = `/article?id=${id}&article=true`;
+  const slug1 = getRouteUrl("/article", { id, isArticle: true });
 
   return (
     <div
@@ -60,7 +69,7 @@ export default function HeroArticleSection(props: HeroArticleSectionSchema) {
           imgCss="object-cover w-full h-full rounded-md"
           width={100}
           height={100}
-          onClick={() => window.open("/article")}
+          onClick={() => router.push(slug1)}
           isFlag={isFlag}
         />
         <CustomText css={!isFlag ? "line-clamp-3" : ""}>
