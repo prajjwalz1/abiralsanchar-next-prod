@@ -5,6 +5,7 @@ import { padding_x, rGap } from "@/assets/css/styles";
 import {
   // DidYouLeaveSection,
   HeroArticleSection,
+  SimilarNewsSection,
   // SimilarNewsSection,
 } from "@/dynamic-imports/components";
 import {
@@ -28,13 +29,29 @@ export default function ArticleSection(props: any) {
 
   // Redux
   const dispatch = useAppDispatch();
-  const { article_data_by_id } = useAppSelector(
+  const { header, article_data_by_id, articles_news_data } = useAppSelector(
     (state: RootState) => state.NewsPortal
   );
 
-  // Variables
-  const chosen_article = isArticle
-    ? article_data_by_id?.successResponse?.data
+  // Destructured variables
+  const { featured, latest, trending } = header;
+  const { featured_data } = featured;
+  const { latest_data } = latest;
+  const { trending_data } = trending;
+
+  // Action to get the required data from api
+  const d = (res: any) => res?.successResponse?.data;
+
+  // Actual variables used
+  const chosen_article = isArticle ? d(article_data_by_id) : [];
+  const all_articles = isArticle
+    ? d(articles_news_data)
+    : isFeatured
+    ? featured_data
+    : isLatest
+    ? latest_data
+      ? isTrending
+      : trending_data
     : [];
 
   // Show hero article when
@@ -56,9 +73,14 @@ export default function ArticleSection(props: any) {
     <div
       className={`${padding_x} ${divider} flex flex-col ${rGap} divide-y pb-10 md:pb:0`}
     >
-      {showArticle && <HeroArticleSection {...chosen_article} isFlag />}
-      {/* <SimilarNewsSection articles={similar_articles} />
-      <DidYouLeaveSection articles={did_you_leave_articles} /> */}
+      {showArticle && (
+        <>
+          <HeroArticleSection {...chosen_article} isFlag />
+          <SimilarNewsSection articles={all_articles} />
+        </>
+      )}
+
+      {/* <DidYouLeaveSection articles={did_you_leave_articles} /> */}
     </div>
   );
 }
