@@ -1,27 +1,28 @@
 import { NewsCategorySection } from "@/dynamic-imports/components";
 import { RootState, useAppSelector } from "@/helpers/hooks/useStoreHooks";
+import { destructHomepageData } from "@/utils/methods/reduxMethods";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
 import { ArticleCategorizedSchema } from "@/utils/schemas/ApiSchema";
 
 export default function NewsCategoriesSection() {
   // Redux
-  const { successResponse } = useAppSelector(
+  const { successResponse: h } = useAppSelector(
     (state: RootState) => state.NewsPortal.homepage_data
   );
 
   // Variables
-  const newsCategoryData = successResponse?.data?.length
-    ? successResponse?.data[4]?.articles_categorized?.category_article_data
-    : [];
+  const category_article_data = destructHomepageData(h);
 
   return (
     <>
-      {newsCategoryData?.map((item: ArticleCategorizedSchema, idx: number) => (
-        <NewsCategorySection
-          key={getUniqueKey(idx, item?.category_title)}
-          {...item}
-        />
-      ))}
+      {category_article_data?.map(
+        (item: ArticleCategorizedSchema, idx: number) => (
+          <NewsCategorySection
+            key={getUniqueKey(idx, item?.category_title)}
+            {...item}
+          />
+        )
+      )}
     </>
   );
 }

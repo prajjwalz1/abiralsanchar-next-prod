@@ -143,6 +143,10 @@ export const HighlightSection = dynamic(
   () => import("@/helpers/components/sections/main/HighlightSection"),
   { ssr: false }
 );
+export const HomeSection = dynamic(
+  () => import("@/helpers/components/sections/main/HomeSection"),
+  { ssr: false }
+);
 export const SimilarNewsSection = dynamic(
   () => import("@/helpers/components/sections/main/SimilarNewsSection"),
   { ssr: false }
