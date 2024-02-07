@@ -14,6 +14,7 @@ import {
 import {
   GetArticleDataByIdThunk,
   GetArticlesNewsDataThunk,
+  GetCategoriesNewsDataThunk,
 } from "@/helpers/redux-app/news-portal/_thunks";
 import { useEffect } from "react";
 
@@ -23,13 +24,24 @@ import { useEffect } from "react";
 
 export default function ArticleSection(props: any) {
   // Props
-  const { id, isArticle, isTrending, isLatest, isFeatured } = props;
+  const {
+    id,
+    isArticle,
+    isTrending,
+    isLatest,
+    isFeatured,
+    isCategories,
+    category_title,
+  } = props;
 
   // Redux
   const dispatch = useAppDispatch();
-  const { header, article_data_by_id, articles_news_data } = useAppSelector(
-    (state: RootState) => state.NewsPortal
-  );
+  const {
+    header,
+    article_data_by_id,
+    articles_news_data,
+    categories_news_data,
+  } = useAppSelector((state: RootState) => state.NewsPortal);
 
   // Destructured variables
   const { featured, latest, trending } = header;
@@ -50,10 +62,13 @@ export default function ArticleSection(props: any) {
     ? d(latest_data)
       ? isTrending
       : d(trending_data)
+    : isCategories
+    ? d(categories_news_data)
     : [];
 
   // Show hero article when
-  const showArticle = isArticle || isTrending || isLatest || isFeatured;
+  const showArticle =
+    isArticle || isTrending || isLatest || isFeatured || isCategories;
 
   useEffect(() => {
     if (isArticle) {
@@ -63,6 +78,10 @@ export default function ArticleSection(props: any) {
     }
     if (isArticle) {
       dispatch(GetArticleDataByIdThunk(id));
+      return;
+    }
+    if (isCategories) {
+      dispatch(GetCategoriesNewsDataThunk(category_title));
       return;
     }
   }, [dispatch]);

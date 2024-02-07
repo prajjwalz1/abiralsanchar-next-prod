@@ -31,6 +31,7 @@ import CurrentNews from "./CurrentNews";
 import { setIsCurrentNews } from "@/helpers/redux-app/news-portal/_actions";
 import useCustomScroll from "@/helpers/hooks/useCustomScroll";
 import { GetHomepageDataThunk } from "@/helpers/redux-app/news-portal/_thunks";
+import { getRouteUrl } from "@/utils/methods/defaultMethods";
 
 //////////////////////////////
 // Common Navbar menu, for both desktop and mobile view
@@ -46,6 +47,11 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
 
   // Hooks
   const { isFixed } = useCustomScroll(80);
+
+  // Variables
+  // const slug1 = `/article?id=${id}&article=true`;
+  const slug1 = (category_title: string) =>
+    getRouteUrl("/article", { isCategories: true, category_title });
 
   // Required variables
   let nav_items = [{ title: "होमपेज", slug: "/" }];
@@ -64,7 +70,7 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
       {nav_items?.map(({ title, slug }: LinkSchema, idx: number) => (
         <Link
           key={getUniqueKey(idx, title!)}
-          href={title === "होमपेज" ? "/" : "/article"}
+          href={title === "होमपेज" ? "/" : slug1(title!)}
         >
           <NavbarText isSameLink={slug === pathname} isFlag={isFlag}>
             {title}
@@ -102,6 +108,7 @@ const MobileNavMenu = () => {
 
   // Hooks
   const { lockScroll, unlockScroll } = useScrollLock();
+  const { isFixed } = useCustomScroll(80);
 
   // useEffect
   useEffect(
@@ -120,9 +127,11 @@ const MobileNavMenu = () => {
         />
       </div>
 
-      <div className="p-4">
-        <LogoImage isFlag />
-      </div>
+      {isFixed && (
+        <div className="p-4 flex items-center lg:hidden">
+          <LogoImage isFlag />
+        </div>
+      )}
 
       {is_mobile_menu && <BodyOverlay />}
 

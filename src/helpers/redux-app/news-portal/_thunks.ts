@@ -29,7 +29,7 @@ export const GetCategoriesNewsDataThunk = createAsyncThunk(
   "GetCategoriesNewsDataThunk",
   async (slug: string, thunkAPI) => {
     try {
-      return await dataService.getData(`/api/v1/news/article/${slug}`);
+      return await dataService.getData(`/api/v1/news/category/${slug}/`);
     } catch (error: any) {
       return thunkAPI.rejectWithValue(getReduxErrorMsg(error));
     }
