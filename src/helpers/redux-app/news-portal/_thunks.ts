@@ -23,3 +23,27 @@ export const GetHomepageDataThunk = createAsyncThunk(
     }
   }
 );
+
+// categories news get (whole)
+export const GetCategoriesNewsDataThunk = createAsyncThunk(
+  "GetCategoriesNewsDataThunk",
+  async (slug: string, thunkAPI) => {
+    try {
+      return await dataService.getData(`/api/v1/news/article/${slug}`);
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(getReduxErrorMsg(error));
+    }
+  }
+);
+
+// article news get (single)
+export const GetArticleDataByIdThunk = createAsyncThunk(
+  "GetArticleDataByIdThunk",
+  async (id: number, thunkAPI) => {
+    try {
+      return await dataService.getData(`/api/v1/news/article/${id}`);
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(getReduxErrorMsg(error));
+    }
+  }
+);

@@ -58,3 +58,15 @@ export interface HomepageIDSchema extends CommonApiSchema {
   testResponse?: GetHomepageResponseSchema;
   errorResponse?: any | {};
 }
+
+export interface CategoriesNewsDataSchema extends CommonApiSchema {
+  successResponse: any;
+  testResponse?: any;
+  errorResponse?: any | {};
+}
+
+export interface ArticleDataByIdSchema extends CommonApiSchema {
+  successResponse: any;
+  testResponse?: any;
+  errorResponse?: any | {};
+}
