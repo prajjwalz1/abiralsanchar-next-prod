@@ -13,7 +13,7 @@ export default function SimilarNewsSection(props: CommonNewsSectionSchema) {
     <div className="w-full h-full flex flex-col">
       <HeaderText>{title ?? "सम्बन्धित खबर"}</HeaderText>
 
-      <div className={`${rGap} grid grid-cols-1 md:grid-cols-3`}>
+      <div className={`${rGap} grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3`}>
         {articles?.map((item: ArticleSchema, idx: number) => (
           <MediaCard key={getUniqueKey(idx, item.title!)} {...item} isColumn />
         ))}

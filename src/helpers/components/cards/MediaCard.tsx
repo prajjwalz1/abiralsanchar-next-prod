@@ -43,7 +43,9 @@ export default function MediaCard(props: MediaCardSchema) {
 
   // Image css
   const defaultImgCss = `${fonts.span} font-medium cursor-pointer rounded-md`;
-  const imgCss = isColumn ? "w-full" : "w-[120px] h-full";
+  const imgCss = isColumn
+    ? "w-full h-auto sm:h-[90px] lg:h-[180px]"
+    : "w-[120px] h-full";
   const imgDivCss = `${defaultImgCss} ${imgCss}`;
 
   // Text css

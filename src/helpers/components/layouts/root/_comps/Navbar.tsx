@@ -12,6 +12,7 @@ import * as styles from "@/assets/css/styles";
 import {
   BodyOverlay,
   CloseButton,
+  LogoImage,
   MiniLogoImage,
   NavbarText,
 } from "@/dynamic-imports/components";
@@ -117,6 +118,10 @@ const MobileNavMenu = () => {
           isFlag
           onClick={() => dispatch(setMobileNavPopuup(true))}
         />
+      </div>
+
+      <div className="p-4">
+        <LogoImage isFlag />
       </div>
 
       {is_mobile_menu && <BodyOverlay />}
