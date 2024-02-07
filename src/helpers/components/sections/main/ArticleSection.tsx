@@ -53,7 +53,11 @@ export default function ArticleSection(props: any) {
   const d = (res: any) => res?.successResponse?.data;
 
   // Actual variables used
-  const chosen_article = isArticle ? d(article_data_by_id) : [];
+  const chosen_article = isArticle
+    ? d(article_data_by_id)
+    : isCategories
+    ? d(categories_news_data)[0]
+    : [];
   const all_articles = isArticle
     ? d(articles_news_data)
     : isFeatured
@@ -63,7 +67,7 @@ export default function ArticleSection(props: any) {
       ? isTrending
       : d(trending_data)
     : isCategories
-    ? d(categories_news_data)
+    ? d(categories_news_data).slice(1)
     : [];
 
   // Show hero article when
@@ -71,8 +75,9 @@ export default function ArticleSection(props: any) {
     isArticle || isTrending || isLatest || isFeatured || isCategories;
 
   useEffect(() => {
+    dispatch(GetArticleDataByIdThunk(id));
+
     if (isArticle) {
-      dispatch(GetArticleDataByIdThunk(id));
       dispatch(GetArticlesNewsDataThunk());
       return;
     }
@@ -80,11 +85,14 @@ export default function ArticleSection(props: any) {
       dispatch(GetArticleDataByIdThunk(id));
       return;
     }
+  }, [dispatch]);
+
+  useEffect(() => {
     if (isCategories) {
       dispatch(GetCategoriesNewsDataThunk(category_title));
       return;
     }
-  }, [dispatch]);
+  }, [category_title, dispatch]);
 
   return (
     <div

@@ -14,12 +14,14 @@ type ISchema = {
   // Homepage data
   homepage_data: S.HomepageIDSchema;
 
+  // Categories
   // Categories news get (whole)
   categories_news_data: S.CategoriesNewsDataSchema;
+  category_data_by_slug: S.CategoryDataBySlugSchema;
 
+  // Articles
   // Articles' data
   articles_news_data: S.ArticlesNewsDataSchema;
-
   // Article news get (single)
   article_data_by_id: S.ArticleDataByIdSchema;
 };
@@ -28,6 +30,7 @@ const initialState: ISchema = {
   header: C.HEADER_INITIAL_DATA,
   homepage_data: C.HOMEPAGE_INITIAL_DATA,
   categories_news_data: C.CATEGORIES_NEWS_INITIAL_DATA,
+  category_data_by_slug: C.CATEGORY_DATA_BY_SLUG_INITIAL_DATA,
   articles_news_data: C.ARTICLES_NEWS_INITIAL_DATA,
   article_data_by_id: C.ARTICLE_INITIAL_DATA,
 };

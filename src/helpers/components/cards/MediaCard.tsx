@@ -16,7 +16,6 @@ export default function MediaCard(props: MediaCardSchema) {
     id,
     title,
     updated_at,
-    slug,
     info_placing,
     titleLineClamp: t,
     image1,
@@ -66,7 +65,7 @@ export default function MediaCard(props: MediaCardSchema) {
       />
       <div className={`${placingCss} h-full flex-1 flex flex-col gap-1`}>
         <CustomText
-          slug={slug}
+          slug={slug1}
           css={titleCss}
           isLinkColor
           isBody={isColumn}

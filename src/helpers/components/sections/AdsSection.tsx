@@ -7,7 +7,7 @@ import {
 
 export default function AdsSection({ imgList }: ImageArrSchema) {
   return (
-    <div className="hidden lg:flex lg:flex-col lg:gap-5 lg:justify-between">
+    <div className="hidden xl:flex xl:flex-col xl:gap-5 xl:justify-between">
       {imgList?.map((item: CustomImageSchema, idx: number) => (
         <CustomImage
           {...item}

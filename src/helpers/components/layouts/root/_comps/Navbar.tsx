@@ -70,7 +70,11 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
       {nav_items?.map(({ title, slug }: LinkSchema, idx: number) => (
         <Link
           key={getUniqueKey(idx, title!)}
-          href={title === "होमपेज" ? "/" : slug1(title!)}
+          href={
+            title === "होमपेज"
+              ? "/"
+              : slug1(slug?.toLowerCase() ?? "development")
+          }
         >
           <NavbarText isSameLink={slug === pathname} isFlag={isFlag}>
             {title}
