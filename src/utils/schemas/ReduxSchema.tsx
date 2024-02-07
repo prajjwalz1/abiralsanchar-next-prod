@@ -1,7 +1,14 @@
 //////////////////////////////
 // Redux error message type
 
-import { ArticleSchema, GetHomepageResponseSchema } from "./ApiSchema";
+import {
+  ArticleSchema,
+  FeaturedArticlesSchema,
+  HomepageNewsSchema,
+  LatestArticlesSchema,
+  NavbarArticlesSchema,
+  TrendingArticlesSchema,
+} from "./ApiSchema";
 
 //////////////////////////////
 export type ReduxErrorMessageSchema = {
@@ -15,7 +22,16 @@ export type ReduxErrorMessageSchema = {
 };
 
 // Header
-export type CurrentNewsTypeSchema = "trending" | "featured" | "latest";
+export type CurrentNewsTypeSchema =
+  | "navbar"
+  | "trending"
+  | "featured"
+  | "latest";
+export type NavbarSchema = {
+  is_navbar: boolean;
+  navbar_data: ArticleSchema[];
+  navbar_title: string;
+};
 export type LatestSchema = {
   is_latest: boolean;
   latest_data: ArticleSchema[];
@@ -32,6 +48,7 @@ export type FeaturedSchema = {
   featured_title: string;
 };
 export type HeaderIDSchema = {
+  navbar: NavbarSchema;
   latest: LatestSchema;
   trending: TrendingSchema;
   featured: FeaturedSchema;
@@ -53,9 +70,20 @@ export type CommonApiSchema = {
   isFulfilled?: boolean;
   isRejected?: boolean;
 };
-export interface HomepageIDSchema extends CommonApiSchema {
-  successResponse: GetHomepageResponseSchema;
-  testResponse?: GetHomepageResponseSchema;
+export interface HomepageDataSchema extends CommonApiSchema {
+  successResponse: HomepageNewsSchema;
+  testResponse?: HomepageNewsSchema;
+  errorResponse?: any | {};
+}
+
+export interface HeaderSchema extends CommonApiSchema {
+  successResponse: [
+    NavbarArticlesSchema,
+    FeaturedArticlesSchema,
+    TrendingArticlesSchema,
+    LatestArticlesSchema
+  ];
+  testResponse?: any;
   errorResponse?: any | {};
 }
 

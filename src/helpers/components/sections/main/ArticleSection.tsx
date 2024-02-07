@@ -12,9 +12,9 @@ import {
   RootState,
 } from "@/helpers/hooks/useStoreHooks";
 import {
-  GetArticleDataByIdThunk,
-  GetArticlesNewsDataThunk,
-  GetCategoriesNewsDataThunk,
+  GetSingleArticleThunk,
+  GetAllArticlesThunk,
+  GetAllCategoriesThunk,
 } from "@/helpers/redux-app/news-portal/_thunks";
 import { useEffect } from "react";
 
@@ -36,12 +36,8 @@ export default function ArticleSection(props: any) {
 
   // Redux
   const dispatch = useAppDispatch();
-  const {
-    header,
-    article_data_by_id,
-    articles_news_data,
-    categories_news_data,
-  } = useAppSelector((state: RootState) => state.NewsPortal);
+  const { header, single_article_data, articles_data, categories_data } =
+    useAppSelector((state: RootState) => state.NewsPortal);
 
   // Destructured variables
   const { featured, latest, trending } = header;
@@ -54,12 +50,12 @@ export default function ArticleSection(props: any) {
 
   // Actual variables used
   const chosen_article = isArticle
-    ? d(article_data_by_id)
+    ? d(single_article_data)
     : isCategories
-    ? d(categories_news_data)[0]
+    ? d(categories_data)[0]
     : [];
   const all_articles = isArticle
-    ? d(articles_news_data)
+    ? d(articles_data)
     : isFeatured
     ? d(featured_data)
     : isLatest
@@ -67,7 +63,7 @@ export default function ArticleSection(props: any) {
       ? isTrending
       : d(trending_data)
     : isCategories
-    ? d(categories_news_data).slice(1)
+    ? d(categories_data).slice(1)
     : [];
 
   // Show hero article when
@@ -75,21 +71,21 @@ export default function ArticleSection(props: any) {
     isArticle || isTrending || isLatest || isFeatured || isCategories;
 
   useEffect(() => {
-    dispatch(GetArticleDataByIdThunk(id));
+    dispatch(GetSingleArticleThunk(id));
 
     if (isArticle) {
-      dispatch(GetArticlesNewsDataThunk());
+      dispatch(GetAllArticlesThunk());
       return;
     }
     if (isArticle) {
-      dispatch(GetArticleDataByIdThunk(id));
+      dispatch(GetSingleArticleThunk(id));
       return;
     }
   }, [dispatch]);
 
   useEffect(() => {
     if (isCategories) {
-      dispatch(GetCategoriesNewsDataThunk(category_title));
+      dispatch(GetAllCategoriesThunk(category_title));
       return;
     }
   }, [category_title, dispatch]);

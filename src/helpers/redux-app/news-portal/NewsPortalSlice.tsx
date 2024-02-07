@@ -1,94 +1,85 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-  GetArticleDataByIdThunk,
-  GetArticlesNewsDataThunk,
-  GetCategoriesNewsDataThunk,
-  GetHomepageDataThunk,
+  GetHeaderThunk,
+  GetSingleArticleThunk,
+  GetAllArticlesThunk,
+  GetAllCategoriesThunk,
+  GetHomepageThunk,
 } from "./_thunks";
-import * as C from "@/utils/constants/redux-constants";
-import * as S from "@/utils/schemas/ReduxSchema";
 
-type ISchema = {
-  header: S.HeaderIDSchema;
+const initialState: any = {
+  // Api data
+  homepage_data: {},
+  header_data: {},
+  categories_data: {},
+  single_category_data: {},
+  articles_data: {},
+  single_article_data: {},
 
-  // Homepage data
-  homepage_data: S.HomepageIDSchema;
-
-  // Categories
-  // Categories news get (whole)
-  categories_news_data: S.CategoriesNewsDataSchema;
-  category_data_by_slug: S.CategoryDataBySlugSchema;
-
-  // Articles
-  // Articles' data
-  articles_news_data: S.ArticlesNewsDataSchema;
-  // Article news get (single)
-  article_data_by_id: S.ArticleDataByIdSchema;
-};
-
-const initialState: ISchema = {
-  header: C.HEADER_INITIAL_DATA,
-  homepage_data: C.HOMEPAGE_INITIAL_DATA,
-  categories_news_data: C.CATEGORIES_NEWS_INITIAL_DATA,
-  category_data_by_slug: C.CATEGORY_DATA_BY_SLUG_INITIAL_DATA,
-  articles_news_data: C.ARTICLES_NEWS_INITIAL_DATA,
-  article_data_by_id: C.ARTICLE_INITIAL_DATA,
+  // Non api data
+  current_news: "",
 };
 
 export const NewsPortalSlice = createSlice({
   name: "news-portal/NewsPortalSlice",
   initialState,
   reducers: {
-    // Current news
-    clearIsCurrentNews: (state) => {
-      state.header.featured.is_featured = false;
-      state.header.trending.is_trending = false;
-      state.header.latest.is_latest = false;
-    },
-    setIsCurrentNews: (state, action) => {
-      const value: S.CurrentNewsTypeSchema = action.payload;
-      if (C.CURRENT_NEWS_TYPE.includes(value)) {
-        state.header = {
-          ...state.header,
-          [value]: {
-            ...state.header[value],
-            [`is_${value}`]: true,
-          },
-        };
-      }
+    setCurrentNews: (state, action) => {
+      state.current_news = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
       ////////////////////////////////////////
       ////////////////////////////////////////
-      // Homepage data
+      // Header data (Navbar, Featured, Trending, Latest News)
       ////////////////////////////////////////
       ////////////////////////////////////////
-      .addCase(GetHomepageDataThunk.pending, (state) => {
+      .addCase(GetHeaderThunk.pending, (state) => {
+        // Normal states
+        state.header_data.isPending = true;
+        state.header_data.isFulfilled = false;
+        state.header_data.isRejected = false;
+      })
+      .addCase(GetHeaderThunk.fulfilled, (state, action) => {
+        // Normal states
+        state.header_data.isPending = false;
+        state.header_data.isFulfilled = true;
+        state.header_data.isRejected = false;
+
+        // Success data
+        state.header_data.successResponse = action.payload;
+      })
+      .addCase(GetHeaderThunk.rejected, (state, action) => {
+        // Normal states
+        state.header_data.isPending = false;
+        state.header_data.isFulfilled = false;
+        state.header_data.isRejected = true;
+
+        // Rejected data
+        state.header_data.errorResponse = action.payload;
+      })
+      ////////////////////////////////////////
+      ////////////////////////////////////////
+      // Homepage data (Articles Categorized data)
+      ////////////////////////////////////////
+      ////////////////////////////////////////
+      .addCase(GetHomepageThunk.pending, (state) => {
         // Normal states
         state.homepage_data.isPending = true;
         state.homepage_data.isFulfilled = false;
         state.homepage_data.isRejected = false;
       })
-      .addCase(GetHomepageDataThunk.fulfilled, (state, action) => {
-        // Variables
-        const payload = action.payload;
-
+      .addCase(GetHomepageThunk.fulfilled, (state, action) => {
         // Normal states
         state.homepage_data.isPending = false;
         state.homepage_data.isFulfilled = true;
         state.homepage_data.isRejected = false;
 
-        // Header
-        state.header.featured.featured_data = payload.data[1].featured_articles;
-        state.header.latest.latest_data = payload.data[3].latest_articles;
-        state.header.trending.trending_data = payload.data[2].trending_articles;
-
         // Success data
         state.homepage_data.successResponse = action.payload;
       })
-      .addCase(GetHomepageDataThunk.rejected, (state, action) => {
+      .addCase(GetHomepageThunk.rejected, (state, action) => {
         // Normal states
         state.homepage_data.isPending = false;
         state.homepage_data.isFulfilled = false;
@@ -99,92 +90,92 @@ export const NewsPortalSlice = createSlice({
       })
       ////////////////////////////////////////
       ////////////////////////////////////////
-      // Categories news get (whole)
+      // Get all categories
       ////////////////////////////////////////
       ////////////////////////////////////////
-      .addCase(GetCategoriesNewsDataThunk.pending, (state) => {
+      .addCase(GetAllCategoriesThunk.pending, (state) => {
         // Normal states
-        state.categories_news_data.isPending = true;
-        state.categories_news_data.isFulfilled = false;
-        state.categories_news_data.isRejected = false;
+        state.categories_data.isPending = true;
+        state.categories_data.isFulfilled = false;
+        state.categories_data.isRejected = false;
       })
-      .addCase(GetCategoriesNewsDataThunk.fulfilled, (state, action) => {
+      .addCase(GetAllCategoriesThunk.fulfilled, (state, action) => {
         // Normal states
-        state.categories_news_data.isPending = false;
-        state.categories_news_data.isFulfilled = true;
-        state.categories_news_data.isRejected = false;
+        state.categories_data.isPending = false;
+        state.categories_data.isFulfilled = true;
+        state.categories_data.isRejected = false;
 
         // Success data
-        state.categories_news_data.successResponse = action.payload;
+        state.categories_data.successResponse = action.payload;
       })
-      .addCase(GetCategoriesNewsDataThunk.rejected, (state, action) => {
+      .addCase(GetAllCategoriesThunk.rejected, (state, action) => {
         // Normal states
-        state.categories_news_data.isPending = false;
-        state.categories_news_data.isFulfilled = false;
-        state.categories_news_data.isRejected = true;
+        state.categories_data.isPending = false;
+        state.categories_data.isFulfilled = false;
+        state.categories_data.isRejected = true;
 
         // Rejected data
-        state.categories_news_data.errorResponse = action.payload;
+        state.categories_data.errorResponse = action.payload;
       })
 
       ////////////////////////////////////////
       ////////////////////////////////////////
-      // Articles' data
+      // Get all articles
       ////////////////////////////////////////
       ////////////////////////////////////////
-      .addCase(GetArticlesNewsDataThunk.pending, (state) => {
+      .addCase(GetAllArticlesThunk.pending, (state) => {
         // Normal states
-        state.articles_news_data.isPending = true;
-        state.articles_news_data.isFulfilled = false;
-        state.articles_news_data.isRejected = false;
+        state.articles_data.isPending = true;
+        state.articles_data.isFulfilled = false;
+        state.articles_data.isRejected = false;
       })
-      .addCase(GetArticlesNewsDataThunk.fulfilled, (state, action) => {
+      .addCase(GetAllArticlesThunk.fulfilled, (state, action) => {
         // Normal states
-        state.articles_news_data.isPending = false;
-        state.articles_news_data.isFulfilled = true;
-        state.articles_news_data.isRejected = false;
+        state.articles_data.isPending = false;
+        state.articles_data.isFulfilled = true;
+        state.articles_data.isRejected = false;
 
         // Success data
-        state.articles_news_data.successResponse = action.payload;
+        state.articles_data.successResponse = action.payload;
       })
-      .addCase(GetArticlesNewsDataThunk.rejected, (state, action) => {
+      .addCase(GetAllArticlesThunk.rejected, (state, action) => {
         // Normal states
-        state.articles_news_data.isPending = false;
-        state.articles_news_data.isFulfilled = false;
-        state.articles_news_data.isRejected = true;
+        state.articles_data.isPending = false;
+        state.articles_data.isFulfilled = false;
+        state.articles_data.isRejected = true;
 
         // Rejected data
-        state.articles_news_data.errorResponse = action.payload;
+        state.articles_data.errorResponse = action.payload;
       })
 
       ////////////////////////////////////////
       ////////////////////////////////////////
-      // Article news get (single)
+      // Get single article
       ////////////////////////////////////////
       ////////////////////////////////////////
-      .addCase(GetArticleDataByIdThunk.pending, (state) => {
+      .addCase(GetSingleArticleThunk.pending, (state) => {
         // Normal states
-        state.article_data_by_id.isPending = true;
-        state.article_data_by_id.isFulfilled = false;
-        state.article_data_by_id.isRejected = false;
+        state.single_article_data.isPending = true;
+        state.single_article_data.isFulfilled = false;
+        state.single_article_data.isRejected = false;
       })
-      .addCase(GetArticleDataByIdThunk.fulfilled, (state, action) => {
+      .addCase(GetSingleArticleThunk.fulfilled, (state, action) => {
         // Normal states
-        state.article_data_by_id.isPending = false;
-        state.article_data_by_id.isFulfilled = true;
-        state.article_data_by_id.isRejected = false;
+        state.single_article_data.isPending = false;
+        state.single_article_data.isFulfilled = true;
+        state.single_article_data.isRejected = false;
 
         // Success data
-        state.article_data_by_id.successResponse = action.payload;
+        state.single_article_data.successResponse = action.payload;
       })
-      .addCase(GetArticleDataByIdThunk.rejected, (state, action) => {
+      .addCase(GetSingleArticleThunk.rejected, (state, action) => {
         // Normal states
-        state.article_data_by_id.isPending = false;
-        state.article_data_by_id.isFulfilled = false;
-        state.article_data_by_id.isRejected = true;
+        state.single_article_data.isPending = false;
+        state.single_article_data.isFulfilled = false;
+        state.single_article_data.isRejected = true;
 
         // Rejected data
-        state.article_data_by_id.errorResponse = action.payload;
+        state.single_article_data.errorResponse = action.payload;
       });
   },
 });

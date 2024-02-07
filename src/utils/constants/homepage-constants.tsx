@@ -1,8 +1,6 @@
 // assets
 import * as images from "@/assets/images";
 
-import { LatestSchema, TrendingSchema } from "@/utils/schemas/ReduxSchema";
-
 export const banners = {
   featured_section: {
     src: images.banner_hotel_yak_gif,
@@ -102,30 +100,27 @@ export const ads_section = {
 //////////////////////////////
 // Highlights section
 //////////////////////////////
-export const highlight_arr = (
-  latest: LatestSchema,
-  trending: TrendingSchema
-) => [
+export const highlight_arr = (latest_articles: any, trending_articles: any) => [
   {
-    title: latest?.latest_title,
+    title: "ताजा अपडेट",
     bannerImg: banners.highlight_section,
     posterImg: {
-      ...latest.latest_data[0],
+      ...latest_articles[0],
       isTransparent: true,
       isZoomable: true,
     },
-    articles: latest?.latest_data,
+    articles: latest_articles,
     imgList: ads_section.highlights.slice(0, 3),
   },
   {
-    title: trending?.trending_title,
+    title: "ट्रेन्डिङ",
     bannerImg: banners.samachar_section,
     posterImg: {
-      ...trending.trending_data[0],
+      ...trending_articles[0],
       isTransparent: true,
       isZoomable: true,
     },
-    articles: trending?.trending_data,
+    articles: trending_articles?.trending_data,
     imgList: ads_section.news.slice(0, 3),
   },
 ];

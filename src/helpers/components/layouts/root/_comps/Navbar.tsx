@@ -28,10 +28,11 @@ import { LinkSchema } from "@/utils/schemas/CommonSchema";
 import { CommonNavMenuSchema } from "@/utils/schemas/LayoutSchema";
 import RootLayoutLogo from "./RootLayoutLogo";
 import CurrentNews from "./CurrentNews";
-import { setIsCurrentNews } from "@/helpers/redux-app/news-portal/_actions";
+import { setCurrentNews } from "@/helpers/redux-app/news-portal/_actions";
 import useCustomScroll from "@/helpers/hooks/useCustomScroll";
-import { GetHomepageDataThunk } from "@/helpers/redux-app/news-portal/_thunks";
+import { GetHeaderThunk } from "@/helpers/redux-app/news-portal/_thunks";
 import { getRouteUrl } from "@/utils/methods/defaultMethods";
+import { destructHeaderData } from "@/utils/methods/reduxMethods";
 
 //////////////////////////////
 // Common Navbar menu, for both desktop and mobile view
@@ -41,9 +42,12 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
   const { css, isFlag } = props;
 
   // Redux
-  const { homepage_data } = useAppSelector(
-    (state: RootState) => state.NewsPortal
+  const { successResponse: h } = useAppSelector(
+    (state: RootState) => state.NewsPortal.header_data
   );
+
+  // Destructuring redux variables
+  const { navbar_category } = destructHeaderData(h);
 
   // Hooks
   const { isFixed } = useCustomScroll(80);
@@ -55,8 +59,7 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
 
   // Required variables
   let nav_items = [{ title: "होमपेज", slug: "/" }];
-  const data = homepage_data?.successResponse?.data;
-  const nav_from_api = data && data.length ? data[0]?.navbar_category : [];
+  const nav_from_api = navbar_category ?? [];
 
   if (nav_from_api && nav_from_api.length) {
     nav_items.push(...nav_from_api);
@@ -174,7 +177,7 @@ export default function Navbar() {
   useEffect(() => {
     if (!didMountRef.current) {
       didMountRef.current = true;
-      dispatch(GetHomepageDataThunk());
+      dispatch(GetHeaderThunk());
     }
   }, [dispatch]);
 
@@ -192,12 +195,12 @@ export default function Navbar() {
       >
         <TbNews
           className={styles.nav_icon}
-          onClick={() => dispatch(setIsCurrentNews("latest"))}
+          onClick={() => dispatch(setCurrentNews("latest"))}
         />
 
         <IoTrendingUpOutline
           className={styles.nav_icon}
-          onClick={() => dispatch(setIsCurrentNews("trending"))}
+          onClick={() => dispatch(setCurrentNews("trending"))}
         />
         <CurrentNews />
       </div>

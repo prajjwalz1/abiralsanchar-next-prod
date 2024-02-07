@@ -13,8 +13,19 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
  * Navbar Category - ID, Name, Slug Featured Articles Trending Articles Latest Articles Categorized Articles i.e. 5 Articles per Category
  *
  **/
-export const GetHomepageDataThunk = createAsyncThunk(
-  "GetHomepageDataThunk",
+export const GetHeaderThunk = createAsyncThunk(
+  "GetHeaderThunk",
+  async (_, thunkAPI) => {
+    try {
+      return await dataService.getData("/api/v1/news/navbar/");
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(getReduxErrorMsg(error));
+    }
+  }
+);
+
+export const GetHomepageThunk = createAsyncThunk(
+  "GetHomepageThunk",
   async (_, thunkAPI) => {
     try {
       return await dataService.getData("/api/v1/news/homepage/");
@@ -25,8 +36,8 @@ export const GetHomepageDataThunk = createAsyncThunk(
 );
 
 // categories news get (whole)
-export const GetCategoriesNewsDataThunk = createAsyncThunk(
-  "GetCategoriesNewsDataThunk",
+export const GetAllCategoriesThunk = createAsyncThunk(
+  "GetAllCategoriesThunk",
   async (slug: string, thunkAPI) => {
     try {
       return await dataService.getData(`/api/v1/news/category/${slug}/`);
@@ -37,8 +48,8 @@ export const GetCategoriesNewsDataThunk = createAsyncThunk(
 );
 
 // articles news data
-export const GetArticlesNewsDataThunk = createAsyncThunk(
-  "GetArticlesNewsDataThunk",
+export const GetAllArticlesThunk = createAsyncThunk(
+  "GetAllArticlesThunk",
   async (_, thunkAPI) => {
     try {
       return await dataService.getData("/api/v1/news/article");
@@ -49,8 +60,8 @@ export const GetArticlesNewsDataThunk = createAsyncThunk(
 );
 
 // article news get (single)
-export const GetArticleDataByIdThunk = createAsyncThunk(
-  "GetArticleDataByIdThunk",
+export const GetSingleArticleThunk = createAsyncThunk(
+  "GetSingleArticleThunk",
   async (id: number, thunkAPI) => {
     try {
       return await dataService.getData(`/api/v1/news/article/${id}`);

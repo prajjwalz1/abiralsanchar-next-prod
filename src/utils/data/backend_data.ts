@@ -1,7 +1,7 @@
 // Just storing these values for future references
 import {
-  GetAllArticlesResponse,
-  GetHomepageResponseSchema,
+  GetAllArticlesThunkResponse,
+  HomepageNewsSchema,
 } from "../schemas/ApiSchema";
 
 /**
@@ -9,7 +9,7 @@ import {
  * http://jsugauta1.pythonanywhere.com/api/v1/news/homepage/
  *
  */
-export const get_homepage_data: GetHomepageResponseSchema = {
+export const get_homepage_data: HomepageNewsSchema = {
   success: true,
   data: [
     {
@@ -550,7 +550,7 @@ export const get_homepage_data: GetHomepageResponseSchema = {
   ],
 };
 
-export const get_all_articles: GetAllArticlesResponse = {
+export const get_all_articles: GetAllArticlesThunkResponse = {
   success: true,
   totalHits: 5,
   data: [

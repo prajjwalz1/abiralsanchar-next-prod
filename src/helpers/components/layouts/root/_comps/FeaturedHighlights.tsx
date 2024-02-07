@@ -9,12 +9,16 @@ import { CustomImage, CustomText } from "@/dynamic-imports/components";
 import { getAbiralImg } from "@/utils/methods/imgMethods";
 import { useRouter } from "next/navigation";
 import { getRouteUrl } from "@/utils/methods/defaultMethods";
+import { destructHeaderData } from "@/utils/methods/reduxMethods";
 
 export default function FeaturedHighlights() {
   // Redux
-  const { featured_data } = useAppSelector(
-    (state: RootState) => state.NewsPortal.header.featured
+  const { successResponse: h } = useAppSelector(
+    (state: RootState) => state.NewsPortal.header_data
   );
+
+  // Destructuring redux
+  const { featured_articles } = destructHeaderData(h);
 
   // Hooks
   const router = useRouter();
@@ -30,7 +34,7 @@ export default function FeaturedHighlights() {
     <div
       className={`${styles.width_x} featured-highlights thin-scrollbar overflow-x-auto overflow-y-hidden relative flex items-center gap-4 sm:gap-6`}
     >
-      {featured_data
+      {featured_articles
         ?.slice(0, 9)
         ?.map(({ id, title, image1, slug }: ArticleSchema, idx: number) => (
           <div

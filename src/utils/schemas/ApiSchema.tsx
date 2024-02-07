@@ -25,18 +25,6 @@ export type TitleSlugSchema = {
   slug: string;
 };
 
-//////////////////////////////
-// GetAllArticlesResponse
-//////////////////////////////
-export type GetAllArticlesResponse = {
-  success: boolean;
-  totalHits: number;
-  data: ArticleSchema[];
-};
-
-//////////////////////////////
-// GetHomepageResponseSchema
-//////////////////////////////
 export type NavbarArticlesSchema = {
   navbar_category_totalHits: number;
   navbar_category: TitleSlugSchema[];
@@ -61,15 +49,20 @@ export type ArticlesCategorizedSchema = {
   articles_categorized_totalHits: number;
   articles_categorized: { category_article_data: ArticleCategorizedSchema[] };
 };
-export type GetHomepageResponseSchema = {
+
+//////////////////////////////
+// GetAllArticlesThunkResponse
+//////////////////////////////
+export type GetAllArticlesThunkResponse = {
   success: boolean;
-  data:
-    | [
-        NavbarArticlesSchema,
-        FeaturedArticlesSchema,
-        TrendingArticlesSchema,
-        LatestArticlesSchema,
-        ArticlesCategorizedSchema
-      ]
-    | [];
+  totalHits: number;
+  data: ArticleSchema[];
+};
+
+//////////////////////////////
+// HomepageNewsSchema
+//////////////////////////////
+export type HomepageNewsSchema = {
+  success: boolean;
+  data: ArticlesCategorizedSchema;
 };

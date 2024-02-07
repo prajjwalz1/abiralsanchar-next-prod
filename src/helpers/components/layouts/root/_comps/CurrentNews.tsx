@@ -14,7 +14,6 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "@/helpers/hooks/useStoreHooks";
-import { clearIsCurrentNews } from "@/helpers/redux-app/news-portal/_actions";
 import { ArticleSchema } from "@/utils/schemas/ApiSchema";
 import BodyOverlay from "@/helpers/components/others/BodyOverlay";
 import useScrollLock from "@/helpers/hooks/useScrollLock";
@@ -23,6 +22,8 @@ import { getAbiralImg } from "@/utils/methods/imgMethods";
 import { CurrentTitleSchema } from "@/utils/schemas/CommonSchema";
 import { useRouter } from "next/navigation";
 import { getRouteUrl } from "@/utils/methods/defaultMethods";
+import { destructHeaderData } from "@/utils/methods/reduxMethods";
+import { setCurrentNews } from "@/helpers/redux-app/news-portal/_actions";
 
 export interface SingleCurrentNewsSchema
   extends ArticleSchema,
@@ -73,12 +74,16 @@ export default function CurrentNews() {
   // Redux
   const dispatch = useAppDispatch();
   const { lockScroll, unlockScroll } = useScrollLock();
-  const { header } = useAppSelector((state: RootState) => state.NewsPortal);
+  const { successResponse: h, current_news: c } = useAppSelector(
+    (state: RootState) => state.NewsPortal
+  );
 
   // Destructuring variables
-  const { latest, trending } = header;
-  const { is_latest, latest_data, latest_title } = latest;
-  const { is_trending, trending_data, trending_title } = trending;
+  const { latest_articles, trending_articles } = destructHeaderData(h);
+
+  // Variables
+  const is_trending = c === "trending";
+  const is_latest = c === "latest";
 
   // useEffect
   useEffect(() => {
@@ -91,8 +96,12 @@ export default function CurrentNews() {
   if (!is_trending && !is_latest) return;
 
   // Else return the correct title and data
-  const title = is_latest ? latest_title : is_trending ? trending_title : "";
-  const data = is_latest ? latest_data : is_trending ? trending_data : [];
+  const title = is_latest ? "ताजा अपडेट" : is_trending ? "ट्रेन्डिङ" : "";
+  const data = is_latest
+    ? latest_articles
+    : is_trending
+    ? trending_articles
+    : [];
 
   // Css to handle scrollbar
   const scrollCss =
@@ -121,7 +130,7 @@ export default function CurrentNews() {
           </CustomText>
           <CloseButton
             css="text-red-500 hover:text-red-700 text-2xl"
-            onClick={() => dispatch(clearIsCurrentNews())}
+            onClick={() => dispatch(setCurrentNews(""))}
           />
         </div>
 

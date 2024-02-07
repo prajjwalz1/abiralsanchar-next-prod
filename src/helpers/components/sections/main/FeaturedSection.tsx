@@ -4,14 +4,17 @@ import { rMarginTop } from "@/assets/css/styles";
 import { BannerImage, HeroArticleSection } from "@/dynamic-imports/components";
 import { RootState, useAppSelector } from "@/helpers/hooks/useStoreHooks";
 import { banners } from "@/utils/constants/homepage-constants";
+import { destructHeaderData } from "@/utils/methods/reduxMethods";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
 import { ArticleSchema } from "@/utils/schemas/ApiSchema";
 
-export default function ThreeColumnSection() {
+export default function FeaturedSection() {
   // Redux
-  const { featured_data } = useAppSelector(
-    (state: RootState) => state.NewsPortal.header.featured
+  const { successResponse: h } = useAppSelector(
+    (state: RootState) => state.NewsPortal.header_data
   );
+
+  const { featured_articles } = destructHeaderData(h);
 
   return (
     <>
@@ -19,12 +22,14 @@ export default function ThreeColumnSection() {
         imageProps={banners.featured_section}
         extendCss={rMarginTop}
       />
-      {featured_data?.slice(0, 3)?.map((item: ArticleSchema, idx: number) => (
-        <HeroArticleSection
-          key={getUniqueKey(idx, item?.title ?? "Hero Article")}
-          {...item}
-        />
-      ))}
+      {featured_articles
+        ?.slice(0, 3)
+        ?.map((item: ArticleSchema, idx: number) => (
+          <HeroArticleSection
+            key={getUniqueKey(idx, item?.title ?? "Hero Article")}
+            {...item}
+          />
+        ))}
     </>
   );
 }
