@@ -23,7 +23,7 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
   // Vriables
   const isNoArticles = articles?.length < 1;
   const css = (articles: ArticleSchema[]) =>
-    articles.length > 2 ? "items-end" : "items-start";
+    articles.length > 2 ? "md:items-end" : "md:items-start";
   const articles1 = articles?.slice(0, 3);
   const articles2 = articles?.slice(3, 6);
   const a1Css = css(articles1);
@@ -51,7 +51,7 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
           ) : (
             <div className="h-fit md:h-[calc(100%-260px-72px)] max-h-[calc(100%-260px-72px)] flex flex-col sm:flex-row gap-3">
               <div
-                className={`${a1Css} basis-1/2 pt-4 md:pt-3 md:grid md:grid-rows-3 gap-3 items-end`}
+                className={`${a1Css} flex flex-col basis-1/2 pt-4 md:pt-3 md:grid md:grid-rows-3 gap-3`}
               >
                 {articles1?.map((item: MediaCardSchema, idx: number) => (
                   <MediaCard
@@ -63,7 +63,7 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
                 ))}
               </div>
               <div
-                className={`${a2Css} basis-1/2 md:pt-3 md:grid md:grid-rows-3 gap-3 items-end`}
+                className={`${a2Css} flex flex-col basis-1/2 md:pt-3 md:grid md:grid-rows-3 gap-3`}
               >
                 {articles2?.map((item: MediaCardSchema, idx: number) => (
                   <MediaCard

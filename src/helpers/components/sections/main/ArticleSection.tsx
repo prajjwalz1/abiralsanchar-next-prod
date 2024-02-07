@@ -16,6 +16,7 @@ import {
   GetAllArticlesThunk,
   GetAllCategoriesThunk,
 } from "@/helpers/redux-app/news-portal/_thunks";
+import { destructHeaderData } from "@/utils/methods/reduxMethods";
 import { useEffect } from "react";
 
 // export type ArticleSectionSchema = {
@@ -36,14 +37,12 @@ export default function ArticleSection(props: any) {
 
   // Redux
   const dispatch = useAppDispatch();
-  const { header, single_article_data, articles_data, categories_data } =
+  const { header_data, single_article_data, articles_data, categories_data } =
     useAppSelector((state: RootState) => state.NewsPortal);
 
   // Destructured variables
-  const { featured, latest, trending } = header;
-  const { featured_data } = featured;
-  const { latest_data } = latest;
-  const { trending_data } = trending;
+  const { featured_articles, latest_articles, trending_articles } =
+    destructHeaderData(header_data.successResponse);
 
   // Action to get the required data from api
   const d = (res: any) => res?.successResponse?.data;
@@ -57,11 +56,11 @@ export default function ArticleSection(props: any) {
   const all_articles = isArticle
     ? d(articles_data)
     : isFeatured
-    ? d(featured_data)
+    ? d(featured_articles)
     : isLatest
-    ? d(latest_data)
+    ? d(latest_articles)
       ? isTrending
-      : d(trending_data)
+      : d(trending_articles)
     : isCategories
     ? d(categories_data).slice(1)
     : [];
