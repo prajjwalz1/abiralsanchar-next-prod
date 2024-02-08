@@ -82,7 +82,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   return (
     <aside
       ref={sidebar}
-      className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-boxdark duration-300 ease-linear lg:static lg:translate-x-0 ${
+      className={`z-[1000] absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-boxdark duration-300 ease-linear lg:static lg:translate-x-0 ${
         sidebarOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -101,7 +101,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           aria-expanded={sidebarOpen}
           className="block lg:hidden"
         >
-          <MdMenuOpen className="text-white text-2xl" />
+          <MdMenuOpen className="text-bodydark text-4xl mt-5" />
         </button>
       </div>
       {/* <!-- SIDEBAR HEADER --> */}
@@ -111,7 +111,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         <nav className="mt-5 px-4 py-4 lg:mt-9 lg:px-6">
           {/* <!-- Menu Group --> */}
           <div>
-            <h3 className="mb-4 ml-4 text-sm font-semibold text-bodydark2">
+            <h3 className="mb-4 ml-4 text-sm font-semibold text-bodydark2 cursor-pointer hover:text-white">
               Welcome to Abhiral News
             </h3>
 

@@ -45,14 +45,16 @@ const DropdownUser = () => {
         href="#"
       >
         <span className="hidden text-right lg:block">
-          <span className="block text-sm font-medium text-white">
+          <span className="block text-md font-medium text-bodydark">
             Tanka Prasad
           </span>
-          <span className="block text-xs text-white">Admin</span>
+          <span className="block text-xs text-bodydark font-bold tracking-wide">
+            Admin
+          </span>
         </span>
 
         {/* <span className="h-12 w-12 rounded-full"> */}
-        <FaCircleUser className="text-4xl" />
+        <FaCircleUser className="text-4xl text-bodydark1" />
         {/* </span> */}
 
         <svg
@@ -77,7 +79,7 @@ const DropdownUser = () => {
         ref={dropdown}
         onFocus={() => setDropdownOpen(true)}
         onBlur={() => setDropdownOpen(false)}
-        className={`absolute right-0 mt-4 flex min-w-fit flex-col rounded-sm border text-white/80 border-strokedark bg-strokedark shadow-default  ${
+        className={`absolute right-0 mt-4 flex min-w-fit flex-col rounded-sm border text-bodydark2 border-strokedark bg-strokedark shadow-default  ${
           dropdownOpen === true ? "block" : "hidden"
         }`}
       >
