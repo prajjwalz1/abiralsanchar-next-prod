@@ -8,12 +8,12 @@ import { useRouter } from "next/navigation";
 
 export default function DescriptionCard(props: DescriptionCardSchema) {
   // Props
-  const { id, color, title, image1, description } = props;
+  const { id, color, title, image1, description, newsCondition } = props;
 
   const router = useRouter();
 
   // Slug1
-  const slug1 = getRouteUrl("/article", { id, isArticle: true });
+  const slug1 = getRouteUrl("/article", { id, ...newsCondition });
 
   // Css
   const bgColor = color ?? light_blue_bg;

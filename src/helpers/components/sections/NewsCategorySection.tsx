@@ -39,7 +39,7 @@ export default function NewsCategorySection(props: NewsCategorySchema) {
         <div className="flex flex-col">
           <HeaderText>{category_title}</HeaderText>
 
-          <DescriptionCard {...articles[0]} />
+          <DescriptionCard {...articles[0]} {...isCategoriesNews(news_slug!)} />
 
           {isNoArticles ? (
             <CenterContainer

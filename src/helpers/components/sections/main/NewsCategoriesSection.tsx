@@ -17,7 +17,6 @@ export default function NewsCategoriesSection() {
   // Variables
   const category_article_data = destructHomepageData(h?.successResponse);
   const all_categories = destructCategoriesData(c?.successResponse);
-  console.log(all_categories, "all_categories");
   const news_slug = (category_title: string) =>
     all_categories?.filter((item: any) => item?.title === category_title)[0]
       ?.slug;

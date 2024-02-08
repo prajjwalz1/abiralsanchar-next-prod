@@ -23,7 +23,7 @@ export default function HeroArticleSection(props: HeroArticleSectionSchema) {
 
   // Variables
   // const slug1 = `/article?id=${id}&article=true`;
-  const slug1 = getRouteUrl("/article", { id, isArticle: true });
+  const slug1 = getRouteUrl("/article", { id, isFeatured: true });
 
   return (
     <div

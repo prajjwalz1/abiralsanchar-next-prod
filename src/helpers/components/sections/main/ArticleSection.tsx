@@ -50,15 +50,19 @@ export default function ArticleSection(props: any) {
 
   // Action to get the required data from api
   const d = (res: any) => res?.successResponse?.data ?? [];
+  const single_article = d(single_article_data);
+  const filtered_articles = d(articles_data)?.filter(
+    (item: any) => item?.id !== single_article?.id
+  );
 
   // Actual variables used
   const chosen_article = isArticle
-    ? d(single_article_data)
+    ? single_article
     : isCategories
     ? d(single_category_news_data)[0]
     : [];
   const all_articles = isArticle
-    ? d(articles_data)
+    ? filtered_articles
     : isFeatured
     ? d(featured_articles)
     : isLatest
