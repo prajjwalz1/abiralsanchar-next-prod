@@ -1,34 +1,21 @@
-// assets
-import "@/assets/css/globals.css";
-import * as fonts from "@/assets/fonts";
+import { khand, mukta } from "@/assets/fonts";
 
-// default imports
-import { Metadata } from "next";
+export const metadata = {
+  title: "Abhiral News",
+  description: "By Udip Rai",
+};
 
-// custom imports
-import { RootLayoutSchema } from "@/utils/schemas/CommonSchema";
-import { RootFooter, RootHeader } from "@/dynamic-imports/components";
-import { RootLayoutMetadata } from "@/utils/seo/metadatas";
-
-// SEO Metadata for Home
-export const metadata: Metadata = RootLayoutMetadata;
-
-const RootLayout: React.FC<RootLayoutSchema> = (props) => {
-  // Props
-  const { children } = props;
-
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/image/logo_small.png" type="image/png" />
       </head>
-      <body className={`${fonts.khand.variable} ${fonts.mukta.variable}`}>
-        <RootHeader />
-        <main>{children}</main>
-        <RootFooter />
-      </body>
+      <body className={`${khand.variable} ${mukta.variable}`}>{children}</body>
     </html>
   );
-};
-
-export default RootLayout;
+}

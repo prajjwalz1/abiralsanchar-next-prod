@@ -1,14 +1,16 @@
 "use client";
 
-import { HomeSection } from "@/dynamic-imports/components";
-
 // Custom Imports
 import { ReduxProvider } from "@/dynamic-imports/redux-app";
+import { PublicLayout } from "@/dynamic-imports/views";
+import HomeSection from "@/helpers/components/sections/main/HomeSection";
 
 export default function Home() {
   return (
-    <ReduxProvider>
-      <HomeSection />
-    </ReduxProvider>
+    <PublicLayout>
+      <ReduxProvider>
+        <HomeSection />
+      </ReduxProvider>
+    </PublicLayout>
   );
 }
