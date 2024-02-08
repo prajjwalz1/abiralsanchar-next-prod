@@ -3,11 +3,12 @@ import HeaderText from "../../texts/HeaderText";
 import { rGap } from "@/assets/css/styles";
 import { ArticleSchema } from "@/utils/schemas/ApiSchema";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
-import { CommonNewsSectionSchema } from "@/utils/schemas/CommonSchema";
 
-export default function SimilarNewsSection(props: CommonNewsSectionSchema) {
-  // Props
-  const { title, articles } = props;
+export default function SimilarNewsSection(props: any) {
+  // PsearchParams
+  const { title, articles, searchParams } = props;
+
+  console.log(searchParams);
 
   return (
     <div className="w-full h-full flex flex-col">

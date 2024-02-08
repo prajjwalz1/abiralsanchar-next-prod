@@ -25,15 +25,8 @@ import { useEffect } from "react";
 
 export default function ArticleSection(props: any) {
   // Props
-  const {
-    id,
-    isArticle,
-    isTrending,
-    isLatest,
-    isFeatured,
-    isCategories,
-    news_slug,
-  } = props;
+  const { id, isTrending, isLatest, isFeatured, isCategories, news_slug } =
+    props;
 
   // Redux
   const dispatch = useAppDispatch();
@@ -51,36 +44,38 @@ export default function ArticleSection(props: any) {
   // Action to get the required data from api
   const d = (res: any) => res?.successResponse?.data ?? [];
   const single_article = d(single_article_data);
-  const filtered_articles = d(articles_data)?.filter(
-    (item: any) => item?.id !== single_article?.id
+
+  const pickRemainingArticles = (d: any) =>
+    d?.filter((item: any) => item?.id !== single_article?.id);
+
+  const filtered_articles = pickRemainingArticles(d(articles_data));
+  const filtered_trending = pickRemainingArticles(d(trending_articles));
+  const filtered_latest = pickRemainingArticles(d(latest_articles));
+  const filtered_featured = pickRemainingArticles(d(featured_articles));
+  const single_category = d(single_category_news_data)[0];
+  const filtered_categories = d(single_category_news_data)?.filter(
+    (item: any) => item?.id !== single_category?.id
   );
 
   // Actual variables used
-  const chosen_article = isArticle
-    ? single_article
-    : isCategories
-    ? d(single_category_news_data)[0]
-    : [];
-  const all_articles = isArticle
-    ? filtered_articles
-    : isFeatured
-    ? d(featured_articles)
+  const chosen_article = isCategories ? single_category : single_article ?? [];
+  const all_articles = isFeatured
+    ? filtered_featured
     : isLatest
-    ? d(latest_articles)
+    ? filtered_latest
       ? isTrending
-      : d(trending_articles)
+      : filtered_trending
     : isCategories
-    ? d(single_category_news_data).slice(1)
-    : [];
+    ? filtered_categories
+    : filtered_articles ?? [];
 
   // Show hero article when
-  const showArticle =
-    isArticle || isTrending || isLatest || isFeatured || isCategories;
+  const showArticle = isTrending || isLatest || isFeatured || isCategories;
 
   useEffect(() => {
     dispatch(GetSingleArticleThunk(id));
 
-    if (isArticle) {
+    if (!showArticle) {
       dispatch(GetAllArticlesThunk());
       return;
     }
@@ -97,12 +92,12 @@ export default function ArticleSection(props: any) {
     <div
       className={`${padding_x} ${divider} flex flex-col ${rGap} divide-y pb-10 md:pb:0`}
     >
-      {showArticle && (
-        <>
-          <HeroArticleSection {...chosen_article} isFlag />
-          <SimilarNewsSection articles={all_articles} />
-        </>
-      )}
+      {/* {showArticle && ( */}
+      <>
+        <HeroArticleSection {...chosen_article} isFlag />
+        <SimilarNewsSection articles={all_articles} />
+      </>
+      {/* )} */}
     </div>
   );
 }

@@ -6,7 +6,6 @@ export type CheckNewsConditionSchema = {
   newsCondition?: {
     isCategories?: boolean;
     slug?: string;
-    isArticle?: boolean;
     isFeatured?: boolean;
     isLatest?: boolean;
     isTrending?: boolean;
