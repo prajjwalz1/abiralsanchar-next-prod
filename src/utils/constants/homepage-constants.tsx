@@ -124,7 +124,3 @@ export const highlight_arr = (latest_articles: any, trending_articles: any) => [
     imgList: ads_section.news.slice(0, 3),
   },
 ];
-
-//////////////////////////////
-// News category section
-//////////////////////////////

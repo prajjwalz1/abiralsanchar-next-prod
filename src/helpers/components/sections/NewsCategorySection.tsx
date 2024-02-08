@@ -1,10 +1,9 @@
-import { rGap, rMarginTop } from "@/assets/css/styles";
+import { rGap } from "@/assets/css/styles";
 import {
   AdsSection,
   BannerImage,
-  CenterContainer,
-  CustomText,
   DescriptionCard,
+  DisplayErrorBox,
   HeaderText,
   MediaCard,
 } from "@/dynamic-imports/components";
@@ -34,7 +33,7 @@ export default function NewsCategorySection(props: NewsCategorySchema) {
     <>
       <BannerImage imageProps={banners.samachar_section} />
 
-      <div className={`${rGap} md:grid md:grid-cols-[auto_280px]`}>
+      <div className={`${rGap} xl:grid xl:grid-cols-[auto_280px]`}>
         {/* First column */}
         <div className="flex flex-col">
           <HeaderText>{category_title}</HeaderText>
@@ -42,13 +41,7 @@ export default function NewsCategorySection(props: NewsCategorySchema) {
           <DescriptionCard {...articles[0]} {...isCategoriesNews(news_slug!)} />
 
           {isNoArticles ? (
-            <CenterContainer
-              css={`
-                ${rMarginTop} w-full h-auto md:h-[calc(100%-260px-72px-20px)] grid place-items-center bg-white rounded-md shadow-md p-8 md:p-0
-              `}
-            >
-              <CustomText>हाल देखाउनको लागि कुनै लेखहरू छैनन्।</CustomText>
-            </CenterContainer>
+            <DisplayErrorBox description="हाल देखाउनको लागि कुनै लेखहरू छैनन्।" />
           ) : (
             <div className="h-fit md:h-[calc(100%-260px-72px)] max-h-[calc(100%-260px-72px)] flex flex-col sm:flex-row gap-3">
               <div
