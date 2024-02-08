@@ -8,24 +8,25 @@ import {
   HeaderText,
   MediaCard,
 } from "@/dynamic-imports/components";
+import { isCategoriesNews } from "@/utils/constants/common-constants";
 import { ads_section, banners } from "@/utils/constants/homepage-constants";
 import { getUniqueKey } from "@/utils/methods/stringMethods";
+import { ArticleSchema } from "@/utils/schemas/ApiSchema";
 import {
-  ArticleCategorizedSchema,
-  ArticleSchema,
-} from "@/utils/schemas/ApiSchema";
-import { MediaCardSchema } from "@/utils/schemas/ComponentsSchema";
+  MediaCardSchema,
+  NewsCategorySchema,
+} from "@/utils/schemas/ComponentsSchema";
 
-export default function NewsCategorySection(props: ArticleCategorizedSchema) {
+export default function NewsCategorySection(props: NewsCategorySchema) {
   // Props
-  const { category_title, articles } = props;
+  const { category_title, articles, news_slug } = props;
 
   // Vriables
   const isNoArticles = articles?.length < 1;
   const css = (articles: ArticleSchema[]) =>
     articles.length > 2 ? "md:items-end" : "md:items-start";
-  const articles1 = articles?.slice(0, 3);
-  const articles2 = articles?.slice(3, 6);
+  const articles1 = articles?.slice(1, 4);
+  const articles2 = articles?.slice(4, 7);
   const a1Css = css(articles1);
   const a2Css = css(articles2);
 
@@ -59,6 +60,7 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
                     key={getUniqueKey(idx, item.title!)}
                     extendCss="h-[104px]"
                     info_placing="justify-center"
+                    {...isCategoriesNews(news_slug!)}
                   />
                 ))}
               </div>
@@ -71,6 +73,7 @@ export default function NewsCategorySection(props: ArticleCategorizedSchema) {
                     key={getUniqueKey(idx, item.title!)}
                     extendCss="h-[104px]"
                     info_placing="justify-center"
+                    {...isCategoriesNews(news_slug!)}
                   />
                 ))}
               </div>

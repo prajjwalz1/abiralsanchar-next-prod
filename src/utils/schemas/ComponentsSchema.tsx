@@ -14,6 +14,7 @@ import {
   TitleLineClampSchema,
   TitleSchema,
   BannerImgSchema,
+  NewsSlugSchema,
   ImageArrSchema,
   AllArticlesSchema,
   UpdatedAtSchema,
@@ -21,8 +22,9 @@ import {
   ShowClockSchema,
   IsDimensionSchema,
   IdSchema,
+  CheckNewsConditionSchema,
 } from "./CommonSchema";
-import { ArticleSchema } from "./ApiSchema";
+import { ArticleCategorizedSchema, ArticleSchema } from "./ApiSchema";
 
 //////////////////////////////
 // buttons
@@ -49,7 +51,8 @@ export interface MediaCardSchema
     ShowClockSchema,
     CssSchema,
     IsDimensionSchema,
-    IdSchema {}
+    IdSchema,
+    CheckNewsConditionSchema {}
 
 export interface DescriptionCardSchema
   extends ShowClockSchema,
@@ -57,7 +60,8 @@ export interface DescriptionCardSchema
     MediaCardSchema,
     DescriptionSchema,
     Image1Schema,
-    IdSchema {}
+    IdSchema,
+    CheckNewsConditionSchema {}
 
 export interface TimeCardSchema
   extends CssSchema,
@@ -89,6 +93,10 @@ export interface PosterImageSchema extends ArticleSchema, ShowClockSchema {
 
 // sections
 export interface HeroArticleSectionSchema extends ArticleSchema, FlagSchema {}
+
+export interface NewsCategorySchema
+  extends ArticleCategorizedSchema,
+    NewsSlugSchema {}
 
 export interface NewsCategorySectionSchema
   extends TitleSchema,

@@ -5,6 +5,7 @@ import {
   GetAllArticlesThunk,
   GetAllCategoriesThunk,
   GetHomepageThunk,
+  GetSingleCategoryNewsThunk,
 } from "./_thunks";
 
 const initialState: any = {
@@ -12,7 +13,7 @@ const initialState: any = {
   homepage_data: {},
   header_data: {},
   categories_data: {},
-  single_category_data: {},
+  single_category_news_data: {},
   articles_data: {},
   single_article_data: {},
 
@@ -116,6 +117,36 @@ export const NewsPortalSlice = createSlice({
 
         // Rejected data
         state.categories_data.errorResponse = action.payload;
+      })
+
+      ////////////////////////////////////////
+      ////////////////////////////////////////
+      // Get single cvategory news
+      ////////////////////////////////////////
+      ////////////////////////////////////////
+      .addCase(GetSingleCategoryNewsThunk.pending, (state) => {
+        // Normal states
+        state.single_category_news_data.isPending = true;
+        state.single_category_news_data.isFulfilled = false;
+        state.single_category_news_data.isRejected = false;
+      })
+      .addCase(GetSingleCategoryNewsThunk.fulfilled, (state, action) => {
+        // Normal states
+        state.single_category_news_data.isPending = false;
+        state.single_category_news_data.isFulfilled = true;
+        state.single_category_news_data.isRejected = false;
+
+        // Success data
+        state.single_category_news_data.successResponse = action.payload;
+      })
+      .addCase(GetSingleCategoryNewsThunk.rejected, (state, action) => {
+        // Normal states
+        state.single_category_news_data.isPending = false;
+        state.single_category_news_data.isFulfilled = false;
+        state.single_category_news_data.isRejected = true;
+
+        // Rejected data
+        state.single_category_news_data.errorResponse = action.payload;
       })
 
       ////////////////////////////////////////

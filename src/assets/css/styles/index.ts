@@ -52,4 +52,4 @@ export const getActiveLink = (
 //////////////////////////////
 // Icons
 //////////////////////////////
-export const nav_icon = `w-8 h-8 ${colors.logo_icon}`;
+export const nav_icon = `w-8 h-8 ${colors.icon}`;

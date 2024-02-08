@@ -38,9 +38,21 @@ export const GetHomepageThunk = createAsyncThunk(
 // categories news get (whole)
 export const GetAllCategoriesThunk = createAsyncThunk(
   "GetAllCategoriesThunk",
+  async (_, thunkAPI) => {
+    try {
+      return await dataService.getData(`/api/v1/news/category`);
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(getReduxErrorMsg(error));
+    }
+  }
+);
+
+// category news get (single)
+export const GetSingleCategoryNewsThunk = createAsyncThunk(
+  "GetSingleCategoryNewsThunk",
   async (slug: string, thunkAPI) => {
     try {
-      return await dataService.getData(`/api/v1/news/category/${slug}/`);
+      return await dataService.getData(`/api/v1/news/category/${slug}`);
     } catch (error: any) {
       return thunkAPI.rejectWithValue(getReduxErrorMsg(error));
     }

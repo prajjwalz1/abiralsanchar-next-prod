@@ -2,6 +2,17 @@ import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 import { ArticleSchema } from "./ApiSchema";
 
+export type CheckNewsConditionSchema = {
+  newsCondition?: {
+    isCategories?: boolean;
+    slug?: string;
+    isArticle?: boolean;
+    isFeatured?: boolean;
+    isLatest?: boolean;
+    isTrending?: boolean;
+  };
+};
+
 export type ButtonTypeSchema = {
   type?: "button" | "submit" | "reset" | undefined;
 };
@@ -74,6 +85,10 @@ export type CurrentTitleSchema = {
 
 export type SlugSchema = {
   slug?: string;
+};
+
+export type NewsSlugSchema = {
+  news_slug?: string;
 };
 
 export interface TitleFontSchema extends TitleSchema, FontSchema, CssSchema {}
@@ -182,7 +197,8 @@ export interface CustomTextSchema
   extends ChildrenSchema,
     CssSchema,
     SlugSchema,
-    FontSchema {
+    FontSchema,
+    CheckNewsConditionSchema {
   // font family
   isKhand?: boolean;
 

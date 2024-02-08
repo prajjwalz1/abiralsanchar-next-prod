@@ -14,7 +14,7 @@ import {
 import {
   GetSingleArticleThunk,
   GetAllArticlesThunk,
-  GetAllCategoriesThunk,
+  GetSingleCategoryNewsThunk,
 } from "@/helpers/redux-app/news-portal/_thunks";
 import { destructHeaderData } from "@/utils/methods/reduxMethods";
 import { useEffect } from "react";
@@ -32,26 +32,30 @@ export default function ArticleSection(props: any) {
     isLatest,
     isFeatured,
     isCategories,
-    category_title,
+    news_slug,
   } = props;
 
   // Redux
   const dispatch = useAppDispatch();
-  const { header_data, single_article_data, articles_data, categories_data } =
-    useAppSelector((state: RootState) => state.NewsPortal);
+  const {
+    header_data,
+    articles_data,
+    single_article_data,
+    single_category_news_data,
+  } = useAppSelector((state: RootState) => state.NewsPortal);
 
   // Destructured variables
   const { featured_articles, latest_articles, trending_articles } =
     destructHeaderData(header_data.successResponse);
 
   // Action to get the required data from api
-  const d = (res: any) => res?.successResponse?.data;
+  const d = (res: any) => res?.successResponse?.data ?? [];
 
   // Actual variables used
   const chosen_article = isArticle
     ? d(single_article_data)
     : isCategories
-    ? d(categories_data)[0]
+    ? d(single_category_news_data)[0]
     : [];
   const all_articles = isArticle
     ? d(articles_data)
@@ -62,7 +66,7 @@ export default function ArticleSection(props: any) {
       ? isTrending
       : d(trending_articles)
     : isCategories
-    ? d(categories_data).slice(1)
+    ? d(single_category_news_data).slice(1)
     : [];
 
   // Show hero article when
@@ -76,18 +80,14 @@ export default function ArticleSection(props: any) {
       dispatch(GetAllArticlesThunk());
       return;
     }
-    if (isArticle) {
-      dispatch(GetSingleArticleThunk(id));
-      return;
-    }
   }, [dispatch]);
 
   useEffect(() => {
     if (isCategories) {
-      dispatch(GetAllCategoriesThunk(category_title));
+      dispatch(GetSingleCategoryNewsThunk(news_slug));
       return;
     }
-  }, [category_title, dispatch]);
+  }, [news_slug, dispatch]);
 
   return (
     <div
@@ -99,8 +99,6 @@ export default function ArticleSection(props: any) {
           <SimilarNewsSection articles={all_articles} />
         </>
       )}
-
-      {/* <DidYouLeaveSection articles={did_you_leave_articles} /> */}
     </div>
   );
 }

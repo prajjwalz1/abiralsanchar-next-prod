@@ -30,7 +30,10 @@ import RootLayoutLogo from "./RootLayoutLogo";
 import CurrentNews from "./CurrentNews";
 import { setCurrentNews } from "@/helpers/redux-app/news-portal/_actions";
 import useCustomScroll from "@/helpers/hooks/useCustomScroll";
-import { GetHeaderThunk } from "@/helpers/redux-app/news-portal/_thunks";
+import {
+  GetAllCategoriesThunk,
+  GetHeaderThunk,
+} from "@/helpers/redux-app/news-portal/_thunks";
 import { getRouteUrl } from "@/utils/methods/defaultMethods";
 import { destructHeaderData } from "@/utils/methods/reduxMethods";
 
@@ -178,6 +181,7 @@ export default function Navbar() {
     if (!didMountRef.current) {
       didMountRef.current = true;
       dispatch(GetHeaderThunk());
+      dispatch(GetAllCategoriesThunk());
     }
   }, [dispatch]);
 
@@ -199,7 +203,7 @@ export default function Navbar() {
         />
 
         <IoTrendingUpOutline
-          className={styles.nav_icon}
+          className={`${styles.nav_icon} font-extrabold`}
           onClick={() => dispatch(setCurrentNews("trending"))}
         />
         <CurrentNews />

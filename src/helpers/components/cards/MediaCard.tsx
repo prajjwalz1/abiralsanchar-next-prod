@@ -23,13 +23,14 @@ export default function MediaCard(props: MediaCardSchema) {
     css,
     extendCss,
     isColumn,
+    newsCondition,
   } = props;
 
   // Hooks
   const router = useRouter();
 
   // Slug1
-  const slug1 = getRouteUrl("/article", { id, isArticle: true });
+  const slug1 = getRouteUrl("/article", { id, ...newsCondition });
 
   // Container css
   const rowCss = `${

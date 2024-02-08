@@ -1,15 +1,12 @@
 // Just storing these values for future references
-import {
-  GetAllArticlesThunkResponse,
-  HomepageNewsSchema,
-} from "../schemas/ApiSchema";
+import {} from "../schemas/ApiSchema";
 
 /**
  * API
  * http://jsugauta1.pythonanywhere.com/api/v1/news/homepage/
  *
  */
-export const get_homepage_data: HomepageNewsSchema = {
+export const get_homepage_data: any = {
   success: true,
   data: [
     {
@@ -550,7 +547,7 @@ export const get_homepage_data: HomepageNewsSchema = {
   ],
 };
 
-export const get_all_articles: GetAllArticlesThunkResponse = {
+export const get_all_articles: any = {
   success: true,
   totalHits: 5,
   data: [
