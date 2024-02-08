@@ -37,14 +37,14 @@ export default function MediaCard(props: MediaCardSchema) {
     extendCss ? "" : "h-[84px]"
   } flex gap-3 justify-between items-start rounded-sm`;
   const columnCss =
-    "flex flex-col gap-3 justify-between items-start rounded-sm";
+    "grid grid-cols-1 gap-3 justify-between items-start rounded-sm";
   const dimensionCss = isColumn ? columnCss : rowCss;
   const divCss = css ?? `${extendCss} ${dimensionCss} `;
 
   // Image css
   const defaultImgCss = `${fonts.span} font-medium cursor-pointer rounded-md`;
   const imgCss = isColumn
-    ? "w-full h-auto sm:h-[90px] lg:h-[180px]"
+    ? "w-full h-[200px] sm:h-[120px] md:h-180px] lg:h-[240px] xl:h-[300px]"
     : "w-[120px] h-full";
   const imgDivCss = `${defaultImgCss} ${imgCss}`;
 

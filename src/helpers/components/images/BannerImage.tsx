@@ -1,4 +1,3 @@
-import { CustomImage } from "@/dynamic-imports/components";
 import { BannerImageSchema } from "@/utils/schemas/CommonSchema";
 
 export default function BannerImage(props: BannerImageSchema) {
@@ -7,7 +6,9 @@ export default function BannerImage(props: BannerImageSchema) {
 
   return (
     <div className={css ?? `${extendCss} rounded-md shadow-md`}>
-      {imageProps && <CustomImage {...imageProps} priority />}
+      <div className={`${imageProps?.divCss} grid place-items-center`}>
+        Your ads here
+      </div>
       {divProps && <div>div</div>}
     </div>
   );
