@@ -3,6 +3,7 @@
 import { divider } from "@/assets/colors";
 import { padding_x, rGap } from "@/assets/css/styles";
 import {
+  DisplayErrorBox,
   HeroArticleSection,
   SimilarNewsSection,
 } from "@/dynamic-imports/components";
@@ -92,12 +93,21 @@ export default function ArticleSection(props: any) {
     <div
       className={`${padding_x} ${divider} flex flex-col ${rGap} divide-y pb-10 md:pb:0`}
     >
-      {/* {showArticle && ( */}
-      <>
-        <HeroArticleSection {...chosen_article} isFlag />
-        <SimilarNewsSection articles={all_articles} />
-      </>
-      {/* )} */}
+      {!chosen_article?.length ? (
+        <DisplayErrorBox description="यस्तो कुनै लेख फेला परेन!" />
+      ) : (
+        <>
+          <HeroArticleSection {...chosen_article} isFlag />
+        </>
+      )}
+
+      {!all_articles?.length ? (
+        <DisplayErrorBox description="कुनै समान लेख फेला परेन!" />
+      ) : (
+        <>
+          <SimilarNewsSection articles={all_articles} />
+        </>
+      )}
     </div>
   );
 }

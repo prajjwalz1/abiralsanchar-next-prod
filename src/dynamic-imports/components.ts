@@ -37,6 +37,14 @@ export const CenterContainer = dynamic(
 );
 
 //////////////////////////////
+//////////////////////////////
+// errors
+export const DisplayErrorBox = dynamic(
+  () => import("@/helpers/components/errors/DisplayErrorBox"),
+  { ssr: false }
+);
+
+//////////////////////////////
 // Images
 //////////////////////////////
 export const BannerImage = dynamic(
