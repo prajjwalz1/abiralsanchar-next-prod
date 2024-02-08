@@ -1,9 +1,10 @@
+import { getUniqueKey } from "@/utils/methods/stringMethods";
 import { ImageArrSchema } from "@/utils/schemas/CommonSchema";
 
 export default function AdsSection({ imgList }: ImageArrSchema) {
   return (
     <div className="hidden xl:flex xl:flex-col xl:gap-5 xl:justify-between">
-      {imgList?.map(() => (
+      {imgList?.map((_, idx: number) => (
         // <CustomImage
         //   {...item}
         //   priority
@@ -13,7 +14,10 @@ export default function AdsSection({ imgList }: ImageArrSchema) {
         //   width={0}
         //   height={0}
         // />
-        <div className="grid place-items-center w-full h-[155px] rounded-md shadow-md">
+        <div
+          key={getUniqueKey(idx, "Mini ad section")}
+          className="grid place-items-center w-full h-[155px] rounded-md shadow-md"
+        >
           Mini Ad here
         </div>
       ))}

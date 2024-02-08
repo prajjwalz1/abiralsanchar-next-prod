@@ -31,7 +31,9 @@ export default function ArticleSection(props: any) {
   const { id, isTrending, isLatest, isFeatured, isCategories, news_slug } =
     props;
 
-  const news_slug_new = news_slug ?? useSearchParams().get("category_title");
+  // Get the required slug to display data
+  const search = useSearchParams();
+  const news_slug_new = news_slug ?? search.get("category_title");
 
   // Redux
   const dispatch = useAppDispatch();
