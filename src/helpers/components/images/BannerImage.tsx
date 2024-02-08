@@ -7,7 +7,7 @@ export default function BannerImage(props: BannerImageSchema) {
   return (
     <div className={css ?? `${extendCss} rounded-md shadow-md`}>
       <div className={`${imageProps?.divCss} grid place-items-center`}>
-        Your ads here
+        Your ad here
       </div>
       {divProps && <div>div</div>}
     </div>

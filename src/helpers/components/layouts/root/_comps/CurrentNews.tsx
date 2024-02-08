@@ -74,12 +74,14 @@ export default function CurrentNews() {
   // Redux
   const dispatch = useAppDispatch();
   const { lockScroll, unlockScroll } = useScrollLock();
-  const { successResponse: h, current_news: c } = useAppSelector(
+  const { header_data: h, current_news: c } = useAppSelector(
     (state: RootState) => state.NewsPortal
   );
 
   // Destructuring variables
-  const { latest_articles, trending_articles } = destructHeaderData(h);
+  const { latest_articles, trending_articles } = destructHeaderData(
+    h?.successResponse
+  );
 
   // Variables
   const is_trending = c === "trending";

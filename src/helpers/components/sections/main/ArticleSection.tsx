@@ -16,8 +16,10 @@ import {
   GetSingleArticleThunk,
   GetAllArticlesThunk,
   GetSingleCategoryNewsThunk,
+  GetHeaderThunk,
 } from "@/helpers/redux-app/news-portal/_thunks";
 import { destructHeaderData } from "@/utils/methods/reduxMethods";
+import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 // export type ArticleSectionSchema = {
@@ -28,6 +30,8 @@ export default function ArticleSection(props: any) {
   // Props
   const { id, isTrending, isLatest, isFeatured, isCategories, news_slug } =
     props;
+
+  const news_slug_new = news_slug ?? useSearchParams().get("category_title");
 
   // Redux
   const dispatch = useAppDispatch();
@@ -40,34 +44,39 @@ export default function ArticleSection(props: any) {
 
   // Destructured variables
   const { featured_articles, latest_articles, trending_articles } =
-    destructHeaderData(header_data.successResponse);
+    destructHeaderData(header_data?.successResponse);
 
   // Action to get the required data from api
   const d = (res: any) => res?.successResponse?.data ?? [];
   const single_article = d(single_article_data);
 
-  const pickRemainingArticles = (d: any) =>
-    d?.filter((item: any) => item?.id !== single_article?.id);
+  const pickRemainingArticles = (c: any) =>
+    c?.filter((item: any) => item?.id !== single_article?.id);
 
   const filtered_articles = pickRemainingArticles(d(articles_data));
-  const filtered_trending = pickRemainingArticles(d(trending_articles));
-  const filtered_latest = pickRemainingArticles(d(latest_articles));
-  const filtered_featured = pickRemainingArticles(d(featured_articles));
-  const single_category = d(single_category_news_data)[0];
+  const filtered_trending = pickRemainingArticles(trending_articles);
+  const filtered_latest = pickRemainingArticles(latest_articles);
+  const filtered_featured = pickRemainingArticles(featured_articles);
+
+  const single_category = d(single_category_news_data);
   const filtered_categories = d(single_category_news_data)?.filter(
     (item: any) => item?.id !== single_category?.id
   );
 
   // Actual variables used
-  const chosen_article = isCategories ? single_category : single_article ?? [];
+  const isCatTrue = id && isCategories;
+  const isCatFalse = !id && isCategories;
+  const chosen_article = isCatFalse ? single_category[0] : single_article ?? [];
   const all_articles = isFeatured
     ? filtered_featured
     : isLatest
     ? filtered_latest
-      ? isTrending
-      : filtered_trending
-    : isCategories
+    : isTrending
+    ? filtered_trending
+    : isCatTrue
     ? filtered_categories
+    : isCatFalse
+    ? single_category.slice(1)
     : filtered_articles ?? [];
 
   // Show hero article when
@@ -75,6 +84,7 @@ export default function ArticleSection(props: any) {
 
   useEffect(() => {
     dispatch(GetSingleArticleThunk(id));
+    dispatch(GetHeaderThunk());
 
     if (!showArticle) {
       dispatch(GetAllArticlesThunk());
@@ -83,30 +93,26 @@ export default function ArticleSection(props: any) {
   }, [dispatch]);
 
   useEffect(() => {
-    if (isCategories) {
-      dispatch(GetSingleCategoryNewsThunk(news_slug));
+    if (news_slug_new) {
+      dispatch(GetSingleCategoryNewsThunk(news_slug_new));
       return;
     }
-  }, [news_slug, dispatch]);
+  }, [news_slug_new, dispatch]);
 
   return (
     <div
       className={`${padding_x} ${divider} flex flex-col ${rGap} divide-y pb-10 md:pb:0`}
     >
-      {!chosen_article?.length ? (
+      {Object.keys(chosen_article ?? [])?.length === 0 ? (
         <DisplayErrorBox description="यस्तो कुनै लेख फेला परेन!" />
       ) : (
-        <>
-          <HeroArticleSection {...chosen_article} isFlag />
-        </>
+        <HeroArticleSection {...chosen_article} isFlag />
       )}
 
       {!all_articles?.length ? (
         <DisplayErrorBox description="कुनै समान लेख फेला परेन!" />
       ) : (
-        <>
-          <SimilarNewsSection articles={all_articles} />
-        </>
+        <SimilarNewsSection articles={all_articles} />
       )}
     </div>
   );

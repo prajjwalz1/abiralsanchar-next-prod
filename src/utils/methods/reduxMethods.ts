@@ -9,6 +9,7 @@ export const getReduxErrorMsg = (error: ReduxErrorMessageSchema) => {
 };
 
 export const destructHeaderData: any = (h: any) => {
+  console.log("ghhhhhhhhhhhhhhhhhhhhhhhhh", h);
   const navbar_category = h?.data[0]?.navbar_category ?? [];
   const trending_articles = h?.data[1]?.trending_articles ?? [];
   const latest_articles = h?.data[2]?.latest_articles ?? [];

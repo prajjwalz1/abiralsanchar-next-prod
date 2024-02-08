@@ -5,7 +5,7 @@ import { ArticleSchema } from "./ApiSchema";
 export type CheckNewsConditionSchema = {
   newsCondition?: {
     isCategories?: boolean;
-    slug?: string;
+    news_slug?: string;
     isFeatured?: boolean;
     isLatest?: boolean;
     isTrending?: boolean;

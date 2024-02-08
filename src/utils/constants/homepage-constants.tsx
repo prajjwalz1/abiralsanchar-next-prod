@@ -120,7 +120,7 @@ export const highlight_arr = (latest_articles: any, trending_articles: any) => [
       isTransparent: true,
       isZoomable: true,
     },
-    articles: trending_articles?.trending_data,
+    articles: trending_articles,
     imgList: ads_section.news.slice(0, 3),
   },
 ];

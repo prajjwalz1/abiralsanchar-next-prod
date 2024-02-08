@@ -32,7 +32,7 @@ export default function FeaturedHighlights() {
 
   return (
     <div
-      className={`${styles.width_x} featured-highlights thin-scrollbar overflow-x-auto overflow-y-hidden relative flex items-center gap-4 sm:gap-6`}
+      className={`${styles.width_x} featured-highlights thin-scrollbar overflow-x-auto overflow-y-hidden relative flex items-center gap-4 sm:gap-6 border-b-[1px] border-gray-200`}
     >
       {featured_articles
         ?.slice(0, 9)
