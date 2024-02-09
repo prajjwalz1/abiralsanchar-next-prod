@@ -4,8 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { RxDashboard } from "react-icons/rx";
-import { FaUserAlt } from "react-icons/fa";
-import { HiMiniCog6Tooth } from "react-icons/hi2";
+import { HiMiniCog6Tooth, HiUsers } from "react-icons/hi2";
 import { LogoImage } from "@/dynamic-imports/components";
 import { MdMenuOpen } from "react-icons/md";
 
@@ -86,7 +85,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         sidebarOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
-      {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
         <div className="pt-2.5 px-3">
           <Link href="/">
@@ -104,33 +102,27 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           <MdMenuOpen className="text-bodydark text-4xl mt-5" />
         </button>
       </div>
-      {/* <!-- SIDEBAR HEADER --> */}
 
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
-        {/* <!-- Sidebar Menu --> */}
         <nav className="mt-2 px-4 py-4 lg:mt-4 lg:px-6">
-          {/* <!-- Menu Group --> */}
           <div>
             <h3 className="mb-4 ml-4 text-sm font-semibold text-bodydark2 cursor-pointer hover:text-white">
               Welcome to Abhiral News
             </h3>
 
             <ul className="mb-6 flex flex-col gap-1.5">
-              {/* <!-- Menu Item Dashboard --> */}
               <SidebarLinkGroup
                 activeCondition={
                   pathname === "/" || pathname.includes("dashboard")
                 }
               >
-                {/* {(handleClick: any, open: any) => { */}
                 {() => {
                   return (
                     <React.Fragment>
                       <Link
-                        href="/"
+                        href="/auth/dashboard"
                         className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                          (pathname === "/" ||
-                            pathname.includes("dashboard")) &&
+                          pathname === "/auth/dashboard" &&
                           "bg-graydark dark:bg-meta-4"
                         }`}
                       >
@@ -141,28 +133,25 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   );
                 }}
               </SidebarLinkGroup>
-              {/* <!-- Menu Item Dashboard --> */}
 
-              {/* <!-- Menu Item Profile --> */}
               <li>
                 <Link
-                  href="/profile"
+                  href="/auth/dashboard/staff"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes("profile") && "bg-graydark dark:bg-meta-4"
+                    pathname.includes("/auth/dashboard/staff") &&
+                    "bg-graydark dark:bg-meta-4"
                   }`}
                 >
-                  <FaUserAlt className="text-2xl" />
-                  Profile
+                  <HiUsers className="text-2xl" />
+                  Staff
                 </Link>
               </li>
-              {/* <!-- Menu Item Profile --> */}
 
-              {/* <!-- Menu Item Settings --> */}
               <li>
                 <Link
-                  href="/settings"
+                  href="/auth/dashboard/settings"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes("settings") &&
+                    pathname.includes("/auth/dashboard/settings") &&
                     "bg-graydark dark:bg-meta-4"
                   }`}
                 >
@@ -170,7 +159,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   Settings
                 </Link>
               </li>
-              {/* <!-- Menu Item Settings --> */}
             </ul>
           </div>
         </nav>

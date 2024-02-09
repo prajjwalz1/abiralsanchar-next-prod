@@ -84,7 +84,7 @@ const DropdownUser = () => {
           dropdownOpen === true ? "block" : "hidden"
         }`}
       >
-        <ul className="w-[230px] flex flex-col gap-5 border-b border-gray-50 px-6 py-7.5">
+        <ul className="w-[230px] pb-4 flex flex-col gap-5 border-b border-gray-50 px-6 py-7.5">
           <li>
             <Link
               href="/profile"
@@ -104,7 +104,7 @@ const DropdownUser = () => {
             </Link>
           </li>
         </ul>
-        <button className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-white lg:text-base">
+        <button className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-red lg:text-base">
           <SlLogout className="text-xl" />
           Log Out
         </button>
