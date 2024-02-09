@@ -7,6 +7,9 @@ import { RxDashboard } from "react-icons/rx";
 import { HiMiniCog6Tooth, HiUsers } from "react-icons/hi2";
 import { LogoImage } from "@/dynamic-imports/components";
 import { MdMenuOpen } from "react-icons/md";
+import { TbCategoryPlus } from "react-icons/tb";
+import { RiArticleLine } from "react-icons/ri";
+import { SidebarModules } from "./SidebarModules";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -18,6 +21,43 @@ interface SidebarLinkGroupProps {
   activeCondition: boolean;
 }
 
+const dashboardSidebarItems: any = {
+  top: {
+    data: [
+      {
+        label: "Staff",
+        icon: <HiUsers className="text-2xl" />,
+        href: "/auth/dashboard/staff",
+      },
+    ],
+  },
+  mid: {
+    label: "Modules",
+    data: [
+      {
+        label: "Category",
+        icon: <TbCategoryPlus className="text-2xl" />,
+        href: "/auth/dashboard/category",
+      },
+      {
+        label: "Article",
+        icon: <RiArticleLine className="text-2xl" />,
+        href: "/auth/dashboard/article",
+      },
+    ],
+  },
+  bot: {
+    label: "Others",
+    data: [
+      {
+        label: "Settings",
+        icon: <HiMiniCog6Tooth className="text-2xl" />,
+        href: "/auth/dashboard/settings",
+      },
+    ],
+  },
+};
+
 const SidebarLinkGroup = ({
   children,
   activeCondition,
@@ -28,7 +68,7 @@ const SidebarLinkGroup = ({
     setOpen(!open);
   };
 
-  return <li>{children(handleClick, open)}</li>;
+  return <>{children(handleClick, open)}</>;
 };
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
@@ -110,7 +150,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               Welcome to Abhiral News
             </h3>
 
-            <ul className="mb-6 flex flex-col gap-1.5">
+            <div className="mb-6 flex flex-col gap-1.5">
               <SidebarLinkGroup
                 activeCondition={
                   pathname === "/" || pathname.includes("dashboard")
@@ -134,32 +174,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 }}
               </SidebarLinkGroup>
 
-              <li>
-                <Link
-                  href="/auth/dashboard/staff"
-                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes("/auth/dashboard/staff") &&
-                    "bg-graydark dark:bg-meta-4"
-                  }`}
-                >
-                  <HiUsers className="text-2xl" />
-                  Staff
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/auth/dashboard/settings"
-                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes("/auth/dashboard/settings") &&
-                    "bg-graydark dark:bg-meta-4"
-                  }`}
-                >
-                  <HiMiniCog6Tooth className="text-2xl" />
-                  Settings
-                </Link>
-              </li>
-            </ul>
+              {/* Top modules */}
+              <SidebarModules {...dashboardSidebarItems.top} />
+              <SidebarModules {...dashboardSidebarItems.mid} />
+              <SidebarModules {...dashboardSidebarItems.bot} />
+            </div>
           </div>
         </nav>
         {/* <!-- Sidebar Menu --> */}
