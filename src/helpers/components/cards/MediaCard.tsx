@@ -24,6 +24,7 @@ export default function MediaCard(props: MediaCardSchema) {
     extendCss,
     isColumn,
     newsCondition,
+    isAccepted,
   } = props;
 
   // Hooks
@@ -44,7 +45,7 @@ export default function MediaCard(props: MediaCardSchema) {
   // Image css
   const defaultImgCss = `${fonts.span} font-medium cursor-pointer rounded-md`;
   const imgCss = isColumn
-    ? "w-full h-[200px] sm:h-[120px] md:h-180px] lg:h-[240px] xl:h-[300px]"
+    ? "w-full h-[200px] sm:h-[120px] md:h-180px] lg:h-[240px]"
     : "w-[120px] h-full";
   const imgDivCss = `${defaultImgCss} ${imgCss}`;
 
@@ -62,11 +63,11 @@ export default function MediaCard(props: MediaCardSchema) {
         imgCss="w-full h-full object-cover rounded-md"
         width={40}
         height={40}
-        onClick={() => router.push(slug1)}
+        onClick={() => (!isAccepted ? router.push(slug1) : undefined)}
       />
       <div className={`${placingCss} h-full flex-1 flex flex-col gap-1`}>
         <CustomText
-          slug={slug1}
+          slug={!isAccepted ? slug1 : ""}
           css={titleCss}
           isLinkColor
           isBody={isColumn}

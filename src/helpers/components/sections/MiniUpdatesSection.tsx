@@ -14,6 +14,10 @@ export default function MiniUpdatesSection(props: MiniUpdatesSectionSchema) {
   // Css
   const btnCss = `${warning_button} px-5 py-2 w-full h-fit flex justify-center items-center gap-2 rounded-md`;
 
+  // NewsCondition
+  const newsCondition =
+    title === "ताजा अपडेट" ? { isLatest: true } : { isTrending: true };
+
   return (
     <div className="flex flex-col justify-between gap-3 rounded-sm">
       <div className="flex flex-col gap-3 md:gap-5 rounded-sm">
@@ -23,6 +27,7 @@ export default function MiniUpdatesSection(props: MiniUpdatesSectionSchema) {
             {...item}
             extendCss="h-[95px]"
             showClock
+            newsCondition={newsCondition}
           />
         ))}
       </div>

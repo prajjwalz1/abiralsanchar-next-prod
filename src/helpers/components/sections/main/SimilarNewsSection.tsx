@@ -6,7 +6,7 @@ import { getUniqueKey } from "@/utils/methods/stringMethods";
 
 export default function SimilarNewsSection(props: any) {
   // PsearchParams
-  const { title, articles } = props;
+  const { title, articles, ...newsCondition } = props;
 
   return (
     <div className="w-full h-full flex flex-col">
@@ -19,6 +19,7 @@ export default function SimilarNewsSection(props: any) {
               key={getUniqueKey(idx, item.title!)}
               {...item}
               isColumn
+              newsCondition={newsCondition}
             />
           ))}
       </div>

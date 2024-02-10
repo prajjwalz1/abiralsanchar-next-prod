@@ -17,11 +17,11 @@ const PublicLayout: React.FC<RootLayoutSchema> = (props) => {
   const { children } = props;
 
   return (
-    <>
+    <div className="grid grid-rows-[160px_minmax(calc(100vh-160px),auto)_auto]">
       <RootHeader />
       <main>{children}</main>
       <RootFooter />
-    </>
+    </div>
   );
 };
 

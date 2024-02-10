@@ -23,6 +23,7 @@ import {
   IsDimensionSchema,
   IdSchema,
   CheckNewsConditionSchema,
+  AcceptedSchema,
 } from "./CommonSchema";
 import { ArticleCategorizedSchema, ArticleSchema } from "./ApiSchema";
 
@@ -52,7 +53,8 @@ export interface MediaCardSchema
     CssSchema,
     IsDimensionSchema,
     IdSchema,
-    CheckNewsConditionSchema {}
+    CheckNewsConditionSchema,
+    AcceptedSchema {}
 
 export interface DescriptionCardSchema
   extends ShowClockSchema,
@@ -92,7 +94,10 @@ export interface PosterImageSchema extends ArticleSchema, ShowClockSchema {
 }
 
 // sections
-export interface HeroArticleSectionSchema extends ArticleSchema, FlagSchema {}
+export interface HeroArticleSectionSchema
+  extends ArticleSchema,
+    FlagSchema,
+    AcceptedSchema {}
 
 export interface NewsCategorySchema
   extends ArticleCategorizedSchema,

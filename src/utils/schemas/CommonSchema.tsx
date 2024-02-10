@@ -160,6 +160,11 @@ export type FlagSchema = {
   setIsFlag?: (val: boolean) => void;
 };
 
+export type AcceptedSchema = {
+  isAccepted?: boolean;
+  setIsAccepted?: (val: boolean) => void;
+};
+
 //////////////////////////////
 // Links
 //////////////////////////////

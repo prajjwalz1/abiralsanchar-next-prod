@@ -14,9 +14,8 @@ export default function CustomText(props: CustomTextSchema) {
   const router = useRouter();
 
   // Actions
-  const onClick: MouseEventHandler<HTMLParagraphElement> | undefined = slug
-    ? () => router.push(slug)
-    : undefined;
+  const onClick: MouseEventHandler<HTMLParagraphElement> | undefined =
+    slug?.length ? () => router.push(slug) : undefined;
 
   // Color
   const { isLinkColor, isHeaderColor, isTitleColor, ...fontSize } = rest;

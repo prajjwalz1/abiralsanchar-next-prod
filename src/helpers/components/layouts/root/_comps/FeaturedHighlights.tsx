@@ -51,7 +51,13 @@ export default function FeaturedHighlights() {
               height={24}
               onClick={() => router.push(slug1(id))}
             />
-            <CustomText css="min-w-fit" isKhand isBold>
+            <CustomText
+              slug={slug1(id)}
+              css="min-w-fit"
+              isKhand
+              isBold
+              isLinkColor
+            >
               {title.slice(0, 10)}
             </CustomText>
           </div>

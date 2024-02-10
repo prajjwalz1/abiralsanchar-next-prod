@@ -1,11 +1,12 @@
 "use client";
 
 import { divider } from "@/assets/colors";
-import { padding_x, rGap } from "@/assets/css/styles";
+import { padding_x, rGap, rPaddingT } from "@/assets/css/styles";
 import {
   DisplayErrorBox,
   HeroArticleSection,
   SimilarNewsSection,
+  TitleText,
 } from "@/dynamic-imports/components";
 import {
   useAppDispatch,
@@ -28,8 +29,10 @@ import { useEffect } from "react";
 
 export default function ArticleSection(props: any) {
   // Props
-  const { id, isTrending, isLatest, isFeatured, isCategories, news_slug } =
-    props;
+  const { id, news_slug, ...newsCondition } = props;
+
+  // Destructuring props
+  const { isTrending, isLatest, isFeatured, isCategories } = newsCondition;
 
   // Get the required slug to display data
   const search = useSearchParams();
@@ -47,6 +50,14 @@ export default function ArticleSection(props: any) {
   // Destructured variables
   const { featured_articles, latest_articles, trending_articles } =
     destructHeaderData(header_data?.successResponse);
+  const isPending =
+    isFeatured || isLatest || isTrending
+      ? header_data?.isPending
+      : isCategories
+      ? single_category_news_data?.isPending
+      : id && !isFeatured && !isLatest && !isCategories && !isTrending
+      ? single_article_data?.isPending
+      : false;
 
   // Action to get the required data from api
   const d = (res: any) => res?.successResponse?.data ?? [];
@@ -68,54 +79,64 @@ export default function ArticleSection(props: any) {
   // Actual variables used
   const isCatTrue = id && isCategories;
   const isCatFalse = !id && isCategories;
+  // const isCatNext = !id && !isCategories;
   const chosen_article = isCatFalse ? single_category[0] : single_article ?? [];
-  const all_articles = isFeatured
-    ? filtered_featured
+  const [all_articles, title] = isFeatured
+    ? [filtered_featured, "चित्रित (Featured)"]
     : isLatest
-    ? filtered_latest
+    ? [filtered_latest, "ताजा अपडेट"]
     : isTrending
-    ? filtered_trending
+    ? [filtered_trending, "ट्रेन्डिङ"]
     : isCatTrue
-    ? filtered_categories
+    ? [filtered_categories, news_slug_new]
     : isCatFalse
-    ? single_category.slice(1)
-    : filtered_articles ?? [];
+    ? [single_category.slice(1), news_slug_new]
+    : [filtered_articles, news_slug_new] ?? [];
 
   // Show hero article when
   const showArticle = isTrending || isLatest || isFeatured || isCategories;
 
   useEffect(() => {
-    dispatch(GetSingleArticleThunk(id));
+    if (id) {
+      dispatch(GetSingleArticleThunk(id));
+    }
     dispatch(GetHeaderThunk());
 
     if (!showArticle) {
       dispatch(GetAllArticlesThunk());
-      return;
+      // return;
     }
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   useEffect(() => {
     if (news_slug_new) {
       dispatch(GetSingleCategoryNewsThunk(news_slug_new));
-      return;
+      // return;
     }
   }, [news_slug_new, dispatch]);
 
   return (
-    <div
-      className={`${padding_x} ${divider} flex flex-col ${rGap} divide-y pb-10 md:pb:0`}
-    >
-      {Object.keys(chosen_article ?? [])?.length === 0 ? (
-        <DisplayErrorBox description="यस्तो कुनै लेख फेला परेन!" />
-      ) : (
-        <HeroArticleSection {...chosen_article} isFlag />
-      )}
+    <>
+      {!isPending && (
+        <div
+          className={`${padding_x} ${divider} flex flex-col ${rGap} ${rPaddingT} divide-y pb-10 md:pb:0`}
+        >
+          <TitleText css="leading-8 sm:leading-tight text-brand-blue">
+            {title}
+          </TitleText>
+          {Object.keys(chosen_article ?? [])?.length === 0 ? (
+            <DisplayErrorBox description="यस्तो कुनै लेख फेला परेन!" />
+          ) : (
+            <HeroArticleSection {...chosen_article} isAccepted isFlag />
+          )}
 
-      {!all_articles?.length ? (
-        <DisplayErrorBox description="कुनै समान लेख फेला परेन!" />
-      ) : (
-        <SimilarNewsSection articles={all_articles} />
+          {!all_articles?.length ? (
+            <DisplayErrorBox description="कुनै समान लेख फेला परेन!" />
+          ) : (
+            <SimilarNewsSection articles={all_articles} {...newsCondition} />
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 }
