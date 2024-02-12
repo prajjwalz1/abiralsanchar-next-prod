@@ -58,7 +58,7 @@ export default function FeaturedHighlights() {
               isBold
               isLinkColor
             >
-              {title.slice(0, 10)}
+              {title.slice(0, 14)}
             </CustomText>
           </div>
         ))}

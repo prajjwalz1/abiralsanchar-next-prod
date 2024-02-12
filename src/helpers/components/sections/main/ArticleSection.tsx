@@ -124,6 +124,7 @@ export default function ArticleSection(props: any) {
           <TitleText css="leading-8 sm:leading-tight text-brand-blue">
             {title}
           </TitleText>
+
           {Object.keys(chosen_article ?? [])?.length === 0 ? (
             <DisplayErrorBox description="यस्तो कुनै लेख फेला परेन!" />
           ) : (
