@@ -2,7 +2,7 @@
 
 // Default imports
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import React, { useEffect, useRef } from "react";
 import { IoTrendingUpOutline } from "react-icons/io5";
 import { TbNews } from "react-icons/tb";
@@ -42,7 +42,10 @@ import { destructHeaderData } from "@/utils/methods/reduxMethods";
 //////////////////////////////
 const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
   // Props
-  const { css, isFlag } = props;
+  const { css } = props;
+
+  // Hooks
+  const search = useSearchParams();
 
   // Redux
   const { successResponse: h } = useAppSelector(
@@ -67,8 +70,14 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
   if (nav_from_api && nav_from_api.length) {
     nav_items.push(...nav_from_api);
   }
-  // Hooks
-  const pathname = usePathname();
+
+  // Active link condition
+  // Custom props for NavbarText
+  const navbarProps = (slug: string) => {
+    const searchTerm = search?.get("category_title") ?? "/";
+    const isSameLink = slug === searchTerm;
+    return { isSameLink, isFlag: false };
+  };
 
   return (
     <div className={css}>
@@ -82,9 +91,7 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
               : slug1(slug?.toLowerCase() ?? "development")
           }
         >
-          <NavbarText isSameLink={slug === pathname} isFlag={isFlag}>
-            {title}
-          </NavbarText>
+          <NavbarText {...navbarProps(slug!)}>{title}</NavbarText>
         </Link>
       ))}
     </div>
