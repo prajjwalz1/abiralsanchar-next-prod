@@ -24,6 +24,7 @@ import {
   IdSchema,
   CheckNewsConditionSchema,
   AcceptedSchema,
+  DescLineClampSchema,
 } from "./CommonSchema";
 import { ArticleCategorizedSchema, ArticleSchema } from "./ApiSchema";
 
@@ -46,7 +47,9 @@ export interface MediaCardSchema
   extends Image1Schema,
     InfoPlacingSchema,
     TitleSchema,
+    DescriptionSchema,
     TitleLineClampSchema,
+    DescLineClampSchema,
     SlugSchema,
     UpdatedAtSchema,
     ShowClockSchema,

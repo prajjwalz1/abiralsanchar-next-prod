@@ -15,9 +15,11 @@ export default function MediaCard(props: MediaCardSchema) {
   const {
     id,
     title,
+    description,
     updated_at,
     info_placing,
     titleLineClamp: t,
+    descLineClamp: d,
     image1,
     showClock,
     css,
@@ -52,6 +54,7 @@ export default function MediaCard(props: MediaCardSchema) {
   // Text css
   const titleLineClamp = t ? `line-clamp-${t}` : "line-clamp-3";
   const titleCss = `${titleLineClamp} cursor-pointer tracking-wide`;
+  const descCss = `line-clamp-${d} cursor-pointer tracking-wide`;
   const placingCss = info_placing ?? "justify-between";
 
   return (
@@ -75,6 +78,15 @@ export default function MediaCard(props: MediaCardSchema) {
         >
           {title}
         </CustomText>
+        {d && (
+          <CustomText
+            slug={!isAccepted ? slug1 : ""}
+            css={descCss}
+            isBody={isColumn}
+          >
+            {description}
+          </CustomText>
+        )}
         {showClock && (
           <TimeCard
             title={getRelativeTime(updated_at!)}

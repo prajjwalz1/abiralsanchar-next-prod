@@ -28,6 +28,7 @@ export default function MiniUpdatesSection(props: MiniUpdatesSectionSchema) {
             extendCss="h-[95px]"
             showClock
             newsCondition={newsCondition}
+            descLineClamp={2}
           />
         ))}
       </div>

@@ -70,6 +70,10 @@ export type TitleLineClampSchema = {
   titleLineClamp?: number;
 };
 
+export type DescLineClampSchema = {
+  descLineClamp?: number;
+};
+
 export type DescriptionSchema = {
   description?: string;
 };
