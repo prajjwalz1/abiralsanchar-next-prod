@@ -36,6 +36,8 @@ import {
 } from "@/helpers/redux-app/news-portal/_thunks";
 import { getRouteUrl } from "@/utils/methods/defaultMethods";
 import { destructHeaderData } from "@/utils/methods/reduxMethods";
+import { Tooltip } from "@material-tailwind/react";
+import NavbarTextTooltip from "./NavbarTextTooltip";
 
 //////////////////////////////
 // Common Navbar menu, for both desktop and mobile view
@@ -83,16 +85,23 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
     <div className={css}>
       {isFixed && <MiniLogoImage />}
       {nav_items?.map(({ title, slug }: LinkSchema, idx: number) => (
-        <Link
-          key={getUniqueKey(idx, title!)}
-          href={
-            title === "होमपेज"
-              ? "/"
-              : slug1(slug?.toLowerCase() ?? "development")
-          }
+        <Tooltip
+          className="bg-white w-full shadow-md rounded-md border-1 border-gray-400 relative"
+          content={<NavbarTextTooltip />}
         >
-          <NavbarText {...navbarProps(slug!)}>{title}</NavbarText>
-        </Link>
+          <Link
+            key={getUniqueKey(idx, title!)}
+            href={
+              title === "होमपेज"
+                ? "/"
+                : slug1(slug?.toLowerCase() ?? "development")
+            }
+          >
+            <NavbarText {...navbarProps(slug!)} extendCss="uppercase">
+              {title}
+            </NavbarText>
+          </Link>
+        </Tooltip>
       ))}
     </div>
   );

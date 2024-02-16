@@ -4,7 +4,6 @@ import { divider } from "@/assets/colors";
 import { padding_x, rGap, rPaddingT } from "@/assets/css/styles";
 import {
   BannerImage,
-  DisplayErrorBox,
   HeroArticleSection,
   SimilarNewsSection,
   Spinner,
@@ -122,17 +121,9 @@ export default function ArticleSection(props: any) {
           <TitleText css="leading-8 sm:leading-tight text-brand-blue">
             {title}
           </TitleText>
-          {Object.keys(chosen_article ?? [])?.length === 0 ? (
-            <DisplayErrorBox description="यस्तो कुनै लेख फेला परेन!" />
-          ) : (
-            <HeroArticleSection {...chosen_article} isAccepted isFlag />
-          )}
+          <HeroArticleSection {...chosen_article} isAccepted isFlag />
           <BannerImage extendCss="h-[80px] grid place-items-center" />
-          {!all_articles?.length ? (
-            <DisplayErrorBox description="कुनै समान लेख फेला परेन!" />
-          ) : (
-            <SimilarNewsSection articles={all_articles} {...newsCondition} />
-          )}
+          <SimilarNewsSection articles={all_articles} {...newsCondition} />
         </div>
       )}
     </>
