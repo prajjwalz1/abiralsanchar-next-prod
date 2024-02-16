@@ -84,4 +84,10 @@ body {
 .scrollbar::-webkit-scrollbar-thumb:hover {
   background: #3d34ee;
 }
+
+.disable-image-transition {
+  -webkit-font-smoothing: subpixel-antialiased;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
 /* Thin Scrollbar End */

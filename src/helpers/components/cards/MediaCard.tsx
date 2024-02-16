@@ -1,3 +1,4 @@
+import parse from "html-react-parser";
 import * as fonts from "@/assets/fonts";
 import {
   CustomImage,
@@ -27,6 +28,7 @@ export default function MediaCard(props: MediaCardSchema) {
     isColumn,
     newsCondition,
     isAccepted,
+    isZoomable,
   } = props;
 
   // Hooks
@@ -42,7 +44,9 @@ export default function MediaCard(props: MediaCardSchema) {
   const columnCss =
     "grid grid-cols-1 gap-3 justify-between items-start rounded-sm";
   const dimensionCss = isColumn ? columnCss : rowCss;
-  const divCss = css ?? `${extendCss} ${dimensionCss} `;
+  const divCss =
+    css ??
+    `${extendCss} ${dimensionCss} overflow-hidden rounded-[8px] disable-image-transition`;
 
   // Image css
   const defaultImgCss = `${fonts.span} font-medium cursor-pointer rounded-md`;
@@ -67,6 +71,7 @@ export default function MediaCard(props: MediaCardSchema) {
         width={40}
         height={40}
         onClick={() => (!isAccepted ? router.push(slug1) : undefined)}
+        isZoomable={isZoomable}
       />
       <div className={`${placingCss} h-full flex-1 flex flex-col gap-1`}>
         <CustomText
@@ -84,7 +89,7 @@ export default function MediaCard(props: MediaCardSchema) {
             css={descCss}
             isBody={isColumn}
           >
-            {description}
+            {description && parse(description)}
           </CustomText>
         )}
         {showClock && (

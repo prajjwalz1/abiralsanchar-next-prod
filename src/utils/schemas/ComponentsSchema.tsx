@@ -25,6 +25,7 @@ import {
   CheckNewsConditionSchema,
   AcceptedSchema,
   DescLineClampSchema,
+  ZoomableSchema,
 } from "./CommonSchema";
 import { ArticleCategorizedSchema, ArticleSchema } from "./ApiSchema";
 
@@ -57,7 +58,8 @@ export interface MediaCardSchema
     IsDimensionSchema,
     IdSchema,
     CheckNewsConditionSchema,
-    AcceptedSchema {}
+    AcceptedSchema,
+    ZoomableSchema {}
 
 export interface DescriptionCardSchema
   extends ShowClockSchema,
@@ -66,7 +68,8 @@ export interface DescriptionCardSchema
     DescriptionSchema,
     Image1Schema,
     IdSchema,
-    CheckNewsConditionSchema {}
+    CheckNewsConditionSchema,
+    ZoomableSchema {}
 
 export interface TimeCardSchema
   extends CssSchema,

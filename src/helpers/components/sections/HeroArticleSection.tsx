@@ -43,7 +43,12 @@ export default function HeroArticleSection(props: HeroArticleSectionSchema) {
 
       <div className="flex flex-col gap-0 items-center">
         {/* Title of the article section */}
-        <TitleText slug={!isAccepted ? slug1 : ""}>{title}</TitleText>
+        <TitleText
+          css={!isAccepted ? undefined : ""}
+          slug={!isAccepted ? slug1 : ""}
+        >
+          {title}
+        </TitleText>
 
         {/* Author details for the article */}
         <div className="author-details w-full flex justify-between sm:justify-center items-center gap-1.5 sm:gap-6">
@@ -84,7 +89,7 @@ export default function HeroArticleSection(props: HeroArticleSectionSchema) {
         />
         <CustomText
           slug={!isAccepted ? slug1 : ""}
-          css={!isFlag ? "line-clamp-3" : ""}
+          css={!isFlag ? "line-clamp-6" : ""}
         >
           {description && parse(description)}
         </CustomText>

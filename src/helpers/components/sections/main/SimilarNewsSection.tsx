@@ -20,6 +20,7 @@ export default function SimilarNewsSection(props: any) {
               {...item}
               isColumn
               newsCondition={newsCondition}
+              isZoomable
             />
           ))}
       </div>

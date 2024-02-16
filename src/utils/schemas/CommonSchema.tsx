@@ -94,6 +94,10 @@ export type NewsSlugSchema = {
   news_slug?: string;
 };
 
+export type ZoomableSchema = {
+  isZoomable?: boolean;
+};
+
 export interface TitleFontSchema extends TitleSchema, FontSchema, CssSchema {}
 
 export interface TitleSlugSchema extends TitleSchema, SlugSchema {}
@@ -114,7 +118,10 @@ export type IsDimensionSchema = {
   isColumn?: boolean;
 };
 
-export interface CustomImageSchema extends OnClickSchema, FlagSchema {
+export interface CustomImageSchema
+  extends OnClickSchema,
+    FlagSchema,
+    ZoomableSchema {
   src: string | StaticImageData;
   alt: string;
   width?: number | `${number}`;
