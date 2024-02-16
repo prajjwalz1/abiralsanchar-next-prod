@@ -48,9 +48,9 @@ const SingleCurrentNews = (props: SingleCurrentNewsSchema) => {
   });
 
   return (
-    <div className="h-[64px] md:h-[80px] md:px-5 py-2 flex justify-between items-start rounded-md rounded-r-none border-r-2 border-gray-300">
+    <div className="h-[64px] md:h-[80px] md:px-5 py-2 flex justify-between items-center rounded-md rounded-r-none border-r-2 border-gray-300">
       <div className="flex w-4/5">
-        <CustomText slug={slug1} css="line-clamp-2" isSlightPara>
+        <CustomText isLinkColor slug={slug1} css="line-clamp-2" isParagraph>
           {title}
         </CustomText>
       </div>
@@ -58,10 +58,10 @@ const SingleCurrentNews = (props: SingleCurrentNewsSchema) => {
         priority
         src={getAbiralImg(image1!)}
         alt={title?.slice(0, 18) ?? "single_news_image"}
-        divCss={`${fonts.span} font-medium w-[84px] h-[40px] md:h-[56px] rounded-md`}
+        divCss={`${fonts.span} font-medium w-[124px] h-[56px] md:h-[64px] rounded-md`}
         imgCss="w-full h-full object-cover rounded-md"
-        width={40}
-        height={40}
+        width={56}
+        height={56}
         onClick={() => router.push(slug1)}
       />
     </div>

@@ -32,7 +32,7 @@ export default function FeaturedHighlights() {
 
   return (
     <div
-      className={`${styles.width_x} featured-highlights thin-scrollbar overflow-x-auto overflow-y-hidden relative flex items-center gap-4 sm:gap-6 border-b-[1px] border-gray-200`}
+      className={`${styles.width_x} featured-highlights thin-scrollbar overflow-x-auto overflow-y-hidden relative flex items-center gap-10 sm:gap-6 border-b-[1px] border-gray-200`}
     >
       {featured_articles
         ?.slice(0, 9)
@@ -45,7 +45,7 @@ export default function FeaturedHighlights() {
               priority
               src={getAbiralImg(image1!)}
               alt={title ?? "featured_image_avatar"}
-              divCss="w-[24px] h-[24px] rounded-full"
+              divCss="w-[24px] min-w-[24px] min-h-[24px] h-[24px] rounded-full"
               imgCss="w-full h-full object-cover rounded-full"
               width={24}
               height={24}
@@ -53,12 +53,12 @@ export default function FeaturedHighlights() {
             />
             <CustomText
               slug={slug1(id)}
-              css="min-w-fit"
+              css="max-w-[72px] md:max-w-[104px] line-clamp-1"
               isKhand
               isBold
               isLinkColor
             >
-              {title.slice(0, 14)}
+              {title}
             </CustomText>
           </div>
         ))}

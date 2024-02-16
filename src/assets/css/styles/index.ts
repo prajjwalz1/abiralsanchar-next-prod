@@ -34,17 +34,14 @@ export const imgTransition = "transition ease-in-out duration-[900ms]";
 export const getActiveLink = (
   isSameLink: boolean,
   color?: string,
-  isFlag?: boolean,
-  isLogo?: boolean
+  isFlag?: boolean
+  // isLogo?: boolean
 ) => {
-  const active =
-    isSameLink && !isLogo
-      ? color ?? colors.active_link
-      : isFlag
-      ? `text-black lg:text-white`
-      : isSameLink && isLogo
-      ? colors.sky
-      : colors.white;
+  const active = isSameLink
+    ? color ?? colors.active_link
+    : isFlag
+    ? `text-black lg:text-white`
+    : colors.white;
 
   return `${colors.navbar_link} ${active} font-khand`;
 };

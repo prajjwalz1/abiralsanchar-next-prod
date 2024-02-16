@@ -8,7 +8,7 @@ export default function NavbarText(props: NavbarTextSchema) {
   const { children, isSameLink, isFlag } = props;
   return (
     <CustomText
-      css={getActiveLink(isSameLink, sky, isFlag, true)}
+      css={getActiveLink(isSameLink, sky, isFlag)}
       isKhand
       isLarge
       isBold

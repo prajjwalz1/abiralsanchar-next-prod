@@ -15,6 +15,7 @@ import {
   useAppSelector,
   RootState,
 } from "@/helpers/hooks/useStoreHooks";
+import { setCurrentNews } from "@/helpers/redux-app/news-portal/_actions";
 import {
   GetSingleArticleThunk,
   GetAllArticlesThunk,
@@ -96,15 +97,11 @@ export default function ArticleSection(props: any) {
 
   useEffect(() => {
     dispatch(GetHeaderThunk());
+    dispatch(setCurrentNews(""));
 
-    if (id) {
-      dispatch(GetSingleArticleThunk(id));
-    }
+    if (id) dispatch(GetSingleArticleThunk(id));
 
-    if (!showArticle) {
-      dispatch(GetAllArticlesThunk());
-      // return;
-    }
+    if (!showArticle) dispatch(GetAllArticlesThunk());
   }, [dispatch, id]);
 
   useEffect(() => {
