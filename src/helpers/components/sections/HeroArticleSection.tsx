@@ -1,3 +1,4 @@
+import parse from "html-react-parser";
 import { black } from "@/assets/colors";
 import { rPaddingT } from "@/assets/css/styles";
 import {
@@ -85,7 +86,7 @@ export default function HeroArticleSection(props: HeroArticleSectionSchema) {
           slug={!isAccepted ? slug1 : ""}
           css={!isFlag ? "line-clamp-3" : ""}
         >
-          {description}
+          {description && parse(description)}
         </CustomText>
       </div>
     </div>

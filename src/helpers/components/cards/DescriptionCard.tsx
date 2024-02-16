@@ -1,4 +1,5 @@
 import { hover_link, hover_red_dark, light_gray_bg } from "@/assets/colors";
+import parse from "html-react-parser";
 import { span } from "@/assets/fonts";
 import { CustomImage, CustomText } from "@/dynamic-imports/components";
 import { getRouteUrl } from "@/utils/methods/defaultMethods";
@@ -10,6 +11,7 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
   // Props
   const { id, color, title, image1, description, newsCondition } = props;
 
+  // Hooks
   const router = useRouter();
 
   // Slug1
@@ -41,7 +43,7 @@ export default function DescriptionCard(props: DescriptionCardSchema) {
         </CustomText>
 
         <CustomText slug={slug1} css={descCss}>
-          {description}
+          {description && parse(description)}
         </CustomText>
       </div>
     </div>
