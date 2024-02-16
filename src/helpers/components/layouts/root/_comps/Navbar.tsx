@@ -86,11 +86,11 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
       {isFixed && <MiniLogoImage />}
       {nav_items?.map(({ title, slug }: LinkSchema, idx: number) => (
         <Tooltip
+          key={getUniqueKey(idx, title!)}
           className="bg-white w-full shadow-md rounded-md border-1 border-gray-400 relative"
           content={<NavbarTextTooltip />}
         >
           <Link
-            key={getUniqueKey(idx, title!)}
             href={
               title === "होमपेज"
                 ? "/"

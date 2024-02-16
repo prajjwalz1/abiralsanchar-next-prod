@@ -15,6 +15,7 @@ import { getRelativeTime } from "@/utils/methods/timeMethods";
 import { HeroArticleSectionSchema } from "@/utils/schemas/ComponentsSchema";
 import { useRouter } from "next/navigation";
 import { FiMessageSquare } from "react-icons/fi";
+import { paragraph } from "@/assets/fonts";
 
 export default function HeroArticleSection(props: HeroArticleSectionSchema) {
   // Props
@@ -35,6 +36,9 @@ export default function HeroArticleSection(props: HeroArticleSectionSchema) {
   // Variables
   // const slug1 = `/article?id=${id}&article=true`;
   const slug1 = getRouteUrl("/article", { id, isFeatured: true });
+
+  // Action when the text/image link is clicked
+  const handleLinkClick = () => (!isAccepted ? router.push(slug1) : undefined);
 
   return (
     <>
@@ -93,15 +97,15 @@ export default function HeroArticleSection(props: HeroArticleSectionSchema) {
               imgCss="object-cover w-full h-full rounded-md"
               width={100}
               height={100}
-              onClick={() => (!isAccepted ? router.push(slug1) : undefined)}
+              onClick={handleLinkClick}
               isFlag={isFlag}
             />
-            <CustomText
-              slug={!isAccepted ? slug1 : ""}
-              css={!isFlag ? "line-clamp-6" : ""}
+            <div
+              onClick={handleLinkClick}
+              className={`${!isFlag ? "line-clamp-6" : ""} ${paragraph}`}
             >
               {description && parse(description)}
-            </CustomText>
+            </div>
           </div>
         </div>
       )}

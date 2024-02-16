@@ -10,6 +10,7 @@ import { getAbiralImg } from "@/utils/methods/imgMethods";
 import { useRouter } from "next/navigation";
 import { getRouteUrl } from "@/utils/methods/defaultMethods";
 import { destructHeaderData } from "@/utils/methods/reduxMethods";
+import { Tooltip } from "@material-tailwind/react";
 
 export default function FeaturedHighlights() {
   // Redux
@@ -51,15 +52,20 @@ export default function FeaturedHighlights() {
               height={24}
               onClick={() => router.push(slug1(id))}
             />
-            <CustomText
-              slug={slug1(id)}
-              css="max-w-[72px] md:max-w-[104px] line-clamp-1"
-              isKhand
-              isBold
-              isLinkColor
+            <Tooltip
+              className="z-tooltip bg-red-300 text-green-700"
+              content="hello"
             >
-              {title}
-            </CustomText>
+              <span
+                // slug={slug1(id)}
+                className="max-w-[72px] md:max-w-[104px] line-clamp-1"
+                // isKhand
+                // isBold
+                // isLinkColor
+              >
+                {title}
+              </span>
+            </Tooltip>
           </div>
         ))}
     </div>

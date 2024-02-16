@@ -61,6 +61,9 @@ export default function MediaCard(props: MediaCardSchema) {
   const descCss = `line-clamp-${d} cursor-pointer tracking-wide`;
   const placingCss = info_placing ?? "justify-between";
 
+  // Action when the text/image link is clicked
+  const handleLinkClick = () => (!isAccepted ? router.push(slug1) : undefined);
+
   return (
     <div className={divCss}>
       <CustomImage
@@ -70,7 +73,7 @@ export default function MediaCard(props: MediaCardSchema) {
         imgCss="w-full h-full object-cover rounded-md"
         width={40}
         height={40}
-        onClick={() => (!isAccepted ? router.push(slug1) : undefined)}
+        onClick={handleLinkClick}
         isZoomable={isZoomable}
       />
       <div className={`${placingCss} h-full flex-1 flex flex-col gap-1`}>
@@ -84,13 +87,9 @@ export default function MediaCard(props: MediaCardSchema) {
           {title}
         </CustomText>
         {d && (
-          <CustomText
-            slug={!isAccepted ? slug1 : ""}
-            css={descCss}
-            isBody={isColumn}
-          >
+          <div onClick={handleLinkClick} className={descCss}>
             {description && parse(description)}
-          </CustomText>
+          </div>
         )}
         {showClock && (
           <TimeCard
