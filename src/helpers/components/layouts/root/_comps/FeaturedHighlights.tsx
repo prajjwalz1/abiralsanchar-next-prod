@@ -11,6 +11,8 @@ import { useRouter } from "next/navigation";
 import { getRouteUrl } from "@/utils/methods/defaultMethods";
 import { destructHeaderData } from "@/utils/methods/reduxMethods";
 import { Tooltip } from "@material-tailwind/react";
+import { hover_link } from "@/assets/colors";
+import { paragraph } from "@/assets/fonts";
 
 export default function FeaturedHighlights() {
   // Redux
@@ -31,6 +33,9 @@ export default function FeaturedHighlights() {
       isFeatured: true,
     });
 
+  // Action when text/image link is clicked
+  const handleLinkClick = (id: number) => () => router.push(slug1(id));
+
   return (
     <div
       className={`${styles.width_x} featured-highlights thin-scrollbar overflow-x-auto overflow-y-hidden relative flex items-center gap-10 sm:gap-6 border-b-[1px] border-gray-200`}
@@ -50,21 +55,18 @@ export default function FeaturedHighlights() {
               imgCss="w-full h-full object-cover rounded-full"
               width={24}
               height={24}
-              onClick={() => router.push(slug1(id))}
+              onClick={() => handleLinkClick(id)}
             />
             <Tooltip
-              className="z-tooltip bg-red-300 text-green-700"
-              content="hello"
+              className="z-tooltip shadow-md bg-white text-black font-bold"
+              content={title}
             >
-              <span
-                // slug={slug1(id)}
-                className="max-w-[72px] md:max-w-[104px] line-clamp-1"
-                // isKhand
-                // isBold
-                // isLinkColor
+              <div
+                onClick={() => handleLinkClick(id)}
+                className={`${hover_link} ${paragraph} max-w-[72px] md:max-w-[104px] line-clamp-1 font-bold cursor-pointer hover:text-blue-500 font-khand`}
               >
                 {title}
-              </span>
+              </div>
             </Tooltip>
           </div>
         ))}
