@@ -3,9 +3,11 @@
 import { divider } from "@/assets/colors";
 import { padding_x, rGap, rPaddingT } from "@/assets/css/styles";
 import {
+  BannerImage,
   DisplayErrorBox,
   HeroArticleSection,
   SimilarNewsSection,
+  Spinner,
   TitleText,
 } from "@/dynamic-imports/components";
 import {
@@ -22,10 +24,6 @@ import {
 import { destructHeaderData } from "@/utils/methods/reduxMethods";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-
-// export type ArticleSectionSchema = {
-//   id: number;
-// };
 
 export default function ArticleSection(props: any) {
   // Props
@@ -97,10 +95,11 @@ export default function ArticleSection(props: any) {
   const showArticle = isTrending || isLatest || isFeatured || isCategories;
 
   useEffect(() => {
+    dispatch(GetHeaderThunk());
+
     if (id) {
       dispatch(GetSingleArticleThunk(id));
     }
-    dispatch(GetHeaderThunk());
 
     if (!showArticle) {
       dispatch(GetAllArticlesThunk());
@@ -117,20 +116,21 @@ export default function ArticleSection(props: any) {
 
   return (
     <>
-      {!isPending && (
+      {isPending ? (
+        <Spinner />
+      ) : (
         <div
           className={`${padding_x} ${divider} flex flex-col ${rGap} ${rPaddingT} divide-y pb-10 md:pb:0`}
         >
           <TitleText css="leading-8 sm:leading-tight text-brand-blue">
             {title}
           </TitleText>
-
           {Object.keys(chosen_article ?? [])?.length === 0 ? (
             <DisplayErrorBox description="यस्तो कुनै लेख फेला परेन!" />
           ) : (
             <HeroArticleSection {...chosen_article} isAccepted isFlag />
           )}
-
+          <BannerImage extendCss="h-[80px] grid place-items-center" />
           {!all_articles?.length ? (
             <DisplayErrorBox description="कुनै समान लेख फेला परेन!" />
           ) : (

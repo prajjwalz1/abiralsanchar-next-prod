@@ -1,6 +1,14 @@
 import dynamic from "next/dynamic";
 
 //////////////////////////////
+// animations
+//////////////////////////////
+export const Spinner = dynamic(
+  () => import("@/helpers/components/animations/Spinner"),
+  { ssr: false }
+);
+
+//////////////////////////////
 // buttons
 //////////////////////////////
 export const Button = dynamic(

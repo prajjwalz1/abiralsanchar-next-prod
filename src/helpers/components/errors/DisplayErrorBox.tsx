@@ -12,7 +12,7 @@ export default function DisplayErrorBox(props: DisplayErrorBoxSchema) {
   const { description, css, extendCss } = props;
 
   // Get css
-  const defaultCss = `${rPadding} w-full h-full grid place-items-center`;
+  const defaultCss = `${rPadding} w-full h-full min-h-[80px] grid place-items-center`;
   const className =
     css ??
     `${
