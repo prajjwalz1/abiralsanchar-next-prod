@@ -11,8 +11,6 @@ import { useRouter } from "next/navigation";
 import { getRouteUrl } from "@/utils/methods/defaultMethods";
 import { destructHeaderData } from "@/utils/methods/reduxMethods";
 import { Tooltip } from "@material-tailwind/react";
-import { hover_link } from "@/assets/colors";
-import { paragraph } from "@/assets/fonts";
 
 export default function FeaturedHighlights() {
   // Redux

@@ -100,6 +100,16 @@ const config = withMT({
           "30%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        bounce: {
+          "0%, 100%": {
+            transform: "translateY(-25%)",
+            "animation-timing-function": "cubic-bezier(0.8, 0, 1, 1)",
+          },
+          "50%": {
+            transform: "translateY(0)",
+            "animation-timing-function": "cubic-bezier(0, 0, 0.2, 1)",
+          },
+        },
       },
 
       animation: {
@@ -108,6 +118,7 @@ const config = withMT({
         slideRightMiniLogo: "slideRightMiniLogo 0.5s ease-out",
         showUp: "showUp 0.6s ease-out",
         showDown: "showDown 0.6s ease-in",
+        bounceInfinite: "bounce 2s infinite",
       },
     },
   },

@@ -18,7 +18,7 @@ export default function AdsSection({ imgList }: ImageArrSchema) {
           key={getUniqueKey(idx, "Mini ad section")}
           className="grid place-items-center w-full h-[155px] rounded-md shadow-md"
         >
-          Mini Ad here
+          <div className="animate-bounceInfinite h-10">Mini Ad here</div>
         </div>
       ))}
     </div>
