@@ -27,6 +27,7 @@ import { useEffect } from "react";
 
 export default function ArticleSection(props: any) {
   // Props
+  console.log("window.location.href", window.location.href);
   const { id, news_slug, ...newsCondition } = props;
 
   // Destructuring props

@@ -34,7 +34,7 @@ export default function FeaturedHighlights() {
     });
 
   // Action when text/image link is clicked
-  const handleLinkClick = (id: number) => () => router.push(slug1(id));
+  const handleLinkClick = (id: number) => () => router.push("/");
 
   return (
     <div
@@ -60,12 +60,18 @@ export default function FeaturedHighlights() {
             <Tooltip
               className="z-tooltip shadow-md bg-white text-black font-bold"
               content={title}
+              onClick={() => handleLinkClick(id)}
             >
-              <div
-                onClick={() => handleLinkClick(id)}
-                className={`${hover_link} ${paragraph} max-w-[72px] md:max-w-[104px] line-clamp-1 font-bold cursor-pointer hover:text-blue-500 font-khand`}
-              >
-                {title}
+              <div>
+                <CustomText
+                  slug={slug1(id)}
+                  isLinkColor
+                  isBold
+                  isKhand
+                  css={`max-w-[72px] md:max-w-[104px] line-clamp-1`}
+                >
+                  {title}
+                </CustomText>
               </div>
             </Tooltip>
           </div>
