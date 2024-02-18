@@ -100,7 +100,7 @@ export default function ArticleSection(props: any) {
     if (id) dispatch(GetSingleArticleThunk(id));
     if (!showArticle) dispatch(GetAllArticlesThunk());
     if (news_slug_new) dispatch(GetSingleCategoryNewsThunk(news_slug_new));
-  }, [dispatch, id, news_slug_new]);
+  }, [dispatch, id, news_slug_new, showArticle]);
 
   return (
     <>

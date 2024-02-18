@@ -32,7 +32,7 @@ export default function FeaturedHighlights() {
     });
 
   // Action when text/image link is clicked
-  const handleLinkClick = (id: number) => () => router.push("/");
+  const handleLinkClick = (id: number) => () => router.push(slug1(id));
 
   return (
     <div
