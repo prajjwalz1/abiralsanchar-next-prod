@@ -97,6 +97,7 @@ export interface PosterImageSchema extends ArticleSchema, ShowClockSchema {
   timeFont?: string;
   isTransparent?: boolean;
   isZoomable?: boolean;
+  isZIndex?: boolean;
 }
 
 // sections

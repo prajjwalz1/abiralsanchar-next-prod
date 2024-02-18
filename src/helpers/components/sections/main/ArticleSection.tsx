@@ -27,7 +27,6 @@ import { useEffect } from "react";
 
 export default function ArticleSection(props: any) {
   // Props
-  console.log("window.location.href", window.location.href);
   const { id, news_slug, ...newsCondition } = props;
 
   // Destructuring props
@@ -98,18 +97,10 @@ export default function ArticleSection(props: any) {
   useEffect(() => {
     dispatch(GetHeaderThunk());
     dispatch(setCurrentNews(""));
-
     if (id) dispatch(GetSingleArticleThunk(id));
-
     if (!showArticle) dispatch(GetAllArticlesThunk());
-  }, [dispatch, id]);
-
-  useEffect(() => {
-    if (news_slug_new) {
-      dispatch(GetSingleCategoryNewsThunk(news_slug_new));
-      // return;
-    }
-  }, [news_slug_new, dispatch]);
+    if (news_slug_new) dispatch(GetSingleCategoryNewsThunk(news_slug_new));
+  }, [dispatch, id, news_slug_new]);
 
   return (
     <>

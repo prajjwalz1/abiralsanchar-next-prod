@@ -88,7 +88,7 @@ const CommonNavMenu: React.FC<CommonNavMenuSchema> = (props) => {
         <Tooltip
           key={getUniqueKey(idx, title!)}
           className="bg-white w-full shadow-md rounded-md border-1 border-gray-400 relative"
-          content={<NavbarTextTooltip />}
+          content={<NavbarTextTooltip category_title={title ?? ""} />}
         >
           <Link
             href={

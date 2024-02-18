@@ -19,12 +19,13 @@ export default function DidYouLeaveSection(props: CommonNewsSectionSchema) {
     <div className="w-full h-full">
       <HeaderText>{title ?? "छुटाउनुभयो कि ?"}</HeaderText>
 
-      <div className={`${rGap} grid grid-cols-1 md:grid-cols-4 md:h-[300px]`}>
+      <div className={`${rGap}  grid grid-cols-1 md:grid-cols-4 md:h-[300px]`}>
         {articles?.map((item: ArticleSchema, idx: number) => (
           <PosterImage
             key={getUniqueKey(idx, item.title!)}
             {...item}
             {...commonProps}
+            isZIndex
           />
         ))}
       </div>

@@ -21,6 +21,9 @@ export default function CustomImage(props: CustomImageSchema) {
   // State to store the image zoom info
   const [zoomImg, setZoomImg] = useState("");
 
+  // State to show error when there is an invalid image src
+  // const [imageError, setImageError] = useState(false);
+
   // Default Blur Image
   const defaultBlurImg =
     "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8cPNmPQAIBgMD669M5AAAAABJRU5ErkJggg==";
@@ -53,6 +56,7 @@ export default function CustomImage(props: CustomImageSchema) {
 
   return (
     <div className={finalDivCss} {...zoomProps}>
+      {/* {imageError && <div className="w-full h-full">No Image Available</div>} */}
       <Image
         priority={priority}
         className={finalImgCss}
@@ -64,6 +68,7 @@ export default function CustomImage(props: CustomImageSchema) {
         // placeholder="blur"
         blurDataURL={blurDataURL ?? defaultBlurImg}
         onClick={handleImageClick}
+        // onError={handleImageError}
         {...rest}
       />
     </div>

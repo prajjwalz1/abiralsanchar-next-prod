@@ -27,6 +27,7 @@ export default function PosterImage(props: PosterImageSchema) {
     updated_at,
     isTransparent,
     isZoomable,
+    isZIndex,
   } = props;
 
   // State
@@ -40,6 +41,7 @@ export default function PosterImage(props: PosterImageSchema) {
   // Title css
   const font = titleFont ?? fonts.getFont("sub_title", "extra_bold");
   const titleCss = `${font} ${color} tracking-wide line-clamp-3`;
+  const zValue = isZIndex ? "z-[100]" : "z-minus_10";
 
   // Action when the mouse enters the div
   const handleMouseEnter = () => {
@@ -63,10 +65,10 @@ export default function PosterImage(props: PosterImageSchema) {
         priority
         src={getAbiralImg(image1!)}
         alt={title ?? "Featured Highlight Image"}
-        divCss={`${zoom} z-minus_10 absolute w-full h-full rounded-md`}
+        divCss={`${zoom} ${zValue} absolute w-full h-full rounded-md`}
         imgCss="w-full h-full object-cover rounded-md"
-        width={0}
-        height={0}
+        width={100}
+        height={100}
       />
       <div className="p-5">
         {tag && (
